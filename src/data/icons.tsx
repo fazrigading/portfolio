@@ -71,15 +71,15 @@ export const iconMap: Record<string, (size?: number) => ReactNode> = {
   Handshake: (size = 18) => <Handshake size={size} />,
   Eye: (size = 18) => <Eye size={size} />,
   MessageSquare: (size = 18) => <MessageSquare size={size} />,
-  GoogleScholar: (size = 18) => <img src="/src/data/icon/gs.svg" alt="Google Scholar" style={{ width: size, height: size }} />,
-  Orcid: (size = 18) => <img src="/src/data/icon/orcid.svg" alt="ORCID" style={{ width: size, height: size }} />,
-  GoogleDevelopers: (size = 18) => <img src="/src/data/icon/gdev.svg" alt="Google Developers" style={{ width: size, height: size }} />,
-  WebOfScience: (size = 18) => <img src="/src/data/icon/wos.svg" alt="Web of Science" style={{ width: size, height: size }} />,
-  Ieee: (size = 18) => <img src="/src/data/icon/ieee.svg" alt="IEEE" style={{ width: size, height: size }} />,
-  SemanticScholar: (size = 18) => <img src="/src/data/icon/smsc.svg" alt="Semantic Scholar" style={{ width: size, height: size }} />,
-  Scopus: (size = 18) => <img src="/src/data/icon/scopus.svg" alt="Elsevier" style={{ width: size, height: size }} />,
-  ResearchGate: (size = 18) => <img src="/src/data/icon/researchgate.svg" alt="ResearchGate" style={{ width: size, height: size }} />,
-  Academia: (size = 18) => <img src="/src/data/icon/academia.svg" alt="Academia.edu" style={{ width: size, height: size }} />
+  GoogleScholar: (size = 18) => <img src={`${import.meta.env.BASE_URL}icon/gs.svg`} alt="Google Scholar" style={{ width: size, height: size }} />,
+  Orcid: (size = 18) => <img src={`${import.meta.env.BASE_URL}icon/orcid.svg`} alt="ORCID" style={{ width: size, height: size }} />,
+  GoogleDevelopers: (size = 18) => <img src={`${import.meta.env.BASE_URL}icon/gdev.svg`} alt="Google Developers" style={{ width: size, height: size }} />,
+  WebOfScience: (size = 18) => <img src={`${import.meta.env.BASE_URL}icon/wos.svg`} alt="Web of Science" style={{ width: size, height: size }} />,
+  Ieee: (size = 18) => <img src={`${import.meta.env.BASE_URL}icon/ieee.svg`} alt="IEEE" style={{ width: size, height: size }} />,
+  SemanticScholar: (size = 18) => <img src={`${import.meta.env.BASE_URL}icon/smsc.svg`} alt="Semantic Scholar" style={{ width: size, height: size }} />,
+  Scopus: (size = 18) => <img src={`${import.meta.env.BASE_URL}icon/scopus.svg`} alt="Elsevier" style={{ width: size, height: size }} />,
+  ResearchGate: (size = 18) => <img src={`${import.meta.env.BASE_URL}icon/researchgate.svg`} alt="ResearchGate" style={{ width: size, height: size }} />,
+  Academia: (size = 18) => <img src={`${import.meta.env.BASE_URL}icon/academia.svg`} alt="Academia.edu" style={{ width: size, height: size }} />
 };
 
 export const getIcon = (name: string, size?: number) => {
