@@ -6,7 +6,6 @@ Samarinda, East Kalimantan, Indonesia
 
 ## Contact
 
-- **Phone:** +62 81250342450 (Mobile)
 - **Email:** fazrigading@gmail.com
 - **LinkedIn:** [linkedin.com/in/fazrigading](https://www.linkedin.com/in/fazrigading)
 - **GitHub:** [github.com/fazrigading](https://github.com/fazrigading)
