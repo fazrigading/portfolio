@@ -1,0 +1,78 @@
+{
+  "socialLinks": [
+    {
+      "name": "E-mail",
+      "icon": "Mail",
+      "href": "mailto:fazrigading@gmail.com",
+      "color": "hover:text-red-500"
+    },
+    {
+      "name": "GitHub",
+      "icon": "Github",
+      "href": "https://github.com/fazrigading",
+      "color": "hover:text-[#0FBF3E]"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "Linkedin",
+      "href": "https://www.linkedin.com/in/fazrigading",
+      "color": "hover:text-blue-600"
+    },
+    {
+      "name": "Google Dev",
+      "icon": "GoogleDevelopers",
+      "href": "https://developers.google.com/profile/u/gading",
+      "color": "hover:text-[#DB4437]"
+    }
+  ],
+  "scholarProfiles": [
+    {
+      "name": "ORCID",
+      "icon": "Orcid",
+      "href": "https://orcid.org/0009-0000-3466-1286",
+      "color": "hover:text-[#A6CE39]"
+    },
+    {
+      "name": "Scopus",
+      "icon": "Scopus",
+      "href": "https://www.scopus.com/authid/detail.uri?authorId=60587148700",
+      "color": "hover:text-orange-500"
+    },
+    {
+      "name": "Google Scholar",
+      "icon": "GoogleScholar",
+      "href": "https://scholar.google.com/citations?user=cKhDGZAAAAAJ",
+      "color": "hover:text-blue-500"
+    },
+    {
+      "name": "Web of Science",
+      "icon": "WebOfScience",
+      "href": "https://www.webofscience.com/wos/author/record/JQX-1348-2023",
+      "color": "hover:text-purple-600"
+    },
+    {
+      "name": "IEEE Xplore",
+      "icon": "Ieee",
+      "href": "https://ieeexplore.ieee.org/author/358616784769222",
+      "color": "hover:text-[#00629B]"
+    },
+    {
+      "name": "Semantic Scholar",
+      "icon": "SemanticScholar",
+      "href": "https://www.semanticscholar.org/author/Fazri-Rahmad-Nor-Gading/2419566638",
+      "color": "hover:text-yellow-400"
+    },
+    {
+      "name": "ResearchGate",
+      "icon": "ResearchGate",
+      "href": "https://www.researchgate.net/profile/Fazri-Gading",
+      "color": "hover:text-[#04D4AC]"
+    },
+    {
+      "name": "Academia.edu",
+      "icon": "Academia",
+      "href": "https://unmul.academia.edu/FazriGading",
+      "color": "hover:text-[#414141]"
+    }
+  ]
+}

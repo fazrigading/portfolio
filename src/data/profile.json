@@ -1,0 +1,40 @@
+{
+  "name": "Fazri Gading",
+  "nameShort": "FG",
+  "email": "fazrigading@gmail.com",
+  "roles": ["Engineer", "Developer", "Researcher", "Practitioner"],
+  "techs": ["AI", "ML", "DL", "CV"],
+  "heroBadge": "Open for Work, Collaborations, and Research",
+  "heroTagline": "Architecting vision-centric intelligence to bridge the gap between academic theory and agricultural impact.",
+  "about": {
+    "title": "Pioneering Computer Vision for a Sustainable Future.",
+    "intro": "As an AI Engineer, my core passion lies at the intersection of **Computer Vision** and **Agriculture**. I believe that advanced neural networks can solve some of the most critical challenges in resource estimation and crop health.",
+    "detailed": "My work is deeply rooted in practical application. I've developed specialized vision systems for **detecting Ganoderma fungus** in oil palm trees—a critical threat to palm health—and implemented robust algorithms for **counting oil palm fruit bunches** to optimize yield estimation.",
+    "highlights": [
+      {
+        "title": "Yield Estimation",
+        "desc": "Reliable AI-driven data extraction for smart farming.",
+        "icon": "Database"
+      },
+      {
+        "title": "Vision Systems",
+        "desc": "Real-time object detection and segmentation at scale.",
+        "icon": "Code"
+      },
+      {
+        "title": "Research & Development",
+        "desc": "Bridging academic insights with practical solutions.",
+        "icon": "Microscope"
+      },
+      {
+        "title": "Collaboration",
+        "desc": "Open to partnerships that drive agricultural innovation.",
+        "icon": "Handshake"
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Engineering intelligence to solve agricultural challenges through code and vision.",
+    "copyright": "2026 Fazri Gading. All rights reserved."
+  }
+}

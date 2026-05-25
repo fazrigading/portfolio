@@ -1,0 +1,455 @@
+[
+  {
+    "title": "TensorFlow Developer Certificate",
+    "provider": "TensorFlow Certificate Program",
+    "type": "Certification",
+    "tags": ["AI", "DL", "ML", "CNN", "DNN", "TF"],
+    "date": "Nov 2023",
+    "icon": "ShieldCheck",
+    "credentialId": "86486958"
+  },
+  {
+    "title": "Machine Learning Specialization",
+    "provider": "DeepLearning.AI",
+    "type": "Course",
+    "tags": ["ML", "AI"],
+    "date": "Apr 2023",
+    "icon": "Award",
+    "credentialId": "SQSD99PHLW2S"
+  },
+  {
+    "title": "Bangkit Academy ML Path",
+    "provider": "Google, GoTo, Traveloka",
+    "type": "Bootcamp",
+    "tags": ["ML", "AI"],
+    "date": "2024",
+    "icon": "Library"
+  },
+  {
+    "title": "Computer Vision Nanodegree",
+    "provider": "Udacity",
+    "type": "Course",
+    "tags": ["CV", "AI"],
+    "date": "2022",
+    "icon": "Book"
+  },
+  {
+    "title": "Fundamentals of Deep Learning",
+    "provider": "NVIDIA",
+    "type": "Certification",
+    "tags": ["DL", "AI"],
+    "date": "2023",
+    "icon": "Cpu"
+  },
+  {
+    "title": "AWS Solutions Architect",
+    "provider": "Amazon Web Services",
+    "type": "Certification",
+    "tags": ["Cloud"],
+    "date": "2022",
+    "icon": "ShieldCheck"
+  },
+  {
+    "title": "PyTorch for Deep Learning",
+    "provider": "Coursera",
+    "type": "Course",
+    "tags": ["DL", "AI"],
+    "date": "2023",
+    "icon": "Book"
+  },
+  {
+    "title": "Masterclass Software Engineering",
+    "provider": "Udemy",
+    "type": "Course",
+    "tags": ["SWE"],
+    "date": "2024",
+    "icon": "Verified"
+  },
+  {
+    "title": "Data Science with Python",
+    "provider": "IBM",
+    "type": "Course",
+    "tags": ["DS"],
+    "date": "2021",
+    "icon": "Award"
+  },
+  {
+    "title": "AI for Earth Bootcamp",
+    "provider": "Microsoft",
+    "type": "Bootcamp",
+    "tags": ["AI", "ML", "DL"],
+    "date": "2023",
+    "icon": "Library"
+  },
+  {
+    "title": "Advanced React Patterns",
+    "provider": "Frontend Masters",
+    "type": "Course",
+    "tags": ["Web", "SWE"],
+    "date": "2024",
+    "icon": "Book"
+  },
+  {
+    "title": "Linux SysAdmin Masterclass",
+    "provider": "LPI",
+    "type": "Course",
+    "tags": ["Linux"],
+    "date": "2022",
+    "icon": "Terminal"
+  },
+  {
+    "title": "CNN for Visual Recognition",
+    "provider": "Stanford Online",
+    "type": "Course",
+    "tags": ["CV", "DL"],
+    "date": "2023",
+    "icon": "Brain"
+  },
+  {
+    "title": "Data Visualization Micro-course",
+    "provider": "Kaggle",
+    "type": "Course",
+    "tags": ["DS"],
+    "date": "2021",
+    "icon": "CheckCircle"
+  },
+  {
+    "title": "Oracle Certified Java Programmer",
+    "provider": "Oracle",
+    "type": "Certification",
+    "tags": ["SWE"],
+    "date": "2020",
+    "icon": "ShieldCheck"
+  },
+  {
+    "title": "Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning",
+    "provider": "DeepLearning.AI",
+    "type": "Certification",
+    "tags": ["AI", "ML", "DL", "TF"],
+    "date": "Apr 2023",
+    "icon": "Award",
+    "credentialId": "EPJ9STU9JFD4"
+  },
+  {
+    "title": "Data Pipelines with TensorFlow Data Services",
+    "provider": "DeepLearning.AI",
+    "type": "Certification",
+    "tags": ["DL", "TF"],
+    "date": "May 2023",
+    "icon": "Award",
+    "credentialId": "8J8UYYMDXWSV"
+  },
+  {
+    "title": "Custom Models, Layers, and Loss Functions with TensorFlow",
+    "provider": "DeepLearning.AI",
+    "type": "Certification",
+    "tags": ["DL", "DNN", "TF"],
+    "date": "Aug 2023",
+    "icon": "Award",
+    "credentialId": "R6VHH3PD37PE"
+  },
+  {
+    "title": "Natural Language Processing in TensorFlow",
+    "provider": "DeepLearning.AI",
+    "type": "Certification",
+    "tags": ["DL", "TF"],
+    "date": "Apr 2023",
+    "icon": "Award",
+    "credentialId": "U6ZVBU9CTP7B"
+  },
+  {
+    "title": "Device-based Models with TensorFlow Lite",
+    "provider": "DeepLearning.AI",
+    "type": "Certification",
+    "tags": ["DL", "TF"],
+    "date": "May 2023",
+    "icon": "Award",
+    "credentialId": "9YKP4WST3HXD"
+  },
+  {
+    "title": "Advanced Deployment Scenarios with TensorFlow",
+    "provider": "DeepLearning.AI",
+    "type": "Certification",
+    "tags": ["DL", "TF"],
+    "date": "May 2023",
+    "icon": "Award",
+    "credentialId": "N9LSL8ZTW7LM"
+  },
+  {
+    "title": "Structuring Machine Learning Projects",
+    "provider": "DeepLearning.AI",
+    "type": "Certification",
+    "tags": ["ML", "TF"],
+    "date": "May 2023",
+    "icon": "Award",
+    "credentialId": "V3CMRNFRARLZ"
+  },
+  {
+    "title": "Sequences, Time Series and Prediction",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["DL", "TF"],
+    "date": "May 2023",
+    "icon": "Award",
+    "credentialId": "QCDJL9FHWELV"
+  },
+  {
+    "title": "Convolutional Neural Networks in TensorFlow",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["DL", "CV", "TF"],
+    "date": "Apr 2023",
+    "icon": "Award",
+    "credentialId": "DEFVV3TWJGSV"
+  },
+  {
+    "title": "Introduction to TensorFlow for AI, ML, and DL",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["DL", "TF"],
+    "date": "Apr 2023",
+    "icon": "Award",
+    "credentialId": "EPJ9STU9JFD4"
+  },
+  {
+    "title": "Unsupervised Learning, Recommenders, Reinforcement Learning",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["ML"],
+    "date": "Apr 2023",
+    "icon": "Award",
+    "credentialId": "8TCE99XHNKRP"
+  },
+  {
+    "title": "Supervised Machine Learning: Regression and Classification",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["ML"],
+    "date": "Apr 2023",
+    "icon": "Award",
+    "credentialId": "LP2WXX859GL2"
+  },
+  {
+    "title": "Advanced Learning Algorithms",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["ML"],
+    "date": "Apr 2023",
+    "icon": "Award",
+    "credentialId": "XHET5DMLJRMM"
+  },
+  {
+    "title": "Mathematics for Machine Learning Specialization",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["ML"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "XRVQAG5GPK84"
+  },
+  {
+    "title": "Mathematics for Machine Learning: PCA",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["ML"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "DAKUZS7KZXYM"
+  },
+  {
+    "title": "Mathematics for Machine Learning: Multivariate Calculus",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["ML"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "26SL83XNQQ8S"
+  },
+  {
+    "title": "Mathematics for Machine Learning: Linear Algebra",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["ML"],
+    "date": "Mar 2022",
+    "icon": "Award",
+    "credentialId": "F85D29GXHHPP"
+  },
+  {
+    "title": "Share Data Through the Art of Visualization",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["DS"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "3FTHVZQE5NJL"
+  },
+  {
+    "title": "Analyze Data to Answer Questions",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["DS"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "NZJ57NZPPDJP"
+  },
+  {
+    "title": "Process Data from Dirty to Clean",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["DS"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "A6LTYPFU2NV2"
+  },
+  {
+    "title": "Prepare Data for Exploration",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["DS"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "TXHEPMMCSUQQ"
+  },
+  {
+    "title": "Ask Questions to Make Data-Driven Decisions",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["DS"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "DLMRM5YHRUUX"
+  },
+  {
+    "title": "Foundations: Data, Data, Everywhere",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["DS"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "EUTTMMG9Z2ED"
+  },
+  {
+    "title": "Troubleshooting and Debugging Techniques",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["SWE", "Python"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "LEZJ2AZKJUWP"
+  },
+  {
+    "title": "Introduction to Git and GitHub",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["SWE", "Git"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "Z2S8S3PE3ZPY"
+  },
+  {
+    "title": "Using Python to Interact with OS",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["SWE", "Python"],
+    "date": "Mar 2023",
+    "icon": "Award",
+    "credentialId": "QS2SKSLGXEVQ"
+  },
+  {
+    "title": "Crash Course on Python",
+    "provider": "Coursera",
+    "type": "Certification",
+    "tags": ["SWE", "Python"],
+    "date": "Feb 2023",
+    "icon": "Award",
+    "credentialId": "CSQH69NATBMW"
+  },
+  {
+    "title": "Belajar Dasar Git dengan GitHub",
+    "provider": "Dicoding Indonesia",
+    "type": "Certification",
+    "tags": ["SWE", "Git"],
+    "date": "Feb 2023",
+    "icon": "Award",
+    "credentialId": "4EXG928L1ZRL"
+  },
+  {
+    "title": "Pengenalan ke Logika Pemrograman (Programming Logic 101)",
+    "provider": "Dicoding Indonesia",
+    "type": "Certification",
+    "tags": ["SWE"],
+    "date": "Feb 2023",
+    "icon": "Award",
+    "credentialId": "N9ZO4JNDDZG5"
+  },
+  {
+    "title": "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software",
+    "provider": "Dicoding Indonesia",
+    "type": "Certification",
+    "tags": ["SWE"],
+    "date": "Feb 2023",
+    "icon": "Award",
+    "credentialId": "6RPN6JGL8P2M"
+  },
+  {
+    "title": "PHP Certificate",
+    "provider": "Sololearn",
+    "type": "Certification",
+    "tags": ["SWE", "PHP"],
+    "date": "Nov 2022",
+    "icon": "Award",
+    "credentialId": "CT-ICYH4CD8"
+  },
+  {
+    "title": "Introduction to JavaScript",
+    "provider": "Codecademy",
+    "type": "Certification",
+    "tags": ["Web", "SWE", "JS"],
+    "date": "Mar 2020",
+    "icon": "Award"
+  },
+  {
+    "title": "Introduction to Data Science with Python",
+    "provider": "DQLab",
+    "type": "Certification",
+    "tags": ["DS", "Python"],
+    "date": "Jan 2021",
+    "icon": "Award",
+    "credentialId": "DQLABBGINRUIEMJW"
+  },
+  {
+    "title": "Introduction to Data Science with R",
+    "provider": "DQLab",
+    "type": "Certification",
+    "tags": ["DS", "R"],
+    "date": "Jul 2021",
+    "icon": "Award",
+    "credentialId": "DQLABBGINRUIEMJW"
+  },
+  {
+    "title": "SQL Certification",
+    "provider": "Sololearn",
+    "type": "Certification",
+    "tags": ["DS", "SQL"],
+    "date": "Sep 2022",
+    "icon": "Award",
+    "credentialId": "CT-KQHKFQ5N"
+  },
+  {
+    "title": "Java Certification",
+    "provider": "Sololearn",
+    "type": "Certification",
+    "tags": ["SWE"],
+    "date": "Sep 2022",
+    "icon": "Award",
+    "credentialId": "CT-6NVTM4RN"
+  },
+  {
+    "title": "EF SET English Certificate 62/100 (C1 Advanced)",
+    "provider": "EF SET",
+    "type": "Certification",
+    "tags": ["Language"],
+    "date": "Apr 2020",
+    "icon": "Award"
+  }
+]

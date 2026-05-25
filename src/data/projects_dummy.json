@@ -1,0 +1,65 @@
+[
+ {
+    "title": "Agrosight DeepDetect",
+    "subtitle": "Crop Disease Detection",
+    "category": "Deep Learning",
+    "desc": "High-precision crop disease identification system using custom CNN architectures optimized for edge deployment.",
+    "tech": ["PyTorch", "TensorFlow Lite", "Swift"],
+    "link": "#",
+    "icon": "Brain"
+  },
+  {
+    "title": "Scalable DataFlow",
+    "subtitle": "Industrial ETL Pipeline",
+    "category": "Data Engineering",
+    "desc": "Industrial-grade ETL pipeline processing millions of sensor data points daily from smart plantations.",
+    "tech": ["Kafka", "Apache Spark", "Python"],
+    "link": "#",
+    "icon": "HardDrive"
+  },
+  {
+    "title": "OrbitSegmenter",
+    "subtitle": "Land-Use Classification",
+    "category": "Computer Vision",
+    "desc": "Satellite imagery analysis tool for automatic land-use classification and environmental monitoring.",
+    "tech": ["OpenCV", "PyTorch", "GDAL"],
+    "link": "#",
+    "icon": "Layers"
+  },
+  {
+    "title": "YieldAI Predictor",
+    "subtitle": "Harvest Output Forecasting",
+    "category": "Machine Learning",
+    "desc": "Regression-based model predicting harvest outputs with 94% accuracy based on multi-modal weather and soil data.",
+    "tech": ["Scikit-Learn", "Pandas", "XGBoost"],
+    "link": "#",
+    "icon": "HardDrive"
+  },
+  {
+    "title": "BioSintez Core",
+    "subtitle": "DNA Sequence Alignment",
+    "category": "Software Engineering",
+    "desc": "Command-line utility for high-throughput DNA sequence alignment and biological data processing.",
+    "tech": ["Rust", "CLI", "Bioinformatics"],
+    "link": "#",
+    "icon": "Terminal"
+  },
+  {
+    "title": "Plantation Insight",
+    "subtitle": "Market Analytics Dashboard",
+    "category": "Data Science",
+    "desc": "Interactive dashboard providing deep-dive analytics into agricultural market trends and resource allocation.",
+    "tech": ["D3.js", "React", "Firebase"],
+    "link": "#",
+    "icon": "Settings"
+  },
+  {
+    "title": "RoverNavigator",
+    "subtitle": "Autonomous Navigation",
+    "category": "Artificial Intelligence",
+    "desc": "Autonomous pathfinding algorithm for agricultural robots navigating complex, unstructured terrains.",
+    "tech": ["ROS", "C++", "A* Algorithm"],
+    "link": "#",
+    "icon": "Cpu"
+  }
+]

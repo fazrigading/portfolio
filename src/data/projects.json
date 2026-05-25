@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Computer-Aided Detection System for Glaucoma Diagnosis",
+    "subtitle": "Optic Nerve Head Analysis in Fundus Images",
+    "category": "AI / Computer Vision",
+    "desc": "A web-based medical analytics platform using a U-Net model trained on Indonesian clinical data to segment the optic disc and cup, compute Cup-to-Disc Ratios (CDR), and enable doctor-in-the-loop polygon annotations.",
+    "tech": ["U-Net", "Semantic Segmentation", "TensorFlow", "Flask", "React", "TypeScript", "MySQL", "TailwindCSS"],
+    "link": "https://github.com/fazrigading/cad-glaucoma",
+    "icon": "Eye"
+  },
+  {
+    "title": "Palm Oil Fruit Counting",
+    "subtitle": "Precision Agriculture Analytics",
+    "category": "AI / Computer Vision",
+    "desc": "An end-to-end AI annotation and counting server built with X-AnyLabeling and SAM-3 for precise agricultural metrics.",
+    "tech": ["SAM-3", "YOLO26", "RF-DETR", "Instance Segmentation", "Python", "Docker"],
+    "link": "https://github.com/fazrigading/palmOilFruitCounting",
+    "icon": "Leaf"
+  },
+  {
+    "title": "SessionIntent",
+    "subtitle": "Linux Workspace Session Manager",
+    "category": "System Software",
+    "desc": "A Linux-centric productivity tool that automatically initializes specific application sets across multiple desktop workspaces.",
+    "tech": ["Bash", "Linux", "Automation", "GNOME", "Wayland", "Python"],
+    "link": "https://github.com/fazrigading/SessionIntent",
+    "icon": "Monitor"
+  },
+  {
+    "title": "Ingatini",
+    "subtitle": "AI-Powered Document Chatbot",
+    "category": "AI / RAG",
+    "desc": "An AI chatbot that ingests documents and provides accurate responses using LangChain, Pgvector, and FastAPI for seamless information retrieval.",
+    "tech": ["LangChain", "Pgvector", "FastAPI", "PostgreSQL", "Python", "Axios", "Tailwind"],
+    "link": "https://github.com/fazrigading/ingatini",
+    "icon": "MessageSquare"
+  },
+    {
+    "title": "PALIR",
+    "subtitle": "Package Acquisition, Library Installation, and Reconstruction",
+    "category": "Desktop Software",
+    "desc": "A desktop application for downloading and managing games without relying on third-party launchers, built using Python and Qt for a seamless user experience.",
+    "tech": ["Python", "Qt", "Desktop"],
+    "link": "https://github.com/fazrigading/PALIR",
+    "icon": "Gamepad2"
+  }
+]
