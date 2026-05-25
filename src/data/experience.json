@@ -14,8 +14,8 @@
     "company": "Mulawarman University - Informatics Department",
     "period": "Jul 2023 - Present",
     "type": "Research",
-    "skills": ["Deep Learning", "Computer Vision", "PyTorch", "TensorFlow", "YOLO", "Instance Segmentation", "DETR", "Model Evaluation", "Research Leadership", "Project Management", "Academic Writing", "Data Analysis", "Model Optimization", "Research Collaboration", "Technical Communication", "Problem Solving", "Critical Thinking", "Time Management", "Adaptability", "Administration and Reporting", "Financial Management", "Team Leadership", "Stakeholder Communication", "Ethical Research Practices"],
-    "description": "Developing and evaluating deep learning models for detection and visual analysis in agriculture and medical imaging. Leading four research projects: Ganoderma detection on oil palm stems using YOLO (v8-v13), two-stage DETR-based detectors, fruit estimation via instance segmentation, and glaucoma screening using cup-to-disc ratio from retinal fundus images."
+    "skills": ["Deep Learning", "Computer Vision", "PyTorch", "TensorFlow", "YOLO", "Instance Segmentation", "DETR", "Model Evaluation", "Research Leadership", "Project Management", "Academic Writing", "Data Analysis", "Model Optimization", "Research Collaboration", "Technical Communication", "Administration and Reporting", "Financial Management", "Team Leadership", "Stakeholder Communication", "Ethical Research Practices"],
+    "description": "Developing and evaluating deep learning models for detection and visual analysis in agriculture and medical imaging. Leading four research projects: Ganoderma detection on oil palm stems using YOLO (v8-v13), two-stage DETR-based detectors, fruit estimation via instance segmentation, and glaucoma screening using cup-to-disc ratio from retinal fundus images. Writing research papers, managing project timelines, and collaborating with academic and industry partners. Overseeing administrative tasks, budgeting, and reporting for research activities while ensuring ethical standards and effective communication with stakeholders."
   },
   {
     "id": "03",
