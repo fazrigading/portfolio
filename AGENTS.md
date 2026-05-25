@@ -13,8 +13,7 @@ Simple Vite + React + Tailwind v4 portfolio site with Google Gemini AI integrati
 
 ## Setup
 
-- Copy `.env.example` to `.env.local` and set `GEMINI_API_KEY`
-- Environment variables are injected via `vite.config.ts` using `loadEnv()`
+- Copy `.env.example` to `.env.local`
 
 ## Key Config Notes
 
