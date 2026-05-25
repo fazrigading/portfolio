@@ -31,7 +31,8 @@ import {
   Globe,
   Microscope,
   Handshake,
-  MessageSquare
+  MessageSquare,
+  Eye
 } from 'lucide-react';
 import { ReactNode } from 'react';
 
@@ -68,6 +69,7 @@ export const iconMap: Record<string, (size?: number) => ReactNode> = {
   Globe: (size = 18) => <Globe size={size} />,
   Microscope: (size = 18) => <Microscope size={size} />,
   Handshake: (size = 18) => <Handshake size={size} />,
+  Eye: (size = 18) => <Eye size={size} />,
   MessageSquare: (size = 18) => <MessageSquare size={size} />,
   GoogleScholar: (size = 18) => <img src="/src/data/icon/gs.svg" alt="Google Scholar" style={{ width: size, height: size }} />,
   Orcid: (size = 18) => <img src="/src/data/icon/orcid.svg" alt="ORCID" style={{ width: size, height: size }} />,
