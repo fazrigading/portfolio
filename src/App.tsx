@@ -11,10 +11,9 @@ import {
   X,
   Sun,
   Moon,
-  BookOpen,
-  Cpu
+  BookOpen
 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 // Data Imports
 import researchData from './data/research.json';
@@ -25,6 +24,7 @@ import navLinks from './data/navigation.json';
 import socialData from './data/social.json';
 import profile from './data/profile.json';
 import { getIcon } from './data/icons';
+import profilePhoto from './data/fazrigading-large.webp';
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,6 +60,7 @@ export default function App() {
 
   const [activeLearningFilter, setActiveLearningFilter] = useState('All');
   const [activeTagFilter, setActiveTagFilter] = useState('All');
+  const [expandedSkills, setExpandedSkills] = useState<Record<string, boolean>>({});
   
   const learningData = learningDataRaw.map(item => ({
     ...item,
@@ -87,6 +88,19 @@ export default function App() {
     setter({ top: el.scrollTop > 0, bottom: el.scrollTop < el.scrollHeight - el.clientHeight - 1 });
   };
 
+  const handleTitleRef = useCallback((el: HTMLHeadingElement | null) => {
+    if (!el) return;
+    el.style.fontSize = '';
+    const adjust = () => {
+      let size = parseFloat(getComputedStyle(el).fontSize);
+      if (el.scrollHeight > el.clientHeight && size > 11) {
+        size -= 0.5;
+        el.style.fontSize = `${size}px`;
+        if (el.scrollHeight > el.clientHeight) adjust();
+      }
+    };
+    requestAnimationFrame(adjust);
+  }, []);
 
   const [roleIndex, setRoleIndex] = useState(0);
   const [techIndex, setTechIndex] = useState(0);
@@ -380,18 +394,38 @@ export default function App() {
               viewport={{ once: true }}
               className="relative aspect-square glass-panel p-2 flex items-center justify-center group overflow-hidden"
             >
-              <div className="absolute inset-0 bg-brand-accent/5 transition-opacity group-hover:opacity-10" />
-              <div className="relative z-10 text-center space-y-4">
-                <div className="w-20 h-20 mx-auto bg-brand-accent/5 flex items-center justify-center border border-brand-accent/20">
-                  <Cpu size={30} className="text-brand-accent" />
-                </div>
-                <h3 className="text-2xl font-serif italic text-brand-secondary/80">Innovation in Bloom</h3>
-                <p className="mono-label">{profile.name} | AI Systems</p>
-              </div>
+              <img
+                src={profilePhoto}
+                alt={profile.name}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
               
               {/* Dynamic corners */}
-              <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-brand-accent/40" />
-              <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-brand-accent/40" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5, x: -15, y: -15 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                whileHover={{ scale: 1.15, transition: { duration: 0.2 } }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.5, ease: 'easeOut' }}
+                className="group/corner absolute top-3 left-3 w-10 h-10"
+              >
+                <div className="absolute top-0 left-0 w-full h-full border-t-2 border-l-2 border-brand-accent transition-shadow duration-300 group-hover/corner:shadow-[0_0_12px_2px_var(--brand-accent)]" />
+                <div className="absolute top-0 left-0 w-5 h-px bg-gradient-to-r from-brand-accent via-brand-accent to-transparent opacity-60 group-hover/corner:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 left-0 w-px h-5 bg-gradient-to-b from-brand-accent via-brand-accent to-transparent opacity-60 group-hover/corner:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5, x: 15, y: 15 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                whileHover={{ scale: 1.15, transition: { duration: 0.2 } }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.5, ease: 'easeOut' }}
+                className="group/corner absolute bottom-3 right-3 w-10 h-10"
+              >
+                <div className="absolute bottom-0 right-0 w-full h-full border-b-2 border-r-2 border-brand-accent transition-shadow duration-300 group-hover/corner:shadow-[0_0_12px_2px_var(--brand-accent)]" />
+                <div className="absolute bottom-0 right-0 w-5 h-px bg-gradient-to-l from-brand-accent via-brand-accent to-transparent opacity-60 group-hover/corner:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 right-0 w-px h-5 bg-gradient-to-t from-brand-accent via-brand-accent to-transparent opacity-60 group-hover/corner:opacity-100 transition-opacity duration-300" />
+              </motion.div>
             </motion.div>
 
             <div className="space-y-8">
@@ -483,11 +517,41 @@ export default function App() {
                         {exp.description}
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        {exp.skills.map(skill => (
-                          <span key={skill} className="text-[12px] font-mono px-2 py-0.5 bg-brand-muted border border-brand-border rounded text-brand-accent/70">
-                            {skill}
-                          </span>
-                        ))}
+                        {expandedSkills[exp.id + exp.role] ? (
+                          <>
+                            {exp.skills.map(skill => (
+                              <span key={skill} className="text-[12px] font-mono px-2 py-0.5 bg-brand-muted border border-brand-border rounded text-brand-accent/70">
+                                {skill}
+                              </span>
+                            ))}
+                            <button
+                              onClick={() => setExpandedSkills(prev => ({...prev, [exp.id + exp.role]: false}))}
+                              className="text-[12px] font-mono px-2 py-0.5 bg-brand-accent/10 text-brand-accent border border-brand-accent/30 rounded hover:bg-brand-accent/20 cursor-pointer"
+                            >
+                              less
+                            </button>
+                          </>
+                        ) : exp.skills.length > 7 ? (
+                          <>
+                            {exp.skills.slice(0, 6).map(skill => (
+                              <span key={skill} className="text-[12px] font-mono px-2 py-0.5 bg-brand-muted border border-brand-border rounded text-brand-accent/70">
+                                {skill}
+                              </span>
+                            ))}
+                            <button
+                              onClick={() => setExpandedSkills(prev => ({...prev, [exp.id + exp.role]: true}))}
+                              className="text-[12px] font-mono px-2 py-0.5 bg-brand-accent/10 text-brand-accent border border-brand-accent/30 rounded hover:bg-brand-accent/20 cursor-pointer"
+                            >
+                              +{exp.skills.length - 6} more
+                            </button>
+                          </>
+                        ) : (
+                          exp.skills.map(skill => (
+                            <span key={skill} className="text-[12px] font-mono px-2 py-0.5 bg-brand-muted border border-brand-border rounded text-brand-accent/70">
+                              {skill}
+                            </span>
+                          ))
+                        )}
                       </div>
                     </div>
                     <div className="lg:w-1/6 lg:text-right font-mono text-[14px] text-brand-secondary/60 font-bold">
@@ -727,7 +791,7 @@ export default function App() {
                             <span className="text-xs font-mono text-brand-secondary/60 uppercase font-medium">{(item as any).date}</span>
                           </div>
                         <div>
-                          <h4 className="text-lg font-bold leading-tight group-hover:text-brand-accent transition-colors line-clamp-2">{item.title}</h4>
+                          <h4 ref={handleTitleRef} className="text-lg font-bold leading-tight group-hover:text-brand-accent transition-colors break-words hyphens-auto">{item.title}</h4>
                           <p className="text-sm text-brand-secondary mt-2 font-mono uppercase tracking-tighter opacity-80">{item.provider}</p>
                           {(item as any).credentialId && (
                             <p className="text-[10px] font-mono text-brand-accent/60 mt-1">ID: {(item as any).credentialId}</p>
