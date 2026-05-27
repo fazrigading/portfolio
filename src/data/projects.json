@@ -34,14 +34,5 @@
     "tech": ["Artificial Intelligence", "Deep Learning", "Software Engineering", "LangChain", "Pgvector", "FastAPI", "PostgreSQL", "Python", "Axios", "Tailwind"],
     "link": "https://github.com/fazrigading/ingatini",
     "icon": "MessageSquare"
-  },
-    {
-    "title": "PALIR",
-    "subtitle": "Package Acquisition, Library Installation, and Reconstruction",
-    "category": "Software Engineering",
-    "desc": "A desktop application for downloading and managing games without relying on third-party launchers, built using Python and Qt for a seamless user experience.",
-    "tech": ["Software Engineering", "Python", "Qt", "Desktop", "Gaming"],
-    "link": "https://github.com/fazrigading/PALIR",
-    "icon": "Gamepad2"
   }
 ]
