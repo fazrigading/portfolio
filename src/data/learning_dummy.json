@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Computer Vision Nanodegree",
+    "provider": "Udacity",
+    "type": "Course",
+    "tags": ["CV", "AI"],
+    "date": "2022",
+    "icon": "Book"
+  },
+  {
+    "title": "Fundamentals of Deep Learning",
+    "provider": "NVIDIA",
+    "type": "Certification",
+    "tags": ["DL", "AI"],
+    "date": "2023",
+    "icon": "Cpu"
+  },
+  {
+    "title": "AWS Solutions Architect",
+    "provider": "Amazon Web Services",
+    "type": "Certification",
+    "tags": ["Cloud"],
+    "date": "2022",
+    "icon": "ShieldCheck"
+  },
+  {
+    "title": "PyTorch for Deep Learning",
+    "provider": "Coursera",
+    "type": "Course",
+    "tags": ["DL", "AI"],
+    "date": "2023",
+    "icon": "Book"
+  },
+  {
+    "title": "Masterclass Software Engineering",
+    "provider": "Udemy",
+    "type": "Course",
+    "tags": ["SWE"],
+    "date": "2024",
+    "icon": "Verified"
+  },
+  {
+    "title": "Data Science with Python",
+    "provider": "IBM",
+    "type": "Course",
+    "tags": ["DS"],
+    "date": "2021",
+    "icon": "Award"
+  },
+  {
+    "title": "AI for Earth Bootcamp",
+    "provider": "Microsoft",
+    "type": "Bootcamp",
+    "tags": ["AI", "ML", "DL"],
+    "date": "2023",
+    "icon": "Library"
+  },
+  {
+    "title": "Advanced React Patterns",
+    "provider": "Frontend Masters",
+    "type": "Course",
+    "tags": ["Web", "SWE"],
+    "date": "2024",
+    "icon": "Book"
+  },
+  {
+    "title": "Linux SysAdmin Masterclass",
+    "provider": "LPI",
+    "type": "Course",
+    "tags": ["Linux"],
+    "date": "2022",
+    "icon": "Terminal"
+  },
+  {
+    "title": "CNN for Visual Recognition",
+    "provider": "Stanford Online",
+    "type": "Course",
+    "tags": ["CV", "DL"],
+    "date": "2023",
+    "icon": "Brain"
+  },
+  {
+    "title": "Data Visualization Micro-course",
+    "provider": "Kaggle",
+    "type": "Course",
+    "tags": ["DS"],
+    "date": "2021",
+    "icon": "CheckCircle"
+  },
+  {
+    "title": "Oracle Certified Java Programmer",
+    "provider": "Oracle",
+    "type": "Certification",
+    "tags": ["SWE"],
+    "date": "2020",
+    "icon": "ShieldCheck"
+  }
+]
