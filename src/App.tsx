@@ -482,7 +482,7 @@ export default function App() {
           <div className="relative">
             <div className={`absolute top-0 left-0 right-4 h-6 bg-gradient-to-b from-brand-primary/10 to-transparent z-10 pointer-events-none transition-opacity duration-200 ${expScroll.top ? 'opacity-100' : 'opacity-0'}`} />
             <div className={`absolute bottom-0 left-0 right-4 h-6 bg-gradient-to-t from-brand-primary/10 to-transparent z-10 pointer-events-none transition-opacity duration-200 ${expScroll.bottom ? 'opacity-100' : 'opacity-0'}`} />
-            <div className="max-h-130 overflow-y-auto pr-4 custom-scrollbar" onScroll={handleScroll(setExpScroll)}>
+            <motion.div className="max-h-130 overflow-y-auto pr-4 custom-scrollbar" onScroll={handleScroll(setExpScroll)} layoutScroll>
               <div className="space-y-4">
               <AnimatePresence mode="popLayout">
                 {experienceData
@@ -494,8 +494,7 @@ export default function App() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.98 }}
-                      transition={{ delay: i * 0.05 }}
-                      className="group p-8 bg-brand-bg/60 hover:bg-brand-muted/80 backdrop-blur-sm transition-all flex flex-col lg:flex-row gap-8 items-start lg:items-center relative border border-brand-border hover:border-brand-accent/30 shadow-sm"
+                      className="group p-8 bg-brand-bg/60 hover:bg-brand-muted/80 backdrop-blur-sm transition-colors flex flex-col lg:flex-row gap-8 items-start lg:items-center relative border border-brand-border hover:border-brand-accent/30 shadow-sm"
                     >
                     <div className="flex items-center gap-6 lg:w-1/3">
                       <span className="hidden sm:block font-mono text-xs text-brand-secondary/40 group-hover:text-brand-accent transition-colors">
@@ -563,7 +562,7 @@ export default function App() {
                 ))}
               </AnimatePresence>
               </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
