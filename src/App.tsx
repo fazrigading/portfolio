@@ -349,7 +349,7 @@ export default function App() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl text-brand-secondary font-mono mb-4 max-w-2xl leading-relaxed"
             >
-              &mdash; {profile.heroTagline}
+              {profile.heroTagline}
             </motion.p>
 
             <motion.div
