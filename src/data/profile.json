@@ -5,15 +5,15 @@
   "roles": ["Engineer", "Developer", "Researcher", "Practitioner"],
   "techs": ["AI", "ML", "DL", "CV"],
   "heroBadge": "Open for Work, Collaborations, and Research",
-  "heroTagline": "Architecting vision-centric intelligence to bridge the gap between academic theory and agricultural impact.",
+  "heroTagline": "Building a vision-centric intelligence for sustainable agriculture, medical imaging, and beyond.",
   "about": {
     "title": "Pioneering Computer Vision for a Sustainable Future.",
-    "intro": "As an AI Engineer, my core passion lies at the intersection of **Computer Vision** and **Agriculture**. I believe that advanced neural networks can solve some of the most critical challenges in resource estimation and crop health.",
-    "detailed": "My work is deeply rooted in practical application. I've developed specialized vision systems for **detecting Ganoderma fungus** in oil palm trees—a critical threat to palm health—and implemented robust algorithms for **counting oil palm fruit bunches** to optimize yield estimation.",
+    "intro": "As an AI Engineer, my core passion lies at the intersection of **Computer Vision** and **Object Detection**. I believe that advanced neural networks can solve some of the most critical challenges in various domains. Image shown on left is myself presenting my research on **Ganoderma fungus detection** at the 2024 Focus Group Discussion of Research and Community Service Disemination by Mulawarman University.",
+    "detailed": "My work is deeply rooted in practical application. I've developed specialized vision systems for **detecting Ganoderma fungus** in oil palm trees, a critical threat to palm health, and implemented robust algorithms for **counting oil palm fruit bunches** to optimize yield estimation. Beyond agriculture, my expertise extends to **medical imaging**, where I've contributed to projects that enhance diagnostic accuracy through AI-driven image analysis, such as identifying **glaucoma disease** in eye medical scans.",
     "highlights": [
       {
-        "title": "Yield Estimation",
-        "desc": "Reliable AI-driven data extraction for smart farming.",
+        "title": "AI-Driven Data Extraction",
+        "desc": "Leveraging deep learning to extract actionable insights from image datasets.",
         "icon": "Database"
       },
       {
@@ -28,13 +28,13 @@
       },
       {
         "title": "Collaboration",
-        "desc": "Open to partnerships that drive agricultural innovation.",
+        "desc": "Open to partnerships that drive innovation with real-world applications.",
         "icon": "Handshake"
       }
     ]
   },
   "footer": {
-    "tagline": "Engineering intelligence to solve agricultural challenges through code and vision.",
+    "tagline": "Engineering intelligence to solve real-world challenges.",
     "copyright": "2026 Fazri Gading. All rights reserved."
   }
 }
