@@ -831,7 +831,8 @@ export default function App() {
 
           {/* Project Filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-16 pb-8 border-b border-brand-border">
-            {['All', 'AI / Computer Vision', 'AI / Deep Learning', 'AI / Retrieval-Augmented Generation', 'AI / Machine Learning', 'Software Engineering', 'Data Science', 'Data Engineering'].map((f) => (
+            {/* ['All', 'AI / Computer Vision', 'AI / Deep Learning', 'AI / Retrieval-Augmented Generation', 'AI / Machine Learning', 'Software Engineering', 'Data Science', 'Data Engineering']*/}
+            {['All', 'AI / Computer Vision', 'AI / Retrieval-Augmented Generation', 'Software Engineering'].map((f) => (
               <button
                 key={f}
                 onClick={() => setActiveProjectFilter(f)}
