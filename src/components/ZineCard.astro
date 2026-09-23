@@ -1,0 +1,15 @@
+---
+const { title = '' } = Astro.props;
+---
+
+<section class="card halftone overflow-hidden">
+  <div class="torn" aria-hidden="true"></div>
+  <div class="p-5">
+    {title && (
+      <h2 class="glitch font-punk text-lg font-bold uppercase text-ink" data-text={title}>
+        {title}
+      </h2>
+    )}
+    <slot />
+  </div>
+</section>

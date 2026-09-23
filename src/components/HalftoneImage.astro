@@ -1,0 +1,7 @@
+---
+const { src, alt = '', class: cls = '' } = Astro.props;
+---
+
+<figure class={`halftone relative overflow-hidden border border-grid ${cls}`}>
+  <img src={src} alt={alt} loading="lazy" class="print-img block h-full w-full object-cover" />
+</figure>

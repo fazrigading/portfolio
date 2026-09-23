@@ -1,0 +1,72 @@
+---
+import navigation from '../data/navigation.json';
+
+const { route = '/' } = Astro.props;
+const b = import.meta.env.BASE_URL;
+
+// legacy anchor hrefs → multipage routes (navigation.json untouched)
+const anchorMap: Record<string, string> = {
+  '#about': 'about',
+  '#experience': 'about',
+  '#learning': 'about',
+  '#research': 'research',
+  '#projects': 'projects',
+};
+const links = navigation.map((n) => ({
+  name: n.name,
+  href: b + (anchorMap[n.href] ?? ''),
+  key: anchorMap[n.href] ?? '/',
+}));
+links.push({ name: 'Blog', href: b + 'blog', key: 'blog' });
+links.push({ name: 'Contact', href: b + 'contact', key: 'contact' });
+---
+
+<header class="sticky top-0 z-50 border-b border-grid bg-void/90 backdrop-blur">
+  <div class="mx-auto flex w-full max-w-6xl items-center gap-4 px-4 py-2 text-xs sm:px-6">
+    <a href={b} class="flex items-center gap-2 font-display text-lg tracking-widest text-ink">
+      <span class="text-accent">▓▒░</span> DEDSEC
+    </a>
+    <span class="hidden items-center gap-1.5 text-dim sm:flex">
+      <span class="inline-block h-2 w-2 animate-pulse rounded-full bg-accent"></span> ONLINE
+    </span>
+    <nav class="ml-auto flex items-center gap-3 sm:gap-4">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class:list={[
+            'uppercase tracking-wider transition-colors hover:text-accent',
+            route === l.key || (route === '/' && l.key === '/') ? 'text-accent underline underline-offset-4' : 'text-dim',
+          ]}
+        >
+          {l.name}
+        </a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-2">
+      <button
+        id="crt-toggle"
+        title="Toggle CRT overlay"
+        class="border border-grid px-2 py-1 uppercase tracking-wider text-dim transition-colors hover:border-accent hover:text-accent"
+      >
+        CRT
+      </button>
+      <button
+        title="Audio bleeps (v2)"
+        disabled
+        class="cursor-not-allowed border border-grid px-2 py-1 uppercase tracking-wider text-dim opacity-40"
+      >
+        SND
+      </button>
+      <kbd class="hidden border border-grid px-1.5 py-0.5 text-dim md:inline">CTRL+K</kbd>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.getElementById('crt-toggle')?.addEventListener('click', () => {
+    const html = document.documentElement;
+    const off = html.dataset.crt !== 'off';
+    html.dataset.crt = off ? 'off' : 'on';
+    try { localStorage.setItem('dedsec-crt', off ? 'off' : 'on'); } catch {}
+  });
+</script>

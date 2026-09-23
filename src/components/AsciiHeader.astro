@@ -1,0 +1,13 @@
+---
+const { title, art, tag = '' } = Astro.props;
+---
+
+<div class="pb-8 pt-10">
+  {tag && <p class="pb-2 text-xs uppercase tracking-[0.3em] text-dim">{tag}</p>}
+  {art && (
+    <pre class="hidden overflow-x-auto pb-2 font-display text-sm leading-none text-accent md:block">{art}</pre>
+  )}
+  <h1 class="glitch ascii-title font-display uppercase text-ink" data-text={title}>
+    {title}
+  </h1>
+</div>

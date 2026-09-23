@@ -1,0 +1,9 @@
+---
+import * as L from 'lucide-react';
+
+const { name = 'Terminal', size = 16, class: cls = '' } = Astro.props;
+// @ts-ignore — dynamic lookup over the lucide icon map, fallback for non-lucide legacy names
+const Cmp = (L as Record<string, any>)[name] ?? L.Link;
+---
+
+<Cmp size={size} class={cls} />

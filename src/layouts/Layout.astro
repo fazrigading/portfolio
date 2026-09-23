@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import SystemBar from '../components/SystemBar.astro';
+import CRTOverlay from '../components/CRTOverlay.astro';
+import CommandPalette from '../components/CommandPalette.tsx';
+import LucideIcon from '../components/LucideIcon.astro';
+import profile from '../data/profile.json';
+import social from '../data/social.json';
+
+const { route = '/', title = 'ONLINE' } = Astro.props;
+const b = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en" data-crt="on">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={`${profile.name} — ${profile.heroTagline}`} />
+    <title>{title} // {profile.nameShort}_DEDSEC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      try {
+        if (localStorage.getItem('dedsec-crt') === 'off') document.documentElement.dataset.crt = 'off';
+        const a = JSON.parse(localStorage.getItem('dedsec-accent') || 'null');
+        if (a) {
+          document.documentElement.style.setProperty('--accent', a.accent);
+          document.documentElement.style.setProperty('--accent-surface', a.surface);
+        }
+      } catch {}
+    </script>
+  </head>
+  <body data-route={route} class="min-h-screen font-term text-ink antialiased">
+    <SystemBar route={route} />
+    <main class="mx-auto w-full max-w-6xl px-4 pb-24 sm:px-6">
+      <slot />
+    </main>
+    <footer class="border-t border-grid">
+      <div class="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-6 text-xs text-dim sm:px-6 md:flex-row md:items-center md:justify-between">
+        <p class="font-display text-sm tracking-wider">
+          <span class="text-accent">SYS.LOG</span> // {profile.footer.tagline}
+        </p>
+        <div class="flex items-center gap-4">
+          {social.socialLinks.map((s) => (
+            <a href={s.href} target="_blank" rel="noreferrer" title={s.name} class="text-dim transition-colors hover:text-accent">
+              <LucideIcon name={s.icon} size={16} />
+            </a>
+          ))}
+        </div>
+        <p>TELEMETRY: OK // © {profile.footer.copyright}</p>
+      </div>
+    </footer>
+    <CRTOverlay />
+    <CommandPalette client:idle />
+  </body>
+</html>

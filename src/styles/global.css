@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-accent: var(--accent);
+  --color-accentsurface: var(--accent-surface);
+  --color-void: var(--bg);
+  --color-card: var(--card);
+  --color-grid: var(--gridline);
+  --color-ink: var(--text);
+  --color-dim: var(--muted);
+  --font-display: "VT323", monospace;
+  --font-punk: "Syne", sans-serif;
+  --font-term: "JetBrains Mono", monospace;
+}
+
+:root {
+  --bg: #08090d;
+  --card: #10121b;
+  --gridline: #232738;
+  --text: #f0f4f8;
+  --muted: #7c849b;
+  --accent: #00f0ff;
+  --accent-surface: #02141c;
+}
+
+body[data-route="/"] { --accent: #00f0ff; --accent-surface: #02141c; }
+body[data-route="projects"] { --accent: #00ff66; --accent-surface: #021a0e; }
+body[data-route="about"] { --accent: #ffe600; --accent-surface: #1a1800; }
+body[data-route="research"] { --accent: #a822ff; --accent-surface: #13021f; }
+body[data-route="blog"] { --accent: #ff1744; --accent-surface: #1f0307; }
+body[data-route="contact"] { --accent: #ff007a; --accent-surface: #1c000f; }
+
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--gridline) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gridline) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+}
+
+::selection { background: var(--accent); color: #08090d; }
+
+/* zine card: translucent dark + halftone dots */
+.card {
+  background-color: color-mix(in srgb, var(--card) 80%, transparent);
+  border: 1px solid var(--gridline);
+  position: relative;
+}
+.halftone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(240, 244, 248, 0.09) 1px, transparent 1.5px);
+  background-size: 8px 8px;
+}
+/* torn-paper top edge */
+.torn {
+  height: 10px;
+  background: var(--bg);
+  clip-path: polygon(0 100%, 0 40%, 3% 70%, 6% 30%, 9% 60%, 12% 25%, 15% 55%, 18% 35%, 21% 65%, 24% 30%, 27% 60%, 30% 28%, 33% 58%, 36% 32%, 39% 62%, 42% 26%, 45% 56%, 48% 34%, 51% 64%, 54% 30%, 57% 58%, 60% 28%, 63% 60%, 66% 32%, 69% 62%, 72% 26%, 75% 56%, 78% 34%, 81% 64%, 84% 30%, 87% 58%, 90% 28%, 93% 60%, 96% 32%, 98% 55%, 100% 40%, 100% 100%);
+}
+
+/* CRT overlay: scanlines + vignette, toggled via <html data-crt> */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.22) 3px
+  );
+}
+.crt-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
+}
+html[data-crt="off"] .crt-overlay { display: none; }
+
+/* display-only hover glitch: chromatic aberration, no layout shift */
+.glitch { position: relative; display: inline-block; }
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+a:hover .glitch::before, .glitch:hover::before {
+  opacity: 1;
+  color: #ff1744;
+  clip-path: inset(0 0 55% 0);
+  transform: translate(-2px, -1px);
+}
+a:hover .glitch::after, .glitch:hover::after {
+  opacity: 1;
+  color: var(--accent);
+  clip-path: inset(60% 0 0 0);
+  transform: translate(2px, 1px);
+}
+
+/* halftone photo: mono print until hover */
+.print-img { filter: grayscale(1) contrast(1.15) brightness(0.92); transition: filter 0.25s ease; }
+a:hover .print-img, .print-img:hover { filter: none; }
+
+/* ascii header fluid type */
+.ascii-title { font-size: clamp(2.75rem, 9vw, 6.5rem); line-height: 0.9; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .glitch::before, .glitch::after { display: none !important; }
+}

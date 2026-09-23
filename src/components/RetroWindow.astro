@@ -1,0 +1,18 @@
+---
+const { tag = 'PAYLOAD_LOADED', title = '' } = Astro.props;
+---
+
+<div class="border border-grid bg-void/70">
+  <div class="flex items-center gap-2 border-b border-grid bg-accentsurface px-3 py-1.5 text-[11px] uppercase tracking-widest">
+    <span class="flex gap-1" aria-hidden="true">
+      <i class="inline-block h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></i>
+      <i class="inline-block h-2.5 w-2.5 rounded-full bg-[#febc2e]"></i>
+      <i class="inline-block h-2.5 w-2.5 rounded-full bg-[#28c840]"></i>
+    </span>
+    <span class="ml-auto font-display tracking-widest text-accent">[{tag}]</span>
+  </div>
+  <div class="p-4">
+    {title && <h3 class="glitch pb-2 font-punk text-base font-bold uppercase" data-text={title}>{title}</h3>}
+    <slot />
+  </div>
+</div>
