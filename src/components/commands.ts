@@ -40,7 +40,7 @@ export const HELP: TermLine[] = [
   { text: "\tcontact.txt\t\treach me", kind: "out" },
   { text: "navbar <on|off>\t\ttoggle navbar (mobile always on)", kind: "out" },
   { text: "accent <color>\t\tswitch theme color", kind: "out" },
-  { text: "\tdefault\t\t\tclear override, route default", kind: "out" },
+  { text: "\tdefault (d)\t\tclear override, route default", kind: "out" },
   { text: "\tcyan (c)\t\thome page accent color", kind: "out" },
   { text: "\tgreen (g)\t\tprojects page accent color", kind: "out" },
   { text: "\tyellow (y)\t\tabout page accent color", kind: "out" },
@@ -73,7 +73,7 @@ export async function runVerb(verb: string, arg: string, base: string, currentRo
       if (target === currentRoute) {
         return { lines: [err(`ERR_0x99: already on '${target}' — this terminal lives on home. goto <route> to leave.`)] };
       }
-      return { lines: [out(`tunneling → ${target} ...`)], navigate: target === '/' ? base : `${base}${dest}` };
+      return { lines: [out(`tunneling → ${target} ...`)], navigate: target === '/' ? base : `${base}${arg}` };
     }
     case 'cat': {
       if (!arg) return { lines: [err(`usage: cat <file> — files: ${FILES.join(' ')}`)] };
@@ -103,7 +103,7 @@ export async function runVerb(verb: string, arg: string, base: string, currentRo
         paintAccent(hit.accent, hit.surface);
         return { lines: [out(`ACCENT: ${hit.color} (persisted)`)] };
       }
-      if (arg === 'default') {
+      if (arg === 'default' || want === 'd') {
         resetAccent();
         return { lines: [out('ACCENT: route default (override cleared)')] };
       }
