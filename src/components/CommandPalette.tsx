@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { applyNavbar } from './navbarPref';
-import { ACCENTS, paintAccent, resetAccent } from './accentPref';
+import { paletteItems, type PItem } from './commands';
 
 const base = import.meta.env.BASE_URL;
 
@@ -22,41 +21,11 @@ export default function CommandPalette() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  const items: Item[] = useMemo(
-    () => [
-      ...['/', '/projects', '/about', '/experience', '/research', '/blog', '/contact'].map((r) => ({
-        label: `goto ${r === '/' ? 'home' : r.slice(1)}`,
-        hint: 'route',
-        run: () => {
-          window.location.href = r === '/' ? base : `${base}${r.slice(1)}`;
-        },
-      })),
-      {
-        label: 'toggle CRT overlay',
-        hint: 'display',
-        run: () => {
-          const html = document.documentElement;
-          const off = html.dataset.crt !== 'off';
-          html.dataset.crt = off ? 'off' : 'on';
-          try {
-            localStorage.setItem('dedsec-crt', off ? 'off' : 'on');
-          } catch {}
-        },
-      },
-      ...ACCENTS.map((v) => ({
-        label: `accent: ${v.color}`,
-        hint: 'theme',
-        run: () => paintAccent(v.accent, v.surface),
-      })),
-      {
-        label: 'accent: route default',
-        hint: 'theme',
-        run: () => resetAccent(),
-      },
-      { label: 'navbar: enable desktop nav', hint: 'display', run: () => applyNavbar('on') },
-      { label: 'navbar: disable desktop nav', hint: 'display', run: () => applyNavbar('off') },
-      { label: 'audio bleeps (v2 — not wired)', hint: 'soon', run: () => {} },
-    ],
+  const items: PItem[] = useMemo(
+    () =>
+      paletteItems((r) => {
+        window.location.href = r === '/' ? base : `${base}${r.slice(1)}`;
+      }),
     []
   );
 
@@ -67,7 +36,7 @@ export default function CommandPalette() {
     setSel(0);
   }, [q, open]);
 
-  const choose = (i: Item) => {
+  const choose = (i: PItem) => {
     i.run();
     setOpen(false);
   };
