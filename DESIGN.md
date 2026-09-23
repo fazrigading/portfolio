@@ -18,6 +18,7 @@ Base: bg `#08090D`, card `#10121B` @80% + noise, grid `#232738`, text `#F0F4F8`,
 | `/` (home) | Cyan `#00F0FF` | `#02141C` |
 | `projects` | Green `#00FF66` | `#021A0E` |
 | `about` | Yellow `#FFE600` | `#1A1800` |
+| `experience` | Orange `#FF6B00` | `#1F0E00` |
 | `research` | Purple `#A822FF` | `#13021F` |
 | `blog` | Red `#FF1744` | `#1F0307` |
 | `contact` | Pink `#FF007A` | `#1C000F` |
@@ -59,11 +60,12 @@ Layout shell (all routes):
 +---------------------------------------------------------------+
 ```
 
-## 5. Routes (all 6 kept)
+## 5. Routes (7 — experience split from about)
 
 1. **`/`:** `TerminalHero` (`help`, `clear`, `goto <route>`, `cat about.txt`) + `ZineCard` featured grid.
 2. **`/projects`:** `FilterMatrix` (`PORT 80: ALL`, `443: ML/CV`, `8080: WEB`) + `RetroWindow` > `HalftoneImage` cards.
-3. **`/about`:** dossier `RetroWindow` (from `data/profile.json`) + `SkillsBar` (`CPU_USAGE`) + `TimelineGraph` (`data/experience.json`, `data/learning.json`).
+3. **`/about`:** dossier `RetroWindow` (from `data/profile.json`) + `SkillsBar` (`CPU_USAGE`) + full tech-stack table + research/scholar + socials/gaming uplinks + hobbies + GH stats. No timelines.
+4. **`/experience`:** `TimelineGraph` (`data/experience.json`, `data/learning.json`). Orange accent. Nav `Experience` points here.
 4. **`/research`:** `ArchiveList` rows (status/abstract/repo/datasets). Static list v1; `NodeGraph` v2.
 5. **`/blog`:** `BroadcastCard` rows with line numbers + Shiki code blocks (MDX).
 6. **`/contact`:** `CommsForm` terminal form, confirm `[MESSAGE_TRANSMITTED]`.
@@ -111,11 +113,12 @@ excerpt: string
 ## 7. Interactive Scope (v1 must vs v2)
 
 **v1 must:** `CommandPalette` (goto + accent switch + audio/CRT toggle placeholders), `CRTOverlay` toggle (CSS, persists `localStorage`), halftone-to-color hover (CSS/SVG), `prefers-reduced-motion` kills glitch/flicker/shake.
+**v1 shipped:** palette + CRT toggle + halftone hover + motion-gating all live. Audit fixes applied: mobile nav scroll strip (SND placeholder removed), `.post-body` styles instead of typography plugin, glitch contained to title box, `:focus-visible` accent ring, stats `<img>` self-hide fallback.
 **v2 deferred:** Web Audio 8-bit bleeps, screen-shake + chromatic aberration animation, retro error popups, load text-scramble, research `NodeGraph` Canvas. Spec: `docs/v2-interactions.md`.
 
 ## 8. Tech Stack (locked, see ADR-0001)
 
-Astro 7 + Tailwind v4 (`@theme` tokens) + React islands (2 files only) + MDX collections + Lucide + Shiki (blog code). Images: compressed WebP + SVG halftone overlay. A11y: contrast-held body, motion-gated effects.
+Astro 7 + Tailwind v4 (`@theme` tokens) + React islands (2 files only) + MDX collections + Lucide + Shiki (blog code). Images: compressed WebP + SVG halftone overlay. A11y: contrast-held body, motion-gated effects, `:focus-visible` accent ring. Single `esbuild`/`vite` lineage (no leftover nesting).
 
 ## 9. Roadmap
 
