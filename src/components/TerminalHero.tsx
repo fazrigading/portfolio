@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { applyNavbar, getNavbar } from './navbarPref';
+import { ACCENTS, currentAccent, paintAccent, resetAccent } from './accentPref';
 
 const ROUTES = ['/', '/projects', '/about', '/experience', '/research', '/blog', '/contact'];
 const FILES = ['about.txt', 'roles.txt', 'stack.txt', 'contact.txt'];
@@ -24,6 +25,7 @@ const HELP: Line[] = [
   { text: '\tstack.txt\tcore stack', kind: 'out' },
   { text: '\tcontact.txt\treach me', kind: 'out' },
   { text: 'navbar <on|off>\tenable/disable desktop navbar (mobile always on)', kind: 'out' },
+  { text: 'accent <color|default>\tswitch theme: cyan green yellow orange purple red pink', kind: 'out' },
   { text: 'clear\t\twipe the terminal', kind: 'out' },
 ];
 
@@ -66,6 +68,17 @@ export default function TerminalHero() {
         next.push({ text: `NAV_BAR: ${arg === 'on' ? 'ONLINE' : 'OFFLINE'} (persisted)`, kind: 'out' });
       } else {
         next.push({ text: `NAV_BAR: ${getNavbar() === 'on' ? 'ONLINE' : 'OFFLINE'} — usage: navbar <on|off>`, kind: 'out' });
+      }
+    } else if (c === 'accent') {
+      const hit = ACCENTS.find((a) => a.color.toLowerCase() === arg.toLowerCase());
+      if (hit) {
+        paintAccent(hit.accent, hit.surface);
+        next.push({ text: `ACCENT: ${hit.color} (persisted)`, kind: 'out' });
+      } else if (arg === 'default') {
+        resetAccent();
+        next.push({ text: 'ACCENT: route default (override cleared)', kind: 'out' });
+      } else {
+        next.push({ text: `ACCENT: ${currentAccent()} — usage: accent <color|default>`, kind: 'out' });
       }
     } else if (c === 'cat') {
       if (!arg) {

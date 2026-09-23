@@ -1,28 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { applyNavbar } from './navbarPref';
+import { ACCENTS, paintAccent, resetAccent } from './accentPref';
 
 const base = import.meta.env.BASE_URL;
-
-const ACCENTS = [
-  { color: 'Cyan', accent: '#00f0ff', surface: '#02141c' },
-  { color: 'Green', accent: '#00ff66', surface: '#021a0e' },
-  { color: 'Yellow', accent: '#ffe600', surface: '#1a1800' },
-  { color: 'Orange', accent: '#ff6b00', surface: '#1f0e00' },
-  { color: 'Purple', accent: '#a822ff', surface: '#13021f' },
-  { color: 'Red', accent: '#ff1744', surface: '#1f0307' },
-  { color: 'Pink', accent: '#ff007a', surface: '#1c000f' },
-];
-
-// NOTE: route vars live on <html data-route>, so overrides paint inline on
-// the SAME element (inline beats stylesheet) and restore in <head> before
-// <body> exists. Painting <body> would lose to the route rules.
-function paintAccent(accent: string, surface: string) {
-  document.documentElement.style.setProperty('--accent', accent);
-  document.documentElement.style.setProperty('--accent-surface', surface);
-  try {
-    localStorage.setItem('dedsec-accent', JSON.stringify({ accent, surface }));
-  } catch {}
-}
 
 type Item = { label: string; hint: string; run: () => void };
 
@@ -71,13 +51,7 @@ export default function CommandPalette() {
       {
         label: 'accent: route default',
         hint: 'theme',
-        run: () => {
-          document.documentElement.style.removeProperty('--accent');
-          document.documentElement.style.removeProperty('--accent-surface');
-          try {
-            localStorage.removeItem('dedsec-accent');
-          } catch {}
-        },
+        run: () => resetAccent(),
       },
       { label: 'navbar: enable desktop nav', hint: 'display', run: () => applyNavbar('on') },
       { label: 'navbar: disable desktop nav', hint: 'display', run: () => applyNavbar('off') },
