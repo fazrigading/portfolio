@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AsciiHeader from '../components/AsciiHeader.astro';
+import RetroWindow from '../components/RetroWindow.astro';
+import LucideIcon from '../components/LucideIcon.astro';
+import experience from '../data/experience.json';
+import learning from '../data/learning.json';
+---
+
+<Layout route="experience" title="EXPERIENCE">
+  <AsciiHeader title="SERVICE_RECORD" tag="// ROUTE:/EXPERIENCE — WORK + LEARNING TIMELINES" />
+
+  <div class="grid gap-6 md:grid-cols-2">
+    <RetroWindow tag="TIMELINE" title="experience">
+      <ol class="space-y-4">
+        {experience.map((e) => (
+          <li class="border-l-2 border-accent pl-3">
+            <p class="text-sm font-bold text-ink">{e.role}</p>
+            <p class="text-xs uppercase tracking-widest text-accent">{e.company} // {e.period}</p>
+            <p class="line-clamp-2 pt-1 text-xs leading-relaxed text-dim">{e.description}</p>
+          </li>
+        ))}
+      </ol>
+    </RetroWindow>
+    <RetroWindow tag="TIMELINE" title="learning">
+      <ol class="space-y-3">
+        {learning.map((l) => (
+          <li class="border-l-2 border-grid pl-3">
+            <p class="flex items-center gap-2 text-sm font-bold text-ink">
+              <LucideIcon name={l.icon} size={14} /> {l.title}
+            </p>
+            <p class="text-xs uppercase tracking-widest text-dim">{l.provider} // {l.date}</p>
+          </li>
+        ))}
+      </ol>
+    </RetroWindow>
+  </div>
+</Layout>
