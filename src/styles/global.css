@@ -23,13 +23,13 @@
   --accent-surface: #02141c;
 }
 
-body[data-route="/"] { --accent: #00f0ff; --accent-surface: #02141c; }
-body[data-route="projects"] { --accent: #00ff66; --accent-surface: #021a0e; }
-body[data-route="about"] { --accent: #ffe600; --accent-surface: #1a1800; }
-body[data-route="experience"] { --accent: #ff6b00; --accent-surface: #1f0e00; }
-body[data-route="research"] { --accent: #a822ff; --accent-surface: #13021f; }
-body[data-route="blog"] { --accent: #ff1744; --accent-surface: #1f0307; }
-body[data-route="contact"] { --accent: #ff007a; --accent-surface: #1c000f; }
+html[data-route="/"] { --accent: #00f0ff; --accent-surface: #02141c; }
+html[data-route="projects"] { --accent: #00ff66; --accent-surface: #021a0e; }
+html[data-route="about"] { --accent: #ffe600; --accent-surface: #1a1800; }
+html[data-route="experience"] { --accent: #ff6b00; --accent-surface: #1f0e00; }
+html[data-route="research"] { --accent: #a822ff; --accent-surface: #13021f; }
+html[data-route="blog"] { --accent: #ff1744; --accent-surface: #1f0307; }
+html[data-route="contact"] { --accent: #ff007a; --accent-surface: #1c000f; }
 
 body {
   background-color: var(--bg);

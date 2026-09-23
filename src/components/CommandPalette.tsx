@@ -3,15 +3,26 @@ import { applyNavbar } from './navbarPref';
 
 const base = import.meta.env.BASE_URL;
 
-const ACCENTS: Record<string, { accent: string; surface: string }> = {
-  home: { accent: '#00f0ff', surface: '#02141c' },
-  projects: { accent: '#00ff66', surface: '#021a0e' },
-  about: { accent: '#ffe600', surface: '#1a1800' },
-  experience: { accent: '#ff6b00', surface: '#1f0e00' },
-  research: { accent: '#a822ff', surface: '#13021f' },
-  blog: { accent: '#ff1744', surface: '#1f0307' },
-  contact: { accent: '#ff007a', surface: '#1c000f' },
-};
+const ACCENTS = [
+  { color: 'Cyan', accent: '#00f0ff', surface: '#02141c' },
+  { color: 'Green', accent: '#00ff66', surface: '#021a0e' },
+  { color: 'Yellow', accent: '#ffe600', surface: '#1a1800' },
+  { color: 'Orange', accent: '#ff6b00', surface: '#1f0e00' },
+  { color: 'Purple', accent: '#a822ff', surface: '#13021f' },
+  { color: 'Red', accent: '#ff1744', surface: '#1f0307' },
+  { color: 'Pink', accent: '#ff007a', surface: '#1c000f' },
+];
+
+// NOTE: route vars live on <html data-route>, so overrides paint inline on
+// the SAME element (inline beats stylesheet) and restore in <head> before
+// <body> exists. Painting <body> would lose to the route rules.
+function paintAccent(accent: string, surface: string) {
+  document.documentElement.style.setProperty('--accent', accent);
+  document.documentElement.style.setProperty('--accent-surface', surface);
+  try {
+    localStorage.setItem('dedsec-accent', JSON.stringify({ accent, surface }));
+  } catch {}
+}
 
 type Item = { label: string; hint: string; run: () => void };
 
@@ -52,17 +63,22 @@ export default function CommandPalette() {
           } catch {}
         },
       },
-      ...Object.entries(ACCENTS).map(([name, v]) => ({
-        label: `accent: ${name}`,
+      ...ACCENTS.map((v) => ({
+        label: `accent: ${v.color}`,
+        hint: 'theme',
+        run: () => paintAccent(v.accent, v.surface),
+      })),
+      {
+        label: 'accent: route default',
         hint: 'theme',
         run: () => {
-          document.documentElement.style.setProperty('--accent', v.accent);
-          document.documentElement.style.setProperty('--accent-surface', v.surface);
+          document.documentElement.style.removeProperty('--accent');
+          document.documentElement.style.removeProperty('--accent-surface');
           try {
-            localStorage.setItem('dedsec-accent', JSON.stringify(v));
+            localStorage.removeItem('dedsec-accent');
           } catch {}
         },
-      })),
+      },
       { label: 'navbar: enable desktop nav', hint: 'display', run: () => applyNavbar('on') },
       { label: 'navbar: disable desktop nav', hint: 'display', run: () => applyNavbar('off') },
       { label: 'audio bleeps (v2 — not wired)', hint: 'soon', run: () => {} },

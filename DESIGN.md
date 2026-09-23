@@ -23,7 +23,7 @@ Base: bg `#08090D`, card `#10121B` @80% + noise, grid `#232738`, text `#F0F4F8`,
 | `blog` | Red `#FF1744` | `#1F0307` |
 | `contact` | Pink `#FF007A` | `#1C000F` |
 
-Mechanism: `<body data-route>` sets `--accent` / `--accent-surface`; Tailwind v4 `@theme` maps to `text-accent`, `border-accent`, `bg-accentsurface`. `SystemBar` theme selector overrides via inline var.
+Mechanism: `<html data-route>` sets `--accent` / `--accent-surface` on the root; Tailwind v4 `@theme` maps to `text-accent`, `border-accent`, `bg-accentsurface`. Palette accent overrides paint inline vars on the same element (inline beats stylesheet — setting them on `<body>` would lose to the route rules). `SystemBar` theme selector overrides via inline var.
 
 ## 3. Typography (locked, see ADR-0002)
 
