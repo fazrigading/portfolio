@@ -113,12 +113,12 @@ excerpt: string
 ## 7. Interactive Scope (v1 must vs v2)
 
 **v1 must:** `CommandPalette` (goto + accent switch + audio/CRT toggle placeholders), `CRTOverlay` toggle (CSS, persists `localStorage`), halftone-to-color hover (CSS/SVG), `prefers-reduced-motion` kills glitch/flicker/shake.
-**v1 shipped:** palette + CRT toggle + halftone hover + motion-gating all live. Audit fixes applied: mobile nav scroll strip (SND placeholder removed), `.post-body` styles instead of typography plugin, glitch contained to title box, stats `<img>` self-hide fallback. Nav kill-switch: desktop nav off by default, `navbarPref` util shared by terminal + palette.
+**v1 shipped:** palette + CRT toggle + halftone hover + motion-gating all live. Audit fixes applied: mobile nav scroll strip (SND placeholder removed), `.post-body` styles instead of typography plugin, glitch contained to title box, stats `<img>` self-hide fallback. Nav kill-switch: desktop nav off by default, `navbarPref` util shared by terminal + palette. Command UX since: single `commands.ts` registry for both surfaces, palette arrow-key nav, color-named accents + route-default reset, one-letter keys for `goto`/`accent`, red `usage:` errors, `goto` guard against no-op self-navigation.
 **v2 deferred:** Web Audio 8-bit bleeps, screen-shake + chromatic aberration animation, retro error popups, load text-scramble, research `NodeGraph` Canvas. Spec: `docs/v2-interactions.md`.
 
 ## 8. Tech Stack (locked, see ADR-0001)
 
-Astro 7 + Tailwind v4 (`@theme` tokens) + React islands (2 files only) + MDX collections + Lucide + Shiki (blog code). Images: compressed WebP + SVG halftone overlay. A11y: contrast-held body, motion-gated effects, `:focus-visible` accent ring. Single `esbuild`/`vite` lineage (no leftover nesting).
+Astro 7 + Tailwind v4 (`@theme` tokens) + React islands (2 files only) + MDX collections + Lucide + Shiki (blog code). Images: compressed WebP + SVG halftone overlay. A11y: contrast-held body, motion-gated effects. Single `esbuild`/`vite` lineage (no leftover nesting).
 
 ## 9. Roadmap
 

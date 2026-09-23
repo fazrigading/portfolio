@@ -2,7 +2,7 @@
   <br />
   <h1>Fazri Gading · Portfolio</h1>
   <p>
-    <strong>AI Engineer & Computer Vision Specialist</strong>
+    <strong>Applied AI & Systems Engineer</strong>
   </p>
   <p>
     <em>DedSec-terminal themed static site — drive it with the terminal or Ctrl+K.</em>
