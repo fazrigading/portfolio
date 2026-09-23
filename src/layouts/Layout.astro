@@ -55,8 +55,8 @@ const pageBg: Record<string, string> = {
   </head>
   <body class="min-h-screen font-term text-ink antialiased">
     <div class="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
-      <img src={pageBg[route] ?? pageBg['/']} alt="" loading="eager" class="h-full w-full object-cover opacity-20" />
-      <div class="absolute inset-0 bg-gradient-to-b from-void/70 via-void/85 to-void"></div>
+      <img src={pageBg[route] ?? pageBg['/']} alt="" loading="eager" class="h-full w-full object-cover opacity-75" />
+      <div class="absolute inset-0 bg-gradient-to-b from-void/40 via-void/50 to-void/80"></div>
     </div>
     <SystemBar route={route} />
     <main class="mx-auto w-full max-w-6xl px-4 pb-24 sm:px-6">
