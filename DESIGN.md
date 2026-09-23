@@ -37,7 +37,7 @@ Mechanism: `<html data-route>` sets `--accent` / `--accent-surface` on the root;
 | Primitive | File | Runtime |
 | :--- | :--- | :--- |
 | `Layout` | `src/layouts/Layout.astro` | Astro static, holds `data-route`, vars, slot |
-| `SystemBar` | `src/components/SystemBar.astro` | Astro static + vanilla toggle script |
+| `SystemBar` | `src/components/SystemBar.astro` | Astro static + vanilla toggle scripts (CRT, palette-open signal); nav row + OFFLINE hint gated by `data-navbar` on desktop |
 | `CRTOverlay` | `src/components/CRTOverlay.astro` | Astro static CSS (`repeating-linear-gradient` + vignette) |
 | `AsciiHeader` | `src/components/AsciiHeader.astro` | Astro static, `title` + `art` props |
 | `ZineCard` | `src/components/ZineCard.astro` | Astro static, halftone + torn edge |
@@ -46,7 +46,7 @@ Mechanism: `<html data-route>` sets `--accent` / `--accent-surface` on the root;
 | `TerminalHero` | `src/components/TerminalHero.tsx` | **React island** `client:load`, `/` only |
 | `CommandPalette` | `src/components/CommandPalette.tsx` | **React island** `client:idle`, `Ctrl+K` |
 
-Page compositions (props only, no new primitives): `FilterMatrix`, `SkillsBar`, `TimelineGraph`, `ArchiveList`, `BroadcastCard`, `CommsForm` live in-route or under `src/components/` as `.astro` wrappers. `NodeGraph` Canvas = v2.
+Page compositions (props only, no new primitives): `FilterMatrix`, `SkillsBar`, `TimelineGraph`, `ArchiveList`, `BroadcastCard`, `CommsForm` live in-route or under `src/components/` as `.astro` wrappers. `NodeGraph` Canvas = v2. Shared non-visual modules: `commands.ts` (single terminal+palette registry), `*Pref.ts` (persisted prefs), `slug.ts`, `LucideIcon.astro` (static icon render).
 
 Layout shell (all routes):
 
@@ -62,7 +62,7 @@ Layout shell (all routes):
 
 ## 5. Routes (7 — experience split from about)
 
-1. **`/`:** `TerminalHero` (`help`, `clear`, `goto <route>`, `cat <file>`, `navbar <on|off>`; auto-shows help; `cat` reads `public/txt/*.txt`) + `ZineCard` featured grid. Desktop navbar OFF by default (`<html data-navbar>`, mobile always on); hint bar on every page; toggle in terminal + palette, persisted.
+1. **`/`:** `TerminalHero` (verbs: `help`, `goto` + letter keys, `cat`, `navbar`, `accent` + letter keys, `crt`, `clear`) + `ZineCard` featured grid (title/subtitle/OPEN_FILE only). Desktop navbar OFF by default (`<html data-navbar>`, mobile always on); hint bar on every page; toggle in terminal + palette, persisted.
 2. **`/projects`:** `FilterMatrix` (`PORT 80: ALL`, `443: ML/CV`, `8080: WEB`) + `RetroWindow` > `HalftoneImage` cards.
 3. **`/about`:** dossier `RetroWindow` (from `data/profile.json`) + `SkillsBar` (`CPU_USAGE`) + full tech-stack table + research/scholar + socials/gaming uplinks + hobbies + GH stats. No timelines.
 4. **`/experience`:** `TimelineGraph` (`data/experience.json`, `data/learning.json`). Orange accent. Nav `Experience` points here.

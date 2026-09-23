@@ -5,75 +5,80 @@
     <strong>AI Engineer & Computer Vision Specialist</strong>
   </p>
   <p>
-    <em>Architecting vision-centric intelligence to bridge the gap between academic theory and agricultural impact.</em>
+    <em>DedSec-terminal themed static site — drive it with the terminal or Ctrl+K.</em>
   </p>
   <br />
 </div>
 
 ## Overview
 
-Personal portfolio site built with **Vite**, **React 19**, **TypeScript**, and **Tailwind v4**. Showcases research publications, professional experience, certifications, and engineering projects with a focus on agricultural AI and computer vision.
+Personal portfolio site built with **Astro 7**, **React 19 islands**, **TypeScript**, and **Tailwind v4**. Static multipage build (12 pages) with a DedSec / Watch Dogs 2 terminal aesthetic: per-route accent colors, CRT overlay, zine cards, and a working in-page shell (`help`, `goto`, `cat`, `navbar`, `accent`, `crt`).
 
 ### Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
-| Framework | React 19 + TypeScript |
-| Bundler | Vite 6 |
-| Styling | Tailwind CSS v4 |
-| Animation | Motion (motion.dev) |
-| Icons | Lucide React + Custom SVG |
+| Framework | Astro 7 (static MPA, no router) |
+| Islands | React 19 — `TerminalHero`, `CommandPalette` only |
+| Styling | Tailwind CSS v4 (`@theme inline` tokens) |
+| Content | MDX collections + `src/data/*.json` + `public/txt/*.txt` |
+| Code highlighting | Shiki (`github-dark`) |
+| Icons | Lucide React (static render) |
 
-## Sections
+## Routes
 
-- **Home** — Rotating role/tech showcase with social links and theme toggle
-- **About** — Background, highlights, and mission statement
-- **Experience** — Filterable professional timeline (Technical, Research, Organizational)
-- **Research** — Sortable/filterable academic publications with status badges
-- **Learning** — Certifications, bootcamps, and courses (filterable by type and tag)
-- **Projects** — Filterable project grid with tech tags
+| Route | Content |
+|-------|---------|
+| `/` | Terminal shell + featured projects |
+| `/projects` | PORT-filtered payload index |
+| `/projects/:slug` | Per-project detail page |
+| `/about` | Dossier, stack, research, socials, stats |
+| `/experience` | Work + learning timelines |
+| `/research` | Paper archive |
+| `/blog`, `/blog/:slug` | Transmissions (MDX + Shiki) |
+| `/contact` | Terminal comms form (mailto relay) |
 
 ## Getting Started
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
+npm install        # or npm ci for exact lockfile versions
+npm run dev        # dev server → http://localhost:3000/portfolio/
+npm run stop       # stop the background dev server
 ```
 
-Dev server runs at `http://localhost:3000`.
+> Base path is `/portfolio/` — the site 404s at server root by design.
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start dev server on port 3000 (exposed to 0.0.0.0) |
-| `npm run build` | Production build |
+| `npm run dev` | Start dev server on port 3000 (exposed to `0.0.0.0`) |
+| `npm run stop` | Stop the dev server |
+| `npm run build` | Production build → `dist/` |
 | `npm run preview` | Preview production build |
 | `npm run lint` | TypeScript type check (`tsc --noEmit`) |
 | `npm run clean` | Remove `dist/` directory |
-
 
 ## Project Structure
 
 ```
 src/
-├── App.tsx              # Main application component
-├── main.tsx             # Entry point
-├── index.css            # Tailwind theme + custom styles
-└── data/
-    ├── profile.json     # Personal info, roles, about
-    ├── experience.json  # Work experience entries
-    ├── research.json    # Publications list
-    ├── projects.json    # Featured projects
-    ├── learning.json    # Certifications & training
-    ├── navigation.json  # Nav link definitions
-    ├── social.json      # Social & scholar profiles
-    ├── icons.tsx        # Icon resolver component
-    └── icon/            # Custom SVG icons
+├── pages/             # Routes (index, about, experience, projects(+slug), research, blog(+slug), contact)
+├── layouts/           # Layout.astro — shell, SystemBar, footer, CRT, palette
+├── components/        # 7 static .astro primitives + commands.ts + *Pref.ts + 2 islands
+├── content/           # Blog MDX posts (projects/research collections typed, JSON-backed for now)
+├── content.config.ts  # Collection schemas
+├── data/              # profile/experience/research/projects/learning/navigation/social JSON
+└── styles/            # global.css — tokens, CRT, glitch, halftone, post styles
+public/txt/            # Dossier files for terminal `cat`
 ```
+
+Content edits go in `src/data/*.json` (see `docs/data-guide.md`). Design tokens and behavior contracts live in `DESIGN.md`.
+
+## CI/CD
+
+- Push/PR (non-`master`): `ci.yml` runs typecheck + build.
+- Push to `master` (or manual dispatch): `deploy.yml` builds and deploys `dist/` to GitHub Pages.
 
 ## License
 

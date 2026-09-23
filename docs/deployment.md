@@ -2,64 +2,56 @@
 
 ## GitHub Pages (Automatic)
 
-The site deploys automatically via GitHub Actions on every push to `master`.
+The site deploys via GitHub Actions on every push to `master` (or manual dispatch from the Actions tab).
 
-### Workflow: `.github/workflows/deploy.yml`
+### Workflows
 
-```
-Push to master → npm ci → npm run build → deploy dist/ to GitHub Pages
-```
+| File | Trigger | Steps |
+|------|---------|-------|
+| `.github/workflows/ci.yml` | Push (non-`master`) + PRs | `npm ci` → `lint` → `build` |
+| `.github/workflows/deploy.yml` | Push to `master` + manual dispatch | `npm ci` → `build` → deploy `dist/` |
 
 **Requirements:**
-- GitHub Pages must be enabled in repo Settings → Pages → Source: **GitHub Actions**
-- The `pages: write` and `id-token: write` permissions are set in the workflow
-- Node.js 24 is used (configured in the workflow)
+- GitHub Pages enabled in repo Settings → Pages → Source: **GitHub Actions**
+- `pages: write` + `id-token: write` permissions (set in `deploy.yml`)
+- Node.js 24, npm cache (both workflows)
 
 ### Base Path
 
-The site is deployed to `/portfolio/` (not root). This is configured in `vite.config.ts`:
+The site serves from `/portfolio/`, set in `astro.config.mjs`:
 
-```ts
-export default defineConfig({
-  base: '/portfolio/',
-  // ...
-});
+```js
+export default defineConfig({ base: '/portfolio/', /* … */ });
 ```
 
-If deploying to a different sub-path or root, update the `base` value and rebuild.
+Every internal link must go through `import.meta.env.BASE_URL` (Astro emits it with trailing slash). Root-absolute links 404 on Pages. If moving sub-paths, change `base` and rebuild.
 
 ## Manual Build
 
 ```bash
-npm ci          # Install exact dependencies from lockfile
-npm run build   # Production build → dist/
+npm ci          # exact lockfile versions
+npm run build   # → dist/ (12 pages)
+npm run preview # serve production build locally
 ```
 
-The output goes to `dist/`. To preview locally:
-
-```bash
-npm run preview
-```
+`ASTRO_TELEMETRY_DISABLED=1` is set in deploy — no telemetry pings from CI.
 
 ## Environment Variables
 
-- `DISABLE_HMR=true` — Disables Hot Module Replacement during dev (useful for debugging layout shifts)
-
-No other environment variables are required. The `.env.example` file exists but is currently empty.
+None required. (The old `DISABLE_HMR` was Vite-era and is dead — nothing reads it. `.env.example` is vestigial.)
 
 ## CI/CD Notes
 
-- **Lockfile committed** — CI uses `npm ci` for deterministic installs
-- **No tests** — The `lint` script only runs `tsc --noEmit` (type checking)
-- **No ESLint/Prettier** — Only TypeScript type checking is enforced
-- **Strict mode is OFF** — `tsconfig.json` does not enable `strict`
+- **Lockfile committed** — CI uses `npm ci`
+- **No tests** — `lint` is `tsc --noEmit` only; strict mode OFF
+- **No ESLint/Prettier**
 
 ## Troubleshooting
 
 | Issue | Fix |
 |-------|-----|
-| 404 on GitHub Pages | Ensure `base: '/portfolio/'` in `vite.config.ts` matches your repo's Pages URL |
-| Assets not loading | Check that `base` path is correct; Vite uses it for all asset URLs |
-| Build fails | Run `npm run lint` locally to check for type errors |
-| HMR issues | Try `DISABLE_HMR=true npm run dev` |
-| Clean build | Run `npm run clean` to remove `dist/`, then `npm run build` |
+| 404 on GitHub Pages | `base: '/portfolio/'` must match the repo's Pages URL |
+| Assets not loading | Links bypassing `BASE_URL` — grep for `href="/` in `src/pages` |
+| `Invalid hook call` after dep changes | Stale dev prebundle serving a second React: `npm run stop`, delete `node_modules/.vite` + `.astro`, restart dev |
+| Build fails | `npm run lint` locally for type errors |
+| Clean build | `npm run clean`, then `npm run build` |

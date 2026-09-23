@@ -1,6 +1,6 @@
 # Per-route accent via data-route + CSS vars + Tailwind @theme
 
-Six routes need distinct glows without six stylesheets. Decided: `<body data-route="projects">` sets `--accent` / `--accent-surface`; Tailwind v4 `@theme` maps them to utilities; `SystemBar` selector overrides route default via inline var. Route default wins on navigation.
+Seven routes need distinct glows without seven stylesheets. Decided: `<html data-route="projects">` sets `--accent` / `--accent-surface`; Tailwind v4 `@theme` maps them to utilities; palette/terminal paint overrides as inline vars on the same `<html>` element (inline beats stylesheet — painting `<body>` loses to the route rules). Route default returns on navigation unless an override is stored.
 
 ## Consequences
 

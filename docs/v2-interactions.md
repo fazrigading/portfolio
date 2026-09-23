@@ -4,7 +4,7 @@ Build only after v1 ships. Each item lists trigger, behavior, constraints. Motio
 
 ## 1. Web Audio 8-bit bleeps
 
-- **Trigger:** keypress in `TerminalHero` / `CommsForm`, palette open/close, `[MESSAGE_TRANSMITTED]` confirm.
+- **Trigger:** keypress in `TerminalHero` / contact comms form, palette open/close, `[MESSAGE_TRANSMITTED]` confirm.
 - **Behavior:** vanilla Web Audio oscillators only (square/triangle, short envelopes). No audio assets. Global mute toggle in `SystemBar`, persisted `localStorage`, default ON but silent until first user gesture (autoplay policy).
 - **Out of scope:** background music, per-route themes.
 
