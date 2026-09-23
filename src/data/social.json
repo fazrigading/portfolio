@@ -74,5 +74,25 @@
       "href": "https://unmul.academia.edu/FazriGading",
       "color": "hover:text-[#414141]"
     }
+  ],
+  "extraSocials": [
+    { "name": "Discord", "href": "https://discord.gg/xsaVHryGC3" },
+    { "name": "Instagram", "href": "https://instagram.com/fazrigading" },
+    { "name": "Quora", "href": "https://quora.com/profile/Fazri-Gading" },
+    { "name": "Reddit", "href": "https://reddit.com/user/FazriGading" },
+    { "name": "X/Twitter", "href": "https://x.com/fazrigading" },
+    { "name": "Medium", "href": "https://medium.com/@fazrigading" },
+    { "name": "Stack Overflow", "href": "https://stackoverflow.com/users/14662592" },
+    { "name": "Twitch", "href": "https://twitch.tv/gad1ng" },
+    { "name": "YouTube", "href": "https://youtube.com/@FazriGading" }
+  ],
+  "gaming": [
+    { "name": "Steam", "href": "https://store.steampowered.com/" },
+    { "name": "Epic Games", "href": "https://store.epicgames.com/" },
+    { "name": "GOG", "href": "https://www.gog.com/" },
+    { "name": "Ubisoft", "href": "https://www.ubisoft.com/" },
+    { "name": "Riot Games", "href": "https://www.riotgames.com/" },
+    { "name": "Xbox", "href": "https://www.xbox.com/" },
+    { "name": "EA App", "href": "https://www.ea.com/ea-app" }
   ]
 }
