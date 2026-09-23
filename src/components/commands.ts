@@ -54,7 +54,10 @@ export async function runVerb(verb: string, arg: string, base: string): Promise<
     case 'help':
       return { lines: HELP };
     case 'goto': {
-      const target = arg === '' ? '/' : `/${arg}`;
+      if (!arg) {
+        return { lines: [err(`usage: goto <route> — routes: ${ROUTES.join(' ')}`)] };
+      }
+      const target = `/${arg}`;
       if (!ROUTES.includes(target)) {
         return { lines: [err(`ERR_0x99: unknown route '${arg}'. routes: ${ROUTES.join(' ')}`)] };
       }
