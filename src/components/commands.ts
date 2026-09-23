@@ -8,6 +8,14 @@ import { applyCrt, getCrt } from './crtPref';
 
 export const ROUTES = ['/', '/projects', '/about', '/experience', '/research', '/blog', '/contact'];
 export const FILES = ['about.txt', 'roles.txt', 'stack.txt', 'contact.txt'];
+export const ROUTE_KEYS: Record<string, string> = {
+  p: 'projects',
+  a: 'about',
+  e: 'experience',
+  r: 'research',
+  b: 'blog',
+  c: 'contact',
+};
 
 export type TermLine = { text: string; kind: 'in' | 'out' | 'err' };
 
@@ -17,14 +25,14 @@ export const HELP: TermLine[] = [
     kind: "out",
   },
   { text: "help\t\t\t\tshow this readout", kind: "out" },
-  { text: "goto <route>\t\tjump to one of:", kind: "out" },
+  { text: "goto <route>\t\tjump to one of (letter shortcuts):", kind: "out" },
   { text: "\t/\t\t\t\thome (this terminal)", kind: "out" },
-  { text: "\tprojects\t\tpayload index (PORT filter)", kind: "out" },
-  { text: "\tabout\t\t\tdossier + stack + uplinks", kind: "out" },
-  { text: "\texperience\t\twork + learning timelines", kind: "out" },
-  { text: "\tresearch\t\tpaper archive", kind: "out" },
-  { text: "\tblog\t\t\ttransmissions", kind: "out" },
-  { text: "\tcontact\t\t\tcomms form", kind: "out" },
+  { text: "\tprojects (p)\t\tpayload index (PORT filter)", kind: "out" },
+  { text: "\tabout (a)\t\tdossier + stack + uplinks", kind: "out" },
+  { text: "\texperience (e)\t\twork + learning timelines", kind: "out" },
+  { text: "\tresearch (r)\t\tpaper archive", kind: "out" },
+  { text: "\tblog (b)\t\ttransmissions", kind: "out" },
+  { text: "\tcontact (c)\t\tcomms form", kind: "out" },
   { text: "cat <file>\t\t\tprint a dossier file:", kind: "out" },
   { text: "\tabout.txt\t\twhoami, one screen", kind: "out" },
   { text: "\troles.txt\t\toperator roles", kind: "out" },
@@ -57,7 +65,8 @@ export async function runVerb(verb: string, arg: string, base: string): Promise<
       if (!arg) {
         return { lines: [err(`usage: goto <route> — routes: ${ROUTES.join(' ')}`)] };
       }
-      const target = `/${arg}`;
+      const dest = ROUTE_KEYS[arg.toLowerCase()] ?? arg;
+      const target = `/${dest}`;
       if (!ROUTES.includes(target)) {
         return { lines: [err(`ERR_0x99: unknown route '${arg}'. routes: ${ROUTES.join(' ')}`)] };
       }
