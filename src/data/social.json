@@ -87,12 +87,12 @@
     { "name": "YouTube", "href": "https://youtube.com/@FazriGading" }
   ],
   "gaming": [
-    { "name": "Steam", "href": "https://store.steampowered.com/" },
-    { "name": "Epic Games", "href": "https://store.epicgames.com/" },
-    { "name": "GOG", "href": "https://www.gog.com/" },
+    { "name": "Steam", "href": "https://steamcommunity.com/id/FazGXT/" },
+    { "name": "Epic Games", "href": "https://store.epicgames.com/u/4f87ba492d6e44fd831a3c29811914d9" },
+    { "name": "GOG", "href": "https://www.gog.com/u/FazriGading" },
     { "name": "Ubisoft", "href": "https://www.ubisoft.com/" },
     { "name": "Riot Games", "href": "https://www.riotgames.com/" },
-    { "name": "Xbox", "href": "https://www.xbox.com/" },
+    { "name": "Xbox", "href": "https://www.xbox.com/en-US/play/user/gad1ng" },
     { "name": "EA App", "href": "https://www.ea.com/ea-app" }
   ]
 }

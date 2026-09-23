@@ -2,39 +2,34 @@
   "name": "Fazri Gading",
   "nameShort": "FG",
   "email": "fazrigading@gmail.com",
-  "roles": ["Engineer", "Developer", "Researcher", "Practitioner"],
+  "roles": ["Applied AI Engineer", "Systems Engineer", "Developer", "Researcher"],
   "techs": ["AI", "ML", "DL", "CV"],
   "about": {
-    "title": "Computer Vision Specialist & AI Engineer.",
-    "intro": "I specialize in object detection, image processing, and deep learning, with a core focus on agricultural, medical, and industrial automation. I build and deploy robust, real-world AI detection systems using PyTorch and TensorFlow — from lightweight YOLO architectures for edge deployment to high-accuracy visual recognition for medical and plant disease identification.",
-    "detailed": "My work spans three fronts: agricultural and industrial automation (crop counting, disease classification, precision yield estimation, AI-driven quality control), medical imaging (early disease detection, diagnostic accuracy), and community (Machine Learning mentor at Bangkit Academy 2024 guiding 25+ students; technical lecturer at Mulawarman University for AI, ML, Data Structures & Algorithms, and OOP).",
+    "title": "Applied AI & Systems Engineer.",
+    "intro": "Applied AI & Systems Engineer working at the intersection of Artificial Intelligence, Software Engineering, and Systems Development. Background in Deep Learning and Computer Vision — object detection, instance segmentation, pattern recognition — now expanding into LLM applications, RAG systems, developer tooling, and Linux desktop systems.",
+    "detailed": "My work spans four fronts: systems & software engineering (wiring AI models to APIs, databases, and UIs; back-end services, data pipelines, dev tools, Linux/desktop automation, cross-platform apps), AI & machine learning (computer vision, LLM apps, RAG, training and evaluation workflows — applied to agriculture, medical imaging, and beyond), research & engineering (translating ideas into reproducible software: datasets, experimentation pipelines, Scopus-indexed papers including Q1 journals), and teaching & mentorship (Bangkit Academy 2024 ML mentor for 25+ students; lab assistant at Mulawarman University for ML, DL, DSA, and OOP).",
     "research": "B.CS. (S.Kom.) from Universitas Mulawarman. Beyond engineering I co-author applied-AI research: multiple Scopus-indexed papers, including Q1 journals in Smart Agricultural Technology and Artificial Intelligence in Agriculture.",
     "hobbies": "Tinkering with software and hardware — small tools for my own productivity. Gaming across Steam, Epic, GOG and Xbox; occasionally developing games (Unity, Godot, Ren'Py).",
     "highlights": [
       {
-        "title": "Detection Systems",
-        "desc": "Lightweight YOLO workflows tuned for edge deployment.",
-        "icon": "Zap"
+        "title": "Systems Engineering",
+        "desc": "AI models wired to APIs, DBs, UIs; services, pipelines, dev tools.",
+        "icon": "Cpu"
       },
       {
-        "title": "Agri & Industrial Automation",
-        "desc": "Crop counting, disease classification, yield estimation, QC.",
-        "icon": "Sprout"
+        "title": "AI & Machine Learning",
+        "desc": "Vision, LLMs, RAG; training, evaluation, deployment.",
+        "icon": "BrainCircuit"
       },
       {
-        "title": "Medical Imaging",
-        "desc": "Early disease detection and diagnostic accuracy.",
-        "icon": "Stethoscope"
+        "title": "Research & Engineering",
+        "desc": "Reproducible builds, datasets, evaluation workflows.",
+        "icon": "FlaskConical"
       },
       {
-        "title": "Mentorship",
-        "desc": "Bangkit Academy 2024 ML mentor, 25+ students guided.",
+        "title": "Teaching & Mentorship",
+        "desc": "Bangkit 2024 mentor; Mulawarman lab assistant.",
         "icon": "GraduationCap"
-      },
-      {
-        "title": "Teaching",
-        "desc": "Mulawarman University lecturer: AI, ML, DSA, OOP.",
-        "icon": "BookOpen"
       }
     ],
     "stack": [
