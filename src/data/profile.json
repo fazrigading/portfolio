@@ -4,33 +4,70 @@
   "email": "fazrigading@gmail.com",
   "roles": ["Engineer", "Developer", "Researcher", "Practitioner"],
   "techs": ["AI", "ML", "DL", "CV"],
-  "heroBadge": "Open for Work, Collaborations, and Research",
-  "heroTagline": "Building a vision-centric intelligence for sustainable agriculture, medical imaging, and beyond.",
   "about": {
-    "title": "Pioneering Computer Vision for a Sustainable Future.",
-    "intro": "As an AI Engineer, my core passion lies at the intersection of **Computer Vision** and **Object Detection**. I believe that advanced neural networks can solve some of the most critical challenges in various domains. Image shown on left is myself presenting my research on **Ganoderma fungus detection** at the 2024 Focus Group Discussion of Research and Community Service Disemination by Mulawarman University.",
-    "detailed": "My work is deeply rooted in practical application. I've developed specialized vision systems for **detecting Ganoderma fungus** in oil palm trees, a critical threat to palm health, and implemented robust algorithms for **counting oil palm fruit bunches** to optimize yield estimation. Beyond agriculture, my expertise extends to **medical imaging**, where I've contributed to projects that enhance diagnostic accuracy through AI-driven image analysis, such as identifying **glaucoma disease** in eye medical scans.",
+    "title": "Computer Vision Specialist & AI Engineer.",
+    "intro": "I specialize in object detection, image processing, and deep learning, with a core focus on agricultural, medical, and industrial automation. I build and deploy robust, real-world AI detection systems using PyTorch and TensorFlow — from lightweight YOLO architectures for edge deployment to high-accuracy visual recognition for medical and plant disease identification.",
+    "detailed": "My work spans three fronts: agricultural and industrial automation (crop counting, disease classification, precision yield estimation, AI-driven quality control), medical imaging (early disease detection, diagnostic accuracy), and community (Machine Learning mentor at Bangkit Academy 2024 guiding 25+ students; technical lecturer at Mulawarman University for AI, ML, Data Structures & Algorithms, and OOP).",
+    "research": "B.CS. (S.Kom.) from Universitas Mulawarman. Beyond engineering I co-author applied-AI research: multiple Scopus-indexed papers, including Q1 journals in Smart Agricultural Technology and Artificial Intelligence in Agriculture.",
+    "hobbies": "Tinkering with software and hardware — small tools for my own productivity. Gaming across Steam, Epic, GOG and Xbox; occasionally developing games (Unity, Godot, Ren'Py).",
     "highlights": [
       {
-        "title": "AI-Driven Data Extraction",
-        "desc": "Leveraging deep learning to extract actionable insights from image datasets.",
-        "icon": "Database"
+        "title": "Detection Systems",
+        "desc": "Lightweight YOLO workflows tuned for edge deployment.",
+        "icon": "Zap"
       },
       {
-        "title": "Vision Systems",
-        "desc": "Real-time object detection and segmentation at scale.",
-        "icon": "Code"
+        "title": "Agri & Industrial Automation",
+        "desc": "Crop counting, disease classification, yield estimation, QC.",
+        "icon": "Sprout"
       },
       {
-        "title": "Research & Development",
-        "desc": "Bridging academic insights with practical solutions.",
-        "icon": "Microscope"
+        "title": "Medical Imaging",
+        "desc": "Early disease detection and diagnostic accuracy.",
+        "icon": "Stethoscope"
       },
       {
-        "title": "Collaboration",
-        "desc": "Open to partnerships that drive innovation with real-world applications.",
-        "icon": "Handshake"
+        "title": "Mentorship",
+        "desc": "Bangkit Academy 2024 ML mentor, 25+ students guided.",
+        "icon": "GraduationCap"
+      },
+      {
+        "title": "Teaching",
+        "desc": "Mulawarman University lecturer: AI, ML, DSA, OOP.",
+        "icon": "BookOpen"
       }
+    ],
+    "stack": [
+      { "category": "Systems / Performance", "items": ["C", "C++", "Rust", "Go"] },
+      { "category": "Scripting / Data", "items": ["Python", "R", "Ruby"] },
+      { "category": "Web", "items": ["JavaScript", "TypeScript"] },
+      { "category": "Enterprise / JVM", "items": ["Java", "C#", "Scala"] },
+      { "category": "OS / Shell", "items": ["Linux", "Fedora", "Zsh"] },
+      { "category": "Editors / IDEs", "items": ["Zed", "VSCode", "Neovim", "Cursor", "NetBeans", "IntelliJ", "PyCharm"] },
+      { "category": "Terminal / Browsers", "items": ["Ghostty", "Zen", "Vivaldi", "Firefox"] },
+      { "category": "Deep Learning", "items": ["YOLO", "PyTorch", "TensorFlow", "Keras", "OpenCV", "LangChain"] },
+      { "category": "Data / ML", "items": ["Pandas", "NumPy", "Matplotlib", "SciPy", "Scikit-learn", "MLflow", "Streamlit"] },
+      { "category": "Compute / Infra", "items": ["CUDA", "NVIDIA", "Kubernetes", "Anaconda"] },
+      { "category": "Research Tools", "items": ["Kaggle", "Jupyter", "PyPI", "Roboflow", "Colab", "Obsidian", "LaTeX"] },
+      { "category": "Frontend", "items": ["Tauri", "React", "Next.js", "Vue.js", "TailwindCSS", "Vite", "HTML", "CSS"] },
+      { "category": "Backend", "items": ["Node.js", "Flask", "FastAPI", "PHP", "Apache"] },
+      { "category": "Databases", "items": ["MySQL", "Postgres"] },
+      { "category": "Mobile", "items": ["Flutter", "Dart", "Gradle"] },
+      { "category": "VCS / CI", "items": ["GitHub", "Actions", "Pages", "Git", "GitLab"] },
+      { "category": "Package Managers", "items": ["uv", "Homebrew", "NPM", "NuGet"] },
+      { "category": "Containers", "items": ["Docker", "Podman"] },
+      { "category": "Testing / API", "items": ["Playwright", "Postman", "Selenium"] },
+      { "category": "PM / Org", "items": ["Notion", "Trello", "Power BI"] },
+      { "category": "Cloud", "items": ["Firebase", "Vercel", "GCP", "AWS", "Azure", "Netlify"] },
+      { "category": "Game Dev", "items": ["Unity", "Vulkan", "Ren'Py", "OpenGL", "Godot", "GameMaker"] },
+      { "category": "GenAI Assistants", "items": ["OpenCode", "Claude", "Gemini", "DeepSeek", "Copilot", "ChatGPT"] },
+      { "category": "Design & Photo", "items": ["Figma", "Photoshop", "Illustrator", "Lightroom", "XD", "Canva"] }
+    ],
+    "stats": [
+      { "label": "streak", "src": "https://streak-stats.demolab.com?user=fazrigading&theme=transparent" },
+      { "label": "stats", "src": "https://github-stats-extended.vercel.app/api?username=fazrigading&show_icons=true&theme=transparent&include_all_commits=true" },
+      { "label": "top-langs", "src": "https://github-stats-extended.vercel.app/api/top-langs/?username=fazrigading&theme=transparent&include_all_commits=true&layout=donut" },
+      { "label": "trophies", "src": "https://github-profile-trophy-unserori.vercel.app/?username=fazrigading&theme=gitdimmed&row=3&column=3" }
     ]
   },
   "footer": {
