@@ -121,7 +121,7 @@ export function paletteItems(nav: (route: string) => void): PItem[] {
     { label: 'navbar: enable desktop nav', hint: 'display', run: () => applyNavbar('on') },
     { label: 'navbar: disable desktop nav', hint: 'display', run: () => applyNavbar('off') },
     ...ACCENTS.map((v) => ({
-      label: `accent: ${v.color}`,
+      label: `accent: ${v.color} (${v.key})`,
       hint: 'theme',
       run: () => paintAccent(v.accent, v.surface),
     })),
