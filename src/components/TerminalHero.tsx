@@ -1,22 +1,34 @@
 import { useEffect, useRef, useState } from 'react';
+import { applyNavbar, getNavbar } from './navbarPref';
 
-const ROUTES = ['/', '/projects', '/about', '/research', '/blog', '/contact'];
+const ROUTES = ['/', '/projects', '/about', '/experience', '/research', '/blog', '/contact'];
+const FILES = ['about.txt', 'roles.txt', 'stack.txt', 'contact.txt'];
 const base = import.meta.env.BASE_URL;
 
 type Line = { text: string; kind: 'in' | 'out' | 'err' };
 
-const HELP = [
-  'commands:',
-  '  help            this readout',
-  '  goto <route>   / projects about research blog contact',
-  '  cat about.txt  one-line dossier',
-  '  clear           wipe terminal',
+const HELP: Line[] = [
+  { text: 'DEDSEC secure shell v1 — NAV_BAR is OFF on desktop. drive with:', kind: 'out' },
+  { text: 'help\t\tshow this readout', kind: 'out' },
+  { text: 'goto <route>\tjump to one of:', kind: 'out' },
+  { text: '\t/\t\t\thome (this terminal)', kind: 'out' },
+  { text: '\tprojects\tpayload index (PORT filter)', kind: 'out' },
+  { text: '\tabout\t\tdossier + stack + uplinks', kind: 'out' },
+  { text: '\texperience\twork + learning timelines', kind: 'out' },
+  { text: '\tresearch\tpaper archive', kind: 'out' },
+  { text: '\tblog\t\ttransmissions', kind: 'out' },
+  { text: '\tcontact\t\tcomms form', kind: 'out' },
+  { text: 'cat <file>\tprint a dossier file:', kind: 'out' },
+  { text: '\tabout.txt\twhoami, one screen', kind: 'out' },
+  { text: '\troles.txt\toperator roles', kind: 'out' },
+  { text: '\tstack.txt\tcore stack', kind: 'out' },
+  { text: '\tcontact.txt\treach me', kind: 'out' },
+  { text: 'navbar <on|off>\tenable/disable desktop navbar (mobile always on)', kind: 'out' },
+  { text: 'clear\t\twipe the terminal', kind: 'out' },
 ];
 
 export default function TerminalHero() {
-  const [lines, setLines] = useState<Line[]>([
-    { text: 'DEDSEC secure shell — type `help`', kind: 'out' },
-  ]);
+  const [lines, setLines] = useState<Line[]>(HELP);
   const [value, setValue] = useState('');
   const boxRef = useRef<HTMLDivElement>(null);
 
@@ -24,7 +36,7 @@ export default function TerminalHero() {
     boxRef.current?.scrollTo({ top: boxRef.current.scrollHeight });
   }, [lines]);
 
-  const run = (raw: string) => {
+  const run = async (raw: string) => {
     const cmd = raw.trim();
     const next: Line[] = [...lines, { text: `visitor@dedsec:~$ ${cmd}`, kind: 'in' }];
     if (!cmd) {
@@ -37,8 +49,9 @@ export default function TerminalHero() {
       setLines([]);
       return;
     }
-    if (c === 'help') next.push(...HELP.map((text) => ({ text, kind: 'out' as const })));
-    else if (c === 'goto') {
+    if (c === 'help') {
+      next.push(...HELP);
+    } else if (c === 'goto') {
       const target = arg === '' ? '/' : `/${arg}`;
       if (ROUTES.includes(target)) {
         next.push({ text: `tunneling → ${target} ...`, kind: 'out' });
@@ -46,9 +59,29 @@ export default function TerminalHero() {
         window.location.href = target === '/' ? base : `${base}${arg}`;
         return;
       }
-      next.push({ text: `ERR_0x99: unknown route '${arg}'. try help`, kind: 'err' });
-    } else if (c === 'cat' && arg === 'about.txt') {
-      next.push({ text: 'AI engineer — vision-centric intelligence for agriculture + medical imaging.', kind: 'out' });
+      next.push({ text: `ERR_0x99: unknown route '${arg}'. routes: ${ROUTES.join(' ')}`, kind: 'err' });
+    } else if (c === 'navbar') {
+      if (arg === 'on' || arg === 'off') {
+        applyNavbar(arg);
+        next.push({ text: `NAV_BAR: ${arg === 'on' ? 'ONLINE' : 'OFFLINE'} (persisted)`, kind: 'out' });
+      } else {
+        next.push({ text: `NAV_BAR: ${getNavbar() === 'on' ? 'ONLINE' : 'OFFLINE'} — usage: navbar <on|off>`, kind: 'out' });
+      }
+    } else if (c === 'cat') {
+      if (!arg) {
+        next.push({ text: `usage: cat <file> — files: ${FILES.join(' ')}`, kind: 'err' });
+      } else if (!FILES.includes(arg)) {
+        next.push({ text: `ERR_0x99: no such file '${arg}'. files: ${FILES.join(' ')}`, kind: 'err' });
+      } else {
+        try {
+          const res = await fetch(`${base}txt/${arg}`);
+          if (!res.ok) throw new Error(String(res.status));
+          const body = (await res.text()).trimEnd();
+          next.push(...body.split('\n').map((text) => ({ text, kind: 'out' as const })));
+        } catch {
+          next.push({ text: `ERR_0x99: could not read '${arg}'. retry.`, kind: 'err' });
+        }
+      }
     } else {
       next.push({ text: `ERR_0x99: command not found '${c}'. try help`, kind: 'err' });
     }
@@ -65,7 +98,11 @@ export default function TerminalHero() {
           <p
             key={i}
             className={
-              l.kind === 'in' ? 'text-ink' : l.kind === 'err' ? 'text-[#ff1744]' : 'text-dim'
+              l.kind === 'in'
+                ? 'whitespace-pre-wrap text-ink'
+                : l.kind === 'err'
+                  ? 'whitespace-pre-wrap text-[#ff1744]'
+                  : 'whitespace-pre-wrap text-dim'
             }
           >
             {l.text}
@@ -79,7 +116,7 @@ export default function TerminalHero() {
             setValue('');
           }}
         >
-          <span className="text-accent">visitor@dedsec:~$</span>
+          <span className="shrink-0 text-accent">visitor@dedsec:~$</span>
           <input
             value={value}
             onChange={(e) => setValue(e.target.value)}

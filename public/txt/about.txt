@@ -1,0 +1,6 @@
+FAZRI GADING — Computer Vision Specialist & AI Engineer
+=====================================================
+Object detection, image processing, deep learning for
+agricultural, medical, and industrial automation.
+PyTorch + TensorFlow, lightweight YOLO for edge deployment.
+B.CS. (S.Kom.), Universitas Mulawarman.

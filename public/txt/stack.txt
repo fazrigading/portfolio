@@ -1,0 +1,4 @@
+CORE: AI / ML / DL / CV
+VISION: YOLO / PyTorch / TensorFlow / Keras / OpenCV
+DATA: Python / Pandas / NumPy / Scikit-learn / MLflow
+Full loadout: see /about (FULL_LOADOUT).

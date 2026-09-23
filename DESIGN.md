@@ -62,7 +62,7 @@ Layout shell (all routes):
 
 ## 5. Routes (7 — experience split from about)
 
-1. **`/`:** `TerminalHero` (`help`, `clear`, `goto <route>`, `cat about.txt`) + `ZineCard` featured grid.
+1. **`/`:** `TerminalHero` (`help`, `clear`, `goto <route>`, `cat <file>`, `navbar <on|off>`; auto-shows help; `cat` reads `public/txt/*.txt`) + `ZineCard` featured grid. Desktop navbar OFF by default (`<html data-navbar>`, mobile always on); hint bar on every page; toggle in terminal + palette, persisted.
 2. **`/projects`:** `FilterMatrix` (`PORT 80: ALL`, `443: ML/CV`, `8080: WEB`) + `RetroWindow` > `HalftoneImage` cards.
 3. **`/about`:** dossier `RetroWindow` (from `data/profile.json`) + `SkillsBar` (`CPU_USAGE`) + full tech-stack table + research/scholar + socials/gaming uplinks + hobbies + GH stats. No timelines.
 4. **`/experience`:** `TimelineGraph` (`data/experience.json`, `data/learning.json`). Orange accent. Nav `Experience` points here.
@@ -113,7 +113,7 @@ excerpt: string
 ## 7. Interactive Scope (v1 must vs v2)
 
 **v1 must:** `CommandPalette` (goto + accent switch + audio/CRT toggle placeholders), `CRTOverlay` toggle (CSS, persists `localStorage`), halftone-to-color hover (CSS/SVG), `prefers-reduced-motion` kills glitch/flicker/shake.
-**v1 shipped:** palette + CRT toggle + halftone hover + motion-gating all live. Audit fixes applied: mobile nav scroll strip (SND placeholder removed), `.post-body` styles instead of typography plugin, glitch contained to title box, `:focus-visible` accent ring, stats `<img>` self-hide fallback.
+**v1 shipped:** palette + CRT toggle + halftone hover + motion-gating all live. Audit fixes applied: mobile nav scroll strip (SND placeholder removed), `.post-body` styles instead of typography plugin, glitch contained to title box, stats `<img>` self-hide fallback. Nav kill-switch: desktop nav off by default, `navbarPref` util shared by terminal + palette.
 **v2 deferred:** Web Audio 8-bit bleeps, screen-shake + chromatic aberration animation, retro error popups, load text-scramble, research `NodeGraph` Canvas. Spec: `docs/v2-interactions.md`.
 
 ## 8. Tech Stack (locked, see ADR-0001)

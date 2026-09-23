@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { applyNavbar } from './navbarPref';
 
 const base = import.meta.env.BASE_URL;
 
@@ -6,6 +7,7 @@ const ACCENTS: Record<string, { accent: string; surface: string }> = {
   home: { accent: '#00f0ff', surface: '#02141c' },
   projects: { accent: '#00ff66', surface: '#021a0e' },
   about: { accent: '#ffe600', surface: '#1a1800' },
+  experience: { accent: '#ff6b00', surface: '#1f0e00' },
   research: { accent: '#a822ff', surface: '#13021f' },
   blog: { accent: '#ff1744', surface: '#1f0307' },
   contact: { accent: '#ff007a', surface: '#1c000f' },
@@ -31,7 +33,7 @@ export default function CommandPalette() {
 
   const items: Item[] = useMemo(
     () => [
-      ...['/', '/projects', '/about', '/research', '/blog', '/contact'].map((r) => ({
+      ...['/', '/projects', '/about', '/experience', '/research', '/blog', '/contact'].map((r) => ({
         label: `goto ${r === '/' ? 'home' : r.slice(1)}`,
         hint: 'route',
         run: () => {
@@ -61,6 +63,8 @@ export default function CommandPalette() {
           } catch {}
         },
       })),
+      { label: 'navbar: enable desktop nav', hint: 'display', run: () => applyNavbar('on') },
+      { label: 'navbar: disable desktop nav', hint: 'display', run: () => applyNavbar('off') },
       { label: 'audio bleeps (v2 — not wired)', hint: 'soon', run: () => {} },
     ],
     []
