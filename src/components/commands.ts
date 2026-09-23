@@ -27,10 +27,10 @@ export const HELP: TermLine[] = [
   { text: "help\t\t\t\tshow this readout", kind: "out" },
   { text: "goto <route>\t\tjump to one of (letter shortcuts):", kind: "out" },
   { text: "\t/\t\t\t\thome (this terminal)", kind: "out" },
-  { text: "\tprojects (p)\t\tpayload index (PORT filter)", kind: "out" },
+  { text: "\tprojects (p)\tpayload index (PORT filter)", kind: "out" },
   { text: "\tabout (a)\t\tdossier + stack + uplinks", kind: "out" },
-  { text: "\texperience (e)\t\twork + learning timelines", kind: "out" },
-  { text: "\tresearch (r)\t\tpaper archive", kind: "out" },
+  { text: "\texperience (e)\twork + learning timelines", kind: "out" },
+  { text: "\tresearch (r)\tpaper archive", kind: "out" },
   { text: "\tblog (b)\t\ttransmissions", kind: "out" },
   { text: "\tcontact (c)\t\tcomms form", kind: "out" },
   { text: "cat <file>\t\t\tprint a dossier file:", kind: "out" },
@@ -41,13 +41,13 @@ export const HELP: TermLine[] = [
   { text: "navbar <on|off>\t\ttoggle navbar (mobile always on)", kind: "out" },
   { text: "accent <color>\t\tswitch theme color", kind: "out" },
   { text: "\tdefault\t\t\tclear override, route default", kind: "out" },
-  { text: "\tc\t\t\t\tcyan", kind: "out" },
-  { text: "\tg\t\t\t\tgreen", kind: "out" },
-  { text: "\ty\t\t\t\tyellow", kind: "out" },
-  { text: "\to\t\t\t\torange", kind: "out" },
-  { text: "\tp\t\t\t\tpurple", kind: "out" },
-  { text: "\tr\t\t\t\tred", kind: "out" },
-  { text: "\tk\t\t\t\tpink", kind: "out" },
+  { text: "\tcyan (c)\t\thome page accent color", kind: "out" },
+  { text: "\tgreen (g)\t\tprojects page accent color", kind: "out" },
+  { text: "\tyellow (y)\t\tabout page accent color", kind: "out" },
+  { text: "\torange (o)\t\texperience page accent color", kind: "out" },
+  { text: "\tpurple (p)\t\tresearch page accent color", kind: "out" },
+  { text: "\tred (r)\t\t\tblog page accent color", kind: "out" },
+  { text: "\tpink (k)\t\tcontact page accent color", kind: "out" },
   { text: "crt <on|off>\t\ttoggle scanline overlay", kind: "out" },
   { text: "clear\t\t\t\twipe the terminal", kind: "out" },
 ];
@@ -57,7 +57,7 @@ export type TResult = { lines: TermLine[]; navigate?: string };
 const out = (text: string): TermLine => ({ text, kind: 'out' });
 const err = (text: string): TermLine => ({ text, kind: 'err' });
 
-export async function runVerb(verb: string, arg: string, base: string): Promise<TResult> {
+export async function runVerb(verb: string, arg: string, base: string, currentRoute = '/'): Promise<TResult> {
   switch (verb) {
     case 'help':
       return { lines: HELP };
@@ -70,7 +70,10 @@ export async function runVerb(verb: string, arg: string, base: string): Promise<
       if (!ROUTES.includes(target)) {
         return { lines: [err(`ERR_0x99: unknown route '${arg}'. routes: ${ROUTES.join(' ')}`)] };
       }
-      return { lines: [out(`tunneling → ${target} ...`)], navigate: target === '/' ? base : `${base}${arg}` };
+      if (target === currentRoute) {
+        return { lines: [err(`ERR_0x99: already on '${target}' — this terminal lives on home. goto <route> to leave.`)] };
+      }
+      return { lines: [out(`tunneling → ${target} ...`)], navigate: target === '/' ? base : `${base}${dest}` };
     }
     case 'cat': {
       if (!arg) return { lines: [err(`usage: cat <file> — files: ${FILES.join(' ')}`)] };
