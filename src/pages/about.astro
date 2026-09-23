@@ -8,10 +8,11 @@ import LucideIcon from '../components/LucideIcon.astro';
 import profile from '../data/profile.json';
 import social from '../data/social.json';
 import portrait from '../data/fazrigading-large.webp';
+import bgAbout from '../assets/wallpapers/dedsec-yellow/official-wallpapers-yellow/16_9/4_1920x1080.webp';
 ---
 
 <Layout route="about" title="ABOUT">
-  <AsciiHeader title="DOSSIER" tag="// ROUTE:/ABOUT — OPERATOR FILE" />
+  <AsciiHeader title="DOSSIER" tag="// ROUTE:/ABOUT — OPERATOR FILE" bg={bgAbout.src} />
 
   <div class="grid gap-6 md:grid-cols-3">
     <div class="md:col-span-1">

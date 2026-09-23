@@ -3,10 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import RetroWindow from '../components/RetroWindow.astro';
 import research from '../data/research.json';
+import bgResearch from '../assets/wallpapers/dedsec-purple/official-wallpapers-purple/16_9/1_1920x1080.webp';
 ---
 
 <Layout route="research" title="RESEARCH">
-  <AsciiHeader title="ARCHIVE" tag="// ROUTE:/RESEARCH — STATIC LIST V1 (NODEGRAPH = V2)" />
+  <AsciiHeader title="ARCHIVE" tag="// ROUTE:/RESEARCH — STATIC LIST V1 (NODEGRAPH = V2)" bg={bgResearch.src} />
 
   <div class="space-y-4">
     {research.map((r, i) => (

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import RetroWindow from '../components/RetroWindow.astro';
 import { slugify } from '../components/slug';
+import bgProjects from '../assets/wallpapers/dedsec-green/official-wallpapers-green/16_9/5_1920x1080.webp';
 import projects from '../data/projects.json';
 
 const b = import.meta.env.BASE_URL;
@@ -18,7 +19,7 @@ const groups = (p: { category: string; tech: string[] }) => {
 ---
 
 <Layout route="projects" title="PROJECTS">
-  <AsciiHeader title="PAYLOADS" tag="// ROUTE:/PROJECTS — FILTER BY PORT" />
+  <AsciiHeader title="PAYLOADS" tag="// ROUTE:/PROJECTS — FILTER BY PORT" bg={bgProjects.src} />
 
   <div class="flex flex-wrap gap-2 pb-8" id="filter-matrix">
     <button data-port="all" class="filter-btn border border-accent bg-accentsurface px-3 py-1.5 text-xs uppercase tracking-widest text-accent">PORT 80: ALL</button>
