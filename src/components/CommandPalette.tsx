@@ -17,8 +17,13 @@ export default function CommandPalette() {
       }
       if (e.key === 'Escape') setOpen(false);
     };
+    const onSignal = () => setOpen(true);
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    window.addEventListener('dedsec:palette', onSignal);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('dedsec:palette', onSignal);
+    };
   }, []);
 
   const items: PItem[] = useMemo(

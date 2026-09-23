@@ -28,15 +28,22 @@ links.push({ name: 'Contact', href: b + 'contact', key: 'contact' });
     <span class="hidden items-center gap-1.5 text-dim sm:flex">
       <span class="inline-block h-2 w-2 animate-pulse rounded-full bg-accent"></span> ONLINE
     </span>
-    <div class="ml-auto flex items-center gap-2">
+    <div class="sysctl ml-auto flex items-center gap-2">
       <button
         id="crt-toggle"
-        title="Toggle CRT overlay"
+        title="Toggle CRT overlay (also: crt <on|off>)"
         class="border border-grid px-2 py-1 uppercase tracking-wider text-dim transition-colors hover:border-accent hover:text-accent"
       >
         CRT
       </button>
-      <kbd class="hidden border border-grid px-1.5 py-0.5 text-dim md:inline">CTRL+K</kbd>
+      <button
+        id="palette-open"
+        title="Open command palette (also: CTRL+K)"
+        aria-label="Open command palette"
+        class="hidden border border-grid px-1.5 py-0.5 text-dim transition-colors hover:border-accent hover:text-accent md:inline"
+      >
+        CTRL+K
+      </button>
     </div>
     <nav class="sysnav order-last flex w-full items-center gap-4 overflow-x-auto whitespace-nowrap py-1 md:order-none md:w-auto md:py-0">
       {links.map((l) => (
@@ -51,6 +58,9 @@ links.push({ name: 'Contact', href: b + 'contact', key: 'contact' });
         </a>
       ))}
     </nav>
+    <p class="nav-hint hidden w-full font-display text-sm tracking-widest text-dim md:block">
+      NAV_BAR: <span class="text-accent">OFFLINE</span> // DRIVE WITH TERMINAL `goto` OR `CTRL+K` — RUN `navbar on` TO RESTORE
+    </p>
   </div>
 </header>
 
@@ -60,5 +70,8 @@ links.push({ name: 'Contact', href: b + 'contact', key: 'contact' });
     const off = html.dataset.crt !== 'off';
     html.dataset.crt = off ? 'off' : 'on';
     try { localStorage.setItem('dedsec-crt', off ? 'off' : 'on'); } catch {}
+  });
+  document.getElementById('palette-open')?.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('dedsec:palette'));
   });
 </script>
