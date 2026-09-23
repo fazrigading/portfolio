@@ -6,29 +6,29 @@
   "techs": ["AI", "ML", "DL", "CV"],
   "about": {
     "title": "Applied AI & Systems Engineer.",
-    "intro": "Applied AI & Systems Engineer working at the intersection of Artificial Intelligence, Software Engineering, and Systems Development. Background in Deep Learning and Computer Vision — object detection, instance segmentation, pattern recognition — now expanding into LLM applications, RAG systems, developer tooling, and Linux desktop systems.",
-    "detailed": "My work spans four fronts: systems & software engineering (wiring AI models to APIs, databases, and UIs; back-end services, data pipelines, dev tools, Linux/desktop automation, cross-platform apps), AI & machine learning (computer vision, LLM apps, RAG, training and evaluation workflows — applied to agriculture, medical imaging, and beyond), research & engineering (translating ideas into reproducible software: datasets, experimentation pipelines, Scopus-indexed papers including Q1 journals), and teaching & mentorship (Bangkit Academy 2024 ML mentor for 25+ students; lab assistant at Mulawarman University for ML, DL, DSA, and OOP).",
-    "research": "B.CS. (S.Kom.) from Universitas Mulawarman. Beyond engineering I co-author applied-AI research: multiple Scopus-indexed papers, including Q1 journals in Smart Agricultural Technology and Artificial Intelligence in Agriculture.",
-    "hobbies": "Tinkering with software and hardware — small tools for my own productivity. Gaming across Steam, Epic, GOG and Xbox; occasionally developing games (Unity, Godot, Ren'Py).",
+    "intro": "Applied AI and Systems Engineer working at the intersection of Artificial Intelligence, Software Engineering, and Systems Development. My background is Deep Learning and Computer Vision, including object detection, instance segmentation, and pattern recognition. Currently expanding on LLM applications, RAG systems, gaming apps, developer tooling, and Linux desktop systems.",
+    "detailed": "My work covers four areas. First, systems and software engineering. I connect AI models to APIs, databases, and user interfaces, and I build back-end services, data pipelines, dev tools, Linux and desktop automation, and cross-platform apps. Second, AI and machine learning, including computer vision, LLM apps, RAG, and training and evaluation workflows for agriculture, medical imaging, and other fields. Third, research and engineering. I turn ideas into reproducible software with datasets, experimentation pipelines, and Scopus-indexed papers. Fourth, teaching and mentorship. I mentored 25-plus students as a Bangkit Academy 2024 ML mentor and worked as a lab assistant at Univeristas Mulawarman for ML, DL, DSA, and OOP to 150-plus students.",
+    "research": "B.CS. or Bachelor of Computer Science degree (S.Kom. or Sarjana Komputer in Indonesian) from Universitas Mulawarman. I co-author applied AI research, with multiple Scopus-indexed papers, including Q1 journals in Smart Agricultural Technology and Artificial Intelligence in Agriculture.",
+    "hobbies": "Tinkering with software and hardware, mostly small tools for my own productivity. Gaming across Steam, Epic, GOG and Xbox; occasionally developing games using Unity. I enjoy photography, cinematography, photo editing, and digital art. I like to explore new and old technologies. I also enjoy reading books on technology, science, and philosophy. I like to travel and explore new places, especially nature and historical sites. I also enjoy cooking and trying out new recipes. I like to stay active and exercise regularly like running. I also enjoy playing musical instruments, especially guitar and ukulele. I like to spend time with family and friends, and I value meaningful conversations and connections. Overall, I have a wide range of interests and hobbies that keep me engaged and motivated.",
     "highlights": [
       {
         "title": "Systems Engineering",
-        "desc": "AI models wired to APIs, DBs, UIs; services, pipelines, dev tools.",
+        "desc": "Connecting AI models to APIs, databases, and interfaces, and building services, pipelines, and dev tools.",
         "icon": "Cpu"
       },
       {
         "title": "AI & Machine Learning",
-        "desc": "Vision, LLMs, RAG; training, evaluation, deployment.",
+        "desc": "Developing vision-systems, LLMs, and RAG; including training, evaluation, and deployment.",
         "icon": "BrainCircuit"
       },
       {
         "title": "Research & Engineering",
-        "desc": "Reproducible builds, datasets, evaluation workflows.",
+        "desc": "Shipping reproducible builds with datasets and evaluation workflows.",
         "icon": "FlaskConical"
       },
       {
         "title": "Teaching & Mentorship",
-        "desc": "Bangkit 2024 mentor; Mulawarman lab assistant.",
+        "desc": "Helping students with their theses by guiding the research flow implementation, programs development, and deliverables preparation.",
         "icon": "GraduationCap"
       }
     ],
@@ -66,7 +66,7 @@
     ]
   },
   "footer": {
-    "tagline": "Engineering intelligence to solve real-world challenges.",
+    "tagline": "A technology enthusiast who loves to explore and create.",
     "copyright": "2026 Fazri Gading. All rights reserved."
   }
 }
