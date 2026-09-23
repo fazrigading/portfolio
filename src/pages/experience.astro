@@ -17,13 +17,13 @@ import learning from '../data/learning.json';
           <li class="border-l-2 border-accent pl-3">
             <p class="text-sm font-bold text-ink">{e.role}</p>
             <p class="text-xs uppercase tracking-widest text-accent">{e.company} // {e.period}</p>
-            <p class="exp-desc line-clamp-2 pt-1 text-xs leading-relaxed text-dim">{e.description}</p>
-            <button
-              class="exp-toggle pt-1 text-[11px] uppercase tracking-widest text-dim hover:text-accent"
+            <p
+              class="exp-desc line-clamp-2 cursor-pointer pt-1 text-xs leading-relaxed text-dim hover:text-ink"
+              role="button"
+              tabindex="0"
               aria-expanded="false"
-            >
-              MORE +
-            </button>
+              title="Toggle full description"
+            >{e.description}</p>
           </li>
         ))}
       </ol>
@@ -33,7 +33,10 @@ import learning from '../data/learning.json';
         {learning.map((l) => (
           <li class="border-l-2 border-grid pl-3">
             <p class="flex items-start gap-2 text-sm font-bold text-ink">
-              <LucideIcon name={l.icon} size={14} class="mt-0.5 shrink-0" /> <span>{l.title}</span>
+              <span class="mt-0.5 grid h-3.5 w-3.5 shrink-0 place-items-center">
+                <LucideIcon name={l.icon} size={14} />
+              </span>
+              <span>{l.title}</span>
             </p>
             <p class="text-xs uppercase tracking-widest text-dim">{l.provider} // {l.date}</p>
           </li>
@@ -44,13 +47,17 @@ import learning from '../data/learning.json';
 </Layout>
 
 <script is:inline>
-  document.querySelectorAll('.exp-toggle').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const desc = btn.parentElement?.querySelector('.exp-desc');
-      const open = desc?.classList.toggle('line-clamp-2');
-      const expanded = !open;
-      btn.setAttribute('aria-expanded', String(expanded));
-      btn.textContent = expanded ? 'LESS -' : 'MORE +';
+  document.querySelectorAll('.exp-desc').forEach((desc) => {
+    const toggle = () => {
+      const collapsed = desc.classList.toggle('line-clamp-2');
+      desc.setAttribute('aria-expanded', String(!collapsed));
+    };
+    desc.addEventListener('click', toggle);
+    desc.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
     });
   });
 </script>
