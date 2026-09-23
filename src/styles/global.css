@@ -86,7 +86,7 @@ body {
 html[data-crt="off"] .crt-overlay { display: none; }
 
 /* display-only hover glitch: chromatic aberration, no layout shift */
-.glitch { position: relative; display: inline-block; }
+.glitch { position: relative; display: inline-block; max-width: 100%; overflow: hidden; }
 .glitch::before,
 .glitch::after {
   content: attr(data-text);
@@ -94,7 +94,6 @@ html[data-crt="off"] .crt-overlay { display: none; }
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  white-space: nowrap;
 }
 a:hover .glitch::before, .glitch:hover::before {
   opacity: 1;
