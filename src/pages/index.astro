@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import ZineCard from '../components/ZineCard.astro';
-import RetroWindow from '../components/RetroWindow.astro';
 import TerminalHero from '../components/TerminalHero.tsx';
 import profile from '../data/profile.json';
 import projects from '../data/projects.json';
@@ -34,11 +33,5 @@ const featured = projects.slice(0, 3);
         </a>
       </ZineCard>
     ))}
-  </div>
-
-  <div class="pt-10">
-    <RetroWindow tag="PAYLOAD_LOADED" title="roles">
-      <p class="text-sm text-dim">{profile.roles.join(' // ')}</p>
-    </RetroWindow>
   </div>
 </Layout>
