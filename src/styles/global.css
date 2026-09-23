@@ -43,8 +43,6 @@ body {
 
 ::selection { background: var(--accent); color: #08090d; }
 
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
 /* zine card: translucent dark + halftone dots */
 .card {
   background-color: color-mix(in srgb, var(--card) 80%, transparent);
