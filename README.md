@@ -5,7 +5,7 @@
     <strong>Applied AI & Systems Engineer</strong>
   </p>
   <p>
-    <em>DedSec-terminal themed static site — drive it with the terminal or Ctrl+K.</em>
+    <em>DedSec-inspired themed portofolio site, navigate with the terminal or Ctrl+K.</em>
   </p>
   <br />
 </div>
