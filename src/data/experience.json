@@ -1,29 +1,9 @@
   [
     {
       "id": "01",
-      "role": "Artificial Intelligence Trainer",
-      "company": "EBIT Co. Ltd.",
-      "period": "Apr 2026 - Present",
-      "type": "Technical",
-      "skills": [
-        "AI Strategy",
-        "Code Review",
-        "Model Evaluation",
-        "Cross-Platform Development",
-        "AI Optimization",
-        "Technical Communication",
-        "Problem Solving",
-        "Critical Thinking",
-        "Time Management",
-        "Adaptability"
-      ],
-      "description": "Improving code structure, modernizing frameworks, and optimizing AI models for multi-billion dollar company projects. Evaluating AI-generated responses for quality and contextual relevance, auditing code for logical accuracy, and verifying cross-platform compatibility."
-    },
-    {
-      "id": "02",
       "role": "Artificial Intelligence Researcher & Engineer",
       "company": "Mulawarman University - Informatics Department",
-      "period": "Jul 2023 - Present",
+      "period": "Jul 2023 - Aug 2026",
       "type": "Research",
       "skills": [
         "Deep Learning",
@@ -48,6 +28,26 @@
         "Ethical Research Practices"
       ],
       "description": "Developing and evaluating deep learning models for detection and visual analysis in agriculture and medical imaging. Leading four research projects: Ganoderma detection on oil palm stems using YOLO (v8-v13), two-stage DETR-based detectors, fruit estimation via instance segmentation, and glaucoma screening using cup-to-disc ratio from retinal fundus images. Writing research papers, managing project timelines, and collaborating with academic and industry partners. Overseeing administrative tasks, budgeting, and reporting for research activities while ensuring ethical standards and effective communication with stakeholders."
+    },
+    {
+      "id": "02",
+      "role": "Artificial Intelligence Trainer",
+      "company": "EBIT Co. Ltd.",
+      "period": "Apr 2026 - May 2026",
+      "type": "Technical",
+      "skills": [
+        "AI Strategy",
+        "Code Review",
+        "Model Evaluation",
+        "Cross-Platform Development",
+        "AI Optimization",
+        "Technical Communication",
+        "Problem Solving",
+        "Critical Thinking",
+        "Time Management",
+        "Adaptability"
+      ],
+      "description": "Improving code structure, modernizing frameworks, and optimizing AI models for multi-billion dollar company projects. Evaluating AI-generated responses for quality and contextual relevance, auditing code for logical accuracy, and verifying cross-platform compatibility."
     },
     {
       "id": "03",
