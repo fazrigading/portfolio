@@ -26,6 +26,7 @@
 body[data-route="/"] { --accent: #00f0ff; --accent-surface: #02141c; }
 body[data-route="projects"] { --accent: #00ff66; --accent-surface: #021a0e; }
 body[data-route="about"] { --accent: #ffe600; --accent-surface: #1a1800; }
+body[data-route="experience"] { --accent: #ff6b00; --accent-surface: #1f0e00; }
 body[data-route="research"] { --accent: #a822ff; --accent-surface: #13021f; }
 body[data-route="blog"] { --accent: #ff1744; --accent-surface: #1f0307; }
 body[data-route="contact"] { --accent: #ff007a; --accent-surface: #1c000f; }
@@ -114,6 +115,32 @@ a:hover .print-img, .print-img:hover { filter: none; }
 
 /* ascii header fluid type */
 .ascii-title { font-size: clamp(2.75rem, 9vw, 6.5rem); line-height: 0.9; }
+
+/* decoded transmission body (replaces tailwind typography) */
+.post-body > * + * { margin-top: 0.9em; }
+.post-body h2, .post-body h3 {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.post-body h2 { font-size: 1.25rem; }
+.post-body h3 { font-size: 1.05rem; }
+.post-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.post-body ul, .post-body ol { padding-left: 1.4em; }
+.post-body ul { list-style: square; }
+.post-body ol { list-style: decimal; }
+.post-body li + li { margin-top: 0.35em; }
+.post-body pre {
+  overflow-x: auto;
+  border: 1px solid var(--gridline);
+  padding: 0.9em;
+}
+.post-body :not(pre) > code {
+  color: var(--accent);
+  background: var(--accent-surface);
+  padding: 0.1em 0.35em;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
