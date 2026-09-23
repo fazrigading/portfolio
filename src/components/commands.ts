@@ -82,7 +82,7 @@ export async function runVerb(verb: string, arg: string, base: string): Promise<
         applyNavbar(arg);
         return { lines: [out(`NAV_BAR: ${arg === 'on' ? 'ONLINE' : 'OFFLINE'} (persisted)`)] };
       }
-      return { lines: [out(`NAV_BAR: ${getNavbar() === 'on' ? 'ONLINE' : 'OFFLINE'} — usage: navbar <on|off>`)] };
+      return { lines: [err(`usage: navbar <on|off> (now: ${getNavbar() === 'on' ? 'ONLINE' : 'OFFLINE'})`)] };
     }
     case 'accent': {
       const want = arg.toLowerCase();
@@ -95,14 +95,14 @@ export async function runVerb(verb: string, arg: string, base: string): Promise<
         resetAccent();
         return { lines: [out('ACCENT: route default (override cleared)')] };
       }
-      return { lines: [out(`ACCENT: ${currentAccent()} — usage: accent <color|default>`)] };
+      return { lines: [err(`usage: accent <color|default> (now: ${currentAccent()})`)] };
     }
     case 'crt': {
       if (arg === 'on' || arg === 'off') {
         applyCrt(arg);
         return { lines: [out(`CRT: ${arg === 'on' ? 'ONLINE' : 'OFFLINE'} (persisted)`)] };
       }
-      return { lines: [out(`CRT: ${getCrt() === 'on' ? 'ONLINE' : 'OFFLINE'} — usage: crt <on|off>`)] };
+      return { lines: [err(`usage: crt <on|off> (now: ${getCrt() === 'on' ? 'ONLINE' : 'OFFLINE'})`)] };
     }
     default:
       return { lines: [err(`ERR_0x99: command not found '${verb}'. try help`)] };
