@@ -3,14 +3,13 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import ZineCard from '../components/ZineCard.astro';
-import bgBlog from '../assets/wallpapers/dedsec-red/dedsec-red-wallpaper.webp';
 
 const b = import.meta.env.BASE_URL;
 const posts = (await getCollection('blog')).sort((a, b2) => (a.data.date < b2.data.date ? 1 : -1));
 ---
 
 <Layout route="blog" title="BLOG">
-  <AsciiHeader title="BROADCAST" tag="// ROUTE:/BLOG — SHIKI-ENCODED TRANSMISSIONS" bg={bgBlog.src} />
+  <AsciiHeader title="BROADCAST" tag="// ROUTE:/BLOG — SHIKI-ENCODED TRANSMISSIONS" />
 
   {posts.length === 0 && (
     <ZineCard title="NO_SIGNAL">

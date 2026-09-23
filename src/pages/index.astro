@@ -4,7 +4,6 @@ import AsciiHeader from '../components/AsciiHeader.astro';
 import ZineCard from '../components/ZineCard.astro';
 import TerminalHero from '../components/TerminalHero.tsx';
 import { slugify } from '../components/slug';
-import bgHome from '../assets/wallpapers/dedsec-bluecyan/official-wallpapers-blue/16_9/2_1920x1080.webp';
 import profile from '../data/profile.json';
 import projects from '../data/projects.json';
 
@@ -16,7 +15,6 @@ const featured = projects.slice(0, 3);
   <AsciiHeader
     title={profile.name}
     tag="// ROUTE:/ — DEDSEC OPERATOR FILE"
-    bg={bgHome.src}
   />
 
   <TerminalHero client:load />

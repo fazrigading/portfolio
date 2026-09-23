@@ -3,11 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import RetroWindow from '../components/RetroWindow.astro';
 import profile from '../data/profile.json';
-import bgContact from '../assets/wallpapers/dedsec-pink/dedsec-pink-green-1080p.webp';
 ---
 
 <Layout route="contact" title="CONTACT">
-  <AsciiHeader title="COMMS" tag="// ROUTE:/CONTACT — ENCRYPTED CHANNEL (MAILTO RELAY)" bg={bgContact.src} />
+  <AsciiHeader title="COMMS" tag="// ROUTE:/CONTACT — ENCRYPTED CHANNEL (MAILTO RELAY)" />
 
   <RetroWindow tag="UPLINK_READY" title="open channel">
     <form id="comms-form" class="space-y-4 text-sm">

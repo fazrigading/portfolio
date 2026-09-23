@@ -6,9 +6,26 @@ import CommandPalette from '../components/CommandPalette.tsx';
 import LucideIcon from '../components/LucideIcon.astro';
 import profile from '../data/profile.json';
 import social from '../data/social.json';
+import bgHome from '../assets/wallpapers/dedsec-bluecyan/official-wallpapers-blue/16_9/2_1920x1080.webp';
+import bgProjects from '../assets/wallpapers/dedsec-green/official-wallpapers-green/16_9/5_1920x1080.webp';
+import bgAbout from '../assets/wallpapers/dedsec-yellow/official-wallpapers-yellow/16_9/4_1920x1080.webp';
+import bgExperience from '../assets/wallpapers/dedsec-magenta/official-wallpapers-magenta/16_9/3_1920x1080.webp';
+import bgResearch from '../assets/wallpapers/dedsec-purple/official-wallpapers-purple/16_9/1_1920x1080.webp';
+import bgBlog from '../assets/wallpapers/dedsec-red/dedsec-red-wallpaper.webp';
+import bgContact from '../assets/wallpapers/dedsec-pink/dedsec-pink-green-1080p.webp';
 
 const { route = '/', title = 'ONLINE' } = Astro.props;
 const b = import.meta.env.BASE_URL;
+
+const pageBg: Record<string, string> = {
+  '/': bgHome.src,
+  projects: bgProjects.src,
+  about: bgAbout.src,
+  experience: bgExperience.src,
+  research: bgResearch.src,
+  blog: bgBlog.src,
+  contact: bgContact.src,
+};
 ---
 
 <!doctype html>
@@ -37,6 +54,10 @@ const b = import.meta.env.BASE_URL;
     </script>
   </head>
   <body class="min-h-screen font-term text-ink antialiased">
+    <div class="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
+      <img src={pageBg[route] ?? pageBg['/']} alt="" loading="eager" class="h-full w-full object-cover opacity-20" />
+      <div class="absolute inset-0 bg-gradient-to-b from-void/70 via-void/85 to-void"></div>
+    </div>
     <SystemBar route={route} />
     <main class="mx-auto w-full max-w-6xl px-4 pb-24 sm:px-6">
       <slot />

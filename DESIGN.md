@@ -36,10 +36,10 @@ Mechanism: `<html data-route>` sets `--accent` / `--accent-surface` on the root;
 
 | Primitive | File | Runtime |
 | :--- | :--- | :--- |
-| `Layout` | `src/layouts/Layout.astro` | Astro static, holds `data-route`, vars, slot |
+| `Layout` | `src/layouts/Layout.astro` | Astro static, holds `data-route`, vars, slot; fixed route-matched wallpaper page background (`src/assets/wallpapers/`, dimmed under gradient) |
 | `SystemBar` | `src/components/SystemBar.astro` | Astro static + vanilla toggle scripts (CRT, palette-open signal); nav row + OFFLINE hint gated by `data-navbar` on desktop |
 | `CRTOverlay` | `src/components/CRTOverlay.astro` | Astro static CSS (`repeating-linear-gradient` + vignette) |
-| `AsciiHeader` | `src/components/AsciiHeader.astro` | Astro static, `title` + `art` + `bg` props (`bg` = route-matched wallpaper from `src/assets/wallpapers/`, dimmed under gradient) |
+| `AsciiHeader` | `src/components/AsciiHeader.astro` | Astro static, `title` + `art` props |
 | `ZineCard` | `src/components/ZineCard.astro` | Astro static, halftone + torn edge |
 | `RetroWindow` | `src/components/RetroWindow.astro` | Astro static, `tag` prop (`ERR_0x99`, `PAYLOAD_LOADED`) |
 | `HalftoneImage` | `src/components/HalftoneImage.astro` | Astro static, `src` + `alt` props, WebP |

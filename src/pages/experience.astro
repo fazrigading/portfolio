@@ -5,11 +5,10 @@ import RetroWindow from '../components/RetroWindow.astro';
 import LucideIcon from '../components/LucideIcon.astro';
 import experience from '../data/experience.json';
 import learning from '../data/learning.json';
-import bgExperience from '../assets/wallpapers/dedsec-magenta/official-wallpapers-magenta/16_9/3_1920x1080.webp';
 ---
 
 <Layout route="experience" title="EXPERIENCE">
-  <AsciiHeader title="SERVICE_RECORD" tag="// ROUTE:/EXPERIENCE — WORK + LEARNING TIMELINES" bg={bgExperience.src} />
+  <AsciiHeader title="SERVICE_RECORD" tag="// ROUTE:/EXPERIENCE — WORK + LEARNING TIMELINES" />
 
   <div class="grid gap-6 md:grid-cols-2">
     <RetroWindow tag="TIMELINE" title="experience">
