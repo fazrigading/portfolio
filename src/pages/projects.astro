@@ -2,7 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import RetroWindow from '../components/RetroWindow.astro';
+import { slugify } from '../components/slug';
 import projects from '../data/projects.json';
+
+const b = import.meta.env.BASE_URL;
 
 // server-side group tagging keeps the client filter dumb
 const groups = (p: { category: string; tech: string[] }) => {
@@ -35,7 +38,8 @@ const groups = (p: { category: string; tech: string[] }) => {
             ))}
           </div>
           <div class="flex gap-4 pt-3 text-xs uppercase tracking-widest">
-            <a href={p.link} target="_blank" rel="noreferrer" class="text-accent hover:underline">REPO →</a>
+            <a href={`${b}projects/${slugify(p.title)}`} class="text-accent hover:underline">OPEN_FILE →</a>
+            <a href={p.link} target="_blank" rel="noreferrer" class="text-dim hover:text-accent hover:underline">REPO →</a>
           </div>
         </RetroWindow>
       </div>

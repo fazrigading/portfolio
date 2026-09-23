@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import RetroWindow from '../../components/RetroWindow.astro';
+import LucideIcon from '../../components/LucideIcon.astro';
+import { slugify } from '../../components/slug';
+import projects from '../../data/projects.json';
+
+export async function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: slugify(p.title) }, props: { p } }));
+}
+
+const { p } = Astro.props;
+const b = import.meta.env.BASE_URL;
+---
+
+<Layout route="projects" title={p.title}>
+  <div class="pb-4 pt-10">
+    <a href={`${b}projects`} class="text-xs uppercase tracking-widest text-dim hover:text-accent">← ALL_PAYLOADS</a>
+  </div>
+  <RetroWindow tag="PAYLOAD_DUMP" title={p.title}>
+    <p class="flex items-center gap-2 text-xs uppercase tracking-widest text-accent">
+      <LucideIcon name={p.icon} size={14} /> {p.subtitle} [{p.category}]
+    </p>
+    <p class="pt-3 text-sm leading-relaxed text-ink">{p.desc}</p>
+    <div class="flex flex-wrap gap-1.5 pt-4">
+      {p.tech.map((t) => (
+        <span class="border border-grid px-1.5 py-0.5 text-[11px] text-dim">{t}</span>
+      ))}
+    </div>
+    <div class="pt-4 text-xs uppercase tracking-widest">
+      <a href={p.link} target="_blank" rel="noreferrer" class="text-accent hover:underline">REPO →</a>
+    </div>
+  </RetroWindow>
+</Layout>

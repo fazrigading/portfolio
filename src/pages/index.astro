@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import ZineCard from '../components/ZineCard.astro';
 import TerminalHero from '../components/TerminalHero.tsx';
+import { slugify } from '../components/slug';
 import profile from '../data/profile.json';
 import projects from '../data/projects.json';
 
@@ -19,18 +20,26 @@ const featured = projects.slice(0, 3);
   <TerminalHero client:load />
 
   <div class="grid gap-6 pt-10 md:grid-cols-3">
-    {featured.map((p, i) => (
+    {featured.map((p) => (
       <ZineCard title={p.title}>
         <p class="pt-1 text-xs uppercase tracking-widest text-accent">{p.subtitle}</p>
-        <p class="line-clamp-3 pt-2 text-[13px] leading-relaxed text-dim">{p.desc}</p>
-        <div class="flex flex-wrap gap-1.5 pt-3">
-          {p.tech.slice(0, 4).map((t) => (
-            <span class="border border-grid px-1.5 py-0.5 text-[11px] text-dim">{t}</span>
-          ))}
+        <details class="pt-2 text-[13px]">
+          <summary class="cursor-pointer text-xs uppercase tracking-widest text-dim hover:text-accent">SHOW_PAYLOAD +</summary>
+          <p class="line-clamp-3 pt-2 leading-relaxed text-dim">{p.desc}</p>
+          <div class="flex flex-wrap gap-1.5 pt-3">
+            {p.tech.slice(0, 4).map((t) => (
+              <span class="border border-grid px-1.5 py-0.5 text-[11px] text-dim">{t}</span>
+            ))}
+          </div>
+        </details>
+        <div class="flex gap-4 pt-3 text-xs uppercase tracking-widest">
+          <a href={`${b}projects/${slugify(p.title)}`} class="text-accent hover:underline">
+            OPEN_FILE →
+          </a>
+          <a href={p.link} target="_blank" rel="noreferrer" class="text-dim hover:text-accent hover:underline">
+            REPO →
+          </a>
         </div>
-        <a href={`${b}projects`} class="inline-block pt-3 text-xs uppercase tracking-widest text-accent hover:underline">
-          OPEN_PAYLOAD_0x9{i} →
-        </a>
       </ZineCard>
     ))}
   </div>

@@ -12,25 +12,36 @@ export const FILES = ['about.txt', 'roles.txt', 'stack.txt', 'contact.txt'];
 export type TermLine = { text: string; kind: 'in' | 'out' | 'err' };
 
 export const HELP: TermLine[] = [
-  { text: 'DEDSEC secure shell v1 — NAV_BAR is OFF on desktop. drive with:', kind: 'out' },
-  { text: 'help\t\tshow this readout', kind: 'out' },
-  { text: 'goto <route>\tjump to one of:', kind: 'out' },
-  { text: '\t/\t\t\thome (this terminal)', kind: 'out' },
-  { text: '\tprojects\tpayload index (PORT filter)', kind: 'out' },
-  { text: '\tabout\t\tdossier + stack + uplinks', kind: 'out' },
-  { text: '\texperience\twork + learning timelines', kind: 'out' },
-  { text: '\tresearch\tpaper archive', kind: 'out' },
-  { text: '\tblog\t\ttransmissions', kind: 'out' },
-  { text: '\tcontact\t\tcomms form', kind: 'out' },
-  { text: 'cat <file>\tprint a dossier file:', kind: 'out' },
-  { text: '\tabout.txt\twhoami, one screen', kind: 'out' },
-  { text: '\troles.txt\toperator roles', kind: 'out' },
-  { text: '\tstack.txt\tcore stack', kind: 'out' },
-  { text: '\tcontact.txt\treach me', kind: 'out' },
-  { text: 'navbar <on|off>\tenable/disable desktop navbar (mobile always on)', kind: 'out' },
-  { text: 'accent <color|default>\tswitch theme: cyan green yellow orange purple red pink', kind: 'out' },
-  { text: 'crt <on|off>\ttoggle scanline overlay', kind: 'out' },
-  { text: 'clear\t\twipe the terminal', kind: 'out' },
+  {
+    text: "DEDSEC secure shell v1 — NAV_BAR is OFF on desktop. drive with:",
+    kind: "out",
+  },
+  { text: "help\t\t\t\tshow this readout", kind: "out" },
+  { text: "goto <route>\t\tjump to one of:", kind: "out" },
+  { text: "\t/\t\t\t\thome (this terminal)", kind: "out" },
+  { text: "\tprojects\t\tpayload index (PORT filter)", kind: "out" },
+  { text: "\tabout\t\t\tdossier + stack + uplinks", kind: "out" },
+  { text: "\texperience\t\twork + learning timelines", kind: "out" },
+  { text: "\tresearch\t\tpaper archive", kind: "out" },
+  { text: "\tblog\t\t\ttransmissions", kind: "out" },
+  { text: "\tcontact\t\t\tcomms form", kind: "out" },
+  { text: "cat <file>\t\t\tprint a dossier file:", kind: "out" },
+  { text: "\tabout.txt\t\twhoami, one screen", kind: "out" },
+  { text: "\troles.txt\t\toperator roles", kind: "out" },
+  { text: "\tstack.txt\t\tcore stack", kind: "out" },
+  { text: "\tcontact.txt\t\treach me", kind: "out" },
+  { text: "navbar <on|off>\t\ttoggle navbar (mobile always on)", kind: "out" },
+  { text: "accent <color>\t\tswitch theme color", kind: "out" },
+  { text: "\tdefault\t\t\tclear override, route default", kind: "out" },
+  { text: "\tc\t\t\t\tcyan", kind: "out" },
+  { text: "\tg\t\t\t\tgreen", kind: "out" },
+  { text: "\ty\t\t\t\tyellow", kind: "out" },
+  { text: "\to\t\t\t\torange", kind: "out" },
+  { text: "\tp\t\t\t\tpurple", kind: "out" },
+  { text: "\tr\t\t\t\tred", kind: "out" },
+  { text: "\tk\t\t\t\tpink", kind: "out" },
+  { text: "crt <on|off>\t\ttoggle scanline overlay", kind: "out" },
+  { text: "clear\t\t\t\twipe the terminal", kind: "out" },
 ];
 
 export type TResult = { lines: TermLine[]; navigate?: string };
@@ -71,7 +82,8 @@ export async function runVerb(verb: string, arg: string, base: string): Promise<
       return { lines: [out(`NAV_BAR: ${getNavbar() === 'on' ? 'ONLINE' : 'OFFLINE'} — usage: navbar <on|off>`)] };
     }
     case 'accent': {
-      const hit = ACCENTS.find((a) => a.color.toLowerCase() === arg.toLowerCase());
+      const want = arg.toLowerCase();
+      const hit = ACCENTS.find((a) => a.color.toLowerCase() === want || a.key === want);
       if (hit) {
         paintAccent(hit.accent, hit.surface);
         return { lines: [out(`ACCENT: ${hit.color} (persisted)`)] };

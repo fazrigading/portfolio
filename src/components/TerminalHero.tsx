@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import { HELP, runVerb, type TermLine } from './commands';
+import { runVerb, type TermLine } from './commands';
 
 const base = import.meta.env.BASE_URL;
 
 export default function TerminalHero() {
-  const [lines, setLines] = useState<TermLine[]>(HELP);
+  const [lines, setLines] = useState<TermLine[]>([
+    { text: 'DEDSEC secure shell — type `help`', kind: 'out' },
+  ]);
   const [value, setValue] = useState('');
   const boxRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +37,7 @@ export default function TerminalHero() {
       <div className="border-b border-grid bg-accentsurface px-3 py-1.5 font-display text-sm tracking-widest text-accent">
         [TERMINAL_ACTIVE]
       </div>
-      <div ref={boxRef} className="h-64 overflow-y-auto p-4 text-[13px] leading-relaxed">
+      <div ref={boxRef} className="h-96 overflow-y-auto p-4 text-[13px] leading-relaxed">
         {lines.map((l, i) => (
           <p
             key={i}
