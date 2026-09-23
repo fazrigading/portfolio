@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AsciiHeader from '../components/AsciiHeader.astro';
+import ZineCard from '../components/ZineCard.astro';
+import RetroWindow from '../components/RetroWindow.astro';
+import TerminalHero from '../components/TerminalHero.tsx';
+import profile from '../data/profile.json';
+import projects from '../data/projects.json';
+
+const b = import.meta.env.BASE_URL;
+const featured = projects.slice(0, 3);
+---
+
+<Layout route="/" title="HOME">
+  <AsciiHeader
+    title={profile.name}
+    tag="// ROUTE:/ — DEDSEC OPERATOR FILE"
+    art={`▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n▓░ ${profile.heroBadge.toUpperCase()} ░▓`}
+  />
+  <p class="max-w-2xl pb-8 text-sm leading-relaxed text-dim">{profile.heroTagline}</p>
+
+  <TerminalHero client:load />
+
+  <div class="grid gap-6 pt-10 md:grid-cols-3">
+    {featured.map((p, i) => (
+      <ZineCard title={p.title}>
+        <p class="pt-1 text-xs uppercase tracking-widest text-accent">{p.subtitle}</p>
+        <p class="line-clamp-3 pt-2 text-[13px] leading-relaxed text-dim">{p.desc}</p>
+        <div class="flex flex-wrap gap-1.5 pt-3">
+          {p.tech.slice(0, 4).map((t) => (
+            <span class="border border-grid px-1.5 py-0.5 text-[11px] text-dim">{t}</span>
+          ))}
+        </div>
+        <a href={`${b}projects`} class="inline-block pt-3 text-xs uppercase tracking-widest text-accent hover:underline">
+          OPEN_PAYLOAD_0x9{i} →
+        </a>
+      </ZineCard>
+    ))}
+  </div>
+
+  <div class="pt-10">
+    <RetroWindow tag="PAYLOAD_LOADED" title="roles">
+      <p class="text-sm text-dim">{profile.roles.join(' // ')}</p>
+    </RetroWindow>
+  </div>
+</Layout>

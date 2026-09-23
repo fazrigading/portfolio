@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AsciiHeader from '../components/AsciiHeader.astro';
+import RetroWindow from '../components/RetroWindow.astro';
+import research from '../data/research.json';
+---
+
+<Layout route="research" title="RESEARCH">
+  <AsciiHeader title="ARCHIVE" tag="// ROUTE:/RESEARCH — STATIC LIST V1 (NODEGRAPH = V2)" />
+
+  <div class="space-y-4">
+    {research.map((r, i) => (
+      <RetroWindow tag={r.status === 'Published' ? 'PEER_REVIEWED' : 'DRAFT'} title={r.title}>
+        <p class="text-xs uppercase tracking-widest text-dim">
+          <span class="text-accent">[{String(i + 1).padStart(2, '0')}]</span> {r.authors} // {r.year} // {r.category}
+        </p>
+        <p class="pt-2 text-sm text-ink">
+          {r.journalUrl ? <a href={r.journalUrl} target="_blank" rel="noreferrer" class="hover:text-accent hover:underline">{r.journal}</a> : r.journal}
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2 text-xs uppercase tracking-widest">
+          {r.articleUrl && <a href={r.articleUrl} target="_blank" rel="noreferrer" class="text-accent hover:underline">ARTICLE →</a>}
+          {'repo' in r && (r as any).repo && <a href={(r as any).repo} target="_blank" rel="noreferrer" class="text-accent hover:underline">REPO →</a>}
+          {'dataset_tags' in r && Array.isArray((r as any).dataset_tags) && (r as any).dataset_tags.map((d: string) => (
+            <span class="border border-grid px-1.5 py-0.5 text-dim">{d}</span>
+          ))}
+        </div>
+      </RetroWindow>
+    ))}
+  </div>
+</Layout>

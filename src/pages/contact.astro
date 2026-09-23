@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AsciiHeader from '../components/AsciiHeader.astro';
+import RetroWindow from '../components/RetroWindow.astro';
+import profile from '../data/profile.json';
+---
+
+<Layout route="contact" title="CONTACT">
+  <AsciiHeader title="COMMS" tag="// ROUTE:/CONTACT — ENCRYPTED CHANNEL (MAILTO RELAY)" />
+
+  <RetroWindow tag="UPLINK_READY" title="open channel">
+    <form id="comms-form" class="space-y-4 text-sm">
+      <label class="block">
+        <span class="text-xs uppercase tracking-widest text-dim">HANDLE</span>
+        <input id="comms-handle" required class="mt-1 w-full border border-grid bg-void p-2 text-ink outline-none placeholder:text-dim/50 focus:border-accent" placeholder="visitor" />
+      </label>
+      <label class="block">
+        <span class="text-xs uppercase tracking-widest text-dim">RETURN_FREQ (EMAIL)</span>
+        <input id="comms-email" type="email" required class="mt-1 w-full border border-grid bg-void p-2 text-ink outline-none placeholder:text-dim/50 focus:border-accent" placeholder="you@domain" />
+      </label>
+      <label class="block">
+        <span class="text-xs uppercase tracking-widest text-dim">PAYLOAD</span>
+        <textarea id="comms-body" required rows="5" class="mt-1 w-full border border-grid bg-void p-2 text-ink outline-none placeholder:text-dim/50 focus:border-accent" placeholder="transmission content…"></textarea>
+      </label>
+      <button type="submit" class="border border-accent bg-accentsurface px-4 py-2 text-xs uppercase tracking-widest text-accent hover:underline">
+        TRANSMIT →
+      </button>
+      <p id="comms-confirm" class="hidden font-display tracking-widest text-accent">[MESSAGE_TRANSMITTED]</p>
+    </form>
+  </RetroWindow>
+</Layout>
+
+<script is:inline define:vars={{ email: profile.email }}>
+  document.getElementById('comms-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const h = document.getElementById('comms-handle').value;
+    const from = document.getElementById('comms-email').value;
+    const body = document.getElementById('comms-body').value;
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(`COMMS from ${h}`)}&body=${encodeURIComponent(`${body}\n\n— ${h} (${from})`)}`;
+    document.getElementById('comms-confirm')?.classList.remove('hidden');
+  });
+</script>

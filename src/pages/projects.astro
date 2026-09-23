@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AsciiHeader from '../components/AsciiHeader.astro';
+import RetroWindow from '../components/RetroWindow.astro';
+import projects from '../data/projects.json';
+
+// server-side group tagging keeps the client filter dumb
+const groups = (p: { category: string; tech: string[] }) => {
+  const s = `${p.category} ${p.tech.join(' ')}`.toLowerCase();
+  const g: string[] = [];
+  if (/ai|ml|\bcv\b|computer vision|deep learning|tensorflow|pytorch|neural|u-net|yolo|detection|segmentation|vision|glaucoma|crop|yield/.test(s)) g.push('ml');
+  if (/web|react|frontend|backend|full.?stack|flask|typescript|javascript|tailwind|mysql|platform|analytics/.test(s)) g.push('web');
+  return g.join(' ');
+};
+---
+
+<Layout route="projects" title="PROJECTS">
+  <AsciiHeader title="PAYLOADS" tag="// ROUTE:/PROJECTS — FILTER BY PORT" />
+
+  <div class="flex flex-wrap gap-2 pb-8" id="filter-matrix">
+    <button data-port="all" class="filter-btn border border-accent bg-accentsurface px-3 py-1.5 text-xs uppercase tracking-widest text-accent">PORT 80: ALL</button>
+    <button data-port="ml" class="filter-btn border border-grid px-3 py-1.5 text-xs uppercase tracking-widest text-dim hover:border-accent hover:text-accent">PORT 443: ML/CV</button>
+    <button data-port="web" class="filter-btn border border-grid px-3 py-1.5 text-xs uppercase tracking-widest text-dim hover:border-accent hover:text-accent">PORT 8080: WEB</button>
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-2" id="payload-grid">
+    {projects.map((p, i) => (
+      <div class="payload" data-groups={groups(p)}>
+        <RetroWindow tag={`ERR_0x9${i}`} title={p.title}>
+          <p class="text-xs uppercase tracking-widest text-accent">{p.subtitle} [{p.category}]</p>
+          <p class="pt-2 text-[13px] leading-relaxed text-dim">{p.desc}</p>
+          <div class="flex flex-wrap gap-1.5 pt-3">
+            {p.tech.map((t) => (
+              <span class="border border-grid px-1.5 py-0.5 text-[11px] text-dim">{t}</span>
+            ))}
+          </div>
+          <div class="flex gap-4 pt-3 text-xs uppercase tracking-widest">
+            <a href={p.link} target="_blank" rel="noreferrer" class="text-accent hover:underline">REPO →</a>
+          </div>
+        </RetroWindow>
+      </div>
+    ))}
+  </div>
+</Layout>
+
+<script is:inline>
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.payload');
+  btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const port = btn.getAttribute('data-port');
+      btns.forEach((b) => b.classList.remove('border-accent', 'bg-accentsurface', 'text-accent'));
+      btn.classList.add('border-accent', 'bg-accentsurface', 'text-accent');
+      cards.forEach((c) => {
+        const g = (c.getAttribute('data-groups') || '').split(' ');
+        c.style.display = port === 'all' || g.includes(port || '') ? '' : 'none';
+      });
+    });
+  });
+</script>

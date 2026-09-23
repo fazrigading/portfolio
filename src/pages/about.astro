@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AsciiHeader from '../components/AsciiHeader.astro';
+import RetroWindow from '../components/RetroWindow.astro';
+import HalftoneImage from '../components/HalftoneImage.astro';
+import LucideIcon from '../components/LucideIcon.astro';
+import profile from '../data/profile.json';
+import experience from '../data/experience.json';
+import learning from '../data/learning.json';
+import portrait from '../data/fazrigading-large.webp';
+---
+
+<Layout route="about" title="ABOUT">
+  <AsciiHeader title="DOSSIER" tag="// ROUTE:/ABOUT — OPERATOR FILE" />
+
+  <div class="grid gap-6 md:grid-cols-3">
+    <div class="md:col-span-1">
+      <HalftoneImage src={portrait.src} alt={profile.name} class="aspect-[3/4]" />
+    </div>
+    <div class="md:col-span-2">
+      <RetroWindow tag="ID_VERIFIED" title={profile.about.title}>
+        <p class="text-sm leading-relaxed text-ink">{profile.about.intro}</p>
+        <p class="pt-3 text-sm leading-relaxed text-dim">{profile.about.detailed}</p>
+        <div class="grid gap-3 pt-4 sm:grid-cols-2">
+          {profile.about.highlights.map((h) => (
+            <div class="border border-grid p-3">
+              <p class="flex items-center gap-2 font-punk text-sm font-bold uppercase text-accent">
+                <LucideIcon name={h.icon} size={15} /> {h.title}
+              </p>
+              <p class="pt-1 text-xs leading-relaxed text-dim">{h.desc}</p>
+            </div>
+          ))}
+        </div>
+      </RetroWindow>
+    </div>
+  </div>
+
+  <div class="pt-10">
+    <RetroWindow tag="CPU_USAGE" title="skills">
+      <ul class="space-y-2">
+        {profile.techs.map((t, i) => (
+          <li class="flex items-center gap-3 text-sm">
+            <span class="w-24 shrink-0 font-display tracking-widest text-accent">CPU_{i}</span>
+            <span class="h-3 flex-1 border border-grid bg-accentsurface">
+              <span class="block h-full w-full bg-accent/70"></span>
+            </span>
+            <span class="w-16 text-right uppercase text-dim">{t}</span>
+          </li>
+        ))}
+      </ul>
+    </RetroWindow>
+  </div>
+
+  <div class="grid gap-6 pt-10 md:grid-cols-2">
+    <RetroWindow tag="TIMELINE" title="experience">
+      <ol class="space-y-4">
+        {experience.map((e) => (
+          <li class="border-l-2 border-accent pl-3">
+            <p class="text-sm font-bold text-ink">{e.role}</p>
+            <p class="text-xs uppercase tracking-widest text-accent">{e.company} // {e.period}</p>
+            <p class="line-clamp-2 pt-1 text-xs leading-relaxed text-dim">{e.description}</p>
+          </li>
+        ))}
+      </ol>
+    </RetroWindow>
+    <RetroWindow tag="TIMELINE" title="learning">
+      <ol class="space-y-3">
+        {learning.map((l) => (
+          <li class="border-l-2 border-grid pl-3">
+            <p class="flex items-center gap-2 text-sm font-bold text-ink">
+              <LucideIcon name={l.icon} size={14} /> {l.title}
+            </p>
+            <p class="text-xs uppercase tracking-widest text-dim">{l.provider} // {l.date}</p>
+          </li>
+        ))}
+      </ol>
+    </RetroWindow>
+  </div>
+</Layout>
