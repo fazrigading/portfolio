@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { runVerb, type TermLine } from './commands';
+import { go, runVerb, type TermLine } from './commands';
 
 const base = import.meta.env.BASE_URL;
 
@@ -29,7 +29,7 @@ export default function TerminalHero() {
     }
     const { lines: result, navigate } = await runVerb(c, arg, base);
     setLines([...next, ...result]);
-    if (navigate) window.location.href = navigate;
+    if (navigate) go(navigate);
   };
 
   return (

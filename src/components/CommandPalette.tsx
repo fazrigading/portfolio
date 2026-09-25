@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { paletteItems, type PItem } from './commands';
+import { go, paletteItems, type PItem } from './commands';
 
 const base = import.meta.env.BASE_URL;
 
@@ -29,7 +29,7 @@ export default function CommandPalette() {
   const items: PItem[] = useMemo(
     () =>
       paletteItems((r) => {
-        window.location.href = r === '/' ? base : `${base}${r.slice(1)}`;
+        go(r === '/' ? base : `${base}${r.slice(1)}`);
       }),
     []
   );
@@ -61,7 +61,9 @@ export default function CommandPalette() {
     }
   };
 
-  if (!open) return null;
+  // <></> not null: null-returning islands trip Astro's renderer probe
+  // into a spurious dev-only invalid-hook-call warning (withastro/astro#12283).
+  if (!open) return <></>;
   return (
     <div
       className="fixed inset-0 z-[100] bg-black/70 p-4"

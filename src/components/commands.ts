@@ -5,6 +5,14 @@
 import { applyNavbar, getNavbar } from './navbarPref';
 import { ACCENTS, currentAccent, paintAccent, resetAccent } from './accentPref';
 import { applyCrt, getCrt } from './crtPref';
+import { navigate } from 'astro:transitions/client';
+
+// Router-aware navigation for the islands: animated transition when the
+// ClientRouter is active, plain full load otherwise (navigate() falls back).
+// Call this, never window.location.href, so page changes always crossfade.
+export function go(href: string) {
+  navigate(href);
+}
 
 export const ROUTES = ['/', '/projects', '/about', '/experience', '/research', '/blog', '/contact'];
 export const FILES = ['about.txt', 'roles.txt', 'stack.txt', 'contact.txt'];
@@ -41,10 +49,10 @@ export const HELP: TermLine[] = [
   { text: "navbar <on|off>\t\ttoggle navbar (mobile always on)", kind: "out" },
   { text: "accent <color>\t\tswitch theme color", kind: "out" },
   { text: "\tdefault (d)\t\tclear override, route default", kind: "out" },
-  { text: "\tcyan (c)\t\thome page accent color", kind: "out" },
+  { text: "\tblue (c)\t\thome page accent color", kind: "out" },
   { text: "\tgreen (g)\t\tprojects page accent color", kind: "out" },
   { text: "\tyellow (y)\t\tabout page accent color", kind: "out" },
-  { text: "\torange (o)\t\texperience page accent color", kind: "out" },
+  { text: "\tmagenta (m)\t\texperience page accent color", kind: "out" },
   { text: "\tpurple (p)\t\tresearch page accent color", kind: "out" },
   { text: "\tred (r)\t\t\tblog page accent color", kind: "out" },
   { text: "\tpink (k)\t\tcontact page accent color", kind: "out" },
