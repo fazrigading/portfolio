@@ -36,6 +36,18 @@ import portrait from '../data/fazrigading-large.webp';
   </div>
 
   <div class="pt-10">
+    <ZineCard title="uplinks">
+      <div class="flex flex-wrap gap-2 pt-2">
+        {[...social.socialLinks.map((s) => ({ name: s.name, href: s.href, icon: s.icon })), ...social.extraSocials.map((s) => ({ name: s.name, href: s.href, icon: 'Link' }))].map((s) => (
+          <a href={s.href} target="_blank" rel="noreferrer" title={s.name} aria-label={s.name} class="border border-grid p-2 text-dim transition-colors hover:border-accent hover:text-accent">
+            <LucideIcon name={s.icon} size={16} />
+          </a>
+        ))}
+      </div>
+    </ZineCard>
+  </div>
+
+  <div class="pt-10">
     <RetroWindow tag="CPU_USAGE" title="core stack">
       <ul class="space-y-2">
         {profile.techs.map((t, i) => (
@@ -89,18 +101,6 @@ import portrait from '../data/fazrigading-large.webp';
         ))}
       </div>
     </RetroWindow>
-  </div>
-
-  <div class="pt-10">
-    <ZineCard title="uplinks">
-      <div class="flex flex-wrap gap-2 pt-2">
-        {[...social.socialLinks.map((s) => ({ name: s.name, href: s.href })), ...social.extraSocials].map((s) => (
-          <a href={s.href} target="_blank" rel="noreferrer" class="border border-grid px-2 py-1 text-[11px] uppercase tracking-widest text-dim transition-colors hover:border-accent hover:text-accent">
-            {s.name} →
-          </a>
-        ))}
-      </div>
-    </ZineCard>
   </div>
 
   <div class="grid gap-6 pt-10 md:grid-cols-2">
