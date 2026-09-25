@@ -3,29 +3,52 @@ import '../styles/global.css';
 import SystemBar from '../components/SystemBar.astro';
 import CRTOverlay from '../components/CRTOverlay.astro';
 import CommandPalette from '../components/CommandPalette.tsx';
+import { ClientRouter } from 'astro:transitions';
 import LucideIcon from '../components/LucideIcon.astro';
 import profile from '../data/profile.json';
 import social from '../data/social.json';
-import bgHome from '../assets/wallpapers/dedsec-bluecyan/official-wallpapers-blue/16_9/2_1920x1080.webp';
-import bgProjects from '../assets/wallpapers/dedsec-green/official-wallpapers-green/16_9/5_1920x1080.webp';
-import bgAbout from '../assets/wallpapers/dedsec-yellow/official-wallpapers-yellow/16_9/4_1920x1080.webp';
-import bgExperience from '../assets/wallpapers/dedsec-magenta/official-wallpapers-magenta/16_9/3_1920x1080.webp';
-import bgResearch from '../assets/wallpapers/dedsec-purple/official-wallpapers-purple/16_9/1_1920x1080.webp';
-import bgBlog from '../assets/wallpapers/dedsec-red/dedsec-red-wallpaper.webp';
-import bgContact from '../assets/wallpapers/dedsec-pink/dedsec-pink-green-1080p.webp';
+import bgHome from '../assets/wallpapers/desktop/blue.webp';
+import bgHomeMobile from '../assets/wallpapers/mobile/blue.webp';
+import bgHomeAlt from '../assets/wallpapers/desktop/blue-alt.webp';
+import bgHomeAltMobile from '../assets/wallpapers/mobile/blue-alt.webp';
+import bgProjects from '../assets/wallpapers/desktop/green.webp';
+import bgProjectsMobile from '../assets/wallpapers/mobile/green.webp';
+import bgProjectsAlt from '../assets/wallpapers/desktop/green-alt.webp';
+import bgProjectsAlt2 from '../assets/wallpapers/desktop/green-alt-2.webp';
+import bgProjectsAlt2Mobile from '../assets/wallpapers/mobile/green-alt-2.webp';
+import bgProjectsAlt2Mix from '../assets/wallpapers/desktop/green-alt-2-mix-magenta.webp';
+import bgAbout from '../assets/wallpapers/desktop/yellow.webp';
+import bgAboutMobile from '../assets/wallpapers/mobile/yellow.webp';
+import bgExperience from '../assets/wallpapers/desktop/magenta.webp';
+import bgExperienceMobile from '../assets/wallpapers/mobile/magenta.webp';
+import bgExperienceAlt from '../assets/wallpapers/desktop/magenta-alt.webp';
+import bgResearch from '../assets/wallpapers/desktop/purple.webp';
+import bgResearchMobile from '../assets/wallpapers/mobile/purple.webp';
+import bgResearchAlt from '../assets/wallpapers/desktop/purple-alt.webp';
+import bgBlog from '../assets/wallpapers/desktop/red.webp';
+import bgBlogMobile from '../assets/wallpapers/mobile/red.webp';
+// No pink portrait exists — contact falls back to desktop on mobile.
+import bgContact from '../assets/wallpapers/desktop/pink.webp';
+import bgContactAlt from '../assets/wallpapers/desktop/pink-green.webp';
 
 const { route = '/', title = 'ONLINE' } = Astro.props;
 const b = import.meta.env.BASE_URL;
 
-const pageBg: Record<string, string> = {
-  '/': bgHome.src,
-  projects: bgProjects.src,
-  about: bgAbout.src,
-  experience: bgExperience.src,
-  research: bgResearch.src,
-  blog: bgBlog.src,
-  contact: bgContact.src,
+// Per-route wallpaper pools. index [0] = server-rendered default; the
+// rotation script below swaps to a random non-repeating pick on every trigger.
+const pageBg: Record<string, { desktop: string[]; mobile: string[] }> = {
+  '/': { desktop: [bgHome.src, bgHomeAlt.src], mobile: [bgHomeMobile.src, bgHomeAltMobile.src] },
+  projects: {
+    desktop: [bgProjects.src, bgProjectsAlt.src, bgProjectsAlt2.src, bgProjectsAlt2Mix.src],
+    mobile: [bgProjectsMobile.src, bgProjectsAlt2Mobile.src],
+  },
+  about: { desktop: [bgAbout.src], mobile: [bgAboutMobile.src] },
+  experience: { desktop: [bgExperience.src, bgExperienceAlt.src], mobile: [bgExperienceMobile.src] },
+  research: { desktop: [bgResearch.src, bgResearchAlt.src], mobile: [bgResearchMobile.src] },
+  blog: { desktop: [bgBlog.src], mobile: [bgBlogMobile.src] },
+  contact: { desktop: [bgContact.src, bgContactAlt.src], mobile: [] },
 };
+const bg = pageBg[route] ?? pageBg['/'];
 ---
 
 <!doctype html>
@@ -41,6 +64,46 @@ const pageBg: Record<string, string> = {
       href="https://fonts.googleapis.com/css2?family=VT323&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    {/* Preload each route's default wallpaper (pool index 0) so the morph snapshots pixels; alts load on demand, then cache */}
+    {[...new Set(Object.values(pageBg).map((v) => v.desktop[0]))].map((src) => (
+      <link rel="preload" as="image" href={src} />
+    ))}
+    {[...new Set(Object.values(pageBg).map((v) => v.mobile[0]).filter(Boolean))].map((src) => (
+      <link rel="preload" as="image" href={src} media="(max-width: 768px)" />
+    ))}
+    <ClientRouter />
+    <script is:inline>
+      // Random non-repeating wallpaper per route trigger (full load + ClientRouter nav).
+      function wpPick(pool, key) {
+        if (!pool.length) return null;
+        if (pool.length === 1) return pool[0];
+        var last = -1;
+        try { last = parseInt(sessionStorage.getItem(key) || '-1', 10); } catch (e) {}
+        var i = last;
+        while (i === last) i = Math.floor(Math.random() * pool.length);
+        try { sessionStorage.setItem(key, String(i)); } catch (e) {}
+        return pool[i];
+      }
+      function wpRotate() {
+        var root = document.getElementById('wallpaper');
+        if (!root) return;
+        var desktop, mobile;
+        try {
+          desktop = JSON.parse(root.dataset.desktopPool || '[]');
+          mobile = JSON.parse(root.dataset.mobilePool || '[]');
+        } catch (e) { return; }
+        var isMobile = window.matchMedia('(max-width: 768px)').matches;
+        var pool = isMobile && mobile.length ? mobile : desktop;
+        var src = wpPick(pool, 'wp-last-' + (root.dataset.route || '/') + (isMobile ? '-m' : '-d'));
+        if (!src) return;
+        var source = document.getElementById('wp-source');
+        var img = document.getElementById('wp-img');
+        if (isMobile && mobile.length && source) source.setAttribute('srcset', src);
+        if (img && img.getAttribute('src') !== src) img.setAttribute('src', src);
+      }
+      document.addEventListener('astro:page-load', wpRotate);
+      wpRotate();
+    </script>
     <script is:inline>
       try {
         if (localStorage.getItem('dedsec-crt') === 'off') document.documentElement.dataset.crt = 'off';
@@ -54,8 +117,11 @@ const pageBg: Record<string, string> = {
     </script>
   </head>
   <body class="min-h-screen font-term text-ink antialiased">
-    <div class="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
-      <img src={pageBg[route] ?? pageBg['/']} alt="" loading="eager" class="h-full w-full object-cover opacity-75" />
+    <div id="wallpaper" transition:name="wallpaper" class="pointer-events-none fixed inset-0 -z-10" aria-hidden="true" data-route={route} data-desktop-pool={JSON.stringify(bg.desktop)} data-mobile-pool={JSON.stringify(bg.mobile)}>
+      <picture>
+        {bg.mobile[0] && <source id="wp-source" media="(max-width: 768px)" srcset={bg.mobile[0]} />}
+        <img id="wp-img" src={bg.desktop[0]} alt="" loading="eager" class="h-full w-full object-cover opacity-35" />
+      </picture>
       <div class="absolute inset-0 bg-gradient-to-b from-void/40 via-void/50 to-void/80"></div>
     </div>
     <SystemBar route={route} />
