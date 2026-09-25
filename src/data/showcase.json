@@ -16,158 +16,287 @@
     ],
     "likedGames": [
       {
-        "title": "Borderlands 2",
+        "title": "Assassin's Creed IV: Black Flag",
         "note": "~200h lost (replace me)",
-        "cover": "game-01.svg"
+        "cover": "game-01.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World"
+        ]
       },
       {
         "title": "Watch Dogs 2",
         "note": "one more run (replace me)",
-        "cover": "game-02.svg"
+        "cover": "game-02.svg",
+        "genres": [
+          "Hacking",
+          "Stealth",
+          "Action",
+          "Adventure",
+          "Open World"
+        ]
       },
       {
         "title": "Watch Dogs",
         "note": "one more run (replace me)",
-        "cover": "game-02.svg"
+        "cover": "game-02.svg",
+        "genres": [
+          "Hacking",
+          "Stealth",
+          "Action",
+          "Adventure",
+          "Open World"
+        ]
       },
       {
         "title": "Deus Ex: Human Revolution",
         "note": "grand strategy (replace me)",
-        "cover": "game-03.svg"
+        "cover": "game-03.svg",
+        "genres": [
+          "Action",
+          "FPS",
+          "RPG",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ]
       },
       {
         "title": "Resident Evil 4 (2005)",
         "note": "ghost run, no alarms (replace me)",
-        "cover": "game-04.svg"
+        "cover": "game-04.svg",
+        "genres": [
+          "Action",
+          "Zombie",
+          "Horror",
+          "Survival"
+        ]
       },
       {
-        "title": "Assassin's Creed IV: Black Flag",
+        "title": "Assassin's Creed II",
         "note": "one more run (replace me)",
-        "cover": "game-05.svg"
+        "cover": "game-05.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World",
+          "Stealth"
+        ]
       },
       {
         "title": "Assassin's Creed: Brotherhood",
         "note": "one more run (replace me)",
-        "cover": "game-06.svg"
+        "cover": "game-06.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World"
+        ]
       },
       {
         "title": "Assassin's Creed: Revelations",
         "note": "one more run (replace me)",
-        "cover": "game-07.svg"
+        "cover": "game-07.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World"
+        ]
       },
       {
         "title": "Assassin's Creed: Odyssey",
         "note": "one more run (replace me)",
-        "cover": "game-08.svg"
+        "cover": "game-08.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World",
+          "RPG"
+        ]
       },
       {
         "title": "Assassin's Creed: Valhalla",
         "note": "one more run (replace me)",
-        "cover": "game-09.svg"
+        "cover": "game-09.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World",
+          "RPG"
+        ]
       },
       {
         "title": "Assassin's Creed: Origins",
         "note": "one more run (replace me)",
-        "cover": "game-10.svg"
+        "cover": "game-10.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World",
+          "RPG"
+        ]
       },
       {
         "title": "Assassin's Creed: Unity",
         "note": "one more run (replace me)",
-        "cover": "game-11.svg"
+        "cover": "game-11.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World",
+          "Stealth"
+        ]
       },
       {
         "title": "Assassin's Creed: Syndicate",
         "note": "one more run (replace me)",
-        "cover": "game-12.svg"
+        "cover": "game-12.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World",
+          "Stealth"
+        ]
       },
       {
         "title": "Assassin's Creed: Liberation HD",
         "note": "one more run (replace me)",
-        "cover": "game-13.svg"
+        "cover": "game-13.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World",
+          "Stealth"
+        ]
       },
       {
         "title": "Dying Light",
         "note": "one more run (replace me)",
-        "cover": "game-05.svg"
+        "cover": "game-05.svg",
+        "genres": [
+          "Action",
+          "Survival",
+          "Open World",
+          "FPS",
+          "Zombie"
+        ]
       },
       {
         "title": "Subnautica",
         "note": "one more run (replace me)",
-        "cover": "game-06.svg"
+        "cover": "game-06.svg",
+        "genres": [
+          "Survival",
+          "Adventure",
+          "Open World"
+        ]
       },
       {
         "title": "Shadow of Doubt",
         "note": "one more run (replace me)",
-        "cover": "game-07.svg"
+        "cover": "game-07.svg",
+        "genres": [
+          "Detective",
+          "Simulation"
+        ]
       },
       {
         "title": "Sniper Elite V2 Remastered",
         "note": "one more run (replace me)",
-        "cover": "game-08.svg"
+        "cover": "game-08.svg",
+        "genres": [
+          "Action",
+          "Stealth"
+        ]
       },
       {
         "title": "Thief",
         "note": "one more run (replace me)",
-        "cover": "game-09.svg"
+        "cover": "game-09.svg",
+        "genres": [
+          "Stealth",
+          "Action"
+        ]
       },
       {
         "title": "The Long Dark",
         "note": "one more run (replace me)",
-        "cover": "game-10.svg"
+        "cover": "game-10.svg",
+        "genres": [
+          "Survival",
+          "Simulation",
+          "Adventure"
+        ]
       },
       {
         "title": "Minecraft",
         "note": "one more run (replace me)",
-        "cover": "game-11.svg"
+        "cover": "game-11.svg",
+        "genres": [
+          "Sandbox",
+          "Survival",
+          "Adventure"
+        ]
       },
       {
         "title": "Grand Theft Auto: San Andreas",
         "note": "one more run (replace me)",
-        "cover": "game-12.svg"
+        "cover": "game-12.svg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Open World"
+        ]
       },
       {
         "title": "The Witcher 2: Assassins of Kings",
         "note": "one more run (replace me)",
-        "cover": "game-13.svg"
+        "cover": "game-13.svg",
+        "genres": [
+          "RPG",
+          "Action",
+          "Adventure"
+        ]
       },
       {
         "title": "The Witcher",
         "note": "one more run (replace me)",
-        "cover": "game-14.svg"
+        "cover": "game-14.svg",
+        "genres": [
+          "RPG",
+          "Action",
+          "Adventure"
+        ]
       }
     ],
     "wantToPlay": [
       {
         "title": "Unreleased Sequel (2027?)",
         "note": "day-one (replace me)",
-        "cover": "game-05.svg"
+        "cover": "game-05.svg",
+        "genres": [
+          "Action",
+          "RPG"
+        ]
       },
       {
         "title": "Cozy Farm Sim Clone",
         "note": "for burnout days (replace me)",
-        "cover": "game-06.svg"
+        "cover": "game-06.svg",
+        "genres": [
+          "Simulation"
+        ]
       },
       {
         "title": "Hardcore Space Sim",
         "note": "when the GPU forgives (replace me)",
-        "cover": "game-07.svg"
+        "cover": "game-07.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
       }
-    ],
-    "favoriteGenres": [
-      "Stealth",
-      "Detective",
-      "Adventure",
-      "FPS",
-      "Action",
-      "Looter Shooter",
-      "Simulation",
-      "Racing",
-      "Survival",
-      "Open World",
-      "Sandbox",
-      "Strategy",
-      "RPG",
-      "Puzzle"
     ]
   },
   "gallery": {

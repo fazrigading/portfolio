@@ -12,6 +12,15 @@ import showcase from '../data/showcase.json';
 
 const b = import.meta.env.BASE_URL;
 import portrait from '../assets/images/fazrigading-large.webp';
+
+// Genre chips derive from game data, not a hardcoded list.
+const genreGames = [...showcase.gaming.likedGames, ...showcase.gaming.wantToPlay];
+const genres = [
+  ...new Set(genreGames.flatMap((g) => g.genres ?? [])),
+].sort((a, b) => a.localeCompare(b));
+const genreCounts: Record<string, number> = Object.fromEntries(
+  genres.map((genre) => [genre, genreGames.filter((g) => (g.genres ?? []).includes(genre)).length]),
+);
 ---
 
 <Layout route="about" title="ABOUT">
@@ -123,7 +132,7 @@ import portrait from '../assets/images/fazrigading-large.webp';
                 <div class="pt-2">
               <Carousel id="car-liked">
                 {showcase.gaming.likedGames.map((g) => (
-                  <div class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
+                  <div data-genres={(g.genres ?? []).join('|')} class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
                     <img src={`${b}game-covers/${g.cover}`} alt={`${g.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
                     <div class="flex flex-1 flex-col p-2">
                       <p class="line-clamp-2 min-h-[2rem] text-xs leading-4 text-ink">{g.title}</p>
@@ -131,6 +140,7 @@ import portrait from '../assets/images/fazrigading-large.webp';
                     </div>
                   </div>
                 ))}
+                <p id="car-liked-empty" hidden class="w-full shrink-0 snap-start border border-dashed border-grid p-3 text-[11px] uppercase tracking-widest text-dim">NO_SIGNAL_</p>
               </Carousel>
                 </div>
               </div>
@@ -153,7 +163,7 @@ import portrait from '../assets/images/fazrigading-large.webp';
                 <div class="pt-2">
               <Carousel id="car-want-to-play">
                 {showcase.gaming.wantToPlay.map((g) => (
-                  <div class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
+                  <div data-genres={(g.genres ?? []).join('|')} class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
                     <img src={`${b}game-covers/${g.cover}`} alt={`${g.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
                     <div class="flex flex-1 flex-col p-2">
                       <p class="line-clamp-2 min-h-[2rem] text-xs leading-4 text-ink">{g.title}</p>
@@ -161,18 +171,21 @@ import portrait from '../assets/images/fazrigading-large.webp';
                     </div>
                   </div>
                 ))}
+                <p id="car-want-to-play-empty" hidden class="w-full shrink-0 snap-start border border-dashed border-grid p-3 text-[11px] uppercase tracking-widest text-dim">NO_SIGNAL_</p>
               </Carousel>
                 </div>
               </div>
             )}
           </div>
         </div>
-        {showcase.gaming.favoriteGenres.length > 0 && (
+        {genres.length > 0 && (
           <div class="pt-3">
             <p class="font-display text-xs tracking-widest text-accent">GENRES_</p>
-            <ul class="flex flex-wrap gap-2 pt-2">
-              {showcase.gaming.favoriteGenres.map((g) => (
-                <li class="border border-grid px-2 py-1 text-[11px] uppercase tracking-widest text-dim">{g}</li>
+            <ul id="gaming-genres" class="flex flex-wrap gap-2 pt-2">
+              {genres.map((g) => (
+                <li>
+                  <button type="button" data-genre-chip={g} aria-pressed="false" class="cursor-pointer border border-grid px-2 py-1 text-[11px] uppercase tracking-widest text-dim transition-colors hover:border-accent hover:text-accent">{g} ({genreCounts[g] ?? 0})</button>
+                </li>
               ))}
             </ul>
           </div>
@@ -327,4 +340,43 @@ import portrait from '../assets/images/fazrigading-large.webp';
       </RetroWindow>
     ))}
   </div>
+  <script is:inline>
+    // Genre toggle: filters Liked Games + Want to Play carousels. Click active chip to clear.
+    function applyGenreFilter(genre) {
+      for (const id of ['car-liked', 'car-want-to-play']) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        let visible = 0;
+        el.querySelectorAll('[data-genres]').forEach((card) => {
+          const show = !genre || (card.dataset.genres || '').split('|').includes(genre);
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        const empty = document.getElementById(id + '-empty');
+        if (empty) empty.hidden = visible > 0;
+      }
+      document.querySelectorAll('[data-genre-chip]').forEach((c) => {
+        const on = !!genre && c.dataset.genreChip === genre;
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+        c.classList.toggle('border-accent', on);
+        c.classList.toggle('text-ink', on);
+        c.classList.toggle('border-grid', !on);
+        c.classList.toggle('text-dim', !on);
+      });
+    }
+    function bindGenreFilter() {
+      const box = document.getElementById('gaming-genres');
+      if (!box || box.dataset.bound) return;
+      box.dataset.bound = '1';
+      box.addEventListener('click', (e) => {
+        const chip = e.target.closest('[data-genre-chip]');
+        if (!chip) return;
+        const next = box.dataset.active === chip.dataset.genreChip ? '' : chip.dataset.genreChip;
+        box.dataset.active = next;
+        applyGenreFilter(next);
+      });
+    }
+    document.addEventListener('astro:page-load', bindGenreFilter);
+    bindGenreFilter();
+  </script>
 </Layout>
