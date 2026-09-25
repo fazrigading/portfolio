@@ -22,7 +22,8 @@
         "genres": [
           "Action",
           "Adventure",
-          "Open World"
+          "Open World",
+          "Third Person"
         ]
       },
       {
@@ -34,7 +35,9 @@
           "Stealth",
           "Action",
           "Adventure",
-          "Open World"
+          "Open World",
+          "Third Person",
+          "Shooter"
         ]
       },
       {
@@ -46,7 +49,9 @@
           "Stealth",
           "Action",
           "Adventure",
-          "Open World"
+          "Open World",
+          "Third Person",
+          "Shooter"
         ]
       },
       {
@@ -55,7 +60,9 @@
         "cover": "game-03.svg",
         "genres": [
           "Action",
-          "FPS",
+          "First Person",
+          "Third Person",
+          "Shooter",
           "RPG",
           "Stealth",
           "Adventure",
@@ -70,7 +77,9 @@
           "Action",
           "Zombie",
           "Horror",
-          "Survival"
+          "Survival",
+          "Third Person",
+          "Shooter"
         ]
       },
       {
@@ -85,100 +94,18 @@
         ]
       },
       {
-        "title": "Assassin's Creed: Brotherhood",
-        "note": "one more run (replace me)",
-        "cover": "game-06.svg",
-        "genres": [
-          "Action",
-          "Adventure",
-          "Open World"
-        ]
-      },
-      {
-        "title": "Assassin's Creed: Revelations",
-        "note": "one more run (replace me)",
-        "cover": "game-07.svg",
-        "genres": [
-          "Action",
-          "Adventure",
-          "Open World"
-        ]
-      },
-      {
-        "title": "Assassin's Creed: Odyssey",
-        "note": "one more run (replace me)",
-        "cover": "game-08.svg",
-        "genres": [
-          "Action",
-          "Adventure",
-          "Open World",
-          "RPG"
-        ]
-      },
-      {
-        "title": "Assassin's Creed: Valhalla",
-        "note": "one more run (replace me)",
-        "cover": "game-09.svg",
-        "genres": [
-          "Action",
-          "Adventure",
-          "Open World",
-          "RPG"
-        ]
-      },
-      {
-        "title": "Assassin's Creed: Origins",
-        "note": "one more run (replace me)",
-        "cover": "game-10.svg",
-        "genres": [
-          "Action",
-          "Adventure",
-          "Open World",
-          "RPG"
-        ]
-      },
-      {
-        "title": "Assassin's Creed: Unity",
-        "note": "one more run (replace me)",
-        "cover": "game-11.svg",
-        "genres": [
-          "Action",
-          "Adventure",
-          "Open World",
-          "Stealth"
-        ]
-      },
-      {
-        "title": "Assassin's Creed: Syndicate",
-        "note": "one more run (replace me)",
-        "cover": "game-12.svg",
-        "genres": [
-          "Action",
-          "Adventure",
-          "Open World",
-          "Stealth"
-        ]
-      },
-      {
-        "title": "Assassin's Creed: Liberation HD",
-        "note": "one more run (replace me)",
-        "cover": "game-13.svg",
-        "genres": [
-          "Action",
-          "Adventure",
-          "Open World",
-          "Stealth"
-        ]
-      },
-      {
         "title": "Dying Light",
         "note": "one more run (replace me)",
         "cover": "game-05.svg",
         "genres": [
           "Action",
+          "Adventure",
           "Survival",
           "Open World",
-          "FPS",
+          "First Person",
+          "Shooter",
+          "Parkour",
+          "RPG",
           "Zombie"
         ]
       },
@@ -189,7 +116,12 @@
         "genres": [
           "Survival",
           "Adventure",
-          "Open World"
+          "Open World",
+          "First Person",
+          "Horror",
+          "Action",
+          "Exploration",
+          "Simulation"
         ]
       },
       {
@@ -198,7 +130,12 @@
         "cover": "game-07.svg",
         "genres": [
           "Detective",
-          "Simulation"
+          "Simulation",
+          "First Person",
+          "RPG",
+          "Open World",
+          "Stealth",
+          "Strategy"
         ]
       },
       {
@@ -207,7 +144,10 @@
         "cover": "game-08.svg",
         "genres": [
           "Action",
-          "Stealth"
+          "Stealth",
+          "First Person",
+          "Shooter",
+          "Strategy"
         ]
       },
       {
@@ -216,7 +156,10 @@
         "cover": "game-09.svg",
         "genres": [
           "Stealth",
-          "Action"
+          "Action",
+          "Adventure",
+          "Open World",
+          "First Person"
         ]
       },
       {
@@ -226,7 +169,9 @@
         "genres": [
           "Survival",
           "Simulation",
-          "Adventure"
+          "Adventure",
+          "Open World",
+          "First Person"
         ]
       },
       {
@@ -236,7 +181,10 @@
         "genres": [
           "Sandbox",
           "Survival",
-          "Adventure"
+          "Adventure",
+          "Exploration",
+          "Action",
+          "Cozy"
         ]
       },
       {
@@ -246,42 +194,137 @@
         "genres": [
           "Action",
           "Adventure",
-          "Open World"
+          "Open World",
+          "Third Person",
+          "Shooter"
         ]
       },
       {
-        "title": "The Witcher 2: Assassins of Kings",
+        "title": "Hitman",
         "note": "one more run (replace me)",
         "cover": "game-13.svg",
         "genres": [
-          "RPG",
+          "Stealth",
           "Action",
-          "Adventure"
+          "Adventure",
+          "Open World",
+          "Third Person"
         ]
       },
       {
-        "title": "The Witcher",
+        "title": "Tomb Raider (2013)",
         "note": "one more run (replace me)",
         "cover": "game-14.svg",
         "genres": [
           "RPG",
           "Action",
-          "Adventure"
+          "Adventure",
+          "Open World",
+          "Third Person",
+          "Shooter"
         ]
       }
     ],
     "wantToPlay": [
       {
-        "title": "Unreleased Sequel (2027?)",
+        "title": "Deus Ex: Mankind Divided",
+        "note": "one more run (replace me)",
+        "cover": "game-01.svg",
+        "genres": [
+          "Action",
+          "First Person",
+          "Third Person",
+          "Shooter",
+          "RPG",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ]
+      },
+      {
+        "title": "Deus Ex: Invisible War",
+        "note": "one more run (replace me)",
+        "cover": "game-02.svg",
+        "genres": [
+          "Action",
+          "First Person",
+          "Third Person",
+          "Shooter",
+          "RPG",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ]
+      },
+      {
+        "title": "Deus Ex",
+        "note": "one more run (replace me)",
+        "cover": "game-03.svg",
+        "genres": [
+          "Action",
+          "First Person",
+          "Third Person",
+          "Shooter",
+          "RPG",
+          "Stealth",
+          "Adventure",
+          "Open World"  
+        ]
+      },
+      {
+        "title": "Bioshock Remastered",
+        "note": "one more run (replace me)",
+        "cover": "game-04.svg",
+        "genres": [
+          "Action",
+          "First Person",
+          "Shooter",
+          "Survival",
+          "Adventure",
+          "Horror"
+        ]
+      },
+      {
+        "title": "Metro Last Light Redux",
+        "note": "one more run (replace me)",
+        "cover": "game-04.svg",
+        "genres": [
+          "Action",
+          "First Person",
+          "Shooter",
+          "Survival",
+          "Adventure",
+          "Horror"
+        ]
+      },
+      {
+        "title": "Metro 2033 Redux",
+        "note": "one more run (replace me)",
+        "cover": "game-04.svg",
+        "genres": [
+          "Action",
+          "First Person",
+          "Shooter",
+          "Survival",
+          "Adventure",
+          "Horror"
+        ]
+      },
+      {
+        "title": "God of War (2018)",
         "note": "day-one (replace me)",
         "cover": "game-05.svg",
         "genres": [
           "Action",
+          "Adventure",
+          "Open World",
+          "Third Person",
+          "Shooter",
           "RPG"
         ]
       },
       {
-        "title": "Cozy Farm Sim Clone",
+        "title": "The Elder Scrolls V: Skyrim",
         "note": "for burnout days (replace me)",
         "cover": "game-06.svg",
         "genres": [
@@ -289,9 +332,144 @@
         ]
       },
       {
-        "title": "Hardcore Space Sim",
+        "title": "The Witcher 3: Wild Hunt",
         "note": "when the GPU forgives (replace me)",
         "cover": "game-07.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Cyberpunk 2077",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-08.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Red Dead Redemption 2",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-09.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Hogwarts Legacy",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-10.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Resident Evil 4 Remake",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-11.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Resident Evil Requiem",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-12.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Resident Evil 2 Remake",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-12.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Resident Evil 3 Remake",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-13.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Resident Evil Village",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-14.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title":"Metal Gear Solid Delta: Snake Eater",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-15.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Metal Gear Solid V: The Phantom Pain",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-15.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Metal Gear Solid V: Ground Zeroes",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-16.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Metal Gear Solid 4: Guns of the Patriots",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-17.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Metal Gear Solid 3: Snake Eater",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-18.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Metal Gear Solid 2: Sons of Liberty",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-19.svg",
+        "genres": [
+          "Simulation",
+          "Strategy"
+        ]
+      },
+      {
+        "title": "Metal Gear Solid: Peace Walker",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-20.svg",
         "genres": [
           "Simulation",
           "Strategy"
