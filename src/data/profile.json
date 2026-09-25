@@ -5,30 +5,30 @@
   "roles": ["Applied AI Engineer", "Systems Engineer", "Researcher"],
   "techs": ["AI", "ML", "DL", "CV"],
   "about": {
-    "title": "Fazri Rahmad Nor Gading.",
-    "intro": "An Applied AI and Systems Engineer working at the intersection of Artificial Intelligence, Software Engineering, and Systems Development. My background is Deep Learning and Computer Vision, including object detection, instance segmentation, and pattern recognition. Currently expanding on LLM applications, RAG systems, gaming apps, developer tooling, and Linux desktop systems.",
-    "detailed": "My work covers four areas. First, systems and software engineering. I connect AI models to APIs, databases, and user interfaces, and I build back-end services, data pipelines, dev tools, Linux and desktop automation, and cross-platform apps. Second, AI and machine learning, including computer vision, LLM apps, RAG, and training and evaluation workflows for agriculture, medical imaging, and other fields. Third, research and engineering. I turn ideas into reproducible software with datasets, experimentation pipelines, and Scopus-indexed papers. Fourth, teaching and mentorship. I mentored 25+ students as a Bangkit Academy 2024 ML mentor and worked as a lab assistant at Univeristas Mulawarman for ML, DL, DSA, and OOP to 200+ students.",
+    "title": "My name is Fazri Rahmad Nor Gading.",
+    "intro": "I am an Applied AI and Systems Engineer working at the intersection of Artificial Intelligence, Software Engineering, and Systems Development. My background is Deep Learning and Computer Vision, including object detection, instance segmentation, and pattern recognition. Currently expanding on LLM applications, RAG systems, gaming apps, developer tooling, and Linux desktop systems.",
+    "detailed": "I work where models meet real systems, taking ideas from prototype to production across LLM apps, RAG systems, and developer tooling. My loop stays the same: build fast, evaluate rigorously, ship reproducibly, and I also teach what I learn along the way.",
     "research": "B.CS. or Bachelor of Computer Science degree (S.Kom. or Sarjana Komputer in Indonesian) from Universitas Mulawarman. I co-authored few applied AI researches, with multiple Scopus-indexed papers, including Q1 journals in Smart Agricultural Technology and Artificial Intelligence in Agriculture.",
     "hobbies": "Tinkering with software and hardware, mostly small tools for my own productivity. Gaming across Steam, Epic, GOG and Xbox; occasionally developing games using Unity. I enjoy photography, cinematography, photo editing, and digital art. I like to explore new and old technologies. I also enjoy reading books on technology, science, and philosophy. I like to travel and explore new places, especially nature and historical sites. I also enjoy cooking and trying out new recipes. I like to stay active and exercise regularly like running. I also enjoy playing musical instruments, especially guitar and ukulele. I like to spend time with family and friends, and I value meaningful conversations and connections. Overall, I have a wide range of interests and hobbies that keep me engaged and motivated.",
     "highlights": [
       {
         "title": "Systems Engineering",
-        "desc": "Connecting AI models to APIs, databases, and interfaces, and building services, pipelines, and dev tools.",
+        "desc": "Wiring AI models to APIs, databases, and UIs. Back-end services, data pipelines, dev tools, Linux/desktop automation, cross-platform apps.",
         "icon": "Cpu"
       },
       {
         "title": "AI & Machine Learning",
-        "desc": "Developing vision-systems, LLMs, and RAG; including training, evaluation, and deployment.",
+        "desc": "Computer vision, LLM apps, and RAG. Training and evaluation workflows from prototype to deployment.",
         "icon": "BrainCircuit"
       },
       {
         "title": "Research & Engineering",
-        "desc": "Shipping reproducible builds with datasets and evaluation workflows.",
+        "desc": "Reproducible builds with datasets and experimentation pipelines, published as Scopus-indexed papers.",
         "icon": "FlaskConical"
       },
       {
         "title": "Teaching & Mentorship",
-        "desc": "Helping students with their theses by guiding the research flow implementation, programs development, and deliverables preparation.",
+        "desc": "Bangkit Academy 2024 ML mentor (25+ students); lab assistant at Universitas Mulawarman for ML, DL, DSA, OOP (200+ students).",
         "icon": "GraduationCap"
       }
     ],
