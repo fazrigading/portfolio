@@ -1,0 +1,275 @@
+{
+  "gaming": {
+    "nowPlaying": [
+      {
+        "title": "Borderlands 2"
+      },
+      {
+        "title": "Euro Truck Simulator 2"
+      },
+      {
+        "title": "Dying Light"
+      },
+      {
+        "title": "Shadow of Doubt"
+      }
+    ],
+    "likedGames": [
+      {
+        "title": "Borderlands 2",
+        "note": "~200h lost (replace me)",
+        "cover": "game-01.svg"
+      },
+      {
+        "title": "Watch Dogs 2",
+        "note": "one more run (replace me)",
+        "cover": "game-02.svg"
+      },
+      {
+        "title": "Watch Dogs",
+        "note": "one more run (replace me)",
+        "cover": "game-02.svg"
+      },
+      {
+        "title": "Deus Ex: Human Revolution",
+        "note": "grand strategy (replace me)",
+        "cover": "game-03.svg"
+      },
+      {
+        "title": "Resident Evil 4 (2005)",
+        "note": "ghost run, no alarms (replace me)",
+        "cover": "game-04.svg"
+      },
+      {
+        "title": "Assassin's Creed IV: Black Flag",
+        "note": "one more run (replace me)",
+        "cover": "game-05.svg"
+      },
+      {
+        "title": "Assassin's Creed: Brotherhood",
+        "note": "one more run (replace me)",
+        "cover": "game-06.svg"
+      },
+      {
+        "title": "Assassin's Creed: Revelations",
+        "note": "one more run (replace me)",
+        "cover": "game-07.svg"
+      },
+      {
+        "title": "Assassin's Creed: Odyssey",
+        "note": "one more run (replace me)",
+        "cover": "game-08.svg"
+      },
+      {
+        "title": "Assassin's Creed: Valhalla",
+        "note": "one more run (replace me)",
+        "cover": "game-09.svg"
+      },
+      {
+        "title": "Assassin's Creed: Origins",
+        "note": "one more run (replace me)",
+        "cover": "game-10.svg"
+      },
+      {
+        "title": "Assassin's Creed: Unity",
+        "note": "one more run (replace me)",
+        "cover": "game-11.svg"
+      },
+      {
+        "title": "Assassin's Creed: Syndicate",
+        "note": "one more run (replace me)",
+        "cover": "game-12.svg"
+      },
+      {
+        "title": "Assassin's Creed: Liberation HD",
+        "note": "one more run (replace me)",
+        "cover": "game-13.svg"
+      },
+      {
+        "title": "Dying Light",
+        "note": "one more run (replace me)",
+        "cover": "game-05.svg"
+      },
+      {
+        "title": "Subnautica",
+        "note": "one more run (replace me)",
+        "cover": "game-06.svg"
+      },
+      {
+        "title": "Shadow of Doubt",
+        "note": "one more run (replace me)",
+        "cover": "game-07.svg"
+      },
+      {
+        "title": "Sniper Elite V2 Remastered",
+        "note": "one more run (replace me)",
+        "cover": "game-08.svg"
+      },
+      {
+        "title": "Thief",
+        "note": "one more run (replace me)",
+        "cover": "game-09.svg"
+      },
+      {
+        "title": "The Long Dark",
+        "note": "one more run (replace me)",
+        "cover": "game-10.svg"
+      },
+      {
+        "title": "Minecraft",
+        "note": "one more run (replace me)",
+        "cover": "game-11.svg"
+      },
+      {
+        "title": "Grand Theft Auto: San Andreas",
+        "note": "one more run (replace me)",
+        "cover": "game-12.svg"
+      },
+      {
+        "title": "The Witcher 2: Assassins of Kings",
+        "note": "one more run (replace me)",
+        "cover": "game-13.svg"
+      },
+      {
+        "title": "The Witcher",
+        "note": "one more run (replace me)",
+        "cover": "game-14.svg"
+      }
+    ],
+    "wantToPlay": [
+      {
+        "title": "Unreleased Sequel (2027?)",
+        "note": "day-one (replace me)",
+        "cover": "game-05.svg"
+      },
+      {
+        "title": "Cozy Farm Sim Clone",
+        "note": "for burnout days (replace me)",
+        "cover": "game-06.svg"
+      },
+      {
+        "title": "Hardcore Space Sim",
+        "note": "when the GPU forgives (replace me)",
+        "cover": "game-07.svg"
+      }
+    ],
+    "favoriteGenres": [
+      "Stealth",
+      "Detective",
+      "Adventure",
+      "FPS",
+      "Action",
+      "Looter Shooter",
+      "Simulation",
+      "Racing",
+      "Survival",
+      "Open World",
+      "Sandbox",
+      "Strategy",
+      "RPG",
+      "Puzzle"
+    ]
+  },
+  "gallery": {
+    "nature": [
+      {
+        "file": "photo-01.svg",
+        "alt": "Dummy nature photo 1",
+        "caption": "NATURE_REPLACE_ME"
+      },
+      {
+        "file": "photo-02.svg",
+        "alt": "Dummy nature photo 2",
+        "caption": "NATURE_REPLACE_ME"
+      }
+    ],
+    "objects": [
+      {
+        "file": "photo-03.svg",
+        "alt": "Dummy object photo 1",
+        "caption": "OBJECT_REPLACE_ME"
+      },
+      {
+        "file": "photo-04.svg",
+        "alt": "Dummy object photo 2",
+        "caption": "OBJECT_REPLACE_ME"
+      }
+    ]
+  },
+  "literature": {
+    "reading": [
+      {
+        "title": "Dune",
+        "author": "Frank Herbert",
+        "rating": 5,
+        "cover": "cover-01.svg"
+      },
+      {
+        "title": "Gödel, Escher, Bach",
+        "author": "Douglas Hofstadter",
+        "rating": 5,
+        "cover": "cover-02.svg"
+      }
+    ],
+    "wantToRead": [
+      {
+        "title": "The Design of Everyday Things",
+        "author": "Don Norman",
+        "rating": 4,
+        "cover": "cover-03.svg"
+      },
+      {
+        "title": "Meditations",
+        "author": "Marcus Aurelius",
+        "rating": 4,
+        "cover": "cover-04.svg"
+      }
+    ]
+  },
+  "music": {
+    "albums": [
+      {
+        "title": "Dummy Album One",
+        "artist": "Placeholder Band",
+        "cover": "album-01.svg"
+      },
+      {
+        "title": "Dummy Album Two",
+        "artist": "Placeholder Band",
+        "cover": "album-02.svg"
+      },
+      {
+        "title": "Dummy Album Three",
+        "artist": "Placeholder Band",
+        "cover": "album-03.svg"
+      }
+    ],
+    "songs": [
+      {
+        "title": "Dummy Song One",
+        "artist": "Placeholder Artist",
+        "cover": "song-01.svg"
+      },
+      {
+        "title": "Dummy Song Two",
+        "artist": "Placeholder Artist",
+        "cover": "song-02.svg"
+      },
+      {
+        "title": "Dummy Song Three",
+        "artist": "Placeholder Artist",
+        "cover": "song-03.svg"
+      }
+    ],
+    "mine": [
+      {
+        "title": "Bedtime Loop 01 (replace me)",
+        "embedUrl": ""
+      },
+      {
+        "title": "Untitled Riff 07 (replace me)",
+        "embedUrl": ""
+      }
+    ]
+  }
+}
