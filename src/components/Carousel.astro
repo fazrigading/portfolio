@@ -1,0 +1,32 @@
+---
+import LucideIcon from './LucideIcon.astro';
+
+const { id } = Astro.props;
+---
+
+<div class="grid grid-cols-[auto_1fr_auto] items-center gap-2">
+  <button type="button" data-car-prev={id} aria-label="Scroll backward" class="self-center border border-grid p-1.5 text-dim transition-colors hover:border-accent hover:text-accent">
+    <LucideIcon name="ChevronLeft" size={15} />
+  </button>
+  <div id={id} class="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <slot />
+  </div>
+  <button type="button" data-car-next={id} aria-label="Scroll forward" class="self-center border border-grid p-1.5 text-dim transition-colors hover:border-accent hover:text-accent">
+    <LucideIcon name="ChevronRight" size={15} />
+  </button>
+</div>
+<script is:inline>
+  function bindCarousels() {
+    document.querySelectorAll('[data-car-prev],[data-car-next]').forEach((btn) => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', () => {
+        const el = document.getElementById(btn.dataset.carPrev || btn.dataset.carNext);
+        if (!el) return;
+        el.scrollBy({ left: (btn.hasAttribute('data-car-prev') ? -1 : 1) * el.clientWidth * 0.8 });
+      });
+    });
+  }
+  document.addEventListener('astro:page-load', bindCarousels);
+  bindCarousels();
+</script>
