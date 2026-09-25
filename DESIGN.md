@@ -15,13 +15,13 @@ Base: bg `#08090D`, card `#10121B` @80% + noise, grid `#232738`, text `#F0F4F8`,
 
 | `data-route` | Accent `--accent` | Surface `--accent-surface` |
 | :--- | :--- | :--- |
-| `/` (home) | Cyan `#00F0FF` | `#02141C` |
-| `projects` | Green `#00FF66` | `#021A0E` |
-| `about` | Yellow `#FFE600` | `#1A1800` |
-| `experience` | Orange `#FF6B00` | `#1F0E00` |
-| `research` | Purple `#A822FF` | `#13021F` |
-| `blog` | Red `#FF1744` | `#1F0307` |
-| `contact` | Pink `#FF007A` | `#1C000F` |
+| `/` (home) | Blue `#0CCBFD` | `#02141C` |
+| `projects` | Green `#A8FF00` | `#021A0E` |
+| `about` | Yellow `#FEB705` | `#1A1800` |
+| `experience` | Magenta `#FF056F` | `#1F0E00` |
+| `research` | Purple `#C83CFF` | `#13021F` |
+| `blog` | Red `#D40000` | `#1F0307` |
+| `contact` | Pink `#FE38FA` | `#1C000F` |
 
 Mechanism: `<html data-route>` sets `--accent` / `--accent-surface` on the root; Tailwind v4 `@theme` maps to `text-accent`, `border-accent`, `bg-accentsurface`. Palette accent overrides paint inline vars on the same element (inline beats stylesheet — setting them on `<body>` would lose to the route rules). `SystemBar` theme selector overrides via inline var.
 
@@ -65,7 +65,7 @@ Layout shell (all routes):
 1. **`/`:** `TerminalHero` (verbs: `help`, `goto` + letter keys, `cat`, `navbar`, `accent` + letter keys, `crt`, `clear`) + `ZineCard` featured grid (title/subtitle/OPEN_FILE only). Desktop navbar OFF by default (`<html data-navbar>`, mobile always on); hint bar on every page; toggle in terminal + palette, persisted.
 2. **`/projects`:** `FilterMatrix` (`PORT 80: ALL`, `443: ML/CV`, `8080: WEB`) + `RetroWindow` > `HalftoneImage` cards.
 3. **`/about`:** dossier `RetroWindow` (from `data/profile.json`) + `SkillsBar` (`CPU_USAGE`) + full tech-stack table + research/scholar + socials/gaming uplinks + hobbies + GH stats. No timelines.
-4. **`/experience`:** `TimelineGraph` (`data/experience.json`, `data/learning.json`). Orange accent. Nav `Experience` points here.
+4. **`/experience`:** `TimelineGraph` (`data/experience.json`, `data/learning.json`). Magenta accent. Nav `Experience` points here.
 4. **`/research`:** `ArchiveList` rows (status/abstract/repo/datasets). Static list v1; `NodeGraph` v2.
 5. **`/blog`:** `BroadcastCard` rows with line numbers + Shiki code blocks (MDX).
 6. **`/contact`:** `CommsForm` terminal form, confirm `[MESSAGE_TRANSMITTED]`.

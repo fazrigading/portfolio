@@ -19,17 +19,17 @@
   --gridline: #232738;
   --text: #f0f4f8;
   --muted: #7c849b;
-  --accent: #00f0ff;
+  --accent: #0ccbfd;
   --accent-surface: #02141c;
 }
 
-html[data-route="/"] { --accent: #00f0ff; --accent-surface: #02141c; }
-html[data-route="projects"] { --accent: #00ff66; --accent-surface: #021a0e; }
-html[data-route="about"] { --accent: #ffe600; --accent-surface: #1a1800; }
-html[data-route="experience"] { --accent: #ff6b00; --accent-surface: #1f0e00; }
-html[data-route="research"] { --accent: #a822ff; --accent-surface: #13021f; }
-html[data-route="blog"] { --accent: #ff1744; --accent-surface: #1f0307; }
-html[data-route="contact"] { --accent: #ff007a; --accent-surface: #1c000f; }
+html[data-route="/"] { --accent: #0ccbfd; --accent-surface: #02141c; }
+html[data-route="projects"] { --accent: #a8ff00; --accent-surface: #021a0e; }
+html[data-route="about"] { --accent: #feb705; --accent-surface: #1a1800; }
+html[data-route="experience"] { --accent: #ff056f; --accent-surface: #1f0e00; }
+html[data-route="research"] { --accent: #c83cff; --accent-surface: #13021f; }
+html[data-route="blog"] { --accent: #d40000; --accent-surface: #1f0307; }
+html[data-route="contact"] { --accent: #fe38fa; --accent-surface: #1c000f; }
 
 body {
   background-color: var(--bg);
@@ -152,4 +152,16 @@ a:hover .print-img, .print-img:hover { filter: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .glitch::before, .glitch::after { display: none !important; }
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(wallpaper),
+  ::view-transition-new(wallpaper) { animation: none !important; }
 }
+
+/* route change: page + wallpaper fade out/in (ClientRouter; no-JS fallback = instant swap) */
+::view-transition-old(root) { animation: page-out 0.25s ease forwards; }
+::view-transition-new(root) { animation: page-in 0.35s ease backwards; }
+::view-transition-old(wallpaper),
+::view-transition-new(wallpaper) { animation-duration: 0.45s; }
+@keyframes page-out { to { opacity: 0; } }
+@keyframes page-in { from { opacity: 0; } }

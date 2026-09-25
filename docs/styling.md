@@ -7,7 +7,7 @@ Single dark theme. Base vars in `src/styles/global.css`; per-route accents switc
 ```css
 --bg: #08090D; --card: #10121B; --gridline: #232738;
 --text: #F0F4F8; --muted: #7C849B;
-html[data-route="projects"] { --accent: #00FF66; --accent-surface: #021A0E; }
+html[data-route="projects"] { --accent: #A8FF00; --accent-surface: #021A0E; }
 /* … one row per route, see DESIGN.md §2 for the full table */
 ```
 
