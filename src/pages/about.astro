@@ -3,10 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import RetroWindow from '../components/RetroWindow.astro';
 import ZineCard from '../components/ZineCard.astro';
+import Carousel from '../components/Carousel.astro';
 import HalftoneImage from '../components/HalftoneImage.astro';
 import LucideIcon from '../components/LucideIcon.astro';
 import profile from '../data/profile.json';
 import social from '../data/social.json';
+import showcase from '../data/showcase.json';
+
+const b = import.meta.env.BASE_URL;
 import portrait from '../assets/images/fazrigading-large.webp';
 ---
 
@@ -25,14 +29,16 @@ import portrait from '../assets/images/fazrigading-large.webp';
           {profile.about.highlights.map((h) => (
             <div class="border border-grid p-3">
               <p class="flex items-center gap-2 font-punk text-sm font-bold uppercase text-accent">
-                <LucideIcon name={h.icon} size={15} /> {h.title}
+              <LucideIcon name={h.icon} size={15} /> {h.title}
               </p>
               <p class="pt-1 text-xs leading-relaxed text-dim">{h.desc}</p>
             </div>
           ))}
         </div>
-      </RetroWindow>
-    </div>
+    </RetroWindow>
+
+
+  </div>
   </div>
 
   <div class="pt-10">
@@ -93,15 +99,226 @@ import portrait from '../assets/images/fazrigading-large.webp';
     </RetroWindow>
     <RetroWindow tag="OFF_DUTY" title="hobbies">
       <p class="text-sm leading-relaxed text-dim">{profile.about.hobbies}</p>
-      <div class="flex flex-wrap gap-2 pt-3">
-        {social.gaming.map((g) => (
-          <a href={g.href} target="_blank" rel="noreferrer" class="border border-grid px-2 py-1 text-[11px] uppercase tracking-widest text-dim transition-colors hover:border-accent hover:text-accent">
-            {g.name} →
-          </a>
-        ))}
-      </div>
     </RetroWindow>
   </div>
+
+    <div class="grid gap-6 pt-10 md:grid-cols-2">
+      <div class="md:col-span-2">
+      <RetroWindow tag="SAVE_FILE" title="gaming">
+        <div class="grid gap-3 md:grid-cols-2">
+          <div>
+            {showcase.gaming.nowPlaying.length > 0 && (
+              <div class="pb-3">
+                <p class="font-display text-xs tracking-widest text-accent">NOW_PLAYING_</p>
+                <ul class="flex flex-wrap gap-2 pt-2">
+                  {showcase.gaming.nowPlaying.map((g) => (
+                    <li class="border border-accent px-2 py-1 text-[11px] uppercase tracking-widest text-ink">{g.title}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {showcase.gaming.likedGames.length > 0 && (
+              <div>
+                <p class="font-display text-xs tracking-widest text-accent">LIKED_GAMES_</p>
+                <div class="pt-2">
+              <Carousel id="car-liked">
+                {showcase.gaming.likedGames.map((g) => (
+                  <div class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
+                    <img src={`${b}game-covers/${g.cover}`} alt={`${g.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
+                    <div class="flex flex-1 flex-col p-2">
+                      <p class="line-clamp-2 min-h-[2rem] text-xs leading-4 text-ink">{g.title}</p>
+                      <p class="line-clamp-2 min-h-[2rem] pt-0.5 text-[11px] leading-4 text-dim">{g.note ?? ''}</p>
+                    </div>
+                  </div>
+                ))}
+              </Carousel>
+                </div>
+              </div>
+            )}
+          </div>
+          <div>
+            <div class="pb-3">
+              <p class="font-display text-xs tracking-widest text-accent">PROFILES_</p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                {social.gaming.map((g) => (
+                  <a href={g.href} target="_blank" rel="noreferrer" class="border border-grid px-2 py-1 text-[11px] uppercase tracking-widest text-dim transition-colors hover:border-accent hover:text-accent">
+                    {g.name} →
+                  </a>
+                ))}
+              </div>
+            </div>
+            {showcase.gaming.wantToPlay.length > 0 && (
+              <div>
+                <p class="font-display text-xs tracking-widest text-accent">WANT_TO_PLAY_</p>
+                <div class="pt-2">
+              <Carousel id="car-want-to-play">
+                {showcase.gaming.wantToPlay.map((g) => (
+                  <div class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
+                    <img src={`${b}game-covers/${g.cover}`} alt={`${g.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
+                    <div class="flex flex-1 flex-col p-2">
+                      <p class="line-clamp-2 min-h-[2rem] text-xs leading-4 text-ink">{g.title}</p>
+                      <p class="line-clamp-2 min-h-[2rem] pt-0.5 text-[11px] leading-4 text-dim">{g.note ?? ''}</p>
+                    </div>
+                  </div>
+                ))}
+              </Carousel>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        {showcase.gaming.favoriteGenres.length > 0 && (
+          <div class="pt-3">
+            <p class="font-display text-xs tracking-widest text-accent">GENRES_</p>
+            <ul class="flex flex-wrap gap-2 pt-2">
+              {showcase.gaming.favoriteGenres.map((g) => (
+                <li class="border border-grid px-2 py-1 text-[11px] uppercase tracking-widest text-dim">{g}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </RetroWindow>
+      </div>
+      {(showcase.gallery.nature.length > 0 || showcase.gallery.objects.length > 0) && (
+      <div class="md:col-span-2">
+        <RetroWindow tag="APERTURE" title="art">
+          <div class="grid gap-3 md:grid-cols-2">
+          {showcase.gallery.nature.length > 0 && (
+            <div>
+              <p class="font-display text-xs tracking-widest text-accent">NATURE_</p>
+              <div class="pt-2">
+                <Carousel id="car-gallery-nature">
+                  {showcase.gallery.nature.map((p) => (
+                    <figure class="w-64 shrink-0 snap-start border border-grid sm:w-80">
+                      <img src={`${b}gallery/${p.file}`} alt={p.alt} loading="lazy" class="aspect-[4/3] w-full object-cover" />
+                      {p.caption && <figcaption class="px-2 py-1 text-[11px] uppercase tracking-widest text-dim">{p.caption}</figcaption>}
+                    </figure>
+                  ))}
+                </Carousel>
+              </div>
+            </div>
+          )}
+          {showcase.gallery.objects.length > 0 && (
+            <div>
+              <p class="font-display text-xs tracking-widest text-accent">OBJECTS_</p>
+              <div class="pt-2">
+                <Carousel id="car-gallery-objects">
+                  {showcase.gallery.objects.map((p) => (
+                    <figure class="w-64 shrink-0 snap-start border border-grid sm:w-80">
+                      <img src={`${b}gallery/${p.file}`} alt={p.alt} loading="lazy" class="aspect-[4/3] w-full object-cover" />
+                      {p.caption && <figcaption class="px-2 py-1 text-[11px] uppercase tracking-widest text-dim">{p.caption}</figcaption>}
+                    </figure>
+                  ))}
+                </Carousel>
+              </div>
+            </div>
+          )}
+          </div>
+        </RetroWindow>
+      </div>
+      )}
+      {(showcase.literature.reading.length > 0 || showcase.literature.wantToRead.length > 0) && (
+        <RetroWindow tag="MARGIN_NOTES" title="reading log">
+          {showcase.literature.reading.length > 0 && (
+            <div class="pb-3">
+              <p class="font-display text-xs tracking-widest text-accent">READING_</p>
+              <div class="pt-2">
+                <Carousel id="car-reading">
+                  {showcase.literature.reading.map((bk) => (
+                    <div class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
+                      <img src={`${b}covers/${bk.cover}`} alt={`${bk.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
+                      <div class="flex flex-1 flex-col p-2">
+                        <p class="line-clamp-2 min-h-[2rem] text-xs leading-4 text-ink">{bk.title}</p>
+                        <p class="pt-0.5 text-[11px] leading-4 text-dim">{bk.author}</p>
+                        <p class="pt-1 font-display text-[11px] tracking-widest text-accent">{'★'.repeat(bk.rating)}{'☆'.repeat(5 - bk.rating)}</p>
+                      </div>
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            </div>
+          )}
+          {showcase.literature.wantToRead.length > 0 && (
+            <div>
+              <p class="font-display text-xs tracking-widest text-accent">WANT_TO_READ_</p>
+              <div class="pt-2">
+                <Carousel id="car-want">
+                  {showcase.literature.wantToRead.map((bk) => (
+                    <div class="flex w-40 shrink-0 snap-start border border-grid sm:w-48">
+                      <img src={`${b}covers/${bk.cover}`} alt={`${bk.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
+                      <div class="flex flex-1 flex-col p-2">
+                        <p class="line-clamp-2 min-h-[2rem] text-xs leading-4 text-ink">{bk.title}</p>
+                        <p class="pt-0.5 text-[11px] leading-4 text-dim">{bk.author}</p>
+                        <p class="pt-1 font-display text-[11px] tracking-widest text-accent">{'★'.repeat(bk.rating)}{'☆'.repeat(5 - bk.rating)}</p>
+                      </div>
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            </div>
+          )}
+        </RetroWindow>
+      )}
+      {(showcase.music.albums.length > 0 || showcase.music.songs.length > 0 || showcase.music.mine.length > 0) && (
+        <RetroWindow tag="BEDROOM_SESSIONS" title="tracks">
+          {showcase.music.albums.length > 0 && (
+            <div class="pb-3">
+              <p class="font-display text-xs tracking-widest text-accent">ALBUMS_</p>
+              <div class="pt-2">
+                <Carousel id="car-albums">
+                  {showcase.music.albums.map((a) => (
+                    <div class="w-40 shrink-0 snap-start border border-grid sm:w-48">
+                      <img src={`${b}music-covers/${a.cover}`} alt={`${a.title} cover`} loading="lazy" class="aspect-square w-full object-cover" />
+                      <div class="p-2">
+                        <p class="text-xs text-ink">{a.title}</p>
+                        <p class="pt-0.5 text-[11px] text-dim">{a.artist}</p>
+                      </div>
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            </div>
+          )}
+          {showcase.music.songs.length > 0 && (
+            <div class="pb-3">
+              <p class="font-display text-xs tracking-widest text-accent">SONGS_</p>
+              <div class="pt-2">
+                <Carousel id="car-songs">
+                  {showcase.music.songs.map((a) => (
+                    <div class="w-40 shrink-0 snap-start border border-grid sm:w-48">
+                      <img src={`${b}music-covers/${a.cover}`} alt={`${a.title} cover`} loading="lazy" class="aspect-square w-full object-cover" />
+                      <div class="p-2">
+                        <p class="text-xs text-ink">{a.title}</p>
+                        <p class="pt-0.5 text-[11px] text-dim">{a.artist}</p>
+                      </div>
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            </div>
+          )}
+          {showcase.music.mine.length > 0 && (
+            <div>
+              <p class="font-display text-xs tracking-widest text-accent">MY_TRACKS_</p>
+              <div class="pt-2">
+                <Carousel id="car-tracks">
+                  {showcase.music.mine.map((t) => (
+                    <div class="w-72 shrink-0 snap-start border border-grid p-3 sm:w-96">
+                      <p class="pb-2 font-display text-xs tracking-widest text-accent">{t.title}</p>
+                      {t.embedUrl ? (
+                        <iframe title={t.title} src={t.embedUrl} width="100%" height="166" frameborder="0" allow="autoplay" loading="lazy" class="w-full"></iframe>
+                      ) : (
+                        <p class="border border-dashed border-grid p-3 text-[11px] uppercase tracking-widest text-dim">paste_soundcloud_embed_url</p>
+                      )}
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            </div>
+          )}
+        </RetroWindow>
+      )}
+    </div>
 
   <div class="grid gap-6 pt-10 md:grid-cols-2">
     {profile.about.stats.map((s) => (
