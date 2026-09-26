@@ -61,8 +61,8 @@
     "stats": [
       { "label": "streak", "src": "https://streak-stats.demolab.com?user=fazrigading&theme=transparent" },
       { "label": "stats", "src": "https://github-stats-extended.vercel.app/api?username=fazrigading&show_icons=true&theme=transparent&include_all_commits=true" },
-      { "label": "top-langs", "src": "https://github-stats-extended.vercel.app/api/top-langs/?username=fazrigading&theme=transparent&include_all_commits=true&layout=donut" },
-      { "label": "trophies", "src": "https://github-profile-trophy-unserori.vercel.app/?username=fazrigading&theme=gitdimmed&row=3&column=3" }
+      { "label": "top-langs", "src": "https://github-stats-extended.vercel.app/api/top-langs?username=fazrigading&layout=compact&langs_count=20&theme=dark_github" },
+      { "label": "trophies", "src": "https://github-profile-trophy-unserori.vercel.app/?username=fazrigading&theme=darkhub&row=3&column=3&margin-w=5&margin-h=5&no-frame=true" }
     ]
   },
   "footer": {
