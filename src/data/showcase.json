@@ -2,62 +2,127 @@
   "gaming": {
     "nowPlaying": [
       {
-        "title": "Borderlands 2"
+        "title": "Borderlands 2",
+        "note": "One of the best game of all time, IMO. This is a looter shooter game with a unique art style, engaging story, and memorable characters. The happiness when you find a rare loot is unmatched. Highly recommended for fans of action RPGs and cooperative gameplay.",
+        "cover": "49520_Borderlands 2.jpg",
+        "genres": [
+          "Action",
+          "RPG"
+        ],
+        "link": "https://store.steampowered.com/app/49520/"
       },
       {
-        "title": "Euro Truck Simulator 2"
+        "title": "Euro Truck Simulator 2",
+        "note": "A realistic truck driving simulation game where you can drive across various European countries, deliver cargo, and build your own trucking company. It's relaxing and very satisfying to explore the open roads and experience the life of a truck driver. Highly recommended for simulation enthusiasts and landscape lovers.",
+        "cover": "227300_Euro Truck Simulator 2.jpg",
+        "genres": [
+          "Indie",
+          "Simulation"
+        ],
+        "link": "https://store.steampowered.com/app/227300/"
       },
       {
-        "title": "Dying Light"
+        "title": "Subnautica",
+        "note": "An underwater survival game where you must explore the ocean depths, build shelter, and survive against various marine creatures. This game gives you a sense of isolation and fear as you navigate the unknown depths. Horrifying in my opinion, but the exploration and crafting mechanics are top-notch. A must play.",
+        "cover": "264710_Subnautica.jpg",
+        "genres": [
+          "Adventure",
+          "Indie"
+        ],
+        "link": "https://store.steampowered.com/app/264710/"
       },
       {
-        "title": "Shadow of Doubt"
+        "title": "Sherlock Holmes: Crimes and Punishments",
+        "note": "The classic detective game that lets you step into the shoes of Sherlock Holmes. Solve intricate cases, gather clues, and use your deductive skills to uncover the truth. A must-play for fans of mystery and detective stories.",
+        "cover": "241260_Sherlock Holmes Crimes and Punishments.jpg",
+        "genres": [
+          "Adventure"
+        ],
+        "link": "https://store.steampowered.com/app/241260/"
+      },
+      {
+        "title": "Sail Forth",
+        "note": "An exciting sailing game where you can explore vast oceans, race against other sailors, and build your own ship. With stunning visuals and immersive gameplay, it's a must-play for sailing enthusiasts.",
+        "cover": "1031460_Sail Forth.jpg",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Indie",
+          "Simulation"
+        ],
+        "link": "https://store.steampowered.com/app/1031460/"
+      },
+      {
+        "title": "Train Valley 2",
+        "note": "A fun and engaging simulation game where you build and manage your own train empire. The game offers a variety of challenges and objectives to keep players engaged for hours.",
+        "cover": "602320_Train Valley 2.jpg",
+        "genres": [
+          "Adventure",
+          "Casual",
+          "Indie",
+          "Simulation",
+          "Strategy"
+        ],
+        "link": "https://store.steampowered.com/app/602320/"
+      },
+      {
+        "title": "Two Point Hospital",
+        "note": "A charming simulation game where you manage a hospital, balancing patient care with budget constraints. The humor and creative gameplay make it a delightful experience.",
+        "cover": "535930_Two Point Hospital.jpg",
+        "genres": [
+          "Indie",
+          "Simulation"
+        ],
+        "link": "https://store.steampowered.com/app/535930/"
       }
     ],
     "likedGames": [
       {
+        "title": "Watch Dogs 2",
+        "note": "Great sequel that pictured the city of Chicago after the events of the first game. Cinematic hacking-themed ASCII art inspired this portfolio website. Super fun exploration to discover the city, mega corporation like Blume, and the hacker group DedSec.",
+        "cover": "447040_Watch_Dogs® 2.jpg",
+        "genres": [
+          "Hacking",
+          "Stealth",
+          "Action",
+          "Adventure",
+          "Open World",
+          "Third Person",
+          "Shooter"
+        ],
+        "link": "https://store.steampowered.com/app/447040/"
+      },
+      {
+        "title": "Watch Dogs",
+        "note": "Played it in 2018, one of the reason I started learning coding and going to CS degree. Stealth system, hacking mechanics, and open world exploration were well implemented. It was one of the GTA-like games that I enjoyed playing and life-changing for me.",
+        "cover": "243470_Watch_Dogs.png",
+        "genres": [
+          "Hacking",
+          "Stealth",
+          "Action",
+          "Adventure",
+          "Open World",
+          "Third Person",
+          "Shooter"
+        ],
+        "link": "https://store.steampowered.com/app/243470/"
+      },
+      {
         "title": "Assassin's Creed IV: Black Flag",
-        "note": "~200h lost (replace me)",
-        "cover": "game-01.svg",
+        "note": "Amazing open world exploration with naval combat. The graphics were impressive for a 2013 release, much better than today's standards. 'Leave her Johnny' is one of my favorite songs from the game.",
+        "cover": "242050_Assassin's Creed® IV Black Flag™.jpg",
         "genres": [
           "Action",
           "Adventure",
           "Open World",
           "Third Person"
-        ]
-      },
-      {
-        "title": "Watch Dogs 2",
-        "note": "one more run (replace me)",
-        "cover": "game-02.svg",
-        "genres": [
-          "Hacking",
-          "Stealth",
-          "Action",
-          "Adventure",
-          "Open World",
-          "Third Person",
-          "Shooter"
-        ]
-      },
-      {
-        "title": "Watch Dogs",
-        "note": "one more run (replace me)",
-        "cover": "game-02.svg",
-        "genres": [
-          "Hacking",
-          "Stealth",
-          "Action",
-          "Adventure",
-          "Open World",
-          "Third Person",
-          "Shooter"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/242050/"
       },
       {
         "title": "Deus Ex: Human Revolution",
-        "note": "grand strategy (replace me)",
-        "cover": "game-03.svg",
+        "note": "One of the best RPGs with a deep narrative and player choice, very immersive. Augments and stealth mechanics are well implemented. The game is set in a cyberpunk world with a strong focus on conspiracy theories and corporate control.",
+        "cover": "238010_Deus Ex Human Revolution.jpg",
         "genres": [
           "Action",
           "First Person",
@@ -67,12 +132,13 @@
           "Stealth",
           "Adventure",
           "Open World"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/238010/"
       },
       {
         "title": "Resident Evil 4 (2005)",
-        "note": "ghost run, no alarms (replace me)",
-        "cover": "game-04.svg",
+        "note": "ghost run, no alarms",
+        "cover": "254700_Resident Evil 4 (2005).jpg",
         "genres": [
           "Action",
           "Zombie",
@@ -80,23 +146,25 @@
           "Survival",
           "Third Person",
           "Shooter"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/254700/"
       },
       {
         "title": "Assassin's Creed II",
-        "note": "one more run (replace me)",
-        "cover": "game-05.svg",
+        "note": "one more run",
+        "cover": "33230_Assassin's Creed 2.jpg",
         "genres": [
           "Action",
           "Adventure",
           "Open World",
           "Stealth"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/33230/"
       },
       {
         "title": "Dying Light",
-        "note": "one more run (replace me)",
-        "cover": "game-05.svg",
+        "note": "one more run",
+        "cover": "239140_Dying Light.jpg",
         "genres": [
           "Action",
           "Adventure",
@@ -107,12 +175,13 @@
           "Parkour",
           "RPG",
           "Zombie"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/239140/"
       },
       {
         "title": "Subnautica",
-        "note": "one more run (replace me)",
-        "cover": "game-06.svg",
+        "note": "one more run",
+        "cover": "264710_Subnautica.jpg",
         "genres": [
           "Survival",
           "Adventure",
@@ -122,12 +191,13 @@
           "Action",
           "Exploration",
           "Simulation"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/264710/"
       },
       {
         "title": "Shadow of Doubt",
-        "note": "one more run (replace me)",
-        "cover": "game-07.svg",
+        "note": "one more run",
+        "cover": "986130_Shadows of Doubt.jpg",
         "genres": [
           "Detective",
           "Simulation",
@@ -136,47 +206,51 @@
           "Open World",
           "Stealth",
           "Strategy"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/986130/"
       },
       {
         "title": "Sniper Elite V2 Remastered",
-        "note": "one more run (replace me)",
-        "cover": "game-08.svg",
+        "note": "one more run",
+        "cover": "728740_Sniper Elite V2 Remastered.jpg",
         "genres": [
           "Action",
           "Stealth",
           "First Person",
           "Shooter",
           "Strategy"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/728740/"
       },
       {
         "title": "Thief",
-        "note": "one more run (replace me)",
-        "cover": "game-09.svg",
+        "note": "one more run",
+        "cover": "239160_Thief.jpg",
         "genres": [
           "Stealth",
           "Action",
           "Adventure",
           "Open World",
           "First Person"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/239160/"
       },
       {
         "title": "The Long Dark",
-        "note": "one more run (replace me)",
-        "cover": "game-10.svg",
+        "note": "one more run",
+        "cover": "305620_The Long Dark.jpg",
         "genres": [
           "Survival",
           "Simulation",
           "Adventure",
           "Open World",
           "First Person"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/305620/"
       },
       {
         "title": "Minecraft",
-        "note": "one more run (replace me)",
+        "note": "one more run",
         "cover": "game-11.svg",
         "genres": [
           "Sandbox",
@@ -185,36 +259,39 @@
           "Exploration",
           "Action",
           "Cozy"
-        ]
+        ],
+        "link": null
       },
       {
         "title": "Grand Theft Auto: San Andreas",
-        "note": "one more run (replace me)",
-        "cover": "game-12.svg",
+        "note": "one more run",
+        "cover": "1547000_Grand Theft Auto San Andreas.jpg",
         "genres": [
           "Action",
           "Adventure",
           "Open World",
           "Third Person",
           "Shooter"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/1547000/"
       },
       {
         "title": "Hitman",
-        "note": "one more run (replace me)",
-        "cover": "game-13.svg",
+        "note": "one more run",
+        "cover": "1659040_HITMAN World of Assassination.jpg",
         "genres": [
           "Stealth",
           "Action",
           "Adventure",
           "Open World",
           "Third Person"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/1659040/"
       },
       {
         "title": "Tomb Raider (2013)",
-        "note": "one more run (replace me)",
-        "cover": "game-14.svg",
+        "note": "one more run",
+        "cover": "203160_Tomb Raider Game of the Year.jpg",
         "genres": [
           "RPG",
           "Action",
@@ -222,14 +299,15 @@
           "Open World",
           "Third Person",
           "Shooter"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/203160/"
       }
     ],
     "wantToPlay": [
       {
         "title": "Deus Ex: Mankind Divided",
-        "note": "one more run (replace me)",
-        "cover": "game-01.svg",
+        "note": "one more run",
+        "cover": "337000_Deus Ex Mankind Divided.jpg",
         "genres": [
           "Action",
           "First Person",
@@ -239,12 +317,13 @@
           "Stealth",
           "Adventure",
           "Open World"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/337000/"
       },
       {
         "title": "Deus Ex: Invisible War",
-        "note": "one more run (replace me)",
-        "cover": "game-02.svg",
+        "note": "one more run",
+        "cover": "6920_Deus Ex Invisible War.jpg",
         "genres": [
           "Action",
           "First Person",
@@ -254,12 +333,13 @@
           "Stealth",
           "Adventure",
           "Open World"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/6920/"
       },
       {
         "title": "Deus Ex",
-        "note": "one more run (replace me)",
-        "cover": "game-03.svg",
+        "note": "one more run",
+        "cover": "6910_Deus Ex Game of the Year Edition.jpg",
         "genres": [
           "Action",
           "First Person",
@@ -268,13 +348,14 @@
           "RPG",
           "Stealth",
           "Adventure",
-          "Open World"  
-        ]
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/6910/"
       },
       {
         "title": "Bioshock Remastered",
-        "note": "one more run (replace me)",
-        "cover": "game-04.svg",
+        "note": "one more run",
+        "cover": "409710_BioShock™ Remastered.jpg",
         "genres": [
           "Action",
           "First Person",
@@ -282,12 +363,13 @@
           "Survival",
           "Adventure",
           "Horror"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/409710/"
       },
       {
         "title": "Metro Last Light Redux",
-        "note": "one more run (replace me)",
-        "cover": "game-04.svg",
+        "note": "one more run",
+        "cover": "287390_Metro Last Light Redux.jpg",
         "genres": [
           "Action",
           "First Person",
@@ -295,12 +377,13 @@
           "Survival",
           "Adventure",
           "Horror"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/287390/"
       },
       {
         "title": "Metro 2033 Redux",
-        "note": "one more run (replace me)",
-        "cover": "game-04.svg",
+        "note": "one more run",
+        "cover": "286690_Metro 2033 Redux.jpg",
         "genres": [
           "Action",
           "First Person",
@@ -308,12 +391,13 @@
           "Survival",
           "Adventure",
           "Horror"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/286690/"
       },
       {
         "title": "God of War (2018)",
-        "note": "day-one (replace me)",
-        "cover": "game-05.svg",
+        "note": "day-one",
+        "cover": "1593500_God of War.jpg",
         "genres": [
           "Action",
           "Adventure",
@@ -321,159 +405,234 @@
           "Third Person",
           "Shooter",
           "RPG"
-        ]
+        ],
+        "link": "https://store.steampowered.com/app/1593500/"
       },
       {
         "title": "The Elder Scrolls V: Skyrim",
-        "note": "for burnout days (replace me)",
-        "cover": "game-06.svg",
+        "note": "for burnout days",
+        "cover": "489830_The Elder Scrolls V Skyrim Special Edition.jpg",
         "genres": [
-          "Simulation"
-        ]
+          "Action",
+          "RPG",
+          "Adventure",
+          "Open World",
+          "First Person",
+          "Third Person"
+        ],
+        "link": "https://store.steampowered.com/app/489830/"
       },
       {
         "title": "The Witcher 3: Wild Hunt",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-07.svg",
+        "note": "when the GPU forgives",
+        "cover": "292030_The Witcher 3 Wild Hunt.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "RPG",
+          "Adventure",
+          "Open World",
+          "Third Person"
+        ],
+        "link": "https://store.steampowered.com/app/292030/"
       },
       {
         "title": "Cyberpunk 2077",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-08.svg",
+        "note": "when the GPU forgives",
+        "cover": "1091500_Cyberpunk 2077.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "First Person",
+          "RPG",
+          "Adventure",
+          "Open World",
+          "Shooter"
+        ],
+        "link": "https://store.steampowered.com/app/1091500/"
       },
       {
         "title": "Red Dead Redemption 2",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-09.svg",
+        "note": "when the GPU forgives",
+        "cover": "1174180_Red Dead Redemption 2.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Adventure",
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/1174180/"
       },
       {
         "title": "Hogwarts Legacy",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-10.svg",
+        "note": "when the GPU forgives",
+        "cover": "990080_Hogwarts Legacy.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "RPG",
+          "Adventure",
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/990080/"
       },
       {
         "title": "Resident Evil 4 Remake",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-11.svg",
+        "note": "when the GPU forgives",
+        "cover": "2050650_Resident Evil 4.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Horror",
+          "Survival",
+          "Third Person",
+          "Shooter"
+        ],
+        "link": "https://store.steampowered.com/app/2050650/"
       },
       {
         "title": "Resident Evil Requiem",
-        "note": "when the GPU forgives (replace me)",
+        "note": "when the GPU forgives",
         "cover": "game-12.svg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Horror",
+          "Survival",
+          "Third Person",
+          "Shooter"
+        ],
+        "link": "https://store.steampowered.com/app/3764200/"
       },
       {
         "title": "Resident Evil 2 Remake",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-12.svg",
+        "note": "when the GPU forgives",
+        "cover": "883710_Resident Evil 2.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Horror",
+          "Survival",
+          "Third Person",
+          "Shooter"
+        ],
+        "link": "https://store.steampowered.com/app/883710/"
       },
       {
         "title": "Resident Evil 3 Remake",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-13.svg",
+        "note": "when the GPU forgives",
+        "cover": "952060_Resident Evil 3.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Horror",
+          "Survival",
+          "Third Person",
+          "Shooter"
+        ],
+        "link": "https://store.steampowered.com/app/952060/"
       },
       {
         "title": "Resident Evil Village",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-14.svg",
+        "note": "when the GPU forgives",
+        "cover": "1196590_Resident Evil Village.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Horror",
+          "Survival",
+          "First Person",
+          "Shooter"
+        ],
+        "link": "https://store.steampowered.com/app/1196590/"
       },
       {
-        "title":"Metal Gear Solid Delta: Snake Eater",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-15.svg",
+        "title": "Metal Gear Solid Delta: Snake Eater",
+        "note": "when the GPU forgives",
+        "cover": "2417610_METAL GEAR SOLID Δ SNAKE EATER.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Third Person",
+          "Shooter",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/2417610/"
       },
       {
         "title": "Metal Gear Solid V: The Phantom Pain",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-15.svg",
+        "note": "when the GPU forgives",
+        "cover": "287700_METAL GEAR SOLID V THE PHANTOM PAIN.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Third Person",
+          "Shooter",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/287700/"
       },
       {
         "title": "Metal Gear Solid V: Ground Zeroes",
-        "note": "when the GPU forgives (replace me)",
+        "note": "when the GPU forgives",
         "cover": "game-16.svg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Third Person",
+          "Shooter",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/311340/"
       },
       {
         "title": "Metal Gear Solid 4: Guns of the Patriots",
-        "note": "when the GPU forgives (replace me)",
+        "note": "when the GPU forgives",
         "cover": "game-17.svg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Third Person",
+          "Shooter",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/2492670/"
       },
       {
         "title": "Metal Gear Solid 3: Snake Eater",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-18.svg",
+        "note": "when the GPU forgives",
+        "cover": "2131650_Metal Gear Solid 3 Snake Eater.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Third Person",
+          "Shooter",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/2131650/"
       },
       {
         "title": "Metal Gear Solid 2: Sons of Liberty",
-        "note": "when the GPU forgives (replace me)",
-        "cover": "game-19.svg",
+        "note": "when the GPU forgives",
+        "cover": "2131640_Metal Gear Solid 2 Sons of Liberty.jpg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Third Person",
+          "Shooter",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/2131640/"
       },
       {
         "title": "Metal Gear Solid: Peace Walker",
-        "note": "when the GPU forgives (replace me)",
+        "note": "when the GPU forgives",
         "cover": "game-20.svg",
         "genres": [
-          "Simulation",
-          "Strategy"
-        ]
+          "Action",
+          "Third Person",
+          "Shooter",
+          "Stealth",
+          "Adventure",
+          "Open World"
+        ],
+        "link": "https://store.steampowered.com/app/2492660/"
       }
     ]
   },
@@ -570,11 +729,11 @@
     ],
     "mine": [
       {
-        "title": "Bedtime Loop 01 (replace me)",
+        "title": "Bedtime Loop 01",
         "embedUrl": ""
       },
       {
-        "title": "Untitled Riff 07 (replace me)",
+        "title": "Untitled Riff 07",
         "embedUrl": ""
       }
     ]
