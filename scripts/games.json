@@ -1,0 +1,346 @@
+[
+    {
+        "title": "Borderlands 2",
+        "appid": "49520",
+        "cover": "covers/49520_Borderlands 2.jpg",
+        "genres": [
+            "Action",
+            "RPG"
+        ]
+    },
+    {
+        "title": "Euro Truck Simulator 2",
+        "appid": "227300",
+        "cover": "covers/227300_Euro Truck Simulator 2.jpg",
+        "genres": [
+            "Indie",
+            "Simulation"
+        ]
+    },
+    {
+        "title": "Subnautica 2",
+        "appid": "1962700",
+        "cover": "covers/1962700_Subnautica 2.jpg",
+        "genres": [
+            "Action",
+            "Adventure",
+            "Early Access"
+        ]
+    },
+    {
+        "title": "Sherlock Holmes: Crimes and Punishments",
+        "appid": "241260",
+        "cover": "covers/241260_Sherlock Holmes Crimes and Punishments.jpg",
+        "genres": [
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Sail Forth",
+        "appid": "1031460",
+        "cover": "covers/1031460_Sail Forth.jpg",
+        "genres": [
+            "Action",
+            "Adventure",
+            "Indie",
+            "Simulation"
+        ]
+    },
+    {
+        "title": "Train Valley 2",
+        "appid": "602320",
+        "cover": "covers/602320_Train Valley 2.jpg",
+        "genres": [
+            "Adventure",
+            "Casual",
+            "Indie",
+            "Simulation",
+            "Strategy"
+        ]
+    },
+    {
+        "title": "Two Point Hospital",
+        "appid": "535930",
+        "cover": "covers/535930_Two Point Hospital.jpg",
+        "genres": [
+            "Indie",
+            "Simulation"
+        ]
+    },
+    {
+        "title": "Watch_Dogs® 2",
+        "appid": "447040",
+        "cover": "covers/447040_Watch_Dogs® 2.jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Watch_Dogs™",
+        "appid": "243470",
+        "cover": "",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Assassin's Creed® IV Black Flag™",
+        "appid": "242050",
+        "cover": "covers/242050_Assassin's Creed® IV Black Flag™.jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Resident Evil 4 (2005)",
+        "appid": "254700",
+        "cover": "covers/254700_Resident Evil 4 (2005).jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Assassin's Creed 2",
+        "appid": "33230",
+        "cover": "covers/33230_Assassin's Creed 2.jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Dying Light",
+        "appid": "239140",
+        "cover": "covers/239140_Dying Light.jpg",
+        "genres": [
+            "Action",
+            "Adventure",
+            "RPG"
+        ]
+    },
+    {
+        "title": "Shadows of Doubt",
+        "appid": "986130",
+        "cover": "covers/986130_Shadows of Doubt.jpg",
+        "genres": [
+            "Action",
+            "Adventure",
+            "Indie",
+            "RPG"
+        ]
+    },
+    {
+        "title": "Sniper Elite V2 Remastered",
+        "appid": "728740",
+        "cover": "covers/728740_Sniper Elite V2 Remastered.jpg",
+        "genres": [
+            "Action"
+        ]
+    },
+    {
+        "title": "Loot List: Thief Sim",
+        "appid": "1837730",
+        "cover": "covers/1837730_Loot List Thief Sim.jpg",
+        "genres": [
+            "Indie",
+            "Early Access"
+        ]
+    },
+    {
+        "title": "The Long Dark",
+        "appid": "305620",
+        "cover": "covers/305620_The Long Dark.jpg",
+        "genres": [
+            "Adventure",
+            "Indie",
+            "Simulation",
+            "Strategy"
+        ]
+    },
+    {
+        "title": "HITMAN World of Assassination",
+        "appid": "1659040",
+        "cover": "covers/1659040_HITMAN World of Assassination.jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Tomb Raider Game of the Year",
+        "appid": "203160",
+        "cover": "covers/203160_Tomb Raider Game of the Year.jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Deus Ex: Mankind Divided",
+        "appid": "337000",
+        "cover": "covers/337000_Deus Ex Mankind Divided.jpg",
+        "genres": [
+            "Action",
+            "RPG"
+        ]
+    },
+    {
+        "title": "Deus Ex: Invisible War",
+        "appid": "6920",
+        "cover": "covers/6920_Deus Ex Invisible War.jpg",
+        "genres": [
+            "Action"
+        ]
+    },
+    {
+        "title": "Deus Ex: Game of the Year Edition",
+        "appid": "6910",
+        "cover": "covers/6910_Deus Ex Game of the Year Edition.jpg",
+        "genres": [
+            "Action"
+        ]
+    },
+    {
+        "title": "BioShock™ Remastered",
+        "appid": "409710",
+        "cover": "covers/409710_BioShock™ Remastered.jpg",
+        "genres": [
+            "Action",
+            "RPG"
+        ]
+    },
+    {
+        "title": "Metro: Last Light Redux",
+        "appid": "287390",
+        "cover": "covers/287390_Metro Last Light Redux.jpg",
+        "genres": [
+            "Action"
+        ]
+    },
+    {
+        "title": "Metro 2033 Redux",
+        "appid": "286690",
+        "cover": "covers/286690_Metro 2033 Redux.jpg",
+        "genres": [
+            "Action"
+        ]
+    },
+    {
+        "title": "God of War",
+        "appid": "1593500",
+        "cover": "covers/1593500_God of War.jpg",
+        "genres": [
+            "Action",
+            "Adventure",
+            "RPG"
+        ]
+    },
+    {
+        "title": "The Elder Scrolls V: Skyrim Special Edition",
+        "appid": "489830",
+        "cover": "covers/489830_The Elder Scrolls V Skyrim Special Edition.jpg",
+        "genres": [
+            "RPG"
+        ]
+    },
+    {
+        "title": "Cyberpunk 2077",
+        "appid": "1091500",
+        "cover": "covers/1091500_Cyberpunk 2077.jpg",
+        "genres": [
+            "RPG"
+        ]
+    },
+    {
+        "title": "Red Dead Redemption 2",
+        "appid": "1174180",
+        "cover": "covers/1174180_Red Dead Redemption 2.jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Hogwarts Legacy",
+        "appid": "990080",
+        "cover": "covers/990080_Hogwarts Legacy.jpg",
+        "genres": [
+            "Action",
+            "Adventure",
+            "RPG"
+        ]
+    },
+    {
+        "title": "Resident Evil 4",
+        "appid": "2050650",
+        "cover": "covers/2050650_Resident Evil 4.jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Resident Evil Requiem",
+        "appid": "3764200",
+        "cover": "",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "Resident Evil 2",
+        "appid": "883710",
+        "cover": "covers/883710_Resident Evil 2.jpg",
+        "genres": [
+            "Action"
+        ]
+    },
+    {
+        "title": "Resident Evil 3",
+        "appid": "952060",
+        "cover": "covers/952060_Resident Evil 3.jpg",
+        "genres": [
+            "Action"
+        ]
+    },
+    {
+        "title": "Resident Evil Village",
+        "appid": "1196590",
+        "cover": "covers/1196590_Resident Evil Village.jpg",
+        "genres": [
+            "Action"
+        ]
+    },
+    {
+        "title": "METAL GEAR SOLID Δ: SNAKE EATER",
+        "appid": "2417610",
+        "cover": "covers/2417610_METAL GEAR SOLID Δ SNAKE EATER.jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "METAL GEAR SOLID V: THE PHANTOM PAIN",
+        "appid": "287700",
+        "cover": "covers/287700_METAL GEAR SOLID V THE PHANTOM PAIN.jpg",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    },
+    {
+        "title": "METAL GEAR SOLID V: GROUND ZEROES",
+        "appid": "311340",
+        "cover": "",
+        "genres": [
+            "Action",
+            "Adventure"
+        ]
+    }
+]
