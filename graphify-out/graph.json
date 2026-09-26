@@ -84,21 +84,6 @@
       {
         "confidence": "INFERRED",
         "confidence_score": 0.85,
-        "id": "public_icon_bibliometric_indexes",
-        "relation": "conceptually_related_to",
-        "source_file": "public/icon/scopus.svg",
-        "source_location": null,
-        "weight": 1.0,
-        "nodes": [
-          "public_icon_scopus_scopus",
-          "public_icon_wos_web_of_science",
-          "src_data_icon_elsevier_elsevier",
-          "public_icon_ieee_ieee"
-        ]
-      },
-      {
-        "confidence": "INFERRED",
-        "confidence_score": 0.85,
         "id": "public_icon_scholar_profiles",
         "relation": "conceptually_related_to",
         "source_file": "public/icon/gs.svg",
@@ -362,18 +347,6 @@
       "source_location": "L6"
     },
     {
-      "id": "src_data_icons_geticon",
-      "label": "getIcon()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "geticon()",
-      "source_file": "src/data/icons.tsx",
-      "source_location": "L85"
-    },
-    {
       "id": "opencode_plugins_graphify_graphifyplugin",
       "label": "GraphifyPlugin()",
       "_callable": true,
@@ -398,6 +371,18 @@
       "source_location": "L3"
     },
     {
+      "id": "src_pages_about_repeat",
+      "label": "repeat()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Layout.astro",
+      "file_type": "code",
+      "norm_label": "repeat()",
+      "source_file": "src/pages/about.astro",
+      "source_location": "L260"
+    },
+    {
       "id": "src_pages_blog_slug_getstaticpaths",
       "label": "getStaticPaths()",
       "_callable": true,
@@ -420,6 +405,78 @@
       "norm_label": "getstaticpaths()",
       "source_file": "src/pages/projects/[...slug].astro",
       "source_location": "L8"
+    },
+    {
+      "id": "scripts_extract_games_data_download_image",
+      "label": "download_image()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "extract-games-data.py",
+      "file_type": "code",
+      "norm_label": "download_image()",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L59"
+    },
+    {
+      "id": "scripts_extract_games_data_get_game_details",
+      "label": "get_game_details()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "extract-games-data.py",
+      "file_type": "code",
+      "norm_label": "get_game_details()",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L35"
+    },
+    {
+      "id": "scripts_extract_games_data_get_steam_app_id",
+      "label": "get_steam_app_id()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "extract-games-data.py",
+      "file_type": "code",
+      "norm_label": "get_steam_app_id()",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L20"
+    },
+    {
+      "id": "scripts_extract_games_data_load_existing_results",
+      "label": "load_existing_results()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "extract-games-data.py",
+      "file_type": "code",
+      "norm_label": "load_existing_results()",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L72"
+    },
+    {
+      "id": "scripts_extract_games_data_process_game_list",
+      "label": "process_game_list()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "extract-games-data.py",
+      "file_type": "code",
+      "norm_label": "process_game_list()",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L82"
+    },
+    {
+      "id": "scripts_extract_games_data_sanitize_filename",
+      "label": "sanitize_filename()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "extract-games-data.py",
+      "file_type": "code",
+      "norm_label": "sanitize_filename()",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L15"
     },
     {
       "id": "src_components_accentpref",
@@ -543,6 +600,17 @@
       "source_location": "L1"
     },
     {
+      "id": "ref_react",
+      "label": "react",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "commands.ts",
+      "file_type": "concept",
+      "norm_label": "react",
+      "source_file": "package.json",
+      "source_location": "L20"
+    },
+    {
       "id": "astro_config",
       "label": "astro.config.mjs",
       "_origin": "ast",
@@ -585,6 +653,72 @@
       "norm_label": "esbuild@0.28.2",
       "source_file": "package.json",
       "source_location": "L32"
+    },
+    {
+      "id": "package_devdependencies",
+      "label": "devDependencies",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "devdependencies",
+      "source_file": "package.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "package_devdependencies_tailwindcss",
+      "label": "tailwindcss",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "tailwindcss",
+      "source_file": "package.json",
+      "source_location": "L28"
+    },
+    {
+      "id": "package_devdependencies_types_node",
+      "label": "@types/node",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "@types/node",
+      "source_file": "package.json",
+      "source_location": "L25"
+    },
+    {
+      "id": "package_devdependencies_types_react",
+      "label": "@types/react",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "@types/react",
+      "source_file": "package.json",
+      "source_location": "L26"
+    },
+    {
+      "id": "package_devdependencies_types_react_dom",
+      "label": "@types/react-dom",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "@types/react-dom",
+      "source_file": "package.json",
+      "source_location": "L27"
+    },
+    {
+      "id": "package_devdependencies_typescript",
+      "label": "typescript",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "typescript",
+      "source_file": "package.json",
+      "source_location": "L29"
     },
     {
       "id": "package_name",
@@ -631,28 +765,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_data_icons",
-      "label": "icons.tsx",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "icons.tsx",
-      "source_file": "src/data/icons.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_data_icons_iconmap",
-      "label": "iconMap",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "iconmap",
-      "source_file": "src/data/icons.tsx",
-      "source_location": "L39"
-    },
-    {
       "id": "ref_astro",
       "label": "astro",
       "_origin": "ast",
@@ -695,17 +807,6 @@
       "norm_label": "lucide-react",
       "source_file": "package.json",
       "source_location": "L19"
-    },
-    {
-      "id": "ref_react",
-      "label": "react",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "react",
-      "source_file": "package.json",
-      "source_location": "L20"
     },
     {
       "id": "ref_react_dom",
@@ -884,6 +985,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_components_carousel",
+      "label": "Carousel.astro",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Layout.astro",
+      "file_type": "code",
+      "norm_label": "carousel.astro",
+      "source_file": "src/components/Carousel.astro",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_crtoverlay",
       "label": "CRTOverlay.astro",
       "_origin": "ast",
@@ -892,6 +1004,17 @@
       "file_type": "code",
       "norm_label": "crtoverlay.astro",
       "source_file": "src/components/CRTOverlay.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_gamecover",
+      "label": "GameCover.astro",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Layout.astro",
+      "file_type": "code",
+      "norm_label": "gamecover.astro",
+      "source_file": "src/components/GameCover.astro",
       "source_location": "L1"
     },
     {
@@ -994,15 +1117,15 @@
       "source_location": "L1"
     },
     {
-      "id": "src_layouts_layout_string",
-      "label": "string",
+      "id": "src_layouts_layout_desktop_string_mobile_string",
+      "label": "{ desktop: string[]; mobile: string[] }",
       "_origin": "ast",
       "community": 2,
       "community_name": "Layout.astro",
       "file_type": "code",
-      "norm_label": "string",
+      "norm_label": "{ desktop: string[]; mobile: string[] }",
       "source_file": "src/layouts/Layout.astro",
-      "source_location": "L21"
+      "source_location": "L39"
     },
     {
       "id": "src_pages_about",
@@ -1313,70 +1436,70 @@
       "source_location": "L5"
     },
     {
-      "id": "package_devdependencies",
-      "label": "devDependencies",
+      "id": "scripts_extract_games_data",
+      "label": "extract-games-data.py",
       "_origin": "ast",
       "community": 5,
-      "community_name": "devDependencies",
+      "community_name": "extract-games-data.py",
       "file_type": "code",
-      "norm_label": "devdependencies",
-      "source_file": "package.json",
-      "source_location": "L24"
+      "norm_label": "extract-games-data.py",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L1"
     },
     {
-      "id": "package_devdependencies_tailwindcss",
-      "label": "tailwindcss",
+      "id": "scripts_extract_games_data_rationale_16",
+      "label": "Remove special characters for safe file naming.",
       "_origin": "ast",
       "community": 5,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "tailwindcss",
-      "source_file": "package.json",
-      "source_location": "L28"
+      "community_name": "extract-games-data.py",
+      "file_type": "rationale",
+      "norm_label": "remove special characters for safe file naming.",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L16"
     },
     {
-      "id": "package_devdependencies_types_node",
-      "label": "@types/node",
+      "id": "scripts_extract_games_data_rationale_21",
+      "label": "Search Steam store API for the game title to find its App ID [Medium\u2026",
       "_origin": "ast",
       "community": 5,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "@types/node",
-      "source_file": "package.json",
-      "source_location": "L25"
+      "community_name": "extract-games-data.py",
+      "file_type": "rationale",
+      "norm_label": "search steam store api for the game title to find its app id [medium...",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L21"
     },
     {
-      "id": "package_devdependencies_types_react",
-      "label": "@types/react",
+      "id": "scripts_extract_games_data_rationale_36",
+      "label": "Fetch genres object array and high-resolution library hero image from Steam\u2026",
       "_origin": "ast",
       "community": 5,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "@types/react",
-      "source_file": "package.json",
-      "source_location": "L26"
+      "community_name": "extract-games-data.py",
+      "file_type": "rationale",
+      "norm_label": "fetch genres object array and high-resolution library hero image from steam...",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L36"
     },
     {
-      "id": "package_devdependencies_types_react_dom",
-      "label": "@types/react-dom",
+      "id": "scripts_extract_games_data_rationale_60",
+      "label": "Download the vertical cover image [High Confidence].",
       "_origin": "ast",
       "community": 5,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "@types/react-dom",
-      "source_file": "package.json",
-      "source_location": "L27"
+      "community_name": "extract-games-data.py",
+      "file_type": "rationale",
+      "norm_label": "download the vertical cover image [high confidence].",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L60"
     },
     {
-      "id": "package_devdependencies_typescript",
-      "label": "typescript",
+      "id": "scripts_extract_games_data_rationale_73",
+      "label": "Load previously extracted results so already-processed games can be skipped.",
       "_origin": "ast",
       "community": 5,
-      "community_name": "devDependencies",
-      "file_type": "code",
-      "norm_label": "typescript",
-      "source_file": "package.json",
-      "source_location": "L29"
+      "community_name": "extract-games-data.py",
+      "file_type": "rationale",
+      "norm_label": "load previously extracted results so already-processed games can be skipped.",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L73"
     },
     {
       "id": "src_env_d",
@@ -1733,21 +1856,6 @@
       "source_url": null
     },
     {
-      "id": "src_data_icon_elsevier_elsevier",
-      "label": "Elsevier brand icon, publisher profile link",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 13,
-      "community_name": "Scopus brand icon, author citation profile link",
-      "contributor": null,
-      "file_type": "image",
-      "norm_label": "elsevier brand icon, publisher profile link",
-      "source_file": "src/data/icon/elsevier.svg",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "agents_astro_stack",
       "label": "Astro 7 static MPA plus TypeScript stack",
       "_origin": "semantic",
@@ -2078,21 +2186,6 @@
       "source_url": null
     },
     {
-      "id": "src_data_icon_linkedin_linkedin",
-      "label": "LinkedIn brand icon, professional social profile link",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 30,
-      "community_name": "Google for Developers brand icon, developer profile link",
-      "contributor": null,
-      "file_type": "image",
-      "norm_label": "linkedin brand icon, professional social profile link",
-      "source_file": "src/data/icon/linkedin.svg",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "public_icon_orcid_orcid",
       "label": "ORCID brand icon, researcher identifier profile link",
       "_origin": "semantic",
@@ -2391,21 +2484,6 @@
       "file_type": "document",
       "norm_label": "orcid profile fazri rahmad nor gading",
       "source_file": "resources/Fazri-Gading-Orcid-Profile.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "src_data_fazrigading_large_portrait",
-      "label": "Conference speaking portrait of Fazri Gading",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 4,
-      "community_name": "LinkedIn profile Fazri Gading",
-      "contributor": null,
-      "file_type": "image",
-      "norm_label": "conference speaking portrait of fazri gading",
-      "source_file": "src/data/fazrigading-large.webp",
       "source_location": null,
       "source_url": null
     },
@@ -2765,6 +2843,66 @@
   ],
   "links": [
     {
+      "source": "scripts_extract_games_data_process_game_list",
+      "target": "scripts_extract_games_data_get_steam_app_id",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data_process_game_list",
+      "target": "scripts_extract_games_data_get_game_details",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data_process_game_list",
+      "target": "scripts_extract_games_data_sanitize_filename",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data_process_game_list",
+      "target": "scripts_extract_games_data_download_image",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data_process_game_list",
+      "target": "scripts_extract_games_data_load_existing_results",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_commandpalette_commandpalette",
       "target": "src_components_commands_paletteitems",
       "relation": "calls",
@@ -2966,6 +3104,18 @@
       "context": "call",
       "source_file": "src/components/TerminalHero.tsx",
       "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_about_repeat",
+      "target": "src_pages_about_repeat",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/pages/about.astro",
+      "source_location": "L260",
       "weight": 1.0
     },
     {
@@ -3461,30 +3611,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_data_icons",
-      "target": "ref_lucide_react",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/data/icons.tsx",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_data_icons",
-      "target": "ref_react",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/data/icons.tsx",
-      "source_location": "L37",
-      "weight": 1.0
-    },
-    {
       "source": "src_layouts_layout",
       "target": "src_components_systembar",
       "relation": "imports_from",
@@ -3570,7 +3696,7 @@
     },
     {
       "source": "src_pages_about",
-      "target": "src_components_halftoneimage",
+      "target": "src_components_carousel",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3582,7 +3708,7 @@
     },
     {
       "source": "src_pages_about",
-      "target": "src_components_lucideicon",
+      "target": "src_components_gamecover",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3590,6 +3716,30 @@
       "context": "import",
       "source_file": "src/pages/about.astro",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_about",
+      "target": "src_components_halftoneimage",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/pages/about.astro",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_about",
+      "target": "src_components_lucideicon",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/pages/about.astro",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -4176,6 +4326,72 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_extract_games_data",
+      "target": "scripts_extract_games_data_sanitize_filename",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data",
+      "target": "scripts_extract_games_data_get_steam_app_id",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data",
+      "target": "scripts_extract_games_data_get_game_details",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data",
+      "target": "scripts_extract_games_data_download_image",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data",
+      "target": "scripts_extract_games_data_load_existing_results",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data",
+      "target": "scripts_extract_games_data_process_game_list",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_accentpref",
       "target": "src_components_accentpref_paintaccent",
       "relation": "contains",
@@ -4528,36 +4744,25 @@
       "weight": 1.0
     },
     {
-      "source": "src_data_icons",
-      "target": "src_data_icons_iconmap",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/data/icons.tsx",
-      "source_location": "L39",
-      "weight": 1.0
-    },
-    {
-      "source": "src_data_icons",
-      "target": "src_data_icons_geticon",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/data/icons.tsx",
-      "source_location": "L85",
-      "weight": 1.0
-    },
-    {
       "source": "src_layouts_layout",
-      "target": "src_layouts_layout_string",
+      "target": "src_layouts_layout_desktop_string_mobile_string",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/layouts/Layout.astro",
-      "source_location": "L21",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "src_pages_about",
+      "target": "src_pages_about_repeat",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/about.astro",
+      "source_location": "L279",
       "weight": 1.0
     },
     {
@@ -4781,6 +4986,15 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_carousel",
+      "target": "src_components_lucideicon",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Carousel.astro"
+    },
+    {
       "source": "src_pages_about",
       "target": "src_layouts_layout",
       "relation": "imports_from",
@@ -4852,6 +5066,61 @@
       "confidence_score": 1.0,
       "source_file": ".opencode/plugins/graphify.js",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data_rationale_16",
+      "target": "scripts_extract_games_data_sanitize_filename",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data_rationale_21",
+      "target": "scripts_extract_games_data_get_steam_app_id",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data_rationale_36",
+      "target": "scripts_extract_games_data_get_game_details",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data_rationale_60",
+      "target": "scripts_extract_games_data_download_image",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_extract_games_data_rationale_73",
+      "target": "scripts_extract_games_data_load_existing_results",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/extract-games-data.py",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -5196,28 +5465,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_data_fazrigading_large_portrait",
-      "target": "resources_fazri_gading_linkedin_profile_ebit_ai_trainer",
-      "relation": "conceptually_related_to",
-      "_origin": "semantic",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "src/data/fazrigading-large.webp",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "src_data_icon_linkedin_linkedin",
-      "target": "public_icon_gdev_google_developers",
-      "relation": "conceptually_related_to",
-      "_origin": "semantic",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "src/data/icon/linkedin.svg",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
       "source": "design_accent_theming",
       "target": "design_typography_system",
       "relation": "semantically_similar_to",
@@ -5449,17 +5696,6 @@
       "weight": 1.0
     },
     {
-      "source": "public_icon_scopus_scopus",
-      "target": "src_data_icon_elsevier_elsevier",
-      "relation": "shares_data_with",
-      "_origin": "semantic",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "public/icon/scopus.svg",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
       "source": "public_txt_contact_github",
       "target": "resources_fazri_gading_linkedin_profile_bangkit_mentor",
       "relation": "shares_data_with",
@@ -5553,21 +5789,6 @@
     {
       "confidence": "INFERRED",
       "confidence_score": 0.85,
-      "id": "public_icon_bibliometric_indexes",
-      "relation": "conceptually_related_to",
-      "source_file": "public/icon/scopus.svg",
-      "source_location": null,
-      "weight": 1.0,
-      "nodes": [
-        "public_icon_scopus_scopus",
-        "public_icon_wos_web_of_science",
-        "src_data_icon_elsevier_elsevier",
-        "public_icon_ieee_ieee"
-      ]
-    },
-    {
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
       "id": "public_icon_scholar_profiles",
       "relation": "conceptually_related_to",
       "source_file": "public/icon/gs.svg",
@@ -5582,5 +5803,5 @@
       ]
     }
   ],
-  "built_at_commit": "98cf914403be4aeadec0217835bba505bf0c8cd9"
+  "built_at_commit": "fa532727faad5b547699d872c29034929191f61b"
 }

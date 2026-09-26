@@ -1,16 +1,16 @@
-# Graph Report - portfolio  (2026-09-26)
+# Graph Report - portfolio  (2026-09-27)
 
 ## Corpus Check
-- 54 files · ~465,910 words
+- 58 files · ~766,000 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 208 nodes · 239 edges · 36 communities (16 shown, 19 thin omitted)
-- Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 28 edges (avg confidence: 0.85)
+- 217 nodes · 253 edges · 36 communities (16 shown, 19 thin omitted)
+- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `98cf9144`
+- Built from commit: `fa532727`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -20,7 +20,7 @@
 - Layout.astro
 - compilerOptions
 - LinkedIn profile Fazri Gading
-- devDependencies
+- extract-games-data.py
 - Astro Static MPA
 - dependencies
 - scripts
@@ -56,16 +56,14 @@
 2. `runVerb()` - 12 edges
 3. `paletteItems()` - 7 edges
 4. `scripts` - 7 edges
-5. `go()` - 5 edges
-6. `slugify()` - 5 edges
-7. `paintAccent()` - 4 edges
-8. `resetAccent()` - 4 edges
-9. `applyCrt()` - 4 edges
-10. `applyNavbar()` - 4 edges
+5. `process_game_list()` - 6 edges
+6. `go()` - 5 edges
+7. `slugify()` - 5 edges
+8. `paintAccent()` - 4 edges
+9. `resetAccent()` - 4 edges
+10. `applyCrt()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Conference speaking portrait of Fazri Gading` --conceptually_related_to--> `AI Trainer EBIT Co Seoul 2026`  [INFERRED]
-  src/data/fazrigading-large.webp → resources/Fazri-Gading-Linkedin-Profile.md
 - `Interactive scope v1 shipped vs v2 deferred` --conceptually_related_to--> `React 19 islands TerminalHero and CommandPalette`  [AMBIGUOUS]
   DESIGN.md → AGENTS.md
 - `ADR-0003 accent theming mechanism` --conceptually_related_to--> `Per-route accent via data-route and CSS vars`  [INFERRED]
@@ -74,6 +72,8 @@
   docs/adr/0002-typefaces.md → DESIGN.md
 - `Base Path Portfolio` --conceptually_related_to--> `Deploy Workflow`  [INFERRED]
   docs/deployment.md → .github/workflows/deploy.yml
+- `Deploy Workflow` --implements--> `GitHub Pages Deployment`  [INFERRED]
+  .github/workflows/deploy.yml → docs/deployment.md
 
 ## Import Cycles
 - None detected.
@@ -85,34 +85,33 @@
 - **DedSec design token flow** — design_dedsec_system, design_accent_theming, design_typography_system [EXTRACTED 1.00]
 - **Static MPA plus islands architecture** — agents_astro_stack, agents_react_islands, docs_adr_0001_full_stack_stack_decision [EXTRACTED 1.00]
 - **Content Migration Placeholders** — src_content_projects_placeholder_projects_placeholder, src_content_research_placeholder_research_placeholder, docs_data_guide_content_collections [INFERRED 0.85]
-- **public_icon_bibliometric_indexes** — public_icon_scopus_scopus, public_icon_wos_web_of_science, src_data_icon_elsevier_elsevier, public_icon_ieee_ieee [INFERRED 0.85]
 - **public_icon_scholar_profiles** — public_icon_academia_academia_edu, public_icon_gs_google_scholar, public_icon_researchgate_researchgate, public_icon_orcid_orcid, public_icon_smsc_semantic_scholar [INFERRED 0.85]
 
 ## Communities (36 total, 19 thin omitted)
 
 ### Community 0 - "commands.ts"
 Cohesion: 0.13
-Nodes (25): ACCENTS, currentAccent(), paintAccent(), resetAccent(), CommandPalette(), Item, err(), FILES (+17 more)
+Nodes (26): react, ACCENTS, currentAccent(), paintAccent(), resetAccent(), CommandPalette(), Item, err() (+18 more)
 
 ### Community 1 - "package.json"
-Cohesion: 0.09
-Nodes (20): allowScripts, esbuild@0.28.2, name, private, type, version, astro, @astrojs/mdx (+12 more)
+Cohesion: 0.08
+Nodes (24): allowScripts, esbuild@0.28.2, devDependencies, tailwindcss, @types/node, @types/react, @types/react-dom, typescript (+16 more)
 
 ### Community 2 - "Layout.astro"
-Cohesion: 0.15
-Nodes (7): slugify(), links, string, string, posts, featured, getStaticPaths()
+Cohesion: 0.13
+Nodes (8): slugify(), links, string, { desktop: string[]; mobile: string[] }, repeat(), posts, featured, getStaticPaths()
 
 ### Community 3 - "compilerOptions"
 Cohesion: 0.12
 Nodes (16): compilerOptions, allowImportingTsExtensions, allowJs, allowSyntheticDefaultImports, experimentalDecorators, isolatedModules, jsx, lib (+8 more)
 
 ### Community 4 - "LinkedIn profile Fazri Gading"
-Cohesion: 0.12
-Nodes (16): contact.txt channels, github.com/fazrigading and linkedin/in/fazrigading, Applied AI Engineer, Researcher, Certifications.md 39 credentials, DeepLearning.AI TensorFlow and ML courses, TensorFlow Developer Certificate 86486958 Nov 2023, Bangkit Academy ML mentor 25 students (+8 more)
+Cohesion: 0.13
+Nodes (15): contact.txt channels, github.com/fazrigading and linkedin/in/fazrigading, Applied AI Engineer, Researcher, Certifications.md 39 credentials, DeepLearning.AI TensorFlow and ML courses, TensorFlow Developer Certificate 86486958 Nov 2023, Bangkit Academy ML mentor 25 students (+7 more)
 
-### Community 5 - "devDependencies"
-Cohesion: 0.33
-Nodes (6): devDependencies, tailwindcss, @types/node, @types/react, @types/react-dom, typescript
+### Community 5 - "extract-games-data.py"
+Cohesion: 0.24
+Nodes (11): download_image(), get_game_details(), get_steam_app_id(), load_existing_results(), process_game_list(), Remove special characters for safe file naming., Search Steam store API for the game title to find its App ID [Medium…, Fetch genres object array and high-resolution library hero image from Steam… (+3 more)
 
 ### Community 6 - "Astro Static MPA"
 Cohesion: 0.22
@@ -143,8 +142,8 @@ Cohesion: 0.67
 Nodes (4): Base Path Portfolio, GitHub Pages Deployment, CI Workflow, Deploy Workflow
 
 ### Community 13 - "Scopus brand icon, author citation profile link"
-Cohesion: 0.50
-Nodes (4): Google Scholar brand icon, scholar profile link, Scopus brand icon, author citation profile link, Web of Science brand icon, researcher citation profile link, Elsevier brand icon, publisher profile link
+Cohesion: 0.67
+Nodes (3): Google Scholar brand icon, scholar profile link, Scopus brand icon, author citation profile link, Web of Science brand icon, researcher citation profile link
 
 ### Community 14 - "ADR-0001 full Astro stack decision"
 Cohesion: 0.67
@@ -159,8 +158,8 @@ Nodes (3): React 19 islands TerminalHero and CommandPalette, Interactive scope v
   DESIGN.md · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **111 isolated node(s):** `Item`, `TResult`, `CrtState`, `NavbarState`, `FILES` (+106 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 122 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **108 isolated node(s):** `Item`, `TResult`, `CrtState`, `NavbarState`, `FILES` (+103 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 124 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -168,15 +167,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `React 19 islands TerminalHero and CommandPalette` and `Interactive scope v1 shipped vs v2 deferred`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `react` connect `package.json` to `commands.ts`?**
-  _High betweenness centrality (0.123) - this node is a cross-community bridge._
+- **Why does `react` connect `commands.ts` to `package.json`?**
+  _High betweenness centrality (0.109) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **Why does `scripts` connect `scripts` to `package.json`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **What connects `Item`, `TResult`, `CrtState` to the rest of the system?**
-  _111 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _108 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `commands.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.13118279569892474 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12701612903225806 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.09420289855072464 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08307692307692308 - nodes in this community are weakly interconnected._
