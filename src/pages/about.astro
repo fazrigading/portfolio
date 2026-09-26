@@ -4,6 +4,7 @@ import AsciiHeader from '../components/AsciiHeader.astro';
 import RetroWindow from '../components/RetroWindow.astro';
 import ZineCard from '../components/ZineCard.astro';
 import Carousel from '../components/Carousel.astro';
+import GameCover from '../components/GameCover.astro';
 import HalftoneImage from '../components/HalftoneImage.astro';
 import LucideIcon from '../components/LucideIcon.astro';
 import profile from '../data/profile.json';
@@ -114,18 +115,43 @@ const genreCounts: Record<string, number> = Object.fromEntries(
     <div class="grid gap-6 pt-10 md:grid-cols-2">
       <div class="md:col-span-2">
       <RetroWindow tag="SAVE_FILE" title="gaming">
+        <div class="pb-3">
+          <p class="font-display text-xs tracking-widest text-accent">PROFILES_</p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            {social.gaming.map((g) => (
+              <a href={g.href} target="_blank" rel="noreferrer" title={g.name} aria-label={g.name} class="flex items-center gap-1.5 border border-grid px-2 py-1 text-[11px] uppercase tracking-widest text-dim transition-colors hover:border-accent hover:text-accent">
+                <LucideIcon name={g.icon} size={14} /> {g.name}
+              </a>
+            ))}
+          </div>
+        </div>
+        {showcase.gaming.nowPlaying.length > 0 && (
+          <div class="pb-3">
+            <p class="font-display text-xs tracking-widest text-accent">NOW_PLAYING_</p>
+            <ul class="flex flex-wrap gap-2 pt-2">
+              {showcase.gaming.nowPlaying.map((g) => (
+                <li class="group relative">
+                  <a href={g.link} target="_blank" rel="noreferrer" class="block border border-accent px-2 py-1 text-[11px] uppercase tracking-widest text-ink transition-colors hover:bg-accentsurface">
+                    {g.title}
+                  </a>
+                  <div class="invisible pointer-events-none absolute left-0 top-full z-50 w-44 border border-accent bg-void p-2 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100">
+                    {g.cover && <img src={`${b}game-covers/${g.cover}`} alt="" loading="lazy" width="150" height="225" class="h-[225px] w-[150px] object-cover" />}
+                    <p class="pt-2 font-display text-[10px] tracking-widest text-accent">GENRES_</p>
+                    <p class="text-[11px] leading-4 text-dim">{(g.genres ?? []).join(', ') || '—'}</p>
+                    {g.note && (
+                      <>
+                        <p class="pt-1 font-display text-[10px] tracking-widest text-accent">NOTE_</p>
+                        <p class="text-[11px] leading-4 text-dim">{g.note}</p>
+                      </>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div class="grid gap-3 md:grid-cols-2">
           <div>
-            {showcase.gaming.nowPlaying.length > 0 && (
-              <div class="pb-3">
-                <p class="font-display text-xs tracking-widest text-accent">NOW_PLAYING_</p>
-                <ul class="flex flex-wrap gap-2 pt-2">
-                  {showcase.gaming.nowPlaying.map((g) => (
-                    <li class="border border-accent px-2 py-1 text-[11px] uppercase tracking-widest text-ink">{g.title}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
             {showcase.gaming.likedGames.length > 0 && (
               <div>
                 <p class="font-display text-xs tracking-widest text-accent">LIKED_GAMES_</p>
@@ -133,10 +159,9 @@ const genreCounts: Record<string, number> = Object.fromEntries(
               <Carousel id="car-liked">
                 {showcase.gaming.likedGames.map((g) => (
                   <div data-genres={(g.genres ?? []).join('|')} class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
-                    <img src={`${b}game-covers/${g.cover}`} alt={`${g.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
+                    <GameCover game={g} base={b} />
                     <div class="flex flex-1 flex-col p-2">
                       <p class="line-clamp-2 min-h-[2rem] text-xs leading-4 text-ink">{g.title}</p>
-                      <p class="line-clamp-2 min-h-[2rem] pt-0.5 text-[11px] leading-4 text-dim">{g.note ?? ''}</p>
                     </div>
                   </div>
                 ))}
@@ -147,16 +172,6 @@ const genreCounts: Record<string, number> = Object.fromEntries(
             )}
           </div>
           <div>
-            <div class="pb-3">
-              <p class="font-display text-xs tracking-widest text-accent">PROFILES_</p>
-              <div class="flex flex-wrap gap-2 pt-2">
-                {social.gaming.map((g) => (
-                  <a href={g.href} target="_blank" rel="noreferrer" class="border border-grid px-2 py-1 text-[11px] uppercase tracking-widest text-dim transition-colors hover:border-accent hover:text-accent">
-                    {g.name} →
-                  </a>
-                ))}
-              </div>
-            </div>
             {showcase.gaming.wantToPlay.length > 0 && (
               <div>
                 <p class="font-display text-xs tracking-widest text-accent">WANT_TO_PLAY_</p>
@@ -164,10 +179,9 @@ const genreCounts: Record<string, number> = Object.fromEntries(
               <Carousel id="car-want-to-play">
                 {showcase.gaming.wantToPlay.map((g) => (
                   <div data-genres={(g.genres ?? []).join('|')} class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
-                    <img src={`${b}game-covers/${g.cover}`} alt={`${g.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
+                    <GameCover game={g} base={b} />
                     <div class="flex flex-1 flex-col p-2">
                       <p class="line-clamp-2 min-h-[2rem] text-xs leading-4 text-ink">{g.title}</p>
-                      <p class="line-clamp-2 min-h-[2rem] pt-0.5 text-[11px] leading-4 text-dim">{g.note ?? ''}</p>
                     </div>
                   </div>
                 ))}

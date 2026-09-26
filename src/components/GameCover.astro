@@ -1,0 +1,22 @@
+---
+const { game, base } = Astro.props;
+---
+
+<a
+  href={game.link}
+  target={game.link ? '_blank' : undefined}
+  rel={game.link ? 'noreferrer' : undefined}
+  class="group relative block"
+>
+  <img src={`${base}game-covers/${game.cover}`} alt={`${game.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
+  <div class="invisible pointer-events-none absolute inset-0 flex flex-col gap-0.5 overflow-y-auto bg-void/90 p-2 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100">
+    <p class="font-display text-[10px] tracking-widest text-accent">GENRES_</p>
+    {(game.genres ?? []).map((gen) => <p class="text-[11px] leading-4 text-dim">{gen}</p>)}
+    {game.note && (
+      <>
+        <p class="pt-1 font-display text-[10px] tracking-widest text-accent">NOTE_</p>
+        <p class="text-[11px] leading-4 text-dim">{game.note}</p>
+      </>
+    )}
+  </div>
+</a>
