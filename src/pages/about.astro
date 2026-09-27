@@ -271,7 +271,7 @@ const genreCounts: Record<string, number> = Object.fromEntries(
               <div class="pt-2">
                 <Carousel id="car-want">
                   {showcase.literature.wantToRead.map((bk) => (
-                    <div class="flex w-40 shrink-0 snap-start border border-grid sm:w-48">
+                    <div class="flex w-40 shrink-0 snap-start flex-col border border-grid sm:w-48">
                       <img src={`${b}covers/${bk.cover}`} alt={`${bk.title} cover`} loading="lazy" class="aspect-[2/3] w-full shrink-0 object-cover" />
                       <div class="flex flex-1 flex-col p-2">
                         <p class="line-clamp-2 min-h-[2rem] text-xs leading-4 text-ink">{bk.title}</p>

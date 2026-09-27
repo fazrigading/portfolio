@@ -64,27 +64,6 @@ body {
   clip-path: polygon(0 100%, 0 40%, 3% 70%, 6% 30%, 9% 60%, 12% 25%, 15% 55%, 18% 35%, 21% 65%, 24% 30%, 27% 60%, 30% 28%, 33% 58%, 36% 32%, 39% 62%, 42% 26%, 45% 56%, 48% 34%, 51% 64%, 54% 30%, 57% 58%, 60% 28%, 63% 60%, 66% 32%, 69% 62%, 72% 26%, 75% 56%, 78% 34%, 81% 64%, 84% 30%, 87% 58%, 90% 28%, 93% 60%, 96% 32%, 98% 55%, 100% 40%, 100% 100%);
 }
 
-/* CRT overlay: scanlines + vignette, toggled via <html data-crt> */
-.crt-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 2px,
-    rgba(0, 0, 0, 0.22) 3px
-  );
-}
-.crt-overlay::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
-}
-html[data-crt="off"] .crt-overlay { display: none; }
-
 /* desktop navbar kill-switch: mobile nav always on, hint follows pref */
 .nav-hint { display: none; }
 @media (min-width: 768px) {

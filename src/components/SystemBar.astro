@@ -30,13 +30,6 @@ links.push({ name: 'Contact', href: b + 'contact', key: 'contact' });
     </span>
     <div class="sysctl ml-auto flex items-center gap-2">
       <button
-        id="crt-toggle"
-        title="Toggle CRT overlay (also: crt <on|off>)"
-        class="border border-grid px-2 py-1 uppercase tracking-wider text-dim transition-colors hover:border-accent hover:text-accent"
-      >
-        CRT
-      </button>
-      <button
         id="palette-open"
         title="Open command palette (also: CTRL+K)"
         aria-label="Open command palette"
@@ -65,12 +58,6 @@ links.push({ name: 'Contact', href: b + 'contact', key: 'contact' });
 </header>
 
 <script is:inline>
-  document.getElementById('crt-toggle')?.addEventListener('click', () => {
-    const html = document.documentElement;
-    const off = html.dataset.crt !== 'off';
-    html.dataset.crt = off ? 'off' : 'on';
-    try { localStorage.setItem('dedsec-crt', off ? 'off' : 'on'); } catch {}
-  });
   document.getElementById('palette-open')?.addEventListener('click', () => {
     window.dispatchEvent(new CustomEvent('dedsec:palette'));
   });

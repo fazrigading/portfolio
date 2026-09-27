@@ -4,7 +4,6 @@
 // the palette's audio stub is a v2 placeholder with no terminal twin.
 import { applyNavbar, getNavbar } from './navbarPref';
 import { ACCENTS, currentAccent, paintAccent, resetAccent } from './accentPref';
-import { applyCrt, getCrt } from './crtPref';
 import { navigate } from 'astro:transitions/client';
 
 // Router-aware navigation for the islands: animated transition when the
@@ -56,7 +55,6 @@ export const HELP: TermLine[] = [
   { text: "\tpurple (p)\t\tresearch page accent color", kind: "out" },
   { text: "\tred (r)\t\t\tblog page accent color", kind: "out" },
   { text: "\tpink (k)\t\tcontact page accent color", kind: "out" },
-  { text: "crt <on|off>\t\ttoggle scanline overlay", kind: "out" },
   { text: "clear\t\t\t\twipe the terminal", kind: "out" },
 ];
 
@@ -117,13 +115,6 @@ export async function runVerb(verb: string, arg: string, base: string, currentRo
       }
       return { lines: [err(`usage: accent <color|default> (now: ${currentAccent()})`)] };
     }
-    case 'crt': {
-      if (arg === 'on' || arg === 'off') {
-        applyCrt(arg);
-        return { lines: [out(`CRT: ${arg === 'on' ? 'ONLINE' : 'OFFLINE'} (persisted)`)] };
-      }
-      return { lines: [err(`usage: crt <on|off> (now: ${getCrt() === 'on' ? 'ONLINE' : 'OFFLINE'})`)] };
-    }
     default:
       return { lines: [err(`ERR_0x99: command not found '${verb}'. try help`)] };
   }
@@ -139,8 +130,6 @@ export function paletteItems(nav: (route: string) => void): PItem[] {
       hint: 'route',
       run: () => nav(r),
     })),
-    { label: 'crt: display on', hint: 'display', run: () => applyCrt('on') },
-    { label: 'crt: display off', hint: 'display', run: () => applyCrt('off') },
     { label: 'navbar: enable desktop nav', hint: 'display', run: () => applyNavbar('on') },
     { label: 'navbar: disable desktop nav', hint: 'display', run: () => applyNavbar('off') },
     ...ACCENTS.map((v) => ({

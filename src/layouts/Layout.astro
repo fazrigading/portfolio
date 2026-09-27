@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import SystemBar from '../components/SystemBar.astro';
-import CRTOverlay from '../components/CRTOverlay.astro';
 import CommandPalette from '../components/CommandPalette.tsx';
 import { ClientRouter } from 'astro:transitions';
 import LucideIcon from '../components/LucideIcon.astro';
@@ -52,7 +51,7 @@ const bg = pageBg[route] ?? pageBg['/'];
 ---
 
 <!doctype html>
-<html lang="en" data-crt="on" data-navbar="off" data-route={route}>
+<html lang="en" data-navbar="off" data-route={route}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -105,15 +104,20 @@ const bg = pageBg[route] ?? pageBg['/'];
       wpRotate();
     </script>
     <script is:inline>
-      try {
-        if (localStorage.getItem('dedsec-crt') === 'off') document.documentElement.dataset.crt = 'off';
-        if (localStorage.getItem('dedsec-navbar') === 'on') document.documentElement.dataset.navbar = 'on';
-        const a = JSON.parse(localStorage.getItem('dedsec-accent') || 'null');
-        if (a) {
-          document.documentElement.style.setProperty('--accent', a.accent);
-          document.documentElement.style.setProperty('--accent-surface', a.surface);
-        }
-      } catch {}
+      // Re-applied on every ClientRouter swap: the incoming page's <html>
+      // attributes (data-navbar="off", inline styles) overwrite these prefs.
+      function applyPrefs() {
+        try {
+          if (localStorage.getItem('dedsec-navbar') === 'on') document.documentElement.dataset.navbar = 'on';
+          const a = JSON.parse(localStorage.getItem('dedsec-accent') || 'null');
+          if (a) {
+            document.documentElement.style.setProperty('--accent', a.accent);
+            document.documentElement.style.setProperty('--accent-surface', a.surface);
+          }
+        } catch {}
+      }
+      document.addEventListener('astro:after-swap', applyPrefs);
+      applyPrefs();
     </script>
   </head>
   <body class="min-h-screen font-term text-ink antialiased">
@@ -143,7 +147,6 @@ const bg = pageBg[route] ?? pageBg['/'];
         <p>TELEMETRY: OK // © {profile.footer.copyright}</p>
       </div>
     </footer>
-    <CRTOverlay />
     <CommandPalette client:idle />
   </body>
 </html>
