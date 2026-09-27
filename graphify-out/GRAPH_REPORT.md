@@ -1,16 +1,16 @@
 # Graph Report - portfolio  (2026-09-27)
 
 ## Corpus Check
-- 58 files · ~766,000 words
+- 56 files · ~765,793 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 217 nodes · 253 edges · 36 communities (16 shown, 19 thin omitted)
-- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.85)
+- 212 nodes · 243 edges · 37 communities (17 shown, 19 thin omitted)
+- Extraction: 89% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `fa532727`
+- Built from commit: `744aed4b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -31,6 +31,7 @@
 - Scopus brand icon, author citation profile link
 - ADR-0001 full Astro stack decision
 - React 19 islands TerminalHero and CommandPalette
+- devDependencies
 - graphify.js
 - reaper-ascii-art-tiled-mobile.webp file
 - Base path /portfolio/ on GitHub Pages sub-path
@@ -53,15 +54,15 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
-2. `runVerb()` - 12 edges
-3. `paletteItems()` - 7 edges
-4. `scripts` - 7 edges
+2. `runVerb()` - 10 edges
+3. `scripts` - 7 edges
+4. `paletteItems()` - 6 edges
 5. `process_game_list()` - 6 edges
 6. `go()` - 5 edges
 7. `slugify()` - 5 edges
 8. `paintAccent()` - 4 edges
 9. `resetAccent()` - 4 edges
-10. `applyCrt()` - 4 edges
+10. `applyNavbar()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Interactive scope v1 shipped vs v2 deferred` --conceptually_related_to--> `React 19 islands TerminalHero and CommandPalette`  [AMBIGUOUS]
@@ -87,19 +88,19 @@
 - **Content Migration Placeholders** — src_content_projects_placeholder_projects_placeholder, src_content_research_placeholder_research_placeholder, docs_data_guide_content_collections [INFERRED 0.85]
 - **public_icon_scholar_profiles** — public_icon_academia_academia_edu, public_icon_gs_google_scholar, public_icon_researchgate_researchgate, public_icon_orcid_orcid, public_icon_smsc_semantic_scholar [INFERRED 0.85]
 
-## Communities (36 total, 19 thin omitted)
+## Communities (37 total, 19 thin omitted)
 
 ### Community 0 - "commands.ts"
-Cohesion: 0.13
-Nodes (26): react, ACCENTS, currentAccent(), paintAccent(), resetAccent(), CommandPalette(), Item, err() (+18 more)
+Cohesion: 0.14
+Nodes (23): react, ACCENTS, currentAccent(), paintAccent(), resetAccent(), CommandPalette(), Item, err() (+15 more)
 
 ### Community 1 - "package.json"
-Cohesion: 0.08
-Nodes (24): allowScripts, esbuild@0.28.2, devDependencies, tailwindcss, @types/node, @types/react, @types/react-dom, typescript (+16 more)
+Cohesion: 0.11
+Nodes (18): allowScripts, esbuild@0.28.2, name, private, type, version, astro, @astrojs/mdx (+10 more)
 
 ### Community 2 - "Layout.astro"
-Cohesion: 0.13
-Nodes (8): slugify(), links, string, { desktop: string[]; mobile: string[] }, repeat(), posts, featured, getStaticPaths()
+Cohesion: 0.14
+Nodes (7): slugify(), links, string, repeat(), posts, featured, getStaticPaths()
 
 ### Community 3 - "compilerOptions"
 Cohesion: 0.12
@@ -153,13 +154,17 @@ Nodes (3): Astro 7 static MPA plus TypeScript stack, Locked tech stack Astro Tai
 Cohesion: 0.67
 Nodes (3): React 19 islands TerminalHero and CommandPalette, Interactive scope v1 shipped vs v2 deferred, Layout SystemBar CRTOverlay shell on all routes
 
+### Community 16 - "devDependencies"
+Cohesion: 0.33
+Nodes (6): devDependencies, tailwindcss, @types/node, @types/react, @types/react-dom, typescript
+
 ## Ambiguous Edges - Review These
 - `React 19 islands TerminalHero and CommandPalette` → `Interactive scope v1 shipped vs v2 deferred`  [AMBIGUOUS]
   DESIGN.md · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **108 isolated node(s):** `Item`, `TResult`, `CrtState`, `NavbarState`, `FILES` (+103 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 124 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **106 isolated node(s):** `string`, `links`, `ROUTES`, `FILES`, `ROUTE_KEYS` (+101 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 122 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -168,14 +173,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `React 19 islands TerminalHero and CommandPalette` and `Interactive scope v1 shipped vs v2 deferred`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **Why does `react` connect `commands.ts` to `package.json`?**
-  _High betweenness centrality (0.109) - this node is a cross-community bridge._
+  _High betweenness centrality (0.104) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `package.json`?**
-  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+  _High betweenness centrality (0.033) - this node is a cross-community bridge._
 - **Why does `scripts` connect `scripts` to `package.json`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
-- **What connects `Item`, `TResult`, `CrtState` to the rest of the system?**
-  _108 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `string`, `links`, `ROUTES` to the rest of the system?**
+  _106 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `commands.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.12701612903225806 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.08307692307692308 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11052631578947368 - nodes in this community are weakly interconnected._

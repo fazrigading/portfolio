@@ -20,6 +20,7 @@ const b = import.meta.env.BASE_URL;
   <RetroWindow tag="PAYLOAD_DUMP" title={p.title}>
     <p class="flex items-center gap-2 text-xs uppercase tracking-widest text-accent">
       <LucideIcon name={p.icon} size={14} /> {p.subtitle} [{p.category}]
+      {p.status === 'wip' && <span class="border border-grid px-1 text-dim">WIP</span>}
     </p>
     <p class="pt-3 text-sm leading-relaxed text-ink">{p.desc}</p>
     <div class="flex flex-wrap gap-1.5 pt-4">

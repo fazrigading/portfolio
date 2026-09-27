@@ -72,16 +72,19 @@ const bg = pageBg[route] ?? pageBg['/'];
     ))}
     <ClientRouter />
     <script is:inline>
-      // Random non-repeating wallpaper per route trigger (full load + ClientRouter nav).
-      function wpPick(pool, key) {
+      // Random non-repeating wallpaper per route trigger (initial load + ClientRouter nav).
+      function wpPick(pool, key, exclude) {
         if (!pool.length) return null;
-        if (pool.length === 1) return pool[0];
-        var last = -1;
-        try { last = parseInt(sessionStorage.getItem(key) || '-1', 10); } catch (e) {}
-        var i = last;
-        while (i === last) i = Math.floor(Math.random() * pool.length);
-        try { sessionStorage.setItem(key, String(i)); } catch (e) {}
-        return pool[i];
+        var candidates = (exclude && pool.length > 1) ? pool.filter(function (u) { return u !== exclude; }) : pool;
+        if (!candidates.length) candidates = pool;
+        var last = null;
+        try { last = sessionStorage.getItem(key); } catch (e) {}
+        if (last && candidates.length > 1) candidates = candidates.filter(function (u) { return u !== last; });
+        if (!candidates.length) candidates = pool;
+        if (candidates.length === 1) return candidates[0];
+        var src = candidates[Math.floor(Math.random() * candidates.length)];
+        try { sessionStorage.setItem(key, src); } catch (e) {}
+        return src;
       }
       function wpRotate() {
         var root = document.getElementById('wallpaper');
@@ -93,15 +96,43 @@ const bg = pageBg[route] ?? pageBg['/'];
         } catch (e) { return; }
         var isMobile = window.matchMedia('(max-width: 768px)').matches;
         var pool = isMobile && mobile.length ? mobile : desktop;
-        var src = wpPick(pool, 'wp-last-' + (root.dataset.route || '/') + (isMobile ? '-m' : '-d'));
+        var img = document.getElementById('wp-img');
+        if (!img) return;
+        var src = wpPick(pool, 'wp-last-' + (root.dataset.route || '/') + (isMobile ? '-m' : '-d'), img.getAttribute('src'));
         if (!src) return;
         var source = document.getElementById('wp-source');
-        var img = document.getElementById('wp-img');
-        if (isMobile && mobile.length && source) source.setAttribute('srcset', src);
-        if (img && img.getAttribute('src') !== src) img.setAttribute('src', src);
+        if (src === img.getAttribute('src')) {
+          // single-wallpaper route (about/blog): nothing to rotate to — dip
+          // to dark and back so the fade rhythm matches multi-wallpaper routes
+          img.style.opacity = '0';
+          setTimeout(function () { img.style.opacity = ''; }, 600);
+          return;
+        }
+        // fade out, hold for the dip duration (even on cache hits so the
+        // transition isn't retargeted mid-flight), swap, then fade back in
+        img.style.opacity = '0';
+        var pre = new Image();
+        var swapped = false;
+        var restore = function () {
+          if (swapped) return;
+          swapped = true;
+          if (isMobile && mobile.length && source) source.setAttribute('srcset', src);
+          img.setAttribute('src', src);
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () { img.style.opacity = ''; });
+          });
+        };
+        pre.onload = function () { setTimeout(restore, 600); };
+        pre.onerror = function () { img.style.opacity = ''; };
+        pre.src = src;
       }
-      document.addEventListener('astro:page-load', wpRotate);
-      wpRotate();
+      function wpRotateAfterTransition() {
+        // never dip while the ClientRouter crossfade is still animating
+        var vt = document.viewTransition;
+        if (vt && vt.finished && vt.finished.then) vt.finished.then(wpRotate);
+        else wpRotate();
+      }
+      document.addEventListener('astro:page-load', wpRotateAfterTransition);
     </script>
     <script is:inline>
       // Re-applied on every ClientRouter swap: the incoming page's <html>

@@ -24,7 +24,8 @@
     "desc": "A Linux-centric productivity tool that automatically initializes specific application sets across multiple desktop workspaces.",
     "tech": ["Software Engineering", "Bash", "Linux", "Automation", "GNOME", "Wayland", "Python"],
     "link": "https://github.com/fazrigading/SessionIntent",
-    "icon": "Monitor"
+    "icon": "Monitor",
+    "featured": true
   },
   {
     "title": "Ingatini",
@@ -34,5 +35,68 @@
     "tech": ["Artificial Intelligence", "Deep Learning", "Software Engineering", "LangChain", "Pgvector", "FastAPI", "PostgreSQL", "Python", "Axios", "Tailwind"],
     "link": "https://github.com/fazrigading/ingatini",
     "icon": "MessageSquare"
+  },
+  {
+    "title": "MilleRace",
+    "subtitle": "Media & Information Literacy Relay Race Web Game",
+    "category": "Game Development",
+    "desc": "An immersive, gamified Media and Information Literacy (MIL) relay race web game built for the UNESCO Youth Hackathon 2026.",
+    "tech": ["Game Development", "JavaScript", "HTML", "CSS"],
+    "link": "https://github.com/fazrigading/MilleRace",
+    "icon": "Flag",
+    "featured": true,
+    "misc": true
+  },
+  {
+    "title": "WheelDeck",
+    "subtitle": "Phone-as-Steering-Wheel for PC Racing Simulators",
+    "category": "Software Engineering",
+    "desc": "Turn an Android or iOS phone into a steering wheel and dashboard control panel for PC racing and trucking simulators. A desktop companion app translates the phone's gyroscope steering, touch pedals, and buttons into a virtual game controller the simulator reads natively — no game plugins needed. Runs on Linux and Windows desktops; macOS planned.",
+    "tech": ["Flutter", "Dart", "Kotlin", "C#", ".NET", "Avalonia", "WebSocket", "mDNS", "Linux", "Windows"],
+    "link": "https://github.com/fazrigading/WheelDeck",
+    "icon": "Gamepad2",
+    "featured": true,
+    "status": "wip",
+    "misc": true
+  },
+  {
+    "title": "NumericalMethods",
+    "subtitle": "Numerical Methods Course Implementations",
+    "category": "Academic / Numerical Methods",
+    "desc": "A special repository for the Numerical Methods course from my uni, with all code written in C++ covering five methods including Gaussian elimination, Jacobi iteration, and Newton-Raphson.",
+    "tech": ["C++", "Numerical Methods", "Linear Algebra", "Gaussian Elimination", "Newton-Raphson", "Jacobi"],
+    "link": "https://github.com/fazrigading/NumericalMethods",
+    "icon": "Sigma",
+    "misc": true
+  },
+  {
+    "title": "PlayStation Game Store",
+    "subtitle": "Native HTML/CSS/JS Game Store Website",
+    "category": "Web Development",
+    "desc": "A native HTML, CSS, and JavaScript PlayStation game store website built for the Web Programming 2022 course in Informatics UNMUL. Feel free to use it as your CS project — see the license section on the README.",
+    "tech": ["HTML", "CSS", "JavaScript", "PHP", "Web Development"],
+    "link": "https://github.com/fazrigading/playstation-game-store",
+    "icon": "Gamepad",
+    "misc": true
+  },
+  {
+    "title": "ROICropper",
+    "subtitle": "Region-of-Interest Image Cropping Tool",
+    "category": "Computer Vision",
+    "desc": "A Python utility to crop an image's object / region of interest from a single file or a whole folder.",
+    "tech": ["Python", "Computer Vision", "Image Processing", "CLI"],
+    "link": "https://github.com/fazrigading/ROICropper",
+    "icon": "Crop",
+    "misc": true
+  },
+  {
+    "title": "GBatchCropper",
+    "subtitle": "Gading's Batch Cropper",
+    "category": "Computer Vision",
+    "desc": "A personal Python batch-cropping utility (v1.0-alpha) that crops images in bulk from predefined region coordinates.",
+    "tech": ["Python", "Image Processing", "Batch Processing", "CLI"],
+    "link": "https://github.com/fazrigading/gbatchcropper",
+    "icon": "Scissors",
+    "misc": true
   }
 ]

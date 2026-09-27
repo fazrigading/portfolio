@@ -64,6 +64,16 @@ body {
   clip-path: polygon(0 100%, 0 40%, 3% 70%, 6% 30%, 9% 60%, 12% 25%, 15% 55%, 18% 35%, 21% 65%, 24% 30%, 27% 60%, 30% 28%, 33% 58%, 36% 32%, 39% 62%, 42% 26%, 45% 56%, 48% 34%, 51% 64%, 54% 30%, 57% 58%, 60% 28%, 63% 60%, 66% 32%, 69% 62%, 72% 26%, 75% 56%, 78% 34%, 81% 64%, 84% 30%, 87% 58%, 90% 28%, 93% 60%, 96% 32%, 98% 55%, 100% 40%, 100% 100%);
 }
 
+/* wallpaper: slower crossfade on page change + soft dip for src rotation */
+::view-transition-old(wallpaper),
+::view-transition-new(wallpaper) {
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+}
+#wp-img {
+  transition: opacity 0.6s ease-in-out;
+}
+
 /* desktop navbar kill-switch: mobile nav always on, hint follows pref */
 .nav-hint { display: none; }
 @media (min-width: 768px) {

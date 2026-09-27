@@ -124,7 +124,7 @@
       "file_type": "code",
       "norm_label": "pitem",
       "source_file": "src/components/commands.ts",
-      "source_location": "L132"
+      "source_location": "L123"
     },
     {
       "id": "src_components_commands_termline",
@@ -137,7 +137,7 @@
       "file_type": "code",
       "norm_label": "termline",
       "source_file": "src/components/commands.ts",
-      "source_location": "L28"
+      "source_location": "L27"
     },
     {
       "id": "src_components_commands_tresult",
@@ -150,20 +150,7 @@
       "file_type": "code",
       "norm_label": "tresult",
       "source_file": "src/components/commands.ts",
-      "source_location": "L63"
-    },
-    {
-      "id": "src_components_crtpref_crtstate",
-      "label": "CrtState",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "commands.ts",
-      "file_type": "code",
-      "norm_label": "crtstate",
-      "source_file": "src/components/crtPref.ts",
-      "source_location": "L3"
+      "source_location": "L61"
     },
     {
       "id": "src_components_navbarpref_navbarstate",
@@ -236,7 +223,7 @@
       "file_type": "code",
       "norm_label": "err()",
       "source_file": "src/components/commands.ts",
-      "source_location": "L66"
+      "source_location": "L64"
     },
     {
       "id": "src_components_commands_go",
@@ -248,7 +235,7 @@
       "file_type": "code",
       "norm_label": "go()",
       "source_file": "src/components/commands.ts",
-      "source_location": "L13"
+      "source_location": "L12"
     },
     {
       "id": "src_components_commands_out",
@@ -260,7 +247,7 @@
       "file_type": "code",
       "norm_label": "out()",
       "source_file": "src/components/commands.ts",
-      "source_location": "L65"
+      "source_location": "L63"
     },
     {
       "id": "src_components_commands_paletteitems",
@@ -272,7 +259,7 @@
       "file_type": "code",
       "norm_label": "paletteitems()",
       "source_file": "src/components/commands.ts",
-      "source_location": "L135"
+      "source_location": "L126"
     },
     {
       "id": "src_components_commands_runverb",
@@ -284,31 +271,7 @@
       "file_type": "code",
       "norm_label": "runverb()",
       "source_file": "src/components/commands.ts",
-      "source_location": "L68"
-    },
-    {
-      "id": "src_components_crtpref_applycrt",
-      "label": "applyCrt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "commands.ts",
-      "file_type": "code",
-      "norm_label": "applycrt()",
-      "source_file": "src/components/crtPref.ts",
-      "source_location": "L13"
-    },
-    {
-      "id": "src_components_crtpref_getcrt",
-      "label": "getCrt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "commands.ts",
-      "file_type": "code",
-      "norm_label": "getcrt()",
-      "source_file": "src/components/crtPref.ts",
-      "source_location": "L5"
+      "source_location": "L66"
     },
     {
       "id": "src_components_navbarpref_applynavbar",
@@ -531,7 +494,7 @@
       "file_type": "code",
       "norm_label": "files",
       "source_file": "src/components/commands.ts",
-      "source_location": "L18"
+      "source_location": "L17"
     },
     {
       "id": "src_components_commands_help",
@@ -542,7 +505,7 @@
       "file_type": "code",
       "norm_label": "help",
       "source_file": "src/components/commands.ts",
-      "source_location": "L30"
+      "source_location": "L29"
     },
     {
       "id": "src_components_commands_route_keys",
@@ -553,7 +516,7 @@
       "file_type": "code",
       "norm_label": "route_keys",
       "source_file": "src/components/commands.ts",
-      "source_location": "L19"
+      "source_location": "L18"
     },
     {
       "id": "src_components_commands_routes",
@@ -564,18 +527,7 @@
       "file_type": "code",
       "norm_label": "routes",
       "source_file": "src/components/commands.ts",
-      "source_location": "L17"
-    },
-    {
-      "id": "src_components_crtpref",
-      "label": "crtPref.ts",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "commands.ts",
-      "file_type": "code",
-      "norm_label": "crtpref.ts",
-      "source_file": "src/components/crtPref.ts",
-      "source_location": "L1"
+      "source_location": "L16"
     },
     {
       "id": "src_components_navbarpref",
@@ -653,72 +605,6 @@
       "norm_label": "esbuild@0.28.2",
       "source_file": "package.json",
       "source_location": "L32"
-    },
-    {
-      "id": "package_devdependencies",
-      "label": "devDependencies",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "devdependencies",
-      "source_file": "package.json",
-      "source_location": "L24"
-    },
-    {
-      "id": "package_devdependencies_tailwindcss",
-      "label": "tailwindcss",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "tailwindcss",
-      "source_file": "package.json",
-      "source_location": "L28"
-    },
-    {
-      "id": "package_devdependencies_types_node",
-      "label": "@types/node",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "@types/node",
-      "source_file": "package.json",
-      "source_location": "L25"
-    },
-    {
-      "id": "package_devdependencies_types_react",
-      "label": "@types/react",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "@types/react",
-      "source_file": "package.json",
-      "source_location": "L26"
-    },
-    {
-      "id": "package_devdependencies_types_react_dom",
-      "label": "@types/react-dom",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "@types/react-dom",
-      "source_file": "package.json",
-      "source_location": "L27"
-    },
-    {
-      "id": "package_devdependencies_typescript",
-      "label": "typescript",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "typescript",
-      "source_file": "package.json",
-      "source_location": "L29"
     },
     {
       "id": "package_name",
@@ -952,6 +838,72 @@
       "source_location": "L18"
     },
     {
+      "id": "package_devdependencies",
+      "label": "devDependencies",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "devdependencies",
+      "source_file": "package.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "package_devdependencies_tailwindcss",
+      "label": "tailwindcss",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "tailwindcss",
+      "source_file": "package.json",
+      "source_location": "L28"
+    },
+    {
+      "id": "package_devdependencies_types_node",
+      "label": "@types/node",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "@types/node",
+      "source_file": "package.json",
+      "source_location": "L25"
+    },
+    {
+      "id": "package_devdependencies_types_react",
+      "label": "@types/react",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "@types/react",
+      "source_file": "package.json",
+      "source_location": "L26"
+    },
+    {
+      "id": "package_devdependencies_types_react_dom",
+      "label": "@types/react-dom",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "@types/react-dom",
+      "source_file": "package.json",
+      "source_location": "L27"
+    },
+    {
+      "id": "package_devdependencies_typescript",
+      "label": "typescript",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "typescript",
+      "source_file": "package.json",
+      "source_location": "L29"
+    },
+    {
       "id": "opencode_plugins_graphify",
       "label": "graphify.js",
       "_origin": "ast",
@@ -974,6 +926,17 @@
       "source_location": "L4"
     },
     {
+      "id": "astro_transitions",
+      "label": "astro:transitions",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Layout.astro",
+      "confidence": "EXTRACTED",
+      "file_type": "code",
+      "norm_label": "astro:transitions",
+      "source_file": "astro:transitions"
+    },
+    {
       "id": "src_components_asciiheader",
       "label": "AsciiHeader.astro",
       "_origin": "ast",
@@ -993,17 +956,6 @@
       "file_type": "code",
       "norm_label": "carousel.astro",
       "source_file": "src/components/Carousel.astro",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_crtoverlay",
-      "label": "CRTOverlay.astro",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Layout.astro",
-      "file_type": "code",
-      "norm_label": "crtoverlay.astro",
-      "source_file": "src/components/CRTOverlay.astro",
       "source_location": "L1"
     },
     {
@@ -1115,17 +1067,6 @@
       "norm_label": "layout.astro",
       "source_file": "src/layouts/Layout.astro",
       "source_location": "L1"
-    },
-    {
-      "id": "src_layouts_layout_desktop_string_mobile_string",
-      "label": "{ desktop: string[]; mobile: string[] }",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Layout.astro",
-      "file_type": "code",
-      "norm_label": "{ desktop: string[]; mobile: string[] }",
-      "source_file": "src/layouts/Layout.astro",
-      "source_location": "L39"
     },
     {
       "id": "src_pages_about",
@@ -2928,18 +2869,6 @@
     },
     {
       "source": "src_components_commands_paletteitems",
-      "target": "src_components_crtpref_applycrt",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/components/commands.ts",
-      "source_location": "L142",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_commands_paletteitems",
       "target": "src_components_navbarpref_applynavbar",
       "relation": "calls",
       "_origin": "ast",
@@ -2947,7 +2876,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L144",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -2959,7 +2888,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L149",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
@@ -2971,7 +2900,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L151",
+      "source_location": "L140",
       "weight": 1.0
     },
     {
@@ -2983,7 +2912,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L102",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
@@ -2995,7 +2924,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L105",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -3007,7 +2936,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L111",
+      "source_location": "L109",
       "weight": 1.0
     },
     {
@@ -3019,7 +2948,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L115",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -3031,31 +2960,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L118",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_commands_runverb",
-      "target": "src_components_crtpref_applycrt",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/components/commands.ts",
-      "source_location": "L122",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_commands_runverb",
-      "target": "src_components_crtpref_getcrt",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/components/commands.ts",
-      "source_location": "L125",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -3067,7 +2972,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L74",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -3079,7 +2984,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/commands.ts",
-      "source_location": "L84",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -3395,30 +3300,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_components_commands",
-      "target": "src_components_crtpref_applycrt",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/components/commands.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_commands",
-      "target": "src_components_crtpref_getcrt",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/components/commands.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
       "source": "src_components_terminalhero",
       "target": "src_components_commands_go",
       "relation": "imports",
@@ -3575,18 +3456,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_components_commands",
-      "target": "src_components_crtpref",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/components/commands.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
       "source": "src_components_terminalhero",
       "target": "ref_react",
       "relation": "imports_from",
@@ -3624,7 +3493,7 @@
     },
     {
       "source": "src_layouts_layout",
-      "target": "src_components_crtoverlay",
+      "target": "src_components_commandpalette",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3636,18 +3505,6 @@
     },
     {
       "source": "src_layouts_layout",
-      "target": "src_components_commandpalette",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/layouts/Layout.astro",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_layouts_layout",
       "target": "src_components_lucideicon",
       "relation": "imports_from",
       "_origin": "ast",
@@ -3655,7 +3512,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/layouts/Layout.astro",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -4465,7 +4322,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -4476,7 +4333,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L132",
+      "source_location": "L123",
       "weight": 1.0
     },
     {
@@ -4487,7 +4344,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L135",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -4498,7 +4355,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L17",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -4509,7 +4366,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L18",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -4520,7 +4377,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -4531,7 +4388,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L28",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -4542,7 +4399,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L30",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -4553,7 +4410,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L63",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -4564,7 +4421,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L65",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -4575,7 +4432,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L66",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -4586,40 +4443,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/commands.ts",
-      "source_location": "L68",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_crtpref",
-      "target": "src_components_crtpref_applycrt",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/crtPref.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_crtpref",
-      "target": "src_components_crtpref_crtstate",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/crtPref.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_crtpref",
-      "target": "src_components_crtpref_getcrt",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/crtPref.ts",
-      "source_location": "L5",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -4741,17 +4565,6 @@
       "confidence_score": 1.0,
       "source_file": "src/content.config.ts",
       "source_location": "L46",
-      "weight": 1.0
-    },
-    {
-      "source": "src_layouts_layout",
-      "target": "src_layouts_layout_desktop_string_mobile_string",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/layouts/Layout.astro",
-      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -4993,6 +4806,15 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/Carousel.astro"
+    },
+    {
+      "source": "src_layouts_layout",
+      "target": "astro_transitions",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/layouts/Layout.astro"
     },
     {
       "source": "src_pages_about",
@@ -5803,5 +5625,5 @@
       ]
     }
   ],
-  "built_at_commit": "fa532727faad5b547699d872c29034929191f61b"
+  "built_at_commit": "744aed4b1c4864dc97b8e385c1dfa1c4172fb625"
 }
