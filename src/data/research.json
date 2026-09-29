@@ -7,7 +7,8 @@
     "articleUrl": "https://doi.org/10.1016/j.atech.2026.102376",
     "year": 2026,
     "category": "Scopus Q1",
-    "status": "Published"
+    "status": "Published",
+    "abstract": "Accurate fruit counting is vital for yield estimation and harvest planning in oil palm plantations. Manual methods remain labor-intensive and prone to error because of dense clustering, occlusion, and varying illumination in natural environments. This study evaluates oil palm fresh fruit bunches (FFBs) captured in real field conditions in East Kalimantan, Indonesia. The annotated images encompass diverse maturity stages, viewing angles, and lighting variability within complex natural backgrounds. We performed a comparative evaluation of three state-of-the-art deep learning architectures: YOLOv5, YOLOv8, and Mask R-CNN. In addition to conventional detection metrics like Precision, Recall, and mAP, counting accuracy was rigorously assessed using Mean Absolute Error (MAE) across various fruit density scenarios. Experimental results show that YOLOv5 provides the most robust performance, achieving a Precision of 0.963, Recall of 0.946, and an F1-score of 0.954. Notably, YOLOv5 yielded the lowest global counting error with an MAE of 4.96 fruits per image."
   },
   {
     "title": "Automated detection of Ganoderma and Primordia in oil palm plantations using state-of-the-art object detectors",
@@ -47,7 +48,8 @@
     "articleUrl": "https://ieeexplore.ieee.org/document/11399519",
     "year": 2025,
     "category": "IEEE Conference",
-    "status": "Published"
+    "status": "Published",
+    "abstract": "Ganoderma is the primary pathogenic fungus infecting oil palm stems and poses a serious threat to the palm oil industry, as it has the potential to cause significant economic losses. Accurate and timely detection is crucial for effectively controlling its spread. This study investigates the application of deep learning-based object detection to enable automated, precise, and rapid identification of Ganoderma infections. Specifically, it evaluates and compares the detection performance of medium variants of three models: YOLOv8, YOLOv9, and YOLOv10, each fine-tuned using pre-trained weights on a custom dataset of 354 annotated images containing instances of Ganoderma and Primordium (the early fruiting body). Through image augmentation, the dataset was expanded to 798 training images, 70 validation images, and 18 test images. Experimental results show YOLOv8m strikes the optimal balance between detection accuracy and robustness, making it a strong candidate for deployment in early detection systems for oil palm plantations."
   },
   {
     "title": "Pelatihan Pemrograman Dasar Python Sebagai Upaya Meningkatkan Minat Siswa di Bidang Informatika",
@@ -57,6 +59,7 @@
     "articleUrl": "https://www.semanticscholar.org/paper/Pelatihan-Pemrograman-Dasar-Python-Sebagai-Upaya-di-Wati-Hatta/",
     "year": 2023,
     "category": "Community Service",
-    "status": "Published"
+    "status": "Published",
+    "abstract": "Pada era teknologi dan digitalisasi ini, peluang kerja yang membutuhkan keahlian program aplikasi menggunakan bahasa pemrograman Python sangat besar. Namun, pengenalan program aplikasi Python ini masih terbilang jarang di kalangan anak-anak sekolah di Indonesia. Kegiatan pengabdian ini bertujuan untuk membekali wawasan dan pengalaman di bidang pemrograman terutama bahasa pemrograman Python yang dapat menunjang kemampuan siswa sehingga mempunyai modal untuk bekerja dan bisa bersaing di dunia atau di tingkat pendidikan yang lebih tinggi. Pelaksanaan kegiatan berlokasi di SMA Negeri 11 Samarinda. Metode pemecahan masalah yang digunakan dalam pengabdian pada masyarakat ini berupa pelatihan melalui metode ceramah, diskusi dan praktik. Hasil pelaksanaan kegiatan mendapatkan respon dan antusias dari para peserta dan pengurus sekolah, dimana 70,3% menilai kegiatan berjalan sangat baik."
   }
 ]

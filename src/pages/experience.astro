@@ -112,6 +112,16 @@ const learnProvider = (l: { provider: string }) => {
 
 <script is:inline>
   // Card-scoped type filter: mirrors the projects page filter-matrix.
+  function markActive(btns, btn) {
+    btns.forEach(function (b) {
+      var on = b === btn;
+      b.classList.toggle('border-accent', on);
+      b.classList.toggle('bg-accentsurface', on);
+      b.classList.toggle('text-accent', on);
+      b.classList.toggle('border-grid', !on);
+      b.classList.toggle('text-dim', !on);
+    });
+  }
   function bindTypeFilter(boxId, listId) {
     var box = document.getElementById(boxId);
     var list = document.getElementById(listId);
@@ -121,8 +131,7 @@ const learnProvider = (l: { provider: string }) => {
     btns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var t = btn.getAttribute('data-filter');
-        btns.forEach(function (b) { b.classList.remove('border-accent', 'bg-accentsurface', 'text-accent'); });
-        btn.classList.add('border-accent', 'bg-accentsurface', 'text-accent');
+        markActive(btns, btn);
         items.forEach(function (it) {
           it.style.display = t === 'all' || it.getAttribute('data-type') === t ? '' : 'none';
         });
@@ -146,10 +155,6 @@ const learnProvider = (l: { provider: string }) => {
         var okP = activeProv === 'all' || it.getAttribute('data-provider') === activeProv;
         it.style.display = okT && okP ? '' : 'none';
       });
-    }
-    function markActive(btns, btn) {
-      btns.forEach(function (b) { b.classList.remove('border-accent', 'bg-accentsurface', 'text-accent'); });
-      btn.classList.add('border-accent', 'bg-accentsurface', 'text-accent');
     }
     function syncProvRow() {
       var show = activeType === provFor;

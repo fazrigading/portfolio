@@ -71,13 +71,22 @@ const CATEGORY_PORTS: Record<string, number> = {
 </Layout>
 
 <script is:inline>
+  function markActive(btns, btn) {
+    btns.forEach((b) => {
+      const on = b === btn;
+      b.classList.toggle('border-accent', on);
+      b.classList.toggle('bg-accentsurface', on);
+      b.classList.toggle('text-accent', on);
+      b.classList.toggle('border-grid', !on);
+      b.classList.toggle('text-dim', !on);
+    });
+  }
   const btns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.payload');
   btns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const port = btn.getAttribute('data-port');
-      btns.forEach((b) => b.classList.remove('border-accent', 'bg-accentsurface', 'text-accent'));
-      btn.classList.add('border-accent', 'bg-accentsurface', 'text-accent');
+      markActive(btns, btn);
       cards.forEach((c) => {
         const g = (c.getAttribute('data-groups') || '').split(' ');
         c.style.display = port === 'all' || g.includes(port || '') ? '' : 'none';
