@@ -8,6 +8,15 @@ import learning from '../data/learning.json';
 
 const expTypes = [...new Set(experience.map((e) => e.type))];
 const learnTypes = [...new Set(learning.map((l) => l.type))];
+
+// learning filter groups by provider; EF SET files under Language
+const LEARN_FILTERS = ['DeepLearning.AI', 'Coursera', 'DQLab', 'SoloLearn', 'Dicoding Indonesia', 'Language'];
+const learnProvider = (l: { provider: string }) => {
+  if (l.provider === 'EF SET') return 'Language';
+  if (l.provider === 'Sololearn') return 'SoloLearn';
+  if (LEARN_FILTERS.includes(l.provider)) return l.provider;
+  return 'Other';
+};
 ---
 
 <Layout route="experience" title="EXPERIENCE">
@@ -48,15 +57,22 @@ const learnTypes = [...new Set(learning.map((l) => l.type))];
       </ol>
     </RetroWindow>
     <RetroWindow tag="TIMELINE" title="learning">
-      <div class="flex flex-wrap gap-2 pb-4" id="learn-filter">
+      <div class="flex flex-wrap gap-2 pb-2" id="learn-filter">
         <button data-filter="all" class="filter-btn border border-accent bg-accentsurface px-3 py-1.5 text-xs uppercase tracking-widest text-accent">ALL</button>
         {learnTypes.map((t) => (
           <button data-filter={t} class="filter-btn border border-grid px-3 py-1.5 text-xs uppercase tracking-widest text-dim hover:border-accent hover:text-accent">{t}</button>
         ))}
       </div>
+      <div class="flex flex-wrap items-center gap-2 pb-4" id="learn-provider-filter">
+        <span class="text-[11px] uppercase tracking-widest text-dim">PROVIDER //</span>
+        <button data-filter="all" class="filter-btn border border-accent bg-accentsurface px-3 py-1.5 text-xs uppercase tracking-widest text-accent">ALL</button>
+        {LEARN_FILTERS.map((t) => (
+          <button data-filter={t} class="filter-btn border border-grid px-3 py-1.5 text-xs uppercase tracking-widest text-dim hover:border-accent hover:text-accent">{t}</button>
+        ))}
+      </div>
       <ol class="grid gap-3 md:grid-cols-2" id="learn-list">
         {learning.map((l) => (
-          <li class="border-l-2 border-grid pl-3" data-type={l.type}>
+          <li class="border-l-2 border-grid pl-3" data-type={l.type} data-provider={learnProvider(l)}>
             <p class="flex items-start gap-2 text-sm font-bold text-ink">
               <span class="mt-0.5 grid h-3.5 w-3.5 shrink-0 place-items-center">
                 <LucideIcon name={l.icon} size={14} />
@@ -114,5 +130,48 @@ const learnTypes = [...new Set(learning.map((l) => l.type))];
     });
   }
   bindTypeFilter('exp-filter', 'exp-list');
-  bindTypeFilter('learn-filter', 'learn-list');
+  // Learning card: type row + provider sub-row combine (entry must match both).
+  // Provider row only shows while Certification is the active type.
+  (function bindDualFilter(typeBoxId, provBoxId, listId, provFor) {
+    var typeBox = document.getElementById(typeBoxId);
+    var provBox = document.getElementById(provBoxId);
+    var list = document.getElementById(listId);
+    if (!typeBox || !provBox || !list) return;
+    var activeType = 'all';
+    var activeProv = 'all';
+    var items = list.querySelectorAll('[data-type]');
+    function apply() {
+      items.forEach(function (it) {
+        var okT = activeType === 'all' || it.getAttribute('data-type') === activeType;
+        var okP = activeProv === 'all' || it.getAttribute('data-provider') === activeProv;
+        it.style.display = okT && okP ? '' : 'none';
+      });
+    }
+    function markActive(btns, btn) {
+      btns.forEach(function (b) { b.classList.remove('border-accent', 'bg-accentsurface', 'text-accent'); });
+      btn.classList.add('border-accent', 'bg-accentsurface', 'text-accent');
+    }
+    function syncProvRow() {
+      var show = activeType === provFor;
+      provBox.style.display = show ? '' : 'none';
+      if (!show) {
+        activeProv = 'all';
+        markActive(provBox.querySelectorAll('.filter-btn'), provBox.querySelector('[data-filter="all"]'));
+      }
+    }
+    function wire(box, set) {
+      var btns = box.querySelectorAll('.filter-btn');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          set(btn.getAttribute('data-filter'));
+          markActive(btns, btn);
+          syncProvRow();
+          apply();
+        });
+      });
+    }
+    wire(typeBox, function (v) { activeType = v; });
+    wire(provBox, function (v) { activeProv = v; });
+    syncProvRow();
+  })('learn-filter', 'learn-provider-filter', 'learn-list', 'Certification');
 </script>
