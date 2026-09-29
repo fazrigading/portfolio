@@ -20,7 +20,7 @@
     },
     {
       "name": "Google Dev",
-      "icon": "GoogleDevelopers",
+      "icon": "si:google",
       "href": "https://developers.google.com/profile/u/gading",
       "color": "hover:text-[#DB4437]"
     }
@@ -76,15 +76,14 @@
     }
   ],
   "extraSocials": [
-    { "name": "Discord", "href": "https://discord.gg/xsaVHryGC3" },
-    { "name": "Instagram", "href": "https://instagram.com/fazrigading" },
-    { "name": "Quora", "href": "https://quora.com/profile/Fazri-Gading" },
-    { "name": "Reddit", "href": "https://reddit.com/user/FazriGading" },
-    { "name": "X/Twitter", "href": "https://x.com/fazrigading" },
-    { "name": "Medium", "href": "https://medium.com/@fazrigading" },
-    { "name": "Stack Overflow", "href": "https://stackoverflow.com/users/14662592" },
-    { "name": "Twitch", "href": "https://twitch.tv/gad1ng" },
-    { "name": "YouTube", "href": "https://youtube.com/@FazriGading" }
+    { "name": "Instagram", "icon": "si:instagram", "href": "https://instagram.com/fazrigading" },
+    { "name": "X/Twitter", "icon": "si:x", "href": "https://x.com/fazrigading" },
+    { "name": "Discord", "icon": "si:discord", "href": "https://discord.gg/xsaVHryGC3" },
+    { "name": "Quora", "icon": "si:quora", "href": "https://quora.com/profile/Fazri-Gading" },
+    { "name": "Reddit", "icon": "si:reddit", "href": "https://reddit.com/user/FazriGading" },
+    { "name": "Medium", "icon": "si:medium", "href": "https://medium.com/@fazrigading" },
+    { "name": "Twitch", "icon": "si:twitch", "href": "https://twitch.tv/gad1ng" },
+    { "name": "YouTube", "icon": "si:youtube", "href": "https://youtube.com/@FazriGading" }
   ],
   "gaming": [
     { "name": "Steam", "icon": "Gamepad2", "href": "https://steamcommunity.com/id/FazGXT/" },

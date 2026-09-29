@@ -47,10 +47,10 @@ Array of `{ name, href }` with **legacy anchor hrefs** (`#about`, …). `SystemB
 |-----|-------|---------|
 | `socialLinks` | `{ name, icon, href, color }[]` | Footer icons + About uplinks |
 | `scholarProfiles` | same | About research window |
-| `extraSocials` | `{ name, href }[]` | About uplinks only |
+| `extraSocials` | `{ name, icon, href }[]` | About uplinks only |
 | `gaming` | `{ name, href }[]` | About hobbies window |
 
-`icon` names resolve through `LucideIcon.astro` (lucide-react; non-Lucide legacy names fall back to `Link`). The `color` hover classes are legacy and currently unused by the accent-driven theme.
+`icon` names resolve through `LucideIcon.astro` (lucide-react; non-Lucide legacy names fall back to `Link`). Prefix a name with `si:` to pull a Simple Icons brand mark by slug (`si:discord`, `si:x`, …). The `color` hover classes are legacy and currently unused by the accent-driven theme.
 
 ### `public/txt/*.txt`
 
@@ -58,7 +58,7 @@ Plain-text dossier files served statically for terminal `cat` (`about`, `roles`,
 
 ## Icons
 
-No icon map file. `src/components/LucideIcon.astro` looks the name up on the `lucide-react` export map at render time. To use an icon, put its exact export name in JSON (`Zap`, `Sprout`, `GraduationCap`, …). Brand icons (Discord, Steam, …) don't exist in Lucide — those entries render as text links, never icons.
+No icon map file. `src/components/LucideIcon.astro` looks the name up on the `lucide-react` export map at render time — put its exact export name in JSON (`Zap`, `Sprout`, `GraduationCap`, …). Brand icons come from Simple Icons (`simple-icons`) via `si:`-prefixed slugs (`si:discord`, `si:reddit`, …) — prefer those, since lucide's own brand icons are deprecated. Unknown names fall back to `Link`.
 
 ## Adding Content
 

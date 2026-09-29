@@ -1,8 +1,8 @@
 ---
-const { title = '' } = Astro.props;
+const { title = '', class: cls = '' } = Astro.props;
 ---
 
-<section class="card halftone overflow-hidden">
+<section class={`card halftone overflow-hidden ${cls}`}>
   <div class="torn" aria-hidden="true"></div>
   <div class="p-5">
     {title && (

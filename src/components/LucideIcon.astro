@@ -1,9 +1,20 @@
 ---
 import * as L from 'lucide-react';
+import * as SI from 'simple-icons';
 
 const { name = 'Terminal', size = 16, class: cls = '' } = Astro.props;
+// @ts-ignore — "si:<slug>" resolves against the simple-icons map, everything else against the lucide export map
+const si = name.startsWith('si:')
+  ? (SI as Record<string, any>)['si' + name.charAt(3).toUpperCase() + name.slice(4)]
+  : undefined;
 // @ts-ignore — dynamic lookup over the lucide icon map, fallback for non-lucide legacy names
 const Cmp = (L as Record<string, any>)[name] ?? L.Link;
 ---
 
-<Cmp size={size} className={cls} />
+{si ? (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" class={cls} aria-hidden="true">
+    <path d={si.path} />
+  </svg>
+) : (
+  <Cmp size={size} className={cls} />
+)}

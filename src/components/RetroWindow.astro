@@ -1,8 +1,8 @@
 ---
-const { tag = 'PAYLOAD_LOADED', title = '' } = Astro.props;
+const { tag = 'PAYLOAD_LOADED', title = '', class: cls = '' } = Astro.props;
 ---
 
-<div class="border border-grid bg-void/70">
+<div class={`border border-grid bg-void/70 ${cls}`}>
   <div class="flex items-center gap-2 border-b border-grid bg-accentsurface px-3 py-1.5 text-[11px] uppercase tracking-widest">
     <span class="flex gap-1" aria-hidden="true">
       <i class="inline-block h-2.5 w-2.5 rounded-full bg-[#ff5f57]"></i>
