@@ -18,9 +18,9 @@ const TYPE_ICONS: Record<string, string> = {
 <Layout route="experience" title="EXPERIENCE">
   <AsciiHeader title="SERVICE_RECORD" tag="// ROUTE:/EXPERIENCE — WORK + LEARNING TIMELINES" />
 
-  <div class="grid gap-6 md:grid-cols-2">
+  <div class="flex flex-col gap-6">
     <RetroWindow tag="TIMELINE" title="experience">
-      <ol class="space-y-4">
+      <ol class="grid gap-4 md:grid-cols-2">
         {experience.map((e) => (
           <li class="border-l-2 border-accent pl-3">
             <p class="flex items-center gap-2 text-sm font-bold text-ink">
@@ -50,7 +50,7 @@ const TYPE_ICONS: Record<string, string> = {
       </ol>
     </RetroWindow>
     <RetroWindow tag="TIMELINE" title="learning">
-      <ol class="space-y-3">
+      <ol class="grid gap-3 md:grid-cols-2">
         {learning.map((l) => (
           <li class="border-l-2 border-grid pl-3">
             <p class="flex items-start gap-2 text-sm font-bold text-ink">
