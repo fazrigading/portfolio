@@ -6,13 +6,8 @@ import LucideIcon from '../components/LucideIcon.astro';
 import experience from '../data/experience.json';
 import learning from '../data/learning.json';
 
-const TYPE_ICONS: Record<string, string> = {
-  Research: 'FlaskConical',
-  Technical: 'Cpu',
-  Organizational: 'Users',
-  Design: 'Palette',
-  Other: 'Briefcase',
-};
+const expTypes = [...new Set(experience.map((e) => e.type))];
+const learnTypes = [...new Set(learning.map((l) => l.type))];
 ---
 
 <Layout route="experience" title="EXPERIENCE">
@@ -20,14 +15,17 @@ const TYPE_ICONS: Record<string, string> = {
 
   <div class="flex flex-col gap-6">
     <RetroWindow tag="TIMELINE" title="experience">
-      <ol class="grid gap-4 md:grid-cols-2">
+      <div class="flex flex-wrap gap-2 pb-4" id="exp-filter">
+        <button data-filter="all" class="filter-btn border border-accent bg-accentsurface px-3 py-1.5 text-xs uppercase tracking-widest text-accent">ALL</button>
+        {expTypes.map((t) => (
+          <button data-filter={t} class="filter-btn border border-grid px-3 py-1.5 text-xs uppercase tracking-widest text-dim hover:border-accent hover:text-accent">{t}</button>
+        ))}
+      </div>
+      <ol class="grid gap-4 md:grid-cols-2" id="exp-list">
         {experience.map((e) => (
-          <li class="border-l-2 border-accent pl-3">
+          <li class="border-l-2 border-accent pl-3" data-type={e.type}>
             <p class="flex items-center gap-2 text-sm font-bold text-ink">
               <span class="text-[11px] font-normal tracking-widest text-dim">#{e.id}</span>
-              <span class="grid h-4 w-4 shrink-0 place-items-center text-accent">
-                <LucideIcon name={TYPE_ICONS[e.type] ?? 'Briefcase'} size={14} />
-              </span>
               <span>{e.role}</span>
             </p>
             <p class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs uppercase tracking-widest">
@@ -50,9 +48,15 @@ const TYPE_ICONS: Record<string, string> = {
       </ol>
     </RetroWindow>
     <RetroWindow tag="TIMELINE" title="learning">
-      <ol class="grid gap-3 md:grid-cols-2">
+      <div class="flex flex-wrap gap-2 pb-4" id="learn-filter">
+        <button data-filter="all" class="filter-btn border border-accent bg-accentsurface px-3 py-1.5 text-xs uppercase tracking-widest text-accent">ALL</button>
+        {learnTypes.map((t) => (
+          <button data-filter={t} class="filter-btn border border-grid px-3 py-1.5 text-xs uppercase tracking-widest text-dim hover:border-accent hover:text-accent">{t}</button>
+        ))}
+      </div>
+      <ol class="grid gap-3 md:grid-cols-2" id="learn-list">
         {learning.map((l) => (
-          <li class="border-l-2 border-grid pl-3">
+          <li class="border-l-2 border-grid pl-3" data-type={l.type}>
             <p class="flex items-start gap-2 text-sm font-bold text-ink">
               <span class="mt-0.5 grid h-3.5 w-3.5 shrink-0 place-items-center">
                 <LucideIcon name={l.icon} size={14} />
@@ -88,4 +92,27 @@ const TYPE_ICONS: Record<string, string> = {
       }
     });
   });
+</script>
+
+<script is:inline>
+  // Card-scoped type filter: mirrors the projects page filter-matrix.
+  function bindTypeFilter(boxId, listId) {
+    var box = document.getElementById(boxId);
+    var list = document.getElementById(listId);
+    if (!box || !list) return;
+    var btns = box.querySelectorAll('.filter-btn');
+    var items = list.querySelectorAll('[data-type]');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var t = btn.getAttribute('data-filter');
+        btns.forEach(function (b) { b.classList.remove('border-accent', 'bg-accentsurface', 'text-accent'); });
+        btn.classList.add('border-accent', 'bg-accentsurface', 'text-accent');
+        items.forEach(function (it) {
+          it.style.display = t === 'all' || it.getAttribute('data-type') === t ? '' : 'none';
+        });
+      });
+    });
+  }
+  bindTypeFilter('exp-filter', 'exp-list');
+  bindTypeFilter('learn-filter', 'learn-list');
 </script>
