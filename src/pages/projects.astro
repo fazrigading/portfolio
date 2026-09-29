@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import RetroWindow from '../components/RetroWindow.astro';
+import LucideIcon from '../components/LucideIcon.astro';
 import { slugify } from '../components/slug';
 import projects from '../data/projects.json';
 
@@ -45,6 +46,10 @@ const CATEGORY_PORTS: Record<string, number> = {
     {projects.map((p, i) => (
       <div class="payload" data-groups={groups(p)}>
         <RetroWindow tag={`ERR_0x9${i}`} title={p.title}>
+          <div class="mb-3 flex aspect-[16/9] flex-col items-center justify-center gap-2 overflow-hidden border border-grid bg-accentsurface" aria-hidden="true">
+            <LucideIcon name={p.icon} size={40} class="text-accent" />
+            <span class="text-[11px] uppercase tracking-widest text-dim">NO_SIGNAL // IMG_PLACEHOLDER</span>
+          </div>
           <p class="text-xs uppercase tracking-widest text-accent">
             {p.subtitle} [{p.category}]
             {p.status === 'wip' && <span class="ml-1.5 border border-grid px-1 text-dim">WIP</span>}

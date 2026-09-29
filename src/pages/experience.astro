@@ -5,6 +5,14 @@ import RetroWindow from '../components/RetroWindow.astro';
 import LucideIcon from '../components/LucideIcon.astro';
 import experience from '../data/experience.json';
 import learning from '../data/learning.json';
+
+const TYPE_ICONS: Record<string, string> = {
+  Research: 'FlaskConical',
+  Technical: 'Cpu',
+  Organizational: 'Users',
+  Design: 'Palette',
+  Other: 'Briefcase',
+};
 ---
 
 <Layout route="experience" title="EXPERIENCE">
@@ -15,8 +23,21 @@ import learning from '../data/learning.json';
       <ol class="space-y-4">
         {experience.map((e) => (
           <li class="border-l-2 border-accent pl-3">
-            <p class="text-sm font-bold text-ink">{e.role}</p>
-            <p class="text-xs uppercase tracking-widest text-accent">{e.company} // {e.period}</p>
+            <p class="flex items-center gap-2 text-sm font-bold text-ink">
+              <span class="text-[11px] font-normal tracking-widest text-dim">#{e.id}</span>
+              <span class="grid h-4 w-4 shrink-0 place-items-center text-accent">
+                <LucideIcon name={TYPE_ICONS[e.type] ?? 'Briefcase'} size={14} />
+              </span>
+              <span>{e.role}</span>
+            </p>
+            <p class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs uppercase tracking-widest">
+              <span class="inline-flex items-center gap-1 text-accent">
+                <LucideIcon name="MapPin" size={12} />{e.company}
+              </span>
+              <span class="inline-flex items-center gap-1 text-dim">
+                <LucideIcon name="Calendar" size={12} />{e.period}
+              </span>
+            </p>
             <p
               class="exp-desc line-clamp-2 cursor-pointer pt-1 text-xs leading-relaxed text-dim hover:text-ink"
               role="button"
@@ -38,7 +59,14 @@ import learning from '../data/learning.json';
               </span>
               <span>{l.title}</span>
             </p>
-            <p class="text-xs uppercase tracking-widest text-dim">{l.provider} // {l.date}</p>
+            <p class="flex flex-wrap items-center gap-x-3 gap-y-1 pt-1 text-xs uppercase tracking-widest">
+              <span class="inline-flex items-center gap-1 text-accent">
+                <LucideIcon name="MapPin" size={12} />{l.provider}
+              </span>
+              <span class="inline-flex items-center gap-1 text-dim">
+                <LucideIcon name="Calendar" size={12} />{l.date}
+              </span>
+            </p>
           </li>
         ))}
       </ol>
