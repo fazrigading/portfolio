@@ -1,6 +1,5 @@
 ---
 import navigation from '../data/navigation.json';
-import LucideIcon from './LucideIcon.astro';
 
 const { route = '/', links: linkOverride } = Astro.props;
 const b = import.meta.env.BASE_URL;
@@ -26,16 +25,8 @@ const links = linkOverride ?? [
 
 <header class="sticky top-0 z-50 border-b border-grid bg-void/90 backdrop-blur">
   <div class="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2 text-xs sm:px-6">
-    <a href={b + 'dev'} class="flex items-center gap-2 font-display text-lg tracking-widest text-ink">
+    <a href={b} class="flex items-center gap-2 font-display text-lg tracking-widest text-ink">
       <span class="text-accent">▓▒░</span> DEDSEC
-    </a>
-    <a
-      href={b}
-      aria-label="Back to the split homepage"
-      title="Back to the split homepage"
-      class="flex h-[1.85rem] w-[1.85rem] items-center justify-center border border-grid text-dim transition-colors hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-    >
-      <LucideIcon name="House" size={15} />
     </a>
     <div class="sysctl ml-auto flex items-center gap-2">
       <button

@@ -15,45 +15,23 @@ const reach = social.socialLinks.filter((s) => s.name !== 'E-mail');
 const posts = (await getCollection('blog'))
   .sort((a, b2) => (a.data.date < b2.data.date ? 1 : -1))
   .slice(0, 3);
+const certs = learning.filter((l) => l.type === 'Certification').slice(0, 6);
 
-const experience = JSON.parse(JSON.stringify((await import('../data/experience.json')).default)) as {
-  role: string;
-  company: string;
-  period: string;
-  type: string;
-}[];
-
-/* Certifications split by what they attest to: a technical credential, a
-   provider/organisation, or something else entirely (language, bootcamp).
-   Tagged from the data rather than hand-listed, so a new credential lands in
-   the right bucket on its own. */
-const TECH = new Set(['AI', 'ML', 'DL', 'CV', 'DS', 'SWE', 'TF', 'Python', 'R', 'SQL', 'JS', 'PHP', 'Web', 'Git']);
-const certs = learning.filter((l) => l.type === 'Certification');
-const techCerts = certs.filter((c) => c.tags?.some((t) => TECH.has(t)));
-const orgCerts = [...new Map(certs.filter((c) => !c.tags?.some((t) => TECH.has(t))).map((c) => [c.provider, c])).values()];
-const otherCerts = learning.filter((l) => l.type !== 'Certification');
-
-/* Experience splits the same way: shipped engineering work, institutional
-   roles, and everything else — clubs, events, media, freelance. */
-const isOrg = (e: (typeof experience)[number]) => /university|academy|it s\.?e|sekolah/i.test(e.company);
-const techExp = experience.filter((e) => !isOrg(e));
-const orgExp = experience.filter(isOrg);
-const otherExp = experience.filter((e) => !isOrg(e) && /fest|core team|intern|club|podcast|cafe|staff|committee|guide|member|caster/i.test(e.role));
-
-const metrics = [
-  { value: '6', label: 'Scopus papers', note: 'two in Q1 journals' },
-  { value: String(certs.length), label: 'Certifications', note: `${techCerts.length} technical · ${orgCerts.length} other` },
-  { value: String(experience.length), label: 'Roles held', note: `${orgExp.length} institutional · ${techExp.length} technical` },
+/* One rolling ledger of everything behind the Professional door: roles,
+   certifications and the latest posts. Rendered twice so the -50% translate
+   loops without a seam — the second copy is hidden from assistive tech, which
+   reads the first. */
+const ticker = [
+  ...pro.roles.map((r) => ({ k: 'Experience', v: `${r.role} · ${r.org}` })),
+  ...certs.map((c) => ({ k: 'Certified', v: `${c.title} · ${c.provider}` })),
+  ...posts.map((p) => ({ k: 'Blog', v: p.data.title })),
 ];
-
-/* One rolling ledger of everything behind the Professional door, kept in
-   three separate runs rather than one queue, so each voice stays legible
-   instead of dissolving into a single crawl. */
-const runs = [
-  { key: 'exp', label: 'Experience', items: experience.map((e) => ({ k: e.period, v: `${e.role} · ${e.company}` })) },
-  { key: 'crt', label: 'Certified', items: certs.map((c) => ({ k: c.date, v: `${c.title} · ${c.provider}` })) },
-  { key: 'log', label: 'Blog', items: posts.map((p) => ({ k: p.data.date, v: p.data.title })) },
-].filter((r) => r.items.length);
+const facts = [
+  { k: 'Role', v: `${profile.roles[0]} · ${profile.roles[1]}` },
+  { k: 'Org', v: 'Mulawarman University' },
+  { k: 'Since', v: '2023' },
+  { k: 'Focus', v: 'CV · LLM apps · RAG' },
+];
 ---
 
 <!doctype html>
@@ -116,51 +94,51 @@ const runs = [
         <!-- The panel is scenery, not a door: only the CTA below navigates. -->
         <div class="panel panel-pro">
           <div class="panel-inner">
-            <!-- ── identity: who he is ── -->
+            <!-- ── identity: who he is, and how to reach him ── -->
             <div class="identity">
               <div class="identity-main">
-                <p class="name-lead">My name is</p>
                 <h2 class="split-name">Fazri<br />Gading</h2>
-              </div>
-              <div class="identity-side">
                 <p class="split-standfirst">
                   {profile.about.intro.split('. ').slice(0, 2).join('. ')}.
                 </p>
                 <nav class="reach-row" aria-label="Professional contact links">
-                  <a href={pro.contact.primary.href} class="reach-link" data-primary>E-Mail</a>
+                  <a href={pro.contact.primary.href} class="reach-link">{pro.contact.primary.value}</a>
                   {reach.map((s) => (
                     <a href={s.href} target="_blank" rel="noreferrer" class="reach-link">{s.name}</a>
                   ))}
                 </nav>
               </div>
-            </div>
-
-            <!-- ── proof ── -->
-            <div class="split-measure">
-              {metrics.map((m) => (
-                <span class="metric"><b>{m.value}</b><span>{m.label}<i>{m.note}</i></span></span>
-              ))}
-            </div>
-
-            <!-- ── ledger: three voices, three rules ── -->
-            <div class="ticker">
-              {runs.map((r) => (
-                <div class="lane" data-lane={r.key}>
-                  <span class="lane-label">{r.label}</span>
-                  <div class="lane-track">
-                    <ul class="ticker-set">
-                      {r.items.map((t) => (
-                        <li class="ticker-item"><b>{t.k}</b>{t.v}</li>
-                      ))}
-                    </ul>
-                    <ul class="ticker-set" aria-hidden="true">
-                      {r.items.map((t) => (
-                        <li class="ticker-item"><b>{t.k}</b>{t.v}</li>
-                      ))}
-                    </ul>
+              <dl class="facts">
+                {facts.map((f) => (
+                  <div class="fact">
+                    <dt>{f.k}</dt>
+                    <dd>{f.v}</dd>
                   </div>
-                </div>
-              ))}
+                ))}
+              </dl>
+            </div>
+
+            <!-- ── proof: the three numbers, on one rule ── -->
+            <div class="split-measure">
+              <span class="metric"><b>6</b><span>Scopus papers<i>2 in Q1</i></span></span>
+              <span class="metric"><b>225+</b><span>Students taught<i>ML &amp; lab work</i></span></span>
+              <span class="metric"><b>10</b><span>Shipped projects<i>Python · TS · Unity</i></span></span>
+            </div>
+
+            <!-- ── ledger: experience, certifications, writing ── -->
+            <div class="ticker">
+              <div class="ticker-run">
+                <ul class="ticker-set">
+                  {ticker.map((t) => (
+                    <li class="ticker-item"><b class="gold">{t.k}</b>{t.v}</li>
+                  ))}
+                </ul>
+                <ul class="ticker-set" aria-hidden="true">
+                  {ticker.map((t) => (
+                    <li class="ticker-item"><b class="gold">{t.k}</b>{t.v}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <!-- ── the one door ── -->
@@ -180,12 +158,10 @@ const runs = [
           </span>
           <span class="strip-hint"><span>Scroll Down to see my Personal portfolio</span></span>
         </div>
-        <div class="strip-hit" aria-hidden="true"></div>
       </section>
 
       <!-- ══════ VIEW TWO — PERSONAL dominant ══════ -->
       <section class="view view-two" aria-label="Personal">
-        <div class="strip-hit" aria-hidden="true"></div>
         <div class="strip strip-pro">
           <span class="strip-bar"></span>
           <span class="strip-face">
@@ -285,21 +261,15 @@ const runs = [
     scroll-snap-align: start;
     scroll-snap-stop: always;
     min-height: 0;
-/* The hover trigger is `.strip-hit`, NOT the slice itself. The slice is a
-       grid track, so growing it moves its own edge — a pointer resting on
-       that edge oscillated forever: the expansion pushed it out (collapse),
-       the collapse pulled it back in (expand). `.strip-hit` is an invisible
-       band pinned to the view's edge, so the hover boundary stays put while
-       the slice moves underneath it. */
-    --hit: 9vh;
-    transition: grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: grid-template-rows 0.62s cubic-bezier(0.22, 1, 0.36, 1);
   }
   /* view one: 80 / 20 — view two: 20 / 80. The slice track is `auto` at
      rest, so it holds the ~20% it was given instead of being clipped. */
   .view-one { grid-template-rows: 1fr auto; }
   .view-two { grid-template-rows: auto 1fr; }
-  .view-one:has(.strip-hit:hover) { grid-template-rows: 1fr 15%; }
-  .view-two:has(.strip-hit:hover) { grid-template-rows: 15% 1fr; }
+  /* the collapsed slice grows to ~30% of the view on hover */
+  .view-one:has(.strip-dev:hover) { grid-template-rows: 7fr 3fr; }
+  .view-two:has(.strip-pro:hover) { grid-template-rows: 3fr 7fr; }
 
   /* quiet entrance: everything rises into place, nothing sweeps across */
   @keyframes rise {
@@ -336,23 +306,14 @@ const runs = [
   /* ── band 1: identity ── */
   .identity {
     display: grid;
-    /* tracks follow the content, not the type */
-    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    /* tracks follow the content, not the type: the name column needs less
+       than 7fr would claim, and the fact column less than 4fr leaves void */
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
     gap: clamp(1.5rem, 3.5vw, 3.5rem);
-    align-items: end;
+    align-items: start;
     width: 100%;
   }
   .identity-main { min-width: 0; }
-  .identity-side { min-width: 0; }
-
-  .name-lead {
-    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
-    font-size: clamp(0.9375rem, 1.35vw, 1.1875rem);
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #c8a96a;
-  }
 
   .split-name {
     font-family: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
@@ -365,9 +326,9 @@ const runs = [
     font-size: var(--t-display);
     line-height: 0.94;
     letter-spacing: -0.045em;
-    margin-top: var(--s1);
   }
   .split-standfirst {
+    margin-top: var(--s2);
     font-size: var(--t-deck);
     line-height: 1.5;
     /* light grey on a near-black ground needs a touch of tracking to hold
@@ -377,7 +338,7 @@ const runs = [
     max-width: 58ch;
   }
 
-  /* contact doors sit with the prose they support */
+  /* contact doors sit with the name they belong to */
   .reach-row {
     display: flex;
     flex-wrap: wrap;
@@ -394,13 +355,31 @@ const runs = [
     transition: color 0.2s ease;
   }
   .reach-link:hover { color: #c8a96a; }
-  /* the primary door is the one action; the rest are quiet */
-  .reach-link[data-primary] {
-    color: #f2ede4;
-    border-bottom: 1px solid #c8a96a;
-    padding-bottom: 2px;
+
+  /* the fact table: the highest-value proof, sized to be read */
+  .facts { margin: 0; min-width: 0; align-self: center; }
+  .fact {
+    display: grid;
+    grid-template-columns: 4.75rem 1fr;
+    gap: var(--s3);
+    padding: var(--s2) 0;
+    border-bottom: 1px solid #262b34;
   }
-  .reach-link[data-primary]:hover { color: #c8a96a; }
+  .fact:first-child { border-top: 1px solid #262b34; }
+  .fact dt {
+    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
+    font-size: var(--t-label);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6d7482;
+    padding-top: 0.18em;
+  }
+  .fact dd {
+    margin: 0;
+    font-size: var(--t-value);
+    line-height: 1.4;
+    color: #cfd4dc;
+  }
 
   /* ── band 2: proof — the major break, then the ledger ── */
   .split-measure {
@@ -434,52 +413,35 @@ const runs = [
     margin-top: var(--s1);
   }
 
-  /* ── band 3: the rolling ledger ──
-     Three voices, three rules. A single queue of every role, credential and
-     post dissolves into an unreadable crawl; giving each its own lane lets
-     the eye tell what kind of thing it is reading before it reads it. */
+  /* ── band 3: the rolling ledger ── */
   .ticker {
     width: 100%;
     margin-top: var(--s5);
     border-top: 1px solid #262b34;
-    overflow: hidden;
-  }
-  .lane {
-    display: grid;
-    grid-template-columns: 7.5rem minmax(0, 1fr);
-    align-items: baseline;
     border-bottom: 1px solid #262b34;
-  }
-  .lane-label {
-    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
-    font-size: var(--t-label);
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #6d7482;
-    padding: var(--s2) var(--s3) var(--s2) 0;
-    border-right: 1px solid #262b34;
-    white-space: nowrap;
-  }
-  .lane-track {
-    display: flex;
-    width: max-content;
     overflow: hidden;
     padding: var(--s2) 0;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
-    animation: ticker-scroll var(--lane-speed, 64s) linear infinite;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
   }
-  .ticker:hover .lane-track { animation-play-state: paused; }
-  .ticker-set { display: flex; align-items: baseline; margin: 0; padding: 0; list-style: none; }
+  .ticker-run {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 68s linear infinite;
+  }
+  .ticker:hover .ticker-run,
+  .ticker:focus-within .ticker-run { animation-play-state: paused; }
+  .ticker-set { display: flex; align-items: center; margin: 0; padding: 0; list-style: none; }
   .ticker-item {
     display: inline-flex;
     align-items: baseline;
     gap: var(--s2);
     padding: 0 var(--s4);
     white-space: nowrap;
+    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
     font-size: var(--t-body);
     line-height: 1.6;
+    color: #b6bdc9;
   }
   .ticker-item::after {
     content: '';
@@ -491,33 +453,15 @@ const runs = [
     background: #3a414d;
     transform: translateY(-3px);
   }
-  .ticker-item b { font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
-
-  /* EXPERIENCE — terminal mono, cold. Roles read as command-line output. */
-  .lane[data-lane='exp'] .lane-label { color: #9aa2b0; }
-  .lane[data-lane='exp'] .ticker-item { font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace; color: #b6bdc9; }
-  .lane[data-lane='exp'] .ticker-item b { color: #8d94a2; font-size: var(--t-label); letter-spacing: 0.1em; }
-  .lane[data-lane='exp'] .lane-track { --lane-speed: 78s; }
-
-  /* CERTIFIED — the gold one. Each credential stamped in the accent. */
-  .lane[data-lane='crt'] .lane-label { color: #c8a96a; }
-  .lane[data-lane='crt'] .ticker-item { font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace; color: #cfd4dc; }
-  .lane[data-lane='crt'] .ticker-item b { color: #c8a96a; font-size: var(--t-label); letter-spacing: 0.12em; }
-  .lane[data-lane='crt'] .lane-track { --lane-speed: 92s; }
-
-  /* BLOG — the only proportional voice here, set apart as prose rather than
-     data. Weight 500 reads it as a title, not a log line. */
-  .lane[data-lane='log'] .lane-label { color: #7f8798; }
-  .lane[data-lane='log'] .ticker-item {
-    font-family: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
-    font-size: 0.875rem;
+  /* The key is the same face and the same size as its value — separation is
+     carried by case, tracking and gold alone, which is why the tracking is
+     wide and the weight steps up. A 1px size step would not read. */
+  .ticker-item b {
     font-weight: 500;
-    letter-spacing: -0.005em;
-    color: #b9bfc9;
+    font-size: inherit;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
   }
-  .lane[data-lane='log'] .ticker-item b { color: #8d94a2; font-size: var(--t-label); font-weight: 400; }
-  .lane[data-lane='log'] .lane-track { --lane-speed: 56s; }
-
   @keyframes ticker-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -550,19 +494,6 @@ const runs = [
   .view-cta:hover svg { transform: translateX(3px); }
   .view-cta:focus-visible { outline: 2px solid #c8a96a; outline-offset: 3px; }
 
-  /* An invisible band pinned to the view's edge. It is the hover trigger, so the
-     boundary never moves while the slice grows. Sits above the slice and the
-     panel; the slice's own content stays pointer-transparent. */
-  .strip-hit {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: var(--hit);
-    z-index: 4;
-  }
-  .view-one .strip-hit { bottom: 0; }
-  .view-two .strip-hit { top: 0; }
-
   /* ── the collapsed slice ── */
   .strip {
     position: relative;
@@ -577,8 +508,6 @@ const runs = [
     text-align: center;
     background: #050609;
     border-top: 1px solid #23272f;
-    /* the trigger owns the pointer; the slice itself never does */
-    pointer-events: none;
   }
   .strip-dev { border-top-color: #1c2a20; }
   .strip-pro { border-top-color: #2a2519; }
@@ -726,14 +655,22 @@ const runs = [
   .gold { color: #c8a96a; }
   .phos { color: #5dff9b; }
 
-  /* ── narrow: collapse to one column ── */
+  /* ── narrow: collapse to one column, keep every fact ──
+     The fact table is the highest-value proof for this visitor mode, so it
+     reflows into a compact two-up rather than being deleted. */
   @media (max-width: 780px) {
-    .identity { grid-template-columns: 1fr; gap: var(--s4); align-items: start; }
+    .identity { grid-template-columns: 1fr; gap: var(--s4); }
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: var(--s4);
+    }
+    .fact:first-child { border-top: 1px solid #262b34; }
+    .fact { border-top: 1px solid #262b34; }
     .split-measure { grid-template-columns: 1fr; margin-top: var(--s5); }
     .metric { padding: var(--s2) 0; }
     .metric + .metric { border-left: 0; border-top: 1px solid #262b34; padding-left: 0; }
     .strip-hint { display: none; }
-    .lane { grid-template-columns: 5.25rem minmax(0, 1fr); }
     .fastfetch { grid-template-columns: 1fr; gap: var(--s4); justify-items: center; }
     .ff-row { grid-template-columns: minmax(4rem, 30%) 1fr; gap: var(--s3); }
     .view-cta { margin-top: var(--s5); }
@@ -745,17 +682,17 @@ const runs = [
   /* ── short viewports (landscape phones, short windows) ──
      Without this the desktop two-column identity runs at 390px of height,
      overflows the panel and `overflow: hidden` clips the top of the name.
-     The standfirst is the band that goes: the three ledger lanes directly
-     below carry the same roles and organisations. */
+     The fact table is the one band that can go: the ledger right below it
+     carries the same roles and organisations. */
   @media (max-height: 620px) and (min-width: 781px) {
     .panel-inner { padding: var(--s4) clamp(1rem, 4vw, 2.5rem); }
-    .identity { grid-template-columns: 1fr 1fr; gap: var(--s4); }
-    .split-standfirst { display: none; }
+    .identity { grid-template-columns: 1fr; gap: var(--s3); }
+    .facts { display: none; }
     .split-name { font-size: clamp(1.75rem, 3.4vw, 2.6rem); }
+    .split-standfirst { font-size: 1rem; max-width: 60ch; }
     .split-measure { margin-top: var(--s4); }
     .metric b { font-size: 1.4rem; }
     .ticker { margin-top: var(--s3); }
-    .lane { grid-template-columns: 6rem minmax(0, 1fr); }
     .view-cta { margin-top: var(--s4); padding: var(--s2) var(--s4); }
     .fastfetch { padding: var(--s3) var(--s4); }
     .ff-logo { font-size: 0.42rem; }
@@ -766,7 +703,7 @@ const runs = [
   @media (prefers-reduced-motion: reduce) {
     .panel, .strip, .view-cta { animation: none; }
     .view { transition: none; }
-    .lane-track { animation: none; }
+    .ticker-run { animation: none; }
     .view-cta, .view-cta svg, .strip-bar, .strip-hint { transition: none; }
   }
 </style>
