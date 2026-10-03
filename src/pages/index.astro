@@ -69,16 +69,16 @@ const facts = [
         descent-override: 24%;
         line-gap-override: 0%;
       }
-      @font-face{font-family:"VT323";src:url("/fonts/VT323-normal-400.woff2") format("woff2");font-weight:400;font-display:swap}
-      @font-face{font-family:"Syne";src:url("/fonts/Syne-normal-700.woff2") format("woff2");font-weight:700;font-display:swap}
-      @font-face{font-family:"Syne";src:url("/fonts/Syne-normal-800.woff2") format("woff2");font-weight:800;font-display:swap}
-      @font-face{font-family:"JetBrains Mono";src:url("/fonts/JetBrainsMono-normal-400.woff2") format("woff2");font-weight:400;font-display:swap}
-      @font-face{font-family:"JetBrains Mono";src:url("/fonts/JetBrainsMono-normal-700.woff2") format("woff2");font-weight:700;font-display:swap}
-      @font-face{font-family:"Bodoni Moda";src:url("/fonts/BodoniModa-var.woff2") format("woff2");font-weight:400 700;font-display:swap}
-      @font-face{font-family:"Bodoni Moda";src:url("/fonts/BodoniModa-var-italic.woff2") format("woff2");font-weight:400 600;font-display:swap}
-      @font-face{font-family:"Archivo";src:url("/fonts/Archivo-var.woff2") format("woff2");font-weight:400 800;font-stretch:62% 125%;font-display:swap}
-      @font-face{font-family:"IBM Plex Mono";src:url("/fonts/IBMPlexMono-normal-400.woff2") format("woff2");font-weight:400;font-display:swap}
-      @font-face{font-family:"IBM Plex Mono";src:url("/fonts/IBMPlexMono-normal-500.woff2") format("woff2");font-weight:500;font-display:swap}
+      @font-face{font-family:"VT323";src:url("/portfolio/fonts/VT323-normal-400.woff2") format("woff2");font-weight:400;font-display:swap}
+      @font-face{font-family:"Syne";src:url("/portfolio/fonts/Syne-normal-700.woff2") format("woff2");font-weight:700;font-display:swap}
+      @font-face{font-family:"Syne";src:url("/portfolio/fonts/Syne-normal-800.woff2") format("woff2");font-weight:800;font-display:swap}
+      @font-face{font-family:"JetBrains Mono";src:url("/portfolio/fonts/JetBrainsMono-normal-400.woff2") format("woff2");font-weight:400;font-display:swap}
+      @font-face{font-family:"JetBrains Mono";src:url("/portfolio/fonts/JetBrainsMono-normal-700.woff2") format("woff2");font-weight:700;font-display:swap}
+      @font-face{font-family:"Bodoni Moda";src:url("/portfolio/fonts/BodoniModa-var.woff2") format("woff2");font-weight:400 700;font-display:swap}
+      @font-face{font-family:"Bodoni Moda";src:url("/portfolio/fonts/BodoniModa-var-italic.woff2") format("woff2");font-weight:400 600;font-display:swap}
+      @font-face{font-family:"Archivo";src:url("/portfolio/fonts/Archivo-var.woff2") format("woff2");font-weight:400 800;font-stretch:62% 125%;font-display:swap}
+      @font-face{font-family:"IBM Plex Mono";src:url("/portfolio/fonts/IBMPlexMono-normal-400.woff2") format("woff2");font-weight:400;font-display:swap}
+      @font-face{font-family:"IBM Plex Mono";src:url("/portfolio/fonts/IBMPlexMono-normal-500.woff2") format("woff2");font-weight:500;font-display:swap}
     </style>
   </head>
 
@@ -261,15 +261,15 @@ const facts = [
     scroll-snap-align: start;
     scroll-snap-stop: always;
     min-height: 0;
-    transition: grid-template-rows 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: grid-template-rows 0.9s ease-out;
   }
   /* view one: 80 / 20 — view two: 20 / 80. The slice track is `auto` at
      rest, so it holds the ~20% it was given instead of being clipped. */
   .view-one { grid-template-rows: 1fr auto; }
   .view-two { grid-template-rows: auto 1fr; }
-  /* the collapsed slice grows to ~30% of the view on hover */
-  .view-one:has(.strip-dev:hover) { grid-template-rows: 7fr 3fr; }
-  .view-two:has(.strip-pro:hover) { grid-template-rows: 3fr 7fr; }
+  /* the collapsed slice grows to ~15% of the view on hover */
+  .view-one:has(.strip-dev:hover) { grid-template-rows: 17fr 3fr; }
+  .view-two:has(.strip-pro:hover) { grid-template-rows: 3fr 17fr; }
 
   /* quiet entrance: everything rises into place, nothing sweeps across */
   @keyframes rise {

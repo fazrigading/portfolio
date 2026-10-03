@@ -56,6 +56,9 @@ const active = (key: string) => path.includes(`/pro/${key}`);
     <!-- zone rail: one line, Professional grammar -->
     <div class="sticky top-0 z-40 border-b" style="border-color: var(--pro-rule); background: color-mix(in srgb, var(--pro-ground) 92%, transparent); backdrop-filter: blur(10px);">
       <div class="mx-auto flex w-full max-w-6xl items-center gap-5 px-5 py-3 sm:px-8">
+        <a href={b} aria-label="Home" class="shrink-0 transition-colors hover:text-[var(--pro-gold)]" style="color: var(--pro-dim);">
+          <LucideIcon name="Home" size={15} />
+        </a>
         <a href={`${b}pro`} class="pro-eyebrow shrink-0 transition-colors hover:text-[var(--pro-gold)]">
           {profile.name} <span class="text-[var(--pro-gold)]">/</span> Professional
         </a>
@@ -123,7 +126,16 @@ const active = (key: string) => path.includes(`/pro/${key}`);
     </div>
 
     <script is:inline>
+      // Re-applied on every View Transition swap: the incoming document's
+      // <html> carries no data-theme, so without this the swap wipes light.
+      function applyTheme() {
+        try {
+          if (localStorage.getItem('pro-theme') === 'light') document.documentElement.dataset.theme = 'light';
+          else delete document.documentElement.dataset.theme;
+        } catch {}
+      }
       function bindTheme() {
+        applyTheme();
         var btn = document.querySelector('[data-theme-toggle]');
         if (!btn || btn.dataset.bound) return;
         btn.dataset.bound = '1';

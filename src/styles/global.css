@@ -4,31 +4,31 @@
    the first-viewport capture and CI both run without network. */
 @font-face {
   font-family: "VT323";
-  src: url("/fonts/VT323-normal-400.woff2") format("woff2");
+  src: url("/portfolio/fonts/VT323-normal-400.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "Syne";
-  src: url("/fonts/Syne-normal-700.woff2") format("woff2");
+  src: url("/portfolio/fonts/Syne-normal-700.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: "Syne";
-  src: url("/fonts/Syne-normal-800.woff2") format("woff2");
+  src: url("/portfolio/fonts/Syne-normal-800.woff2") format("woff2");
   font-weight: 800;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono-normal-400.woff2") format("woff2");
+  src: url("/portfolio/fonts/JetBrainsMono-normal-400.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono-normal-700.woff2") format("woff2");
+  src: url("/portfolio/fonts/JetBrainsMono-normal-700.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
@@ -36,13 +36,13 @@
    without contrast-clashing the way a geometric mono does at 11px. */
 @font-face {
   font-family: "IBM Plex Mono";
-  src: url("/fonts/IBMPlexMono-normal-400.woff2") format("woff2");
+  src: url("/portfolio/fonts/IBMPlexMono-normal-400.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "IBM Plex Mono";
-  src: url("/fonts/IBMPlexMono-normal-500.woff2") format("woff2");
+  src: url("/portfolio/fonts/IBMPlexMono-normal-500.woff2") format("woff2");
   font-weight: 500;
   font-display: swap;
 }
@@ -50,20 +50,20 @@
    default. Optical size axis does the work the weight axis used to. */
 @font-face {
   font-family: "Bodoni Moda";
-  src: url("/fonts/BodoniModa-var.woff2") format("woff2");
+  src: url("/portfolio/fonts/BodoniModa-var.woff2") format("woff2");
   font-weight: 400 700;
   font-display: swap;
 }
 @font-face {
   font-family: "Bodoni Moda";
   font-style: italic;
-  src: url("/fonts/BodoniModa-var-italic.woff2") format("woff2");
+  src: url("/portfolio/fonts/BodoniModa-var-italic.woff2") format("woff2");
   font-weight: 400 600;
   font-display: swap;
 }
 @font-face {
   font-family: "Archivo";
-  src: url("/fonts/Archivo-var.woff2") format("woff2");
+  src: url("/portfolio/fonts/Archivo-var.woff2") format("woff2");
   font-weight: 400 800;
   font-stretch: 62% 125%;
   font-display: swap;
