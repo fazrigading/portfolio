@@ -28,9 +28,7 @@ export default function CommandPalette() {
 
   const items: PItem[] = useMemo(
     () =>
-      paletteItems((r) => {
-        go(r === '/' ? base : `${base}${r.slice(1)}`);
-      }),
+      paletteItems((r) => go(`${base}${r.slice(1)}`)),
     []
   );
 

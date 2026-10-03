@@ -1,0 +1,89 @@
+---
+import ProLayout from '../../layouts/ProLayout.astro';
+import LucideIcon from '../../components/LucideIcon.astro';
+import experience from '../../data/experience.json';
+import learning from '../../data/learning.json';
+
+const b = import.meta.env.BASE_URL;
+const groups = [
+  { key: 'Research', label: 'Research & Engineering' },
+  { key: 'Technical', label: 'Technical & Teaching' },
+  { key: 'Organizational', label: 'Leadership & Organisation' },
+  { key: 'Design', label: 'Design' },
+  { key: 'Other', label: 'Other' },
+];
+const learningAll = learning as any[];
+---
+
+<ProLayout title="Experience" kicker="02 / Experience — where I have worked and what I was trusted with">
+  <nav class="mt-8 flex flex-wrap gap-x-7 gap-y-2 border-b pb-4" style="border-color: var(--pro-rule);" aria-label="Jump to section">
+    {
+      groups.map((g) => {
+        const n = experience.filter((e) => e.type === g.key).length;
+        return (
+          <a href={`#${g.key.toLowerCase()}`} class="pro-eyebrow transition-colors hover:text-[var(--pro-gold)]">
+            {g.label} <span style="color: var(--pro-gold);">{n}</span>
+          </a>
+        );
+      })
+    }
+  </nav>
+
+  {
+    groups.map((g) => {
+      const items = experience.filter((e) => e.type === g.key);
+      if (!items.length) return null;
+      return (
+        <section id={g.key.toLowerCase()} class="scroll-mt-24 pt-16 sm:pt-20">
+          <div class="grid gap-y-6 lg:grid-cols-12 lg:gap-x-12">
+            <div class="lg:col-span-3">
+              <p class="pro-eyebrow" style="color: var(--pro-gold);">{g.label}</p>
+              <p class="pro-label mt-1">{items.length} {items.length === 1 ? 'role' : 'roles'}</p>
+            </div>
+            <div class="lg:col-span-9">
+              {items.map((e) => (
+                <article class="pro-entry">
+                  <p class="pro-label">{e.period}</p>
+                  <div>
+                    <h3>{e.role}</h3>
+                    <span class="org">{e.company}</span>
+                    {e.description && <p>{e.description}</p>}
+                    {Array.isArray(e.skills) && e.skills.length > 0 && (
+                      <ul class="mt-3 flex flex-wrap gap-x-2 gap-y-1.5">
+                        {e.skills.slice(0, 8).map((s) => (
+                          <li class="pro-label border px-2 py-0.5" style="border-color: var(--pro-rule);">
+                            {s}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    })
+  }
+
+  <section class="pt-16 sm:pt-24" aria-label="Certifications">
+    <p class="pro-eyebrow">Certifications — {learningAll.length}</p>
+    <div class="mt-6 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        learningAll.map((l: any) => (
+          <article class="border-t pt-3" style="border-color: var(--pro-rule);">
+            <h3 class="text-[0.9rem] font-semibold leading-snug">{l.title}</h3>
+            <p class="pro-label mt-1">
+              {l.provider} · {l.date}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pt-16 sm:pt-24">
+    <a href={`${b}pro/contact`} class="pro-cta">Work with me <LucideIcon name="ArrowUpRight" size={26} /></a>
+  </section>
+</ProLayout>

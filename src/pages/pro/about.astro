@@ -1,0 +1,86 @@
+---
+import ProLayout from '../../layouts/ProLayout.astro';
+import LucideIcon from '../../components/LucideIcon.astro';
+import pro from '../../data/pro.json';
+import profile from '../../data/profile.json';
+import social from '../../data/social.json';
+
+const b = import.meta.env.BASE_URL;
+const stack = profile.about.stack;
+const scholar = social.scholarProfiles;
+---
+
+<ProLayout title="About" kicker="01 / About — who you would be working with">
+  <div class="grid gap-y-10 pt-8 sm:pt-12 lg:grid-cols-12 lg:gap-x-12">
+    <div class="lg:col-span-7">
+      <p class="pro-body text-[1.15rem]">{profile.about.intro}</p>
+      <p class="pro-body mt-6">{profile.about.detailed}</p>
+      <p class="pro-body mt-6">{profile.about.research}</p>
+    </div>
+
+    <aside class="lg:col-span-5">
+      <p class="pro-eyebrow">Method</p>
+      <ol class="mt-4">
+        {
+          pro.method.map((m, i) => (
+            <li class="flex gap-5 border-t py-3.5" style="border-color: var(--pro-rule);">
+              <span class="pro-label w-16 shrink-0 pt-0.5" style="color: var(--pro-gold);">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span>
+                <strong class="text-[0.95rem] font-semibold">{m.step}</strong>
+                <span class="mt-1 block text-sm leading-relaxed" style="color: var(--pro-dim);">{m.body}</span>
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+    </aside>
+  </div>
+
+  <section class="pt-16 sm:pt-24" aria-label="Strengths">
+    <p class="pro-eyebrow">Strengths</p>
+    <div class="mt-8 grid gap-x-10 gap-y-12 sm:grid-cols-2">
+      {
+        pro.strengths.map((s, i) => (
+          <article class="pro-card">
+            <em>{String(i + 1).padStart(2, '0')}</em>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pt-16 sm:pt-24" aria-label="Stack">
+    <p class="pro-eyebrow">Stack — things I reach for</p>
+    <dl class="mt-6 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        stack.map((row) => (
+          <div class="pro-spec">
+            <dt>{row.category}</dt>
+            <dd style="font-size: 0.875rem; line-height: 1.5;">{row.items.join(' · ')}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="pt-16 sm:pt-24" aria-label="Research profiles">
+    <p class="pro-eyebrow">Research profiles</p>
+    <div class="mt-4 flex flex-wrap gap-x-8 gap-y-3">
+      {
+        scholar.map((s) => (
+          <a href={s.href} target="_blank" rel="noreferrer" class="pro-link inline-flex items-center gap-2 text-sm">
+            <LucideIcon name={s.icon} size={15} />
+            {s.name}
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-10">
+      <a href={`${b}pro/contact`} class="pro-cta">Get in touch <LucideIcon name="ArrowUpRight" size={26} /></a>
+    </div>
+  </section>
+</ProLayout>

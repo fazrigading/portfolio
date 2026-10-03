@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import SystemBar from '../components/SystemBar.astro';
+import { ClientRouter } from 'astro:transitions';
+import profile from '../data/profile.json';
+
+const { route = '/', title = 'PERSONAL' } = Astro.props;
+const b = import.meta.env.BASE_URL;
+
+import bgHub from '../assets/wallpapers/desktop/blue.webp';
+import bgHubMobile from '../assets/wallpapers/mobile/blue.webp';
+import bgHubAlt from '../assets/wallpapers/desktop/blue-alt.webp';
+import bgGames from '../assets/wallpapers/desktop/green.webp';
+import bgGamesMobile from '../assets/wallpapers/mobile/green.webp';
+import bgGamesAlt from '../assets/wallpapers/desktop/green-alt.webp';
+import bgArt from '../assets/wallpapers/desktop/magenta.webp';
+import bgArtMobile from '../assets/wallpapers/mobile/magenta.webp';
+import bgProjects from '../assets/wallpapers/desktop/purple.webp';
+import bgProjectsMobile from '../assets/wallpapers/mobile/purple.webp';
+
+const pageBg: Record<string, { desktop: string[]; mobile: string[] }> = {
+  dev: { desktop: [bgHub.src, bgHubAlt.src], mobile: [bgHubMobile.src] },
+  'dev/games': { desktop: [bgGames.src, bgGamesAlt.src], mobile: [bgGamesMobile.src] },
+  'dev/art': { desktop: [bgArt.src], mobile: [bgArtMobile.src] },
+  projects: { desktop: [bgProjects.src], mobile: [bgProjectsMobile.src] },
+};
+const bg = pageBg[route] ?? pageBg.dev;
+
+const links = [
+  { name: 'Home', href: b + 'dev', key: 'dev' },
+  { name: 'Games', href: b + 'dev/games', key: 'dev/games' },
+  { name: 'Art', href: b + 'dev/art', key: 'dev/art' },
+  { name: 'Projects', href: b + 'projects', key: 'projects' },
+  { name: 'Blog', href: b + 'blog', key: 'blog' },
+];
+---
+
+<!doctype html>
+<html lang="en" data-zone="dev" data-navbar="on" data-route={route}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={`${profile.name} — Personal: games, art, terminal`} />
+    <title>{title} // {profile.nameShort}_DEDSEC</title>
+    <link rel="icon" href={`${b}favicon.svg`} type="image/svg+xml" />
+    <link rel="preload" as="image" href={bg.desktop[0]} />
+    {bg.mobile[0] && <link rel="preload" as="image" href={bg.mobile[0]} media="(max-width: 768px)" />}
+    <ClientRouter />
+    <script is:inline>
+      function applyPrefs() {
+        try {
+          const a = JSON.parse(localStorage.getItem('dedsec-accent') || 'null');
+          if (a) {
+            document.documentElement.style.setProperty('--accent', a.accent);
+            document.documentElement.style.setProperty('--accent-surface', a.surface);
+          }
+          const z = localStorage.getItem('dedsec-zone');
+          if (z) document.documentElement.dataset.entryZone = z;
+        } catch {}
+      }
+      document.addEventListener('astro:after-swap', applyPrefs);
+      applyPrefs();
+    </script>
+  </head>
+  <body class="min-h-screen font-term text-ink antialiased">
+    <div id="wallpaper" transition:name="wallpaper" class="pointer-events-none fixed inset-0 -z-10" aria-hidden="true" data-route={route} data-desktop-pool={JSON.stringify(bg.desktop)} data-mobile-pool={JSON.stringify(bg.mobile)}>
+      <picture>
+        {bg.mobile[0] && <source id="wp-source" media="(max-width: 768px)" srcset={bg.mobile[0]} />}
+        <img id="wp-img" src={bg.desktop[0]} alt="" loading="eager" class="h-full w-full object-cover opacity-[0.16]" />
+      </picture>
+      <div class="absolute inset-0 bg-gradient-to-b from-void/70 via-void/78 to-void/92"></div>
+      <div class="scanlines absolute inset-0 opacity-[0.06]" aria-hidden="true"></div>
+    </div>
+
+    <SystemBar route={route} links={links} />
+
+    <main class="mx-auto w-full max-w-6xl px-4 pb-24 sm:px-6">
+      <slot />
+    </main>
+
+    <footer class="border-t border-grid">
+      <div class="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-6 text-xs text-dim sm:px-6 md:flex-row md:items-center md:justify-between">
+        <p class="font-display text-sm tracking-wider"><span class="text-accent">SYS.LOG</span> // {profile.footer.tagline}</p>
+        <p>TELEMETRY: OK // © {profile.footer.copyright}</p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Zone exits persist the door the visitor walked through, so /projects
+      // and /blog open in the skin they expect.
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        try {
+          var h = a.getAttribute('href') || '';
+          if (h.indexOf('/pro') !== -1) localStorage.setItem('dedsec-zone', 'pro');
+          else if (h.indexOf('/dev') !== -1) localStorage.setItem('dedsec-zone', 'dev');
+          else if (a.hasAttribute('data-jump')) localStorage.setItem('dedsec-zone', a.getAttribute('data-jump'));
+        } catch {}
+      });
+    </script>
+  </body>
+</html>

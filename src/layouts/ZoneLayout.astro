@@ -1,0 +1,148 @@
+---
+import '../styles/global.css';
+import '../styles/pro.css';
+import { ClientRouter } from 'astro:transitions';
+import LucideIcon from '../components/LucideIcon.astro';
+import SystemBar from '../components/SystemBar.astro';
+import profile from '../data/profile.json';
+import social from '../data/social.json';
+
+interface Props {
+  title: string;
+  route: string;
+}
+const { title, route } = Astro.props;
+const b = import.meta.env.BASE_URL;
+
+// Which door the visitor came through decides the skin. Persisted at every
+// zone exit; the default is Personal because this is the DedSec site.
+const proLinks = [
+  { name: 'About', href: `${b}pro/about`, key: 'about' },
+  { name: 'Experience', href: `${b}pro/experience`, key: 'experience' },
+  { name: 'Research', href: `${b}pro/research`, key: 'research' },
+  { name: 'Contact', href: `${b}pro/contact`, key: 'contact' },
+];
+const devLinks = [
+  { name: 'Home', href: b + 'dev', key: 'dev' },
+  { name: 'Games', href: b + 'dev/games', key: 'dev/games' },
+  { name: 'Art', href: b + 'dev/art', key: 'dev/art' },
+  { name: 'Projects', href: b + 'projects', key: 'projects' },
+  { name: 'Blog', href: b + 'blog', key: 'blog' },
+];
+---
+
+<!doctype html>
+<html lang="en" data-shared="1" data-route={route} data-navbar="on">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={`${profile.name} — projects and writing, shared across both zones`} />
+    <title>{title} — {profile.name}</title>
+    <link rel="icon" href={`${b}favicon.svg`} type="image/svg+xml" />
+    <ClientRouter />
+    <script is:inline>
+      (function () {
+        try {
+          if (localStorage.getItem('dedsec-zone') === 'pro') document.documentElement.dataset.zone = 'pro';
+          else document.documentElement.dataset.zone = 'dev';
+          if (localStorage.getItem('pro-theme') === 'light') document.documentElement.dataset.theme = 'light';
+          const a = JSON.parse(localStorage.getItem('dedsec-accent') || 'null');
+          if (a && document.documentElement.dataset.zone !== 'pro') {
+            document.documentElement.style.setProperty('--accent', a.accent);
+            document.documentElement.style.setProperty('--accent-surface', a.surface);
+          }
+        } catch {}
+      })();
+    </script>
+    <script is:inline>
+      function rezone() {
+        try {
+          if (localStorage.getItem('dedsec-zone') === 'pro') document.documentElement.dataset.zone = 'pro';
+          else document.documentElement.dataset.zone = 'dev';
+        } catch {}
+      }
+      document.addEventListener('astro:after-swap', rezone);
+    </script>
+  </head>
+  <body class="min-h-screen antialiased">
+    {
+      /* the shared rail switches grammar with the skin: one switch, two voices */
+    }
+    <div class="shared-rail" data-shared-rail>
+      <div class="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-x-5 gap-y-2 px-5 py-3 sm:px-8">
+        <a href={b} class="shrink-0 text-xs font-semibold uppercase tracking-[0.2em] transition-colors">
+          <span class="pro-only">Fazri Gading / Professional</span>
+          <span class="dev-only"><span class="text-accent">▓▒░</span> DEDSEC</span>
+        </a>
+        <nav class="ml-auto flex items-center gap-4 overflow-x-auto whitespace-nowrap sm:gap-6" aria-label="Site">
+          <a href={b + 'projects'} class="text-xs uppercase tracking-[0.18em] transition-colors">Projects</a>
+          <a href={b + 'blog'} class="text-xs uppercase tracking-[0.18em] transition-colors">Blog</a>
+        </nav>
+        <div class="ml-auto flex items-center gap-5 sm:ml-0">
+          <a href={b + 'pro'} class="zone-jump text-xs uppercase tracking-[0.18em] transition-colors">← Pro</a>
+          <a href={b + 'dev'} class="zone-jump dev text-xs uppercase tracking-[0.18em] transition-colors">← Dev</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="dev-only sticky top-[49px] z-40 border-b border-grid bg-void/90 backdrop-blur" aria-label="Personal">
+      <div class="mx-auto flex w-full max-w-6xl items-center gap-5 px-5 py-2.5 text-xs sm:px-8">
+        {devLinks.map((l) => (
+          <a
+            href={l.href}
+            aria-current={route === l.key ? 'page' : undefined}
+            class:list={['shrink-0 uppercase tracking-wider transition-colors hover:text-accent', route === l.key ? 'text-accent' : 'text-dim']}
+          >
+            {l.name}
+          </a>
+        ))}
+      </div>
+    </nav>
+    <nav class="pro-only sticky top-[49px] z-40 border-b" style="border-color: var(--pro-rule); background: color-mix(in srgb, var(--pro-ground) 92%, transparent); backdrop-filter: blur(10px);" aria-label="Professional">
+      <div class="mx-auto flex w-full max-w-6xl items-center gap-5 px-5 py-2.5 sm:px-8">
+        {proLinks.map((l) => (
+          <a href={l.href} class="pro-eyebrow shrink-0 transition-colors hover:text-[var(--pro-gold)]">{l.label}</a>
+        ))}
+      </div>
+    </nav>
+
+    <main class="mx-auto w-full max-w-6xl px-5 pb-24 sm:px-8">
+      <slot />
+    </main>
+
+    <footer class="border-t" style="border-color: var(--pro-rule);">
+      <div class="mx-auto flex w-full max-w-6xl flex-col gap-3 px-5 py-7 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <p style="color: var(--pro-dim);">{profile.footer.copyright}</p>
+        <div class="dev-only flex items-center gap-4">
+          {social.socialLinks.map((s) => (
+            <a href={s.href} target="_blank" rel="noreferrer" title={s.name} class="text-dim transition-colors hover:text-accent">
+              <LucideIcon name={s.icon} size={16} />
+            </a>
+          ))}
+        </div>
+        <div class="pro-only flex items-center gap-4">
+          {social.socialLinks.map((s) => (
+            <a href={s.href} target="_blank" rel="noreferrer" title={s.name} class="pro-link">
+              <LucideIcon name={s.icon} size={16} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Zone exits persist the door the visitor walked through, so /projects
+      // and /blog open in the skin they expect.
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        try {
+          var h = a.getAttribute('href') || '';
+          if (h.indexOf('/pro') !== -1) localStorage.setItem('dedsec-zone', 'pro');
+          else if (h.indexOf('/dev') !== -1) localStorage.setItem('dedsec-zone', 'dev');
+          else if (a.hasAttribute('data-jump')) localStorage.setItem('dedsec-zone', a.getAttribute('data-jump'));
+        } catch {}
+      });
+    </script>
+  </body>
+</html>

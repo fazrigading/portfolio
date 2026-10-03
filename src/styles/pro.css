@@ -1,0 +1,408 @@
+/* ============================================================
+   PROFESSIONAL ZONE — editorial elegant + engineer spec-sheet
+   Palette: deep ink ground, ivory page, one champagne accent.
+   Never imported by the Personal zone.
+   ============================================================ */
+
+/* Tailwind v4 scans stylesheets for token use, so the Pro colour roles live
+   directly in @theme (not indirection vars) — utilities like text-pro-gold
+   are only generated when Tailwind sees a stylesheet referencing them. */
+@theme {
+  --color-pro-ground: #0b0d10;
+  --color-pro-ink: #f2ede4;
+  --color-pro-panel: #12151a;
+  --color-pro-page: #1a1e25;
+  --color-pro-rule: #2b313b;
+  --color-pro-dim: #8d94a2;
+  --color-pro-gold: #c8a96a;
+  --color-pro-goldsoft: #6b5a37;
+  --font-editorial: "Bodoni Moda", Didot, Georgia, serif;
+  --font-body: "Archivo", system-ui, sans-serif;
+}
+
+/* Live values, re-declared per theme so utilities follow the toggle.
+   Both halves of the pair are emitted in every theme scope. */
+:root,
+[data-theme="dark"] {
+  --pro-ground: #0b0d10;
+  --pro-ink: #f2ede4;
+  --pro-panel: #12151a;
+  --pro-page: #1a1e25;
+  --pro-rule: #2b313b;
+  --pro-dim: #8d94a2;
+  --pro-gold: #c8a96a;
+  --pro-gold-soft: #6b5a37;
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  --pro-ground: #f2ede4;
+  --pro-ink: #14161a;
+  --pro-panel: #faf7f0;
+  --pro-page: #ffffff;
+  --pro-rule: #d6cec0;
+  --pro-dim: #6a6558;
+  --pro-gold: #8a6d2f;
+  --pro-gold-soft: #cdb98a;
+  color-scheme: light;
+}
+/* Utilities resolve against the live var, not the static @theme colour. */
+@theme inline {
+  --color-pro-ground: var(--pro-ground);
+  --color-pro-ink: var(--pro-ink);
+  --color-pro-panel: var(--pro-panel);
+  --color-pro-page: var(--pro-page);
+  --color-pro-rule: var(--pro-rule);
+  --color-pro-dim: var(--pro-dim);
+  --color-pro-gold: var(--pro-gold);
+  --color-pro-goldsoft: var(--pro-gold-soft);
+}
+
+/* Solid ground is a hard rule for this zone. Deliberately NOT in @layer base:
+   layered rules always lose to global.css's unlayered body{} regardless of
+   import order, and that grid texture has to die on this zone's ground. */
+html[data-zone="pro"] body,
+html[data-zone="pro"] body.split-body {
+  background-color: var(--pro-ground);
+  background-image: none;
+  color: var(--pro-ink);
+  /* literal, not var(--font-body): Tailwind hoists @theme tokens into whichever
+     sheet declares them, so a theme var read from this file may not resolve. */
+  font-family: "Archivo", system-ui, sans-serif;
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+}
+html[data-zone="pro"] ::selection {
+  background: var(--pro-gold);
+  color: var(--pro-ground);
+}
+
+/* ---- shared type ladder: one measure, one rhythm ---- */
+.pro-display {
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-weight: 400;
+  /* opsz axis: display sizes get the high-contrast cut, body-ish sizes stay legible */
+  font-variation-settings: "opsz" 96;
+  line-height: 0.94;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.pro-eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pro-dim);
+}
+.pro-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--pro-dim);
+  font-variant-numeric: tabular-nums;
+}
+.pro-body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--pro-ink);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+/* spec-sheet rows: label / value, hairline ruled */
+.pro-spec {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 12ch) 1fr;
+  gap: 0 1.5rem;
+  border-top: 1px solid var(--pro-rule);
+  padding: 0.7rem 0;
+}
+.pro-spec dt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pro-dim);
+  padding-top: 0.15rem;
+}
+.pro-spec dd {
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.pro-spec dd em {
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-style: italic;
+  font-size: 1.15em;
+}
+
+/* metrics measure: three columns, one horizontal rule */
+.pro-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--pro-rule);
+  border-bottom: 1px solid var(--pro-rule);
+}
+.pro-metrics > div {
+  padding: 1.1rem 1.25rem 1.15rem 0;
+}
+.pro-metrics > div + div {
+  border-left: 1px solid var(--pro-rule);
+  padding-left: 1.25rem;
+}
+.pro-metrics b {
+  display: block;
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: lining-nums;
+}
+.pro-metrics span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--pro-dim);
+}
+.pro-metrics i {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pro-gold);
+  margin-top: 0.45rem;
+}
+
+/* timeline entries: single column, hanging rule */
+.pro-entry {
+  display: grid;
+  grid-template-columns: minmax(8rem, 14ch) 1fr;
+  gap: 0 2rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--pro-rule);
+}
+.pro-entry h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.pro-entry .org {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--pro-gold);
+  line-height: 1.25;
+}
+.pro-entry p {
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--pro-dim);
+  max-width: 60ch;
+}
+
+/* strength cards: number, title, body — no shadow, hairline only */
+.pro-card {
+  border-top: 2px solid var(--pro-ink);
+  padding-top: 1rem;
+}
+.pro-card em {
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  color: var(--pro-gold);
+}
+.pro-card h3 {
+  margin-top: 0.5rem;
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+.pro-card p {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--pro-dim);
+}
+
+/* publication rows */
+.pro-pub {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--pro-rule);
+}
+.pro-pub h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.pro-pub .authors {
+  margin-top: 0.4rem;
+  font-size: 0.875rem;
+  color: var(--pro-dim);
+  line-height: 1.5;
+}
+.pro-pub .venue {
+  margin-top: 0.55rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--pro-gold);
+}
+.pro-pub .tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pro-dim);
+  border: 1px solid var(--pro-rule);
+  padding: 0.2rem 0.5rem;
+  height: fit-content;
+  white-space: nowrap;
+}
+
+/* primary CTA: an underline that thickens, not a filled pill */
+.pro-cta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding: 0.85rem 0;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--pro-ink);
+  border-bottom: 2px solid var(--pro-gold);
+  transition: color 0.2s ease, border-color 0.2s ease, gap 0.2s ease;
+}
+.pro-cta:hover {
+  color: var(--pro-gold);
+  gap: 1.35rem;
+}
+
+/* quiet link with a gold underline that draws in */
+.pro-link {
+  color: var(--pro-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--pro-gold-soft);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.18s ease, color 0.18s ease;
+}
+.pro-link:hover {
+  color: var(--pro-gold);
+  text-decoration-color: var(--pro-gold);
+}
+
+/* theme toggle */
+.pro-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pro-dim);
+  transition: color 0.18s ease;
+}
+.pro-toggle:hover {
+  color: var(--pro-gold);
+}
+
+/* contact list rows */
+.pro-reach {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--pro-rule);
+}
+.pro-reach .k {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pro-dim);
+}
+.pro-reach .v {
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.005em;
+}
+
+@media (max-width: 720px) {
+  .pro-spec { grid-template-columns: 1fr; gap: 0.15rem; }
+  .pro-spec dt { padding-top: 0; }
+  .pro-entry { grid-template-columns: 1fr; gap: 0.4rem; }
+  .pro-metrics { grid-template-columns: 1fr; }
+  .pro-metrics > div + div { border-left: 0; border-top: 1px solid var(--pro-rule); padding-left: 0; }
+  .pro-pub { grid-template-columns: 1fr; }
+  .pro-reach { flex-direction: column; gap: 0.3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pro-cta, .pro-link, .pro-toggle { transition: none; }
+  .pro-cta:hover { gap: 0.9rem; }
+}
+/* nav hover — theme-safe variant (no reliance on Tailwind theme scanning) */
+.pro-eyebrow a:hover,
+a.pro-eyebrow:hover { color: var(--pro-gold); }
+
+/* ── shared zones (/projects, /blog) ──────────────────────────────────────
+   One page, two skins. The entry zone decides which grammar is on screen;
+   neither skin leaks the other's vocabulary. */
+.pro-only { display: none; }
+html[data-zone="pro"] .pro-only { display: revert; }
+html[data-zone="pro"] .dev-only { display: none !important; }
+
+html[data-zone="pro"] body { background-color: var(--pro-ground); }
+html[data-zone="dev"] body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--gridline) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gridline) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* the shared rail wears the skin it is in */
+.shared-rail { border-bottom: 1px solid var(--pro-rule); }
+html[data-zone="dev"] .shared-rail { border-color: var(--gridline); }
+html[data-zone="pro"] .shared-rail {
+  background: color-mix(in srgb, var(--pro-ground) 92%, transparent);
+  backdrop-filter: blur(10px);
+}
+html[data-zone="pro"] .shared-rail a { color: var(--pro-ink); }
+html[data-zone="pro"] .shared-rail nav a { color: var(--pro-dim); }
+html[data-zone="pro"] .shared-rail nav a:hover,
+html[data-zone="pro"] .zone-jump:hover { color: var(--pro-gold); }
+html[data-zone="dev"] .zone-jump { color: var(--muted); }
+html[data-zone="dev"] .zone-jump:hover { color: var(--accent); }
+
+/* cards inside shared pages follow the skin */
+html[data-zone="pro"] .card {
+  background-color: var(--pro-panel);
+  border-color: var(--pro-rule);
+}
+html[data-zone="pro"] .card h2,
+html[data-zone="pro"] .card h3 { font-family: "Bodoni Moda", Didot, Georgia, serif; font-weight: 400; }
+html[data-zone="pro"] .card .text-dim,
+html[data-zone="pro"] .card p { color: var(--pro-dim); }
+html[data-zone="pro"] .card .text-accent { color: var(--pro-gold); }
+html[data-zone="pro"] .card a { color: var(--pro-gold); }
+html[data-zone="pro"] .torn { display: none; }
+html[data-zone="pro"] .halftone::after { background-image: none; }
+html[data-zone="pro"] .glitch::before, html[data-zone="pro"] .glitch::after { display: none; }
+html[data-zone="pro"] h1, html[data-zone="pro"] h2, html[data-zone="pro"] h3 { font-family: "Archivo", system-ui, sans-serif; }

@@ -1,0 +1,73 @@
+---
+import DevLayout from '../../layouts/DevLayout.astro';
+import showcase from '../../data/showcase.json';
+import dev from '../../data/dev.json';
+
+const b = import.meta.env.BASE_URL;
+const groups = [
+  { key: 'nature', label: 'NATURE', items: showcase.gallery.nature },
+  { key: 'objects', label: 'OBJECTS', items: showcase.gallery.objects },
+];
+const total = groups.reduce((n, g) => n + g.items.length, 0);
+const lit = showcase.literature;
+---
+
+<DevLayout route="dev/art" title="GALLERY">
+  <div class="pt-12">
+    <p class="font-display text-sm tracking-widest text-accent">// GALLERY — {total} SLOTS · {total === 0 ? 'EMPTY' : 'PLACEHOLDERS'}</p>
+    <h1 class="glitch ascii-title font-display uppercase text-ink" data-text="Roll">The Roll</h1>
+    <p class="max-w-prose pt-3 text-sm leading-relaxed text-dim">
+      Nature and objects, shot and edited on my own time. The tiles below are placeholders — drop a real
+      image into <code class="text-accent">public/gallery/</code>, point the filename at it in
+      <code class="text-accent">src/data/showcase.json</code>, and it appears here. No rebuild of the layout,
+      no island to rewire.
+    </p>
+  </div>
+
+  {
+    groups.map((g) => (
+      <section class="pt-14">
+        <div class="flex items-baseline justify-between gap-4 border-b border-grid pb-2">
+          <h2 class="font-punk text-base font-bold uppercase text-ink">{g.label}</h2>
+          <span class="text-xs text-dim">{g.items.length}</span>
+        </div>
+        {/* CSS columns masonry: no JS, no fixed row heights, no layout library */}
+        <div class="columns-2 gap-3 pt-5 sm:columns-3 lg:columns-4 [&>*]:mb-3">
+          {g.items.map((p, i) => (
+            <figure class="card break-inside-avoid overflow-hidden">
+              <img src={`${b}gallery/${p.file}`} alt={p.alt} loading="lazy" class="block w-full" />
+              <figcaption class="px-2 py-1.5 text-[10px] uppercase tracking-widest text-dim">
+                <span class="text-accent">{String(i + 1).padStart(2, '0')}</span> {p.caption}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="pt-16">
+    <p class="font-display text-sm tracking-widest text-accent">// {lit.reading.length + lit.wantToRead.length} BOOKS_ON_DISK</p>
+    <div class="grid gap-3 pt-5 sm:grid-cols-2 lg:grid-cols-4">
+      {[...lit.reading, ...lit.wantToRead].map((b2) => (
+        <article class="card flex gap-3 p-3">
+          <img src={`${b}covers/${b2.cover}`} alt="" loading="lazy" class="h-24 w-16 shrink-0 border border-grid object-cover" />
+          <div class="min-w-0">
+            <h3 class="text-sm font-semibold leading-snug text-ink">{b2.title}</h3>
+            <p class="pt-1 text-[11px] text-dim">{b2.author}</p>
+            <p class="pt-1 text-[11px] text-accent" aria-label={`${b2.rating} out of 5`}>
+              {'★'.repeat(b2.rating)}
+              <span class="text-dim">{'★'.repeat(5 - b2.rating)}</span>
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="pt-6 text-xs leading-relaxed text-dim">{dev.reading.body}</p>
+  </section>
+
+  <p class="pt-16 text-center text-xs uppercase tracking-widest text-dim">
+    <a href={`${b}dev/games`} class="text-accent hover:underline">← LIBRARY</a> ·
+    <a href={`${b}dev`} class="text-accent hover:underline">← HUB</a>
+  </p>
+</DevLayout>

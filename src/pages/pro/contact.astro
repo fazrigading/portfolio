@@ -1,0 +1,66 @@
+---
+import ProLayout from '../../layouts/ProLayout.astro';
+import LucideIcon from '../../components/LucideIcon.astro';
+import pro from '../../data/pro.json';
+import social from '../../data/social.json';
+import profile from '../../data/profile.json';
+
+const b = import.meta.env.BASE_URL;
+const secondary = social.socialLinks.filter((s) => s.name !== 'E-mail');
+---
+
+<ProLayout title="Contact" kicker="04 / Contact — direct line, no form">
+  <div class="grid gap-y-10 pt-8 sm:pt-12 lg:grid-cols-12 lg:gap-x-12">
+    <div class="lg:col-span-7">
+      <h2 class="pro-display text-[clamp(2rem,4.5vw,3.6rem)] max-w-[16ch]">{pro.contact.headline}</h2>
+      <p class="pro-body mt-6">{pro.contact.body}</p>
+      <a href={pro.contact.primary.href} class="pro-cta mt-10">
+        {pro.contact.primary.value}
+        <LucideIcon name="ArrowUpRight" size={26} />
+      </a>
+      <p class="mt-5 max-w-[52ch] text-sm leading-relaxed" style="color: var(--pro-dim);">{pro.recruiterNote}</p>
+    </div>
+
+    <div class="lg:col-span-5">
+      <p class="pro-eyebrow">Elsewhere</p>
+      <div class="mt-4">
+        {
+          secondary.map((s) => (
+            <div class="pro-reach">
+              <span class="k">{s.name}</span>
+              <a href={s.href} target="_blank" rel="noreferrer" class="v pro-link inline-flex items-center gap-2">
+                <LucideIcon name={s.icon} size={16} />
+                {s.name}
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="pro-eyebrow mt-12">Research profiles</p>
+      <div class="mt-4">
+        {
+          social.scholarProfiles.map((s) => (
+            <div class="pro-reach">
+              <span class="k">{s.name}</span>
+              <a href={s.href} target="_blank" rel="noreferrer" class="v pro-link">
+                {s.name === 'ORCID' ? s.href.replace('https://', '') : s.name}
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <section class="pt-16 sm:pt-24">
+    <p class="pro-eyebrow">Not a fit right now?</p>
+    <p class="pro-body mt-4 max-w-[54ch]">
+      If you are here for the other half — the games, the art, the terminal — that is one click away, and it
+      is the better read anyway.
+    </p>
+    <div class="mt-6">
+      <a href={`${b}dev`} class="pro-cta">Enter the Personal zone <LucideIcon name="ArrowUpRight" size={26} /></a>
+    </div>
+  </section>
+</ProLayout>

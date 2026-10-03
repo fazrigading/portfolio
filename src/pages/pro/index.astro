@@ -1,0 +1,109 @@
+---
+import ProLayout from '../../layouts/ProLayout.astro';
+import LucideIcon from '../../components/LucideIcon.astro';
+import pro from '../../data/pro.json';
+import research from '../../data/research.json';
+import profile from '../../data/profile.json';
+import social from '../../data/social.json';
+
+const b = import.meta.env.BASE_URL;
+const q1 = research.filter((r) => r.category === 'Scopus Q1');
+const reach = social.socialLinks.filter((s) => s.name !== 'E-mail');
+---
+
+<ProLayout title={profile.name} kicker={pro.kicker}>
+  <div class="grid gap-y-10 pt-8 sm:pt-12 lg:grid-cols-12 lg:gap-x-12">
+    <div class="lg:col-span-7">
+      <h2 class="pro-display text-[clamp(1.9rem,3.6vw,3.1rem)] max-w-[19ch]">{pro.headline}</h2>
+      <p class="pro-body mt-7">{pro.standfirst}</p>
+    </div>
+    <div class="lg:col-span-5 lg:pt-2">
+      <dl>
+        {
+          pro.positioning.map((row) => (
+            <div class="pro-spec">
+              <dt>{row.k}</dt>
+              <dd>{row.v}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+
+  <section class="pt-16 sm:pt-24" aria-label="Proof">
+    <div class="pro-metrics">
+      {
+        pro.metrics.map((m) => (
+          <div>
+            <b>{m.value}</b>
+            <span>{m.label}</span>
+            <i>{m.note}</i>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="grid gap-y-10 pt-16 sm:pt-24 lg:grid-cols-12 lg:gap-x-12">
+    <div class="lg:col-span-4">
+      <p class="pro-eyebrow">Track record</p>
+    </div>
+    <div class="lg:col-span-8">
+      {
+        pro.roles.map((r) => (
+          <article class="pro-entry">
+            <p class="pro-label">{r.period}</p>
+            <div>
+              <h3>{r.role}</h3>
+              <span class="org">{r.org}</span>
+              <p>{r.note}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pt-16 sm:pt-24" aria-label="Research">
+    <div class="flex flex-wrap items-baseline justify-between gap-4">
+      <p class="pro-eyebrow">Research</p>
+      <a href={`${b}pro/research`} class="pro-link text-sm">All {research.length} publications →</a>
+    </div>
+    <div class="mt-6">
+      {
+        q1.map((p) => (
+          <article class="pro-pub">
+            <div>
+              <h3>{p.title}</h3>
+              <p class="authors">{p.authors}</p>
+              <p class="venue">
+                {p.journal} · {p.year}
+              </p>
+            </div>
+            <p class="tag">{p.category}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pt-16 sm:pt-24" aria-label="Reach out">
+    <p class="pro-eyebrow">{pro.contact.headline}</p>
+    <a href={pro.contact.primary.href} class="pro-cta mt-5">
+      {pro.contact.primary.value}
+      <LucideIcon name="ArrowUpRight" size={26} />
+    </a>
+    <p class="mt-5 max-w-[52ch] text-sm leading-relaxed" style="color: var(--pro-dim);">{pro.contact.body}</p>
+    <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+      {
+        reach.map((s) => (
+          <a href={s.href} target="_blank" rel="noreferrer" class="pro-link inline-flex items-center gap-2 text-sm">
+            <LucideIcon name={s.icon} size={15} />
+            {s.name}
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</ProLayout>

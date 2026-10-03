@@ -1,0 +1,169 @@
+---
+import '../styles/global.css';
+import '../styles/pro.css';
+import { ClientRouter } from 'astro:transitions';
+import LucideIcon from '../components/LucideIcon.astro';
+import profile from '../data/profile.json';
+import social from '../data/social.json';
+
+interface Props {
+  title: string;
+  /** Short line under the h1. */
+  kicker?: string;
+  /** Two-to-four word section label rendered in the rail. */
+  section?: string;
+}
+const { title, kicker, section } = Astro.props;
+const b = import.meta.env.BASE_URL;
+
+const nav = [
+  { label: 'About', href: `${b}pro/about`, key: 'about' },
+  { label: 'Experience', href: `${b}pro/experience`, key: 'experience' },
+  { label: 'Research', href: `${b}pro/research`, key: 'research' },
+  { label: 'Contact', href: `${b}pro/contact`, key: 'contact' },
+];
+const path = Astro.url.pathname;
+const active = (key: string) => path.includes(`/pro/${key}`);
+---
+
+<!doctype html>
+<html lang="en" data-zone="pro" data-route="pro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={`${profile.name} — ${profile.roles.join(', ')}`} />
+    <title>{title} — {profile.name}</title>
+    <link rel="icon" href={`${b}favicon.svg`} type="image/svg+xml" />
+    <ClientRouter />
+    <script is:inline>
+      // Dark default; light is an explicit, persisted choice.
+      (function () {
+        try {
+          if (localStorage.getItem('pro-theme') === 'light') document.documentElement.dataset.theme = 'light';
+        } catch {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen antialiased">
+    <a
+      href="#pro-main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-[var(--pro-ink)] focus:px-3 focus:py-2 focus:text-[var(--pro-ground)]"
+      >Skip to content</a
+    >
+
+    <!-- zone rail: one line, Professional grammar -->
+    <div class="sticky top-0 z-40 border-b" style="border-color: var(--pro-rule); background: color-mix(in srgb, var(--pro-ground) 92%, transparent); backdrop-filter: blur(10px);">
+      <div class="mx-auto flex w-full max-w-6xl items-center gap-5 px-5 py-3 sm:px-8">
+        <a href={`${b}pro`} class="pro-eyebrow shrink-0 transition-colors hover:text-[var(--pro-gold)]">
+          {profile.name} <span class="text-[var(--pro-gold)]">/</span> Professional
+        </a>
+        <nav class="ml-auto flex items-center gap-4 overflow-x-auto whitespace-nowrap sm:gap-6" aria-label="Professional">
+          {nav.map((n) => (
+            <a
+              href={n.href}
+              aria-current={active(n.key) ? 'page' : undefined}
+              class:list={[
+                'pro-eyebrow transition-colors hover:text-[var(--pro-gold)]',
+                active(n.key) ? 'text-[var(--pro-gold)]' : 'text-[var(--pro-dim)]',
+              ]}
+            >
+              {n.label}
+            </a>
+          ))}
+        </nav>
+        <button
+          type="button"
+          data-theme-toggle
+          class="pro-toggle ml-2 shrink-0"
+          aria-label="Switch colour theme"
+        >
+          <span data-theme-icon class="inline-block"></span>
+          <span data-theme-label>Light</span>
+        </button>
+      </div>
+    </div>
+
+    <main id="pro-main" class="mx-auto w-full max-w-6xl px-5 pb-32 sm:px-8">
+      <header class="pt-10 sm:pt-14">
+        {kicker && <p class="pro-eyebrow pb-3" style="color: var(--pro-gold);">{kicker}</p>}
+        <h1 class="pro-display text-[clamp(2.75rem,7.5vw,6rem)]">{title}</h1>
+      </header>
+      <slot />
+    </main>
+
+    <footer class="border-t" style="border-color: var(--pro-rule);">
+      <div class="mx-auto flex w-full max-w-6xl flex-col gap-4 px-5 py-8 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <p class="text-xs" style="color: var(--pro-dim);">
+          {profile.footer.copyright} <span class="text-[var(--pro-gold)]">·</span> Samarinda, Indonesia
+        </p>
+        <div class="flex items-center gap-5">
+          {social.socialLinks.map((s) => (
+            <a href={s.href} target="_blank" rel="noreferrer" class="pro-link inline-flex items-center gap-2 text-sm" title={s.name}>
+              <LucideIcon name={s.icon} size={15} />
+              <span class="hidden sm:inline">{s.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
+
+    <!-- cross-zone exit, styled in this zone's grammar: a single quiet rule -->
+    <div class="border-t" style="border-color: var(--pro-rule);">
+      <a
+        href={`${b}dev`}
+        data-exit="dev"
+        class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-4 text-xs transition-colors hover:text-[var(--pro-gold)] sm:px-8"
+        style="color: var(--pro-dim);"
+      >
+        <span class="pro-eyebrow">Not looking for a CV?</span>
+        <span class="pro-eyebrow" style="color: var(--pro-gold);">Enter the Personal zone →</span>
+      </a>
+    </div>
+
+    <script is:inline>
+      function bindTheme() {
+        var btn = document.querySelector('[data-theme-toggle]');
+        if (!btn || btn.dataset.bound) return;
+        btn.dataset.bound = '1';
+        var paint = function () {
+          var light = document.documentElement.dataset.theme === 'light';
+          btn.querySelector('[data-theme-label]').textContent = light ? 'Dark' : 'Light';
+          btn.querySelector('[data-theme-icon]').innerHTML =
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">' +
+            (light
+              ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'
+              : '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>') +
+            '</svg>';
+        };
+        btn.addEventListener('click', function () {
+          var light = document.documentElement.dataset.theme === 'light';
+          if (light) delete document.documentElement.dataset.theme;
+          else document.documentElement.dataset.theme = 'light';
+          try {
+            localStorage.setItem('pro-theme', light ? 'dark' : 'light');
+          } catch {}
+          paint();
+        });
+        paint();
+      }
+      document.addEventListener('astro:page-load', bindTheme);
+      document.addEventListener('astro:after-swap', bindTheme);
+      bindTheme();
+    </script>
+
+    <script is:inline>
+      // Zone exits persist the door the visitor walked through, so /projects
+      // and /blog open in the skin they expect.
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        try {
+          var h = a.getAttribute('href') || '';
+          if (h.indexOf('/pro') !== -1) localStorage.setItem('dedsec-zone', 'pro');
+          else if (h.indexOf('/dev') !== -1) localStorage.setItem('dedsec-zone', 'dev');
+          else if (a.hasAttribute('data-jump')) localStorage.setItem('dedsec-zone', a.getAttribute('data-jump'));
+        } catch {}
+      });
+    </script>
+  </body>
+</html>

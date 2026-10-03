@@ -1,0 +1,67 @@
+{
+  "tagline": "visitor@dedsec:~$ whoami",
+  "banner": [
+    "  ██████╗ ███████╗██████╗ ████████╗███████╗ ███████╗██╗  ██╗",
+    "  ██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██╔════╝██╔════╝██║  ██║",
+    "  ██║  ██║█████╗  ██████╔╝   ██║   █████╗  █████╗  ███████║",
+    "  ██║  ██║██╔══╝  ██╔══██╗   ██║   ██╔══╝  ██╔══╝  ██╔══██║",
+    "  ██████╔╝███████╗██║  ██║   ██║   ███████╗███████╗██║  ██║",
+    "  ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚══════╝╚═╝  ╚═╝"
+  ],
+  "intro": [
+    "Fazri Gading — Applied AI and Systems Engineer by day,",
+    "recon window operator by night. This half is the part",
+    "that does not fit on a resume."
+  ],
+  "boot": [
+    "[ OK ] mounting personal volume /dev/gading",
+    "[ OK ] loading wallpaper pool (rotate: wall)",
+    "[ OK ] library index: 47 games across 4 stores",
+    "[ OK ] gallery: slots open — drop files into public/gallery/",
+    "[  ] terminal ready. type `help`"
+  ],
+  "status": [
+    { "k": "operator", "v": "Fazri Gading / FG" },
+    { "k": "shell", "v": "zsh on Fedora" },
+    { "k": "editor", "v": "Zed, then Neovim when the coffee lands" },
+    { "k": "library", "v": "Steam · Epic · GOG · Xbox" },
+    { "k": "cameras", "v": "Sony α + Fujifilm X" },
+    { "k": "audio", "v": "guitar, ukulele" },
+    { "k": "fuel", "v": "coffee, running, cooking" }
+  ],
+  "hubs": [
+    {
+      "href": "dev/games",
+      "title": "Library",
+      "kicker": "47 games · one wall",
+      "body": "Every game I have played, on the shelf. Filter by genre, hover a cover for the note I wrote about it, click through to the store. Includes the Watch Dogs games — the reason this whole half of the site exists.",
+      "count": 47
+    },
+    {
+      "href": "dev/art",
+      "title": "Gallery",
+      "kicker": "photography · digital art",
+      "body": "Nature and objects, edited on my own time. Placeholder tiles for now — real files land by dropping them into the gallery folder and editing one JSON line.",
+      "count": 4
+    },
+    {
+      "href": "projects",
+      "title": "Projects",
+      "kicker": "shared with the other half",
+      "body": "Tools, games and experiments. Same page on both sides of the doorway; it just wears a different skin depending on which way you walked in.",
+      "count": 10
+    },
+    {
+      "href": "blog",
+      "title": "Transmissions",
+      "kicker": "writing",
+      "body": "Notes on systems, models and Linux desktops. Also cross-listed on the professional side — the writing does not care which door you came through.",
+      "count": 1
+    }
+  ],
+  "about": "The professional half has the CV, the papers and the contact button. This half has the covers, the camera roll and a prompt. Both are the same person: I build AI that survives contact with real systems, then go shoot photographs of oil palm plantations and eat noodles at 2am.",
+  "reading": {
+    "title": "On the desk",
+    "body": "Books on technology, science and philosophy, mostly second-hand, mostly mid-read."
+  }
+}

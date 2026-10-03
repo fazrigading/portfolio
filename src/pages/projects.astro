@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import ZoneLayout from '../layouts/ZoneLayout.astro';
 import AsciiHeader from '../components/AsciiHeader.astro';
 import RetroWindow from '../components/RetroWindow.astro';
 import LucideIcon from '../components/LucideIcon.astro';
@@ -30,7 +30,7 @@ const CATEGORY_PORTS: Record<string, number> = {
 };
 ---
 
-<Layout route="projects" title="PROJECTS">
+<ZoneLayout route="projects" title="PROJECTS">
   <AsciiHeader title="PAYLOADS" tag="// ROUTE:/PROJECTS — FILTER BY PORT" />
 
   <div class="flex flex-wrap gap-2 pb-8" id="filter-matrix">
@@ -68,7 +68,7 @@ const CATEGORY_PORTS: Record<string, number> = {
       </div>
     ))}
   </div>
-</Layout>
+</ZoneLayout>
 
 <script is:inline>
   function markActive(btns, btn) {

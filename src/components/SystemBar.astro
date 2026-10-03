@@ -1,7 +1,7 @@
 ---
 import navigation from '../data/navigation.json';
 
-const { route = '/' } = Astro.props;
+const { route = '/', links: linkOverride } = Astro.props;
 const b = import.meta.env.BASE_URL;
 
 // legacy anchor hrefs → multipage routes (navigation.json untouched)
@@ -11,13 +11,16 @@ const anchorMap: Record<string, string> = {
   '#research': 'research',
   '#projects': 'projects',
 };
-const links = navigation.map((n) => ({
-  name: n.name,
-  href: b + (anchorMap[n.href] ?? ''),
-  key: anchorMap[n.href] ?? '/',
-}));
-links.push({ name: 'Blog', href: b + 'blog', key: 'blog' });
-links.push({ name: 'Contact', href: b + 'contact', key: 'contact' });
+
+const links = linkOverride ?? [
+  ...navigation.map((n) => ({
+    name: n.name,
+    href: b + (anchorMap[n.href] ?? ''),
+    key: anchorMap[n.href] ?? '/',
+  })),
+  { name: 'Blog', href: b + 'blog', key: 'blog' },
+  { name: 'Contact', href: b + 'contact', key: 'contact' },
+];
 ---
 
 <header class="sticky top-0 z-50 border-b border-grid bg-void/90 backdrop-blur">
