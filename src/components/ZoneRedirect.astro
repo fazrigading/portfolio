@@ -1,0 +1,58 @@
+---
+/**
+ * Redirect shim for the routes that used to be shared between zones.
+ * Each zone now owns its own page, so this sends the visitor to whichever
+ * zone they arrived from. GitHub Pages serves static files with no
+ * server-side 3xx, so the redirect runs on the client and the visible
+ * links below are the no-JS recovery path.
+ */
+interface Props {
+  /** Path segment under each zone, e.g. "projects" or "blog". */
+  kind: 'projects' | 'blog';
+  /** Slug on a detail shim — redirects on to the zone's own detail page. */
+  slug?: string;
+}
+const { kind, slug } = Astro.props;
+const b = import.meta.env.BASE_URL;
+const labels = { projects: 'Projects', blog: 'Blog' } as const;
+const label = labels[kind];
+const segment = slug ?? kind;
+const target = `${b}${kind}${slug ? `/${slug}` : ''}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <title>{label} — Fazri Gading</title>
+    <link rel="icon" href={`${b}favicon.svg`} type="image/svg+xml" />
+    <link rel="canonical" href={`${b}dev/${target.slice(b.length)}`} />
+    <script define:vars={{ target, base: b }}>
+      (function () {
+        var zone = 'dev';
+        try {
+          zone = localStorage.getItem('dedsec-zone') === 'pro' ? 'pro' : 'dev';
+        } catch (e) {}
+        location.replace(base + zone + '/' + target.slice(base.length));
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen antialiased">
+    <main class="mx-auto max-w-xl px-6 py-24">
+      <h1 class="text-lg font-semibold">{label} now live inside each zone.</h1>
+      <p class="pt-3 text-sm text-dim">
+        This page was shared by both halves. It now has its own design in the Professional and Personal
+        zones, each wearing its own grammar. Pick the side you came from:
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4 text-sm">
+        <a href={`${b}dev/${target.slice(b.length)}`} class="text-accent hover:underline">Personal {label.toLowerCase()} →</a>
+        <a href={`${b}pro/${target.slice(b.length)}`} class="text-accent hover:underline">Professional {label.toLowerCase()} →</a>
+      </div>
+      <noscript>
+        <p class="pt-6 text-sm text-dim">JavaScript is off, so no automatic redirect ran. Use the two links above.</p>
+      </noscript>
+    </main>
+  </body>
+</html>

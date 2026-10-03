@@ -45,14 +45,14 @@
       "count": 4
     },
     {
-      "href": "projects",
+      "href": "dev/projects",
       "title": "Projects",
       "kicker": "shared with the other half",
-      "body": "Tools, games and experiments. Same page on both sides of the doorway; it just wears a different skin depending on which way you walked in.",
+      "body": "Tools, games and experiments. Same content on both sides of the doorway; it just wears a different skin depending on which way you walked in.",
       "count": 10
     },
     {
-      "href": "blog",
+      "href": "dev/blog",
       "title": "Transmissions",
       "kicker": "writing",
       "body": "Notes on systems, models and Linux desktops. Also cross-listed on the professional side — the writing does not care which door you came through.",

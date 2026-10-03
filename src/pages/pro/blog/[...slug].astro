@@ -1,0 +1,88 @@
+---
+import { getCollection, render } from 'astro:content';
+import ProLayout from '../../../layouts/ProLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((p) => ({ params: { slug: p.data.slug }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const b = import.meta.env.BASE_URL;
+---
+
+<ProLayout title={post.data.title} kicker={post.data.date} section="Blog">
+  <div class="grid gap-y-10 pt-8 sm:pt-12 lg:grid-cols-12 lg:gap-x-12">
+    <p class="pro-body lg:col-span-7">{post.data.excerpt}</p>
+    <div class="lg:col-span-5 lg:pt-1">
+      <div class="pro-reach">
+        <span class="k">Filed</span>
+        <span class="v">{post.data.date}</span>
+      </div>
+      {post.data.tags.map((t) => (
+        <div class="pro-reach">
+          <span class="k">Tag</span>
+          <span class="v">{t}</span>
+        </div>
+      ))}
+      <a href={`${b}pro/blog`} class="pro-link mt-6 inline-block text-sm">← All writing</a>
+    </div>
+  </div>
+
+  <article class="pro-essay post-body pt-12 sm:pt-16">
+    <Content />
+  </article>
+</ProLayout>
+
+<style>
+  /* The Pro essay runs on the zone's own reading rules: Archivo prose on the
+     ivory ground, editorial serif for headings, gold for links. It keeps the
+     MDX body's structure classes from global.css. */
+  .pro-essay {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    max-width: 68ch;
+    color: var(--pro-ink);
+  }
+  .pro-essay :global(h2),
+  .pro-essay :global(h3) {
+    font-family: "Bodoni Moda", Didot, Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    color: var(--pro-ink);
+    text-transform: none;
+    margin-top: 1.8em;
+  }
+  .pro-essay :global(h2) { font-size: 1.75rem; line-height: 1.15; }
+  .pro-essay :global(h3) { font-size: 1.35rem; line-height: 1.2; }
+  .pro-essay :global(a) { color: var(--pro-gold); text-underline-offset: 3px; }
+  .pro-essay :global(p),
+  .pro-essay :global(ul),
+  .pro-essay :global(ol) { color: var(--pro-ink); }
+  .pro-essay :global(strong) { font-weight: 600; }
+  .pro-essay :global(code) {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.9em;
+    color: var(--pro-gold);
+    background: color-mix(in srgb, var(--pro-gold) 10%, transparent);
+    padding: 0.1em 0.35em;
+  }
+  .pro-essay :global(pre) {
+    border: 1px solid var(--pro-rule);
+    background: var(--pro-panel);
+    padding: 1em;
+    overflow-x: auto;
+    margin-top: 1.4em;
+  }
+  .pro-essay :global(pre code) { background: none; color: inherit; padding: 0; }
+  .pro-essay :global(blockquote) {
+    border-left: 1px solid var(--pro-gold-soft);
+    padding-left: 1.2rem;
+    font-style: italic;
+    color: var(--pro-dim);
+    margin-top: 1.4em;
+  }
+  .pro-essay :global(img) { max-width: 100%; height: auto; }
+  .pro-essay :global(hr) { border: 0; border-top: 1px solid var(--pro-rule); margin: 2.4em 0; }
+</style>

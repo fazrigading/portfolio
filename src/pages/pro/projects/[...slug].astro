@@ -1,0 +1,71 @@
+---
+import ProLayout from '../../../layouts/ProLayout.astro';
+import LucideIcon from '../../../components/LucideIcon.astro';
+import { slugify } from '../../../components/slug';
+import projects from '../../../data/projects.json';
+
+export async function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: slugify(p.title) }, props: { p } }));
+}
+
+const { p } = Astro.props;
+const b = import.meta.env.BASE_URL;
+const siblings = projects.filter((x) => slugify(x.title) !== slugify(p.title)).slice(0, 3);
+---
+
+<ProLayout title={p.title} kicker={p.subtitle} section="Projects">
+  <div class="grid gap-y-10 pt-8 sm:pt-12 lg:grid-cols-12 lg:gap-x-12">
+    <div class="lg:col-span-7">
+      <p class="pro-body">{p.desc}</p>
+      <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+        <a href={p.link} target="_blank" rel="noreferrer" class="pro-cta">
+          Source
+          <LucideIcon name="ArrowUpRight" size={26} />
+        </a>
+      </div>
+    </div>
+
+    <aside class="lg:col-span-5">
+      <dl>
+        <div class="pro-spec">
+          <dt>Field</dt>
+          <dd>{p.category}</dd>
+        </div>
+        {
+          p.status === 'wip' && (
+            <div class="pro-spec">
+              <dt>Status</dt>
+              <dd>In progress</dd>
+            </div>
+          )
+        }
+        <div class="pro-spec">
+          <dt>Stack</dt>
+          <dd>{p.tech.join(' · ')}</dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+
+  <section class="pt-16 sm:pt-24" aria-label="More projects">
+    <p class="pro-eyebrow">More work</p>
+    <div class="mt-4">
+      {
+        siblings.map((s) => (
+          <article class="pro-pub">
+            <div>
+              <h3>
+                <a href={`${b}pro/projects/${slugify(s.title)}`} class="pro-link">
+                  {s.title}
+                </a>
+              </h3>
+              <p class="venue">{s.subtitle}</p>
+            </div>
+            <p class="tag">{s.category}</p>
+          </article>
+        ))
+      }
+    </div>
+    <a href={`${b}pro/projects`} class="pro-link mt-8 inline-block text-sm">All projects →</a>
+  </section>
+</ProLayout>

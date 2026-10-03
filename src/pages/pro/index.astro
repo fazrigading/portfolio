@@ -91,11 +91,12 @@ const reach = social.socialLinks.filter((s) => s.name !== 'E-mail');
   <section class="pt-16 sm:pt-24" aria-label="Reach out">
     <p class="pro-eyebrow">{pro.contact.headline}</p>
     <a href={pro.contact.primary.href} class="pro-cta mt-5">
-      {pro.contact.primary.value}
+      Contact me
       <LucideIcon name="ArrowUpRight" size={26} />
     </a>
     <p class="mt-5 max-w-[52ch] text-sm leading-relaxed" style="color: var(--pro-dim);">{pro.contact.body}</p>
     <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+      <a href={pro.contact.primary.href} class="pro-link text-sm">{pro.contact.primary.value}</a>
       {
         reach.map((s) => (
           <a href={s.href} target="_blank" rel="noreferrer" class="pro-link inline-flex items-center gap-2 text-sm">

@@ -17,12 +17,15 @@ import bgArt from '../assets/wallpapers/desktop/magenta.webp';
 import bgArtMobile from '../assets/wallpapers/mobile/magenta.webp';
 import bgProjects from '../assets/wallpapers/desktop/purple.webp';
 import bgProjectsMobile from '../assets/wallpapers/mobile/purple.webp';
+import bgBlog from '../assets/wallpapers/desktop/red.webp';
+import bgBlogMobile from '../assets/wallpapers/mobile/red.webp';
 
 const pageBg: Record<string, { desktop: string[]; mobile: string[] }> = {
   dev: { desktop: [bgHub.src, bgHubAlt.src], mobile: [bgHubMobile.src] },
   'dev/games': { desktop: [bgGames.src, bgGamesAlt.src], mobile: [bgGamesMobile.src] },
   'dev/art': { desktop: [bgArt.src], mobile: [bgArtMobile.src] },
-  projects: { desktop: [bgProjects.src], mobile: [bgProjectsMobile.src] },
+  'dev/projects': { desktop: [bgProjects.src], mobile: [bgProjectsMobile.src] },
+  'dev/blog': { desktop: [bgBlog.src], mobile: [bgBlogMobile.src] },
 };
 const bg = pageBg[route] ?? pageBg.dev;
 
@@ -30,8 +33,8 @@ const links = [
   { name: 'Home', href: b + 'dev', key: 'dev' },
   { name: 'Games', href: b + 'dev/games', key: 'dev/games' },
   { name: 'Art', href: b + 'dev/art', key: 'dev/art' },
-  { name: 'Projects', href: b + 'projects', key: 'projects' },
-  { name: 'Blog', href: b + 'blog', key: 'blog' },
+  { name: 'Projects', href: b + 'dev/projects', key: 'dev/projects' },
+  { name: 'Blog', href: b + 'dev/blog', key: 'dev/blog' },
 ];
 ---
 

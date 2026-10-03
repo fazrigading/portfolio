@@ -1,0 +1,153 @@
+---
+import ProLayout from '../../layouts/ProLayout.astro';
+import LucideIcon from '../../components/LucideIcon.astro';
+import { slugify } from '../../components/slug';
+import projects from '../../data/projects.json';
+
+const b = import.meta.env.BASE_URL;
+
+// One filter per distinct category actually present in the data.
+const categories = [...new Set(projects.map((p) => p.category))];
+const tag = (p: (typeof projects)[number]) =>
+  `${p.category} ${p.tech.join(' ')} ${p.subtitle}`.toLowerCase();
+const countFor = (c: string) => projects.filter((p) => p.category === c).length;
+---
+
+<ProLayout title="Projects" kicker="Selected work" section="Projects">
+  <div class="grid gap-y-8 pt-8 sm:pt-12 lg:grid-cols-12 lg:gap-x-12">
+    <p class="pro-body lg:col-span-7">
+      Ten projects across applied machine learning, web platforms and game development — the ones where the
+      model or the engine had to meet a real user, a real dataset or a real machine. Filter by discipline,
+      or read what each one was actually for.
+    </p>
+    <p class="pro-eyebrow lg:col-span-5 lg:pt-3 lg:text-right">{projects.length} projects</p>
+  </div>
+
+  <nav class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-10 sm:pt-14" aria-label="Filter projects by discipline">
+    <button type="button" data-filter="all" class="pro-filter" aria-pressed="true">All work</button>
+    {
+      categories.map((c) => (
+        <button type="button" data-filter={slugify(c)} class="pro-filter" aria-pressed="false">
+          {c}
+          <span class="pro-filter-n">{countFor(c)}</span>
+        </button>
+      ))
+    }
+  </nav>
+
+  <div class="grid gap-x-12 pt-12 lg:grid-cols-12" id="pro-projects">
+    {
+      projects.map((p) => (
+        <article class="pro-work lg:col-span-6" data-tags={tag(p)}>
+          <div class="flex items-start justify-between gap-4">
+            <h2 class="pro-work-title">
+              <a href={`${b}pro/projects/${slugify(p.title)}`} class="pro-link">{p.title}</a>
+            </h2>
+            {p.status === 'wip' && <span class="pro-work-flag">In progress</span>}
+          </div>
+          <p class="pro-eyebrow mt-3">{p.subtitle}</p>
+          <p class="pro-work-body mt-4">{p.desc}</p>
+          <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+            <a href={`${b}pro/projects/${slugify(p.title)}`} class="pro-link inline-flex items-center gap-1.5">
+              Read the case study <LucideIcon name="ArrowUpRight" size={15} />
+            </a>
+            <a href={p.link} target="_blank" rel="noreferrer" class="pro-link inline-flex items-center gap-1.5">
+              Source <LucideIcon name="ArrowUpRight" size={15} />
+            </a>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <p class="mt-14 text-sm" id="pro-empty" hidden style="color: var(--pro-dim);">
+    Nothing published in that discipline yet.
+  </p>
+</ProLayout>
+
+<style>
+  .pro-filter {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    color: var(--pro-dim);
+    background: none;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    padding: 0.25rem 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+  .pro-filter:hover { color: var(--pro-ink); }
+  .pro-filter[aria-pressed="true"] {
+    color: var(--pro-gold);
+    border-bottom-color: var(--pro-gold);
+  }
+  .pro-filter-n {
+    font-size: 0.6875rem;
+    color: var(--pro-gold-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .pro-filter[aria-pressed="true"] .pro-filter-n { color: var(--pro-gold); }
+
+  .pro-work {
+    padding: 1.6rem 0;
+    border-top: 1px solid var(--pro-rule);
+  }
+  .pro-work-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .pro-work-title a { text-decoration: none; }
+  .pro-work-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--pro-dim);
+    max-width: 56ch;
+  }
+  .pro-work-flag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pro-dim);
+    border: 1px solid var(--pro-rule);
+    padding: 0.2rem 0.5rem;
+    height: fit-content;
+    white-space: nowrap;
+  }
+  .pro-work[hidden] { display: none; }
+</style>
+
+<script is:inline>
+  (function () {
+    var root = document.getElementById('pro-projects');
+    if (!root || root.dataset.bound) return;
+    root.dataset.bound = '1';
+    var btns = document.querySelectorAll('.pro-filter');
+    var empty = document.getElementById('pro-empty');
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var want = btn.getAttribute('data-filter');
+        btns.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
+        var shown = 0;
+        root.querySelectorAll('.pro-work').forEach(function (card) {
+          var tags = (card.getAttribute('data-tags') || '').toLowerCase();
+          var hit = want === 'all' || tags.indexOf(want) !== -1;
+          card.hidden = !hit;
+          if (hit) shown++;
+        });
+        if (empty) empty.hidden = shown !== 0;
+      });
+    });
+  })();
+</script>

@@ -1,0 +1,96 @@
+---
+import DevLayout from '../../layouts/DevLayout.astro';
+import AsciiHeader from '../../components/AsciiHeader.astro';
+import RetroWindow from '../../components/RetroWindow.astro';
+import LucideIcon from '../../components/LucideIcon.astro';
+import { slugify } from '../../components/slug';
+import projects from '../../data/projects.json';
+
+const b = import.meta.env.BASE_URL;
+
+// server-side group tagging keeps the client filter dumb
+const groups = (p: { category: string; tech: string[]; misc?: boolean }) => {
+  const s = `${p.category} ${p.tech.join(' ')}`.toLowerCase();
+  const g: string[] = [];
+  if (/ai|ml|\bcv\b|computer vision|deep learning|tensorflow|pytorch|neural|u-net|yolo|detection|segmentation|vision|glaucoma|crop|yield/.test(s)) g.push('ml');
+  if (/web|react|frontend|backend|full.?stack|flask|typescript|javascript|tailwind|mysql|platform|analytics/.test(s)) g.push('web');
+  if (p.misc) g.push(slugify(p.category));
+  return g.join(' ');
+};
+
+// one filter button per distinct category among misc-tagged projects,
+// each themed with a well-known port from its domain
+const miscCategories = [...new Set(projects.filter((p) => p.misc).map((p) => p.category))];
+const CATEGORY_PORTS: Record<string, number> = {
+  'Software Engineering': 22, // ssh
+  'Web Development': 3000, // dev server
+  'Computer Vision': 5000, // flask inference server
+  'Game Development': 7777, // game server
+  'Academic / Numerical Methods': 8888, // jupyter notebook
+};
+---
+
+<DevLayout route="dev/projects" title="PAYLOADS">
+  <AsciiHeader title="PAYLOADS" tag="// ROUTE:/DEV/PROJECTS — FILTER BY PORT" />
+
+  <div class="flex flex-wrap gap-2 pb-8" id="filter-matrix">
+    <button data-port="all" class="filter-btn border border-accent bg-accentsurface px-3 py-1.5 text-xs uppercase tracking-widest text-accent">PORT 80: ALL</button>
+    <button data-port="ml" class="filter-btn border border-grid px-3 py-1.5 text-xs uppercase tracking-widest text-dim hover:border-accent hover:text-accent">PORT 443: ML/CV</button>
+    <button data-port="web" class="filter-btn border border-grid px-3 py-1.5 text-xs uppercase tracking-widest text-dim hover:border-accent hover:text-accent">PORT 8080: WEB</button>
+    {miscCategories.map((c) => (
+      <button data-port={slugify(c)} class="filter-btn border border-grid px-3 py-1.5 text-xs uppercase tracking-widest text-dim hover:border-accent hover:text-accent">PORT {CATEGORY_PORTS[c] ?? 9999}: {c}</button>
+    ))}
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-2" id="payload-grid">
+    {projects.map((p, i) => (
+      <div class="payload" data-groups={groups(p)}>
+        <RetroWindow tag={`ERR_0x9${i}`} title={p.title}>
+          <div class="mb-3 flex aspect-[16/9] flex-col items-center justify-center gap-2 overflow-hidden border border-grid bg-accentsurface" aria-hidden="true">
+            <LucideIcon name={p.icon} size={40} class="text-accent" />
+            <span class="text-[11px] uppercase tracking-widest text-dim">NO_SIGNAL // IMG_PLACEHOLDER</span>
+          </div>
+          <p class="text-xs uppercase tracking-widest text-accent">
+            {p.subtitle} [{p.category}]
+            {p.status === 'wip' && <span class="ml-1.5 border border-grid px-1 text-dim">WIP</span>}
+          </p>
+          <p class="pt-2 text-[13px] leading-relaxed text-dim">{p.desc}</p>
+          <div class="flex flex-wrap gap-1.5 pt-3">
+            {p.tech.map((t) => (
+              <span class="border border-grid px-1.5 py-0.5 text-[11px] text-dim">{t}</span>
+            ))}
+          </div>
+          <div class="flex gap-4 pt-3 text-xs uppercase tracking-widest">
+            <a href={`${b}dev/projects/${slugify(p.title)}`} class="text-accent hover:underline">OPEN_FILE →</a>
+            <a href={p.link} target="_blank" rel="noreferrer" class="text-dim hover:text-accent hover:underline">REPO →</a>
+          </div>
+        </RetroWindow>
+      </div>
+    ))}
+  </div>
+</DevLayout>
+
+<script is:inline>
+  function markActive(btns, btn) {
+    btns.forEach((b) => {
+      const on = b === btn;
+      b.classList.toggle('border-accent', on);
+      b.classList.toggle('bg-accentsurface', on);
+      b.classList.toggle('text-accent', on);
+      b.classList.toggle('border-grid', !on);
+      b.classList.toggle('text-dim', !on);
+    });
+  }
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.payload');
+  btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const port = btn.getAttribute('data-port');
+      markActive(btns, btn);
+      cards.forEach((c) => {
+        const g = (c.getAttribute('data-groups') || '').split(' ');
+        c.style.display = port === 'all' || g.includes(port || '') ? '' : 'none';
+      });
+    });
+  });
+</script>

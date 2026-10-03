@@ -18,6 +18,8 @@
   --color-pro-goldsoft: #6b5a37;
   --font-editorial: "Bodoni Moda", Didot, Georgia, serif;
   --font-body: "Archivo", system-ui, sans-serif;
+  /* Labels and data only. The Personal zone keeps its own mono. */
+  --font-pro-mono: "IBM Plex Mono", monospace;
 }
 
 /* Live values, re-declared per theme so utilities follow the toggle.
@@ -87,14 +89,14 @@ html[data-zone="pro"] ::selection {
   text-wrap: balance;
 }
 .pro-eyebrow {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--pro-dim);
 }
 .pro-label {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   color: var(--pro-dim);
@@ -117,7 +119,7 @@ html[data-zone="pro"] ::selection {
   padding: 0.7rem 0;
 }
 .pro-spec dt {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -166,7 +168,7 @@ html[data-zone="pro"] ::selection {
 }
 .pro-metrics i {
   display: block;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-style: normal;
   font-size: 0.6875rem;
   letter-spacing: 0.1em;
@@ -212,7 +214,7 @@ html[data-zone="pro"] ::selection {
   padding-top: 1rem;
 }
 .pro-card em {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-style: normal;
   font-size: 0.6875rem;
   letter-spacing: 0.18em;
@@ -254,13 +256,13 @@ html[data-zone="pro"] ::selection {
 }
 .pro-pub .venue {
   margin-top: 0.55rem;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.75rem;
   letter-spacing: 0.04em;
   color: var(--pro-gold);
 }
 .pro-pub .tag {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -308,7 +310,7 @@ html[data-zone="pro"] ::selection {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -329,7 +331,7 @@ html[data-zone="pro"] ::selection {
   border-top: 1px solid var(--pro-rule);
 }
 .pro-reach .k {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -359,50 +361,3 @@ html[data-zone="pro"] ::selection {
 .pro-eyebrow a:hover,
 a.pro-eyebrow:hover { color: var(--pro-gold); }
 
-/* ── shared zones (/projects, /blog) ──────────────────────────────────────
-   One page, two skins. The entry zone decides which grammar is on screen;
-   neither skin leaks the other's vocabulary. */
-.pro-only { display: none; }
-html[data-zone="pro"] .pro-only { display: revert; }
-html[data-zone="pro"] .dev-only { display: none !important; }
-
-html[data-zone="pro"] body { background-color: var(--pro-ground); }
-html[data-zone="dev"] body {
-  background-color: var(--bg);
-  background-image:
-    linear-gradient(var(--gridline) 1px, transparent 1px),
-    linear-gradient(90deg, var(--gridline) 1px, transparent 1px);
-  background-size: 32px 32px;
-  color: var(--text);
-  font-family: "JetBrains Mono", monospace;
-}
-
-/* the shared rail wears the skin it is in */
-.shared-rail { border-bottom: 1px solid var(--pro-rule); }
-html[data-zone="dev"] .shared-rail { border-color: var(--gridline); }
-html[data-zone="pro"] .shared-rail {
-  background: color-mix(in srgb, var(--pro-ground) 92%, transparent);
-  backdrop-filter: blur(10px);
-}
-html[data-zone="pro"] .shared-rail a { color: var(--pro-ink); }
-html[data-zone="pro"] .shared-rail nav a { color: var(--pro-dim); }
-html[data-zone="pro"] .shared-rail nav a:hover,
-html[data-zone="pro"] .zone-jump:hover { color: var(--pro-gold); }
-html[data-zone="dev"] .zone-jump { color: var(--muted); }
-html[data-zone="dev"] .zone-jump:hover { color: var(--accent); }
-
-/* cards inside shared pages follow the skin */
-html[data-zone="pro"] .card {
-  background-color: var(--pro-panel);
-  border-color: var(--pro-rule);
-}
-html[data-zone="pro"] .card h2,
-html[data-zone="pro"] .card h3 { font-family: "Bodoni Moda", Didot, Georgia, serif; font-weight: 400; }
-html[data-zone="pro"] .card .text-dim,
-html[data-zone="pro"] .card p { color: var(--pro-dim); }
-html[data-zone="pro"] .card .text-accent { color: var(--pro-gold); }
-html[data-zone="pro"] .card a { color: var(--pro-gold); }
-html[data-zone="pro"] .torn { display: none; }
-html[data-zone="pro"] .halftone::after { background-image: none; }
-html[data-zone="pro"] .glitch::before, html[data-zone="pro"] .glitch::after { display: none; }
-html[data-zone="pro"] h1, html[data-zone="pro"] h2, html[data-zone="pro"] h3 { font-family: "Archivo", system-ui, sans-serif; }
