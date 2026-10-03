@@ -45,7 +45,30 @@ const facts = [
     />
     <title>{profile.name} — Professional // Personal</title>
     <link rel="icon" href={`${b}favicon.svg`} type="image/svg+xml" />
+    {/* The two faces the display and the labels need. Preloaded because the
+        name is the h2 and a cold swap visibly reflows it. */}
+    <link rel="preload" as="font" type="font/woff2" href={`${b}fonts/Archivo-var.woff2`} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={`${b}fonts/IBMPlexMono-normal-400.woff2`} crossorigin />
     <style is:global>
+      /* Metric-matched fallback faces. Archivo is the display voice, so its
+         swap period must not resize the name: these overrides approximate the
+         real advance width and vertical metrics of the fallback face. */
+      @font-face {
+        font-family: "Archivo Fallback";
+        src: local("Helvetica Neue"), local("Arial"), local("Liberation Sans");
+        size-adjust: 97%;
+        ascent-override: 96%;
+        descent-override: 24%;
+        line-gap-override: 0%;
+      }
+      @font-face {
+        font-family: "Plex Mono Fallback";
+        src: local("DejaVu Sans Mono"), local("Liberation Mono"), local("Menlo");
+        size-adjust: 94%;
+        ascent-override: 92%;
+        descent-override: 24%;
+        line-gap-override: 0%;
+      }
       @font-face{font-family:"VT323";src:url("/fonts/VT323-normal-400.woff2") format("woff2");font-weight:400;font-display:swap}
       @font-face{font-family:"Syne";src:url("/fonts/Syne-normal-700.woff2") format("woff2");font-weight:700;font-display:swap}
       @font-face{font-family:"Syne";src:url("/fonts/Syne-normal-800.woff2") format("woff2");font-weight:800;font-display:swap}
@@ -192,11 +215,26 @@ const facts = [
     --s6: 32px;
     --s7: 44px;
 
+    /* ── type roles ──
+       Named by job, not by value, so a role can be re-tuned in one place.
+       Two families, no third: Archivo carries voice and prose, IBM Plex Mono
+       carries labels and data. The dense band is 11/12/13/14 — a 1px step
+       alone would be invisible, so each role also separates by weight, case,
+       tracking or colour. */
+    --t-display: clamp(2.4rem, 5.4vw, 4.6rem); /* the name */
+    --t-deck: clamp(1rem, 1.15vw, 1.125rem); /* standfirst prose */
+    --t-value: 0.875rem; /* fact value */
+    --t-readout: 0.8125rem; /* fastfetch value */
+    --t-label: 0.6875rem; /* any key or qualifier */
+    --t-body: 0.75rem; /* any running value */
+    --t-data: clamp(1.5rem, 2.6vw, 2.2rem); /* the three proof numerals */
+    --t-mark: clamp(0.42rem, 0.55vw, 0.62rem); /* ASCII wordmark */
+
     margin: 0;
     background-color: #0b0d10;
     background-image: none;
     color: #f2ede4;
-    font-family: 'Archivo', system-ui, sans-serif;
+    font-family: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
   }
 
   /* ── the track: a viewport-tall scroller over two 100svh views ──
@@ -278,20 +316,26 @@ const facts = [
   .identity-main { min-width: 0; }
 
   .split-name {
-    font-family: 'Archivo', system-ui, sans-serif;
+    font-family: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
     font-weight: 800;
-    font-stretch: 62%;
-    font-variation-settings: 'wdth' 78;
-    font-size: clamp(2.4rem, 5.4vw, 4.6rem);
+    /* `font-variation-settings` overrides `font-stretch` on the same axis, so
+       the width axis is set in exactly one place. Declaring both left
+       `font-stretch` silently dead and the tracking tuned for a cut the type
+       never rendered at. */
+    font-stretch: 78%;
+    font-size: var(--t-display);
     line-height: 0.94;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.045em;
   }
   .split-standfirst {
     margin-top: var(--s2);
-    font-size: clamp(0.85rem, 1.05vw, 1rem);
+    font-size: var(--t-deck);
     line-height: 1.5;
+    /* light grey on a near-black ground needs a touch of tracking to hold
+       its word shapes; the measure must clear 45ch */
+    letter-spacing: 0.005em;
     color: #b9bfc9;
-    max-width: 44ch;
+    max-width: 58ch;
   }
 
   /* contact doors sit with the name they belong to */
@@ -302,12 +346,12 @@ const facts = [
     margin-top: var(--s3);
   }
   .reach-link {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
+    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
+    font-size: var(--t-body);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
-    color: #8d94a2;
+    color: #a3abba;
     transition: color 0.2s ease;
   }
   .reach-link:hover { color: #c8a96a; }
@@ -323,8 +367,8 @@ const facts = [
   }
   .fact:first-child { border-top: 1px solid #262b34; }
   .fact dt {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6875rem;
+    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
+    font-size: var(--t-label);
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #6d7482;
@@ -332,7 +376,7 @@ const facts = [
   }
   .fact dd {
     margin: 0;
-    font-size: 0.875rem;
+    font-size: var(--t-value);
     line-height: 1.4;
     color: #cfd4dc;
   }
@@ -349,20 +393,20 @@ const facts = [
   .metric { display: flex; gap: var(--s3); align-items: baseline; padding: var(--s2) var(--s4) var(--s2) 0; }
   .metric + .metric { border-left: 1px solid #262b34; padding-left: var(--s4); }
   .metric b {
-    font-family: 'Archivo', system-ui, sans-serif;
+    font-family: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
     font-weight: 800;
-    font-stretch: 62%;
-    font-variation-settings: 'wdth' 85;
-    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+    /* one axis, one declaration — see `.split-name` */
+    font-stretch: 85%;
+    font-size: var(--t-data);
     line-height: 1;
     letter-spacing: -0.03em;
   }
-  .metric > span { font-size: 0.75rem; line-height: 1.3; color: #b9bfc9; }
+  .metric > span { font-size: var(--t-body); line-height: 1.3; color: #b9bfc9; }
   .metric i {
     display: block;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
     font-style: normal;
-    font-size: 0.625rem;
+    font-size: var(--t-label);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #c8a96a;
@@ -394,10 +438,10 @@ const facts = [
     gap: var(--s2);
     padding: 0 var(--s4);
     white-space: nowrap;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
+    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
+    font-size: var(--t-body);
     line-height: 1.6;
-    color: #9aa2b0;
+    color: #b6bdc9;
   }
   .ticker-item::after {
     content: '';
@@ -409,10 +453,13 @@ const facts = [
     background: #3a414d;
     transform: translateY(-3px);
   }
+  /* The key is the same face and the same size as its value — separation is
+     carried by case, tracking and gold alone, which is why the tracking is
+     wide and the weight steps up. A 1px size step would not read. */
   .ticker-item b {
     font-weight: 500;
-    font-size: 0.625rem;
-    letter-spacing: 0.14em;
+    font-size: inherit;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
   }
   @keyframes ticker-scroll {
@@ -436,7 +483,7 @@ const facts = [
     transition: color 0.22s ease, border-color 0.22s ease, gap 0.22s ease;
   }
   .view-cta-label {
-    font-family: 'Archivo', system-ui, sans-serif;
+    font-family: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
     font-weight: 600;
     font-size: clamp(0.9rem, 1.5vw, 1.2rem);
     line-height: 1.2;
@@ -489,23 +536,23 @@ const facts = [
     justify-content: center;
   }
   .strip-name {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
     font-size: clamp(0.95rem, 1.7vw, 1.3rem);
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
   }
   .strip-pro .strip-name {
-    font-family: 'Archivo', system-ui, sans-serif;
+    font-family: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
     font-weight: 700;
     letter-spacing: 0.01em;
     font-size: clamp(1.1rem, 2vw, 1.5rem);
   }
   .strip-path {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
+    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
+    font-size: var(--t-label);
     letter-spacing: 0.14em;
-    color: #5c6373;
+    color: #6a7280;
   }
   .strip-hint {
     display: grid;
@@ -519,10 +566,10 @@ const facts = [
   .strip-hint > span {
     overflow: hidden;
     min-height: 0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
+    font-family: 'IBM Plex Mono', 'Plex Mono Fallback', monospace;
+    font-size: var(--t-label);
     letter-spacing: 0.08em;
-    color: #8d94a2;
+    color: #a3abba;
   }
   .strip:hover .strip-hint { grid-template-rows: 1fr; opacity: 1; transform: none; }
 
@@ -549,7 +596,7 @@ const facts = [
   }
   .ff-logo {
     font-family: 'VT323', monospace;
-    font-size: clamp(0.3rem, 0.55vw, 0.62rem);
+    font-size: var(--t-mark);
     line-height: 1.02;
     color: #5dff9b;
     margin: 0;
@@ -568,17 +615,17 @@ const facts = [
   .ff-row:last-child { border-bottom: 0; }
   .ff-row dt {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6875rem;
+    font-size: var(--t-label);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #6f7a68;
+    color: #7d8a76;
     text-align: right;
     padding-top: 0.15em;
   }
   .ff-row dd {
     margin: 0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8125rem;
+    font-size: var(--t-readout);
     line-height: 1.35;
     color: #d7f7e4;
     font-variant-numeric: tabular-nums;
@@ -593,7 +640,7 @@ const facts = [
   }
   .ff-hub {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6875rem;
+    font-size: var(--t-label);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     text-decoration: none;
@@ -625,10 +672,11 @@ const facts = [
     .metric + .metric { border-left: 0; border-top: 1px solid #262b34; padding-left: 0; }
     .strip-hint { display: none; }
     .fastfetch { grid-template-columns: 1fr; gap: var(--s4); justify-items: center; }
-    .ff-logo { font-size: 0.42rem; }
     .ff-row { grid-template-columns: minmax(4rem, 30%) 1fr; gap: var(--s3); }
     .view-cta { margin-top: var(--s5); }
-    .ticker-item { padding: 0 var(--s3); font-size: 0.6875rem; }
+    /* the ledger keeps its own size: the key is distinguished by case and
+       tracking, so dropping the value to 11px would collapse the pair */
+    .ticker-item { padding: 0 var(--s3); }
   }
 
   /* ── short viewports (landscape phones, short windows) ──
@@ -641,12 +689,13 @@ const facts = [
     .identity { grid-template-columns: 1fr; gap: var(--s3); }
     .facts { display: none; }
     .split-name { font-size: clamp(1.75rem, 3.4vw, 2.6rem); }
-    .split-standfirst { font-size: 0.8rem; max-width: 60ch; }
+    .split-standfirst { font-size: 1rem; max-width: 60ch; }
     .split-measure { margin-top: var(--s4); }
-    .metric b { font-size: 1.3rem; }
+    .metric b { font-size: 1.4rem; }
     .ticker { margin-top: var(--s3); }
     .view-cta { margin-top: var(--s4); padding: var(--s2) var(--s4); }
     .fastfetch { padding: var(--s3) var(--s4); }
+    .ff-logo { font-size: 0.42rem; }
     .ff-hubs { margin-top: var(--s3); }
     .panel-dev .view-cta { margin-top: var(--s4); }
   }
