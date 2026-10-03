@@ -172,7 +172,7 @@ const facts = [
         </div>
 
         <div class="panel panel-dev">
-          <span class="dev-wall"></span>
+          <span class="dev-wall" style={`background-image: url(${devWallpaper.src})`}></span>
           <div class="panel-inner">
             <!-- fastfetch: mark on the left, machine readout on the right -->
             <div class="fastfetch">
@@ -261,12 +261,14 @@ const facts = [
     scroll-snap-align: start;
     scroll-snap-stop: always;
     min-height: 0;
-    transition: grid-template-rows 0.9s ease-out;
+    transition: grid-template-rows 0.5s ease-out;
   }
-  /* view one: 80 / 20 — view two: 20 / 80. The slice track is `auto` at
-     rest, so it holds the ~20% it was given instead of being clipped. */
-  .view-one { grid-template-rows: 1fr auto; }
-  .view-two { grid-template-rows: auto 1fr; }
+  /* view one: 90 / 10 at rest, 85 / 15 on hover — view two mirrored.
+     Both tracks are `fr` (never `auto`): a transition to/from an `auto`
+     track can't interpolate, which is what made the strip redraw
+     top-to-bottom and fade on release. */
+  .view-one { grid-template-rows: 9fr 1fr; }
+  .view-two { grid-template-rows: 1fr 9fr; }
   /* the collapsed slice grows to ~15% of the view on hover */
   .view-one:has(.strip-dev:hover) { grid-template-rows: 17fr 3fr; }
   .view-two:has(.strip-pro:hover) { grid-template-rows: 3fr 17fr; }
@@ -578,7 +580,6 @@ const facts = [
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-image: url('{devWallpaper.src}');
     background-size: cover;
     background-position: center;
     opacity: 0.16;
