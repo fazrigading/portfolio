@@ -7,7 +7,7 @@ import profile from '../data/profile.json';
 import social from '../data/social.json';
 import learning from '../data/learning.json';
 import { getCollection } from 'astro:content';
-import devWallpaper from '../assets/wallpapers/desktop/blue.webp';
+import devWallpaper from '../assets/wallpapers/desktop/blue-alt.webp';
 
 const b = import.meta.env.BASE_URL;
 const reach = social.socialLinks.filter((s) => s.name !== 'E-mail');
@@ -97,7 +97,7 @@ const facts = [
             <!-- ── identity: who he is, and how to reach him ── -->
             <div class="identity">
               <div class="identity-main">
-                <h2 class="split-name">Fazri<br />Gading</h2>
+                <h2 class="split-name">Fazri Gading</h2>
                 <p class="split-standfirst">
                   {profile.about.intro.split('. ').slice(0, 2).join('. ')}.
                 </p>
@@ -527,7 +527,7 @@ const facts = [
     transition: opacity 0.28s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .strip-pro .strip-bar { color: #c8a96a; }
-  .strip-dev .strip-bar { color: #5dff9b; }
+  .strip-dev .strip-bar { color: #42c0ff; }
   .strip:hover .strip-bar { opacity: 1; transform: translateX(-50%) scaleX(1); }
 
   .strip-face {
@@ -599,7 +599,7 @@ const facts = [
     font-family: 'VT323', monospace;
     font-size: var(--t-mark);
     line-height: 1.02;
-    color: #5dff9b;
+    color: #5d98ff;
     margin: 0;
     opacity: 0.85;
     white-space: pre;
@@ -619,7 +619,7 @@ const facts = [
     font-size: var(--t-label);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #7d8a76;
+    color: #42c0ff;
     text-align: right;
     padding-top: 0.15em;
   }
@@ -650,11 +650,11 @@ const facts = [
     padding: var(--s1) var(--s3);
     transition: color 0.2s ease, border-color 0.2s ease;
   }
-  .ff-hub:hover { color: #5dff9b; border-color: #5dff9b; }
+  .ff-hub:hover { color: #42c0ff; border-color: #42c0ff; }
   .panel-dev .view-cta { margin-top: var(--s6); }
 
   .gold { color: #c8a96a; }
-  .phos { color: #5dff9b; }
+  .phos { color: #42c0ff; }
 
   /* ── narrow: collapse to one column, keep every fact ──
      The fact table is the highest-value proof for this visitor mode, so it
