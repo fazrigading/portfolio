@@ -35,7 +35,7 @@ Array of `{ title, provider, type, tags[], date, icon, credentialId? }`. Rendere
 
 ### `projects.json`
 
-Array of `{ title, subtitle, category, desc, tech[], link, icon }`. Title feeds the detail-page slug via `slugify()` — keep titles URL-unique. `category` maps to the PORT filter (`ML/CV` ↔ 443, `WEB` ↔ 8080, everything shows on ALL).
+Array of `{ title, subtitle, category, desc, tech[], link, icon }`. On `/pro/projects`, `category` drives the exact category filter via `slugify(category)`; on `/dev/projects`, it contributes to the ML/CV, WEB, and optional PORT groupings. Title feeds detail-page slugs via `slugify()`; keep titles URL-unique.
 
 ### `navigation.json`
 

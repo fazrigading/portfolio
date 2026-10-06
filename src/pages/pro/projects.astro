@@ -8,8 +8,6 @@ const b = import.meta.env.BASE_URL;
 
 // One filter per distinct category actually present in the data.
 const categories = [...new Set(projects.map((p) => p.category))];
-const tag = (p: (typeof projects)[number]) =>
-  `${p.category} ${p.tech.join(' ')} ${p.subtitle}`.toLowerCase();
 const countFor = (c: string) => projects.filter((p) => p.category === c).length;
 ---
 
@@ -38,7 +36,7 @@ const countFor = (c: string) => projects.filter((p) => p.category === c).length;
   <div class="grid gap-x-12 pt-12 lg:grid-cols-12" id="pro-projects">
     {
       projects.map((p) => (
-        <article class="pro-work lg:col-span-6" data-tags={tag(p)}>
+        <article class="pro-work lg:col-span-6" data-category={slugify(p.category)}>
           <div class="flex items-start justify-between gap-4">
             <h2 class="pro-work-title">
               <a href={`${b}pro/projects/${slugify(p.title)}`} class="pro-link">{p.title}</a>
@@ -141,8 +139,8 @@ const countFor = (c: string) => projects.filter((p) => p.category === c).length;
         });
         var shown = 0;
         root.querySelectorAll('.pro-work').forEach(function (card) {
-          var tags = (card.getAttribute('data-tags') || '').toLowerCase();
-          var hit = want === 'all' || tags.indexOf(want) !== -1;
+          var category = card.getAttribute('data-category');
+          var hit = want === 'all' || category === want;
           card.hidden = !hit;
           if (hit) shown++;
         });
