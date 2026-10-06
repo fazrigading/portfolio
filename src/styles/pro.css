@@ -80,11 +80,17 @@ html[data-zone="pro"] ::selection {
 
 /* ---- shared type ladder: one measure, one rhythm ---- */
 .pro-display {
-  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-family: "DM Serif Display", "Bodoni Moda", Didot, Georgia, serif;
   font-weight: 400;
-  /* opsz axis: display sizes get the high-contrast cut, body-ish sizes stay legible */
-  font-variation-settings: "opsz" 96;
   line-height: 0.94;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.pro-hero-subtitle {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.12;
   letter-spacing: -0.015em;
   text-wrap: balance;
 }

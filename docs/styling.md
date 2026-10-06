@@ -27,13 +27,17 @@ This gives `text-accent`, `bg-accentsurface`, `border-accent`, `font-display`, e
 
 ## Fonts
 
-Three Google Fonts loads in `Layout.astro` head:
+All webfonts are self-hosted in `public/fonts/` and declared in `src/styles/global.css`; pages need no hosted font stylesheet.
 
-| Token | Font | Use |
+| Zone | Font | Use |
 |-------|------|-----|
-| `font-display` | VT323 | Hero banners, AsciiHeader, badges, readouts |
-| `font-punk` | Syne 700/800 | Card titles, section labels (uppercase) |
-| `font-term` | JetBrains Mono | Body, prose, code (also `body` default) |
+| Personal | VT323 | Hero banners, AsciiHeader, badges, readouts |
+| Personal | Syne 700/800 | Card titles and uppercase section labels |
+| Personal | JetBrains Mono | Body, prose, code |
+| Professional | DM Serif Display | Page headings |
+| Professional | Bodoni Moda | Experience organizations; serif accents |
+| Professional | Archivo | Hero statement (300) and body copy |
+| Professional | IBM Plex Mono | Labels and data |
 
 ## Custom CSS Classes
 

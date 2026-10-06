@@ -64,11 +64,17 @@
 @font-face {
   font-family: "Archivo";
   src: url("/portfolio/fonts/Archivo-var.woff2") format("woff2");
-  font-weight: 400 800;
+  font-weight: 100 900;
   font-stretch: 62% 125%;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("/portfolio/fonts/DMSerifDisplay-normal-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
 @theme inline {
   --color-accent: var(--accent);
   --color-accentsurface: var(--accent-surface);
