@@ -1,5 +1,5 @@
 Self-hosted webfonts for this site (public/fonts/*.woff2).
-All six families are licensed under the SIL Open Font License 1.1
+All seven families are licensed under the SIL Open Font License 1.1
 (https://openfontlicense.org), which permits redistribution including
 via this repository. Full license text: https://scripts.sil.org/OFL
 
@@ -10,3 +10,4 @@ Sources (Google Fonts):
 - Archivo — Omnibus-Type
 - IBM Plex Mono — IBM
 - Bodoni Moda — Owen Earl
+- DM Serif Display — Adobe / Google
