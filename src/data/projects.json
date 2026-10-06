@@ -2,7 +2,7 @@
   {
     "title": "CAD-Glaucoma",
     "subtitle": "Computer-Aided Detection System for Glaucoma Diagnosis",
-    "category": "AI / Computer Vision",
+    "category": "Computer Vision",
     "desc": "A web-based medical analytics platform using a U-Net model trained on Indonesian clinical data to segment the optic disc and cup, compute Cup-to-Disc Ratios (CDR), and enable doctor-in-the-loop polygon annotations.",
     "tech": ["Artificial Intelligence", "Computer Vision", "Deep Learning", "U-Net", "Semantic Segmentation", "TensorFlow", "Flask", "React", "TypeScript", "MySQL", "TailwindCSS"],
     "link": "https://github.com/fazrigading/cad-glaucoma",
@@ -11,7 +11,7 @@
   {
     "title": "Palm Oil Fruit Counting",
     "subtitle": "Precision Agriculture Analytics",
-    "category": "AI / Computer Vision",
+    "category": "Computer Vision",
     "desc": "An end-to-end AI annotation and counting server built with X-AnyLabeling and SAM-3 for precise agricultural metrics.",
     "tech": ["Artificial Intelligence", "Computer Vision", "Deep Learning", "SAM-3", "YOLO26", "RF-DETR", "Instance Segmentation", "Python", "Docker"],
     "link": "https://github.com/fazrigading/palmOilFruitCounting",
@@ -22,7 +22,7 @@
     "subtitle": "Linux Workspace Session Manager",
     "category": "Software Engineering",
     "desc": "A Linux-centric productivity tool that automatically initializes specific application sets across multiple desktop workspaces.",
-    "tech": ["Software Engineering", "Bash", "Linux", "Automation", "GNOME", "Wayland", "Python"],
+    "tech": ["Bash", "Linux", "Automation", "GNOME", "Wayland", "Python"],
     "link": "https://github.com/fazrigading/SessionIntent",
     "icon": "Monitor",
     "featured": true
@@ -30,9 +30,9 @@
   {
     "title": "Ingatini",
     "subtitle": "AI-Powered Document Chatbot",
-    "category": "AI / Retrieval-Augmented Generation",
+    "category": "RAG (Retrieval-Augmented Generation)",
     "desc": "An AI chatbot that ingests documents and provides accurate responses using LangChain, Pgvector, and FastAPI for seamless information retrieval.",
-    "tech": ["Artificial Intelligence", "Deep Learning", "Software Engineering", "LangChain", "Pgvector", "FastAPI", "PostgreSQL", "Python", "Axios", "Tailwind"],
+    "tech": ["Artificial Intelligence", "Deep Learning", "LangChain", "Pgvector", "FastAPI", "PostgreSQL", "Python", "Axios", "Tailwind"],
     "link": "https://github.com/fazrigading/ingatini",
     "icon": "MessageSquare"
   },
@@ -52,7 +52,7 @@
     "subtitle": "Phone-as-Steering-Wheel for PC Racing Simulators",
     "category": "Software Engineering",
     "desc": "Turn an Android or iOS phone into a steering wheel and dashboard control panel for PC racing and trucking simulators. A desktop companion app translates the phone's gyroscope steering, touch pedals, and buttons into a virtual game controller the simulator reads natively — no game plugins needed. Runs on Linux and Windows desktops; macOS planned.",
-    "tech": ["Flutter", "Dart", "Kotlin", "C#", ".NET", "Avalonia", "WebSocket", "mDNS", "Linux", "Windows"],
+    "tech": ["Kotlin", "C#", ".NET", "Avalonia", "WebSocket", "mDNS", "Linux", "Windows"],
     "link": "https://github.com/fazrigading/WheelDeck",
     "icon": "Gamepad2",
     "featured": true,
@@ -62,9 +62,9 @@
   {
     "title": "NumericalMethods",
     "subtitle": "Numerical Methods Course Implementations",
-    "category": "Academic / Numerical Methods",
+    "category": "Academic",
     "desc": "A special repository for the Numerical Methods course from my uni, with all code written in C++ covering five methods including Gaussian elimination, Jacobi iteration, and Newton-Raphson.",
-    "tech": ["C++", "Numerical Methods", "Linear Algebra", "Gaussian Elimination", "Newton-Raphson", "Jacobi"],
+    "tech": ["C++", "Linear Algebra", "Gaussian Elimination", "Newton-Raphson", "Jacobi"],
     "link": "https://github.com/fazrigading/NumericalMethods",
     "icon": "Sigma",
     "misc": true
@@ -97,6 +97,16 @@
     "tech": ["Python", "Image Processing", "Batch Processing", "CLI"],
     "link": "https://github.com/fazrigading/gbatchcropper",
     "icon": "Scissors",
+    "misc": true
+  },
+  {
+    "title": "HidupSehat",
+    "subtitle": "All-in-one Healthy Lifestyle App",
+    "category": "Machine Learning",
+    "desc": "An all-in-one application that can help describing and providing a comprehensive healthy living by focusing on healthy lifestyle concerns such as regulating food habits, drinking lots of water, managing mental health and stress, exercising frequently, and getting enough rest. Users can easily accomplish this with the assistance of Artificial Intelligence.",
+    "tech": ["Object Detection", "Instance Segmentation", "Pose Estimation", "Artificial Intelligence", "Machine Learning", "TensorFlow", "Data Scraping", "Android Development", "Google Cloud Platform"],
+    "link": "https://github.com/Hidup-Sehat",
+    "icon": "Heart",
     "misc": true
   }
 ]
