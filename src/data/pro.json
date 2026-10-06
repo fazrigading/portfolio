@@ -1,7 +1,7 @@
 {
   "kicker": "Applied AI & Systems Engineer",
   "headline": "I build AI that survives contact with real systems.",
-  "standfirst": "Models are easy. The loop around them is the work: evaluate, integrate, instrument, ship reproducibly. My background is deep learning and computer vision in the field — oil palm, maize, disease — and my current practice is LLM applications, retrieval systems, developer tooling and Linux desktops.",
+  "standfirst": "I spend most of my time evaluating models, connecting them to real systems, instrumenting the result and making deployments repeatable. My background is in deep learning and computer vision for agriculture, including oil palm and maize disease work in the field. These days I build LLM applications, retrieval systems, developer tools and Linux desktops.",
   "positioning": [
     { "k": "Role", "v": "Applied AI Engineer · Systems Engineer" },
     { "k": "Focus", "v": "Computer vision · LLM apps · RAG · developer tooling" },
@@ -15,19 +15,19 @@
   ],
   "roles": [
     {
-      "period": "2023 — 2026",
+      "period": "2023–2026",
       "role": "Artificial Intelligence Researcher & Engineer",
-      "org": "Mulawarman University — Informatics Department",
-      "note": "Deep learning for agricultural computer vision in real field conditions. Led a research group of five, co-authored six Scopus-indexed papers including Q1 in Smart Agricultural Technology and Artificial Intelligence in Agriculture."
+      "org": "Mulawarman University, Informatics Department",
+      "note": "I worked on deep learning for agricultural computer vision in field conditions and led a research group of five. I co-authored six Scopus-indexed papers, including papers in the Q1 journals Smart Agricultural Technology and Artificial Intelligence in Agriculture."
     },
     {
       "period": "2024",
       "role": "Machine Learning Mentor",
       "org": "Bangkit Academy",
-      "note": "Mentored 25+ students through the Bangkit machine learning track — from notebook to deployed model, with review on evaluation design."
+      "note": "I mentored 25+ students in Bangkit Academy's machine learning track, from notebook exercises to deployed models. I also reviewed their evaluation plans."
     },
     {
-      "period": "2022 — 2026",
+      "period": "2022–2026",
       "role": "Laboratory Assistant",
       "org": "Mulawarman University",
       "note": "Taught ML, deep learning, data structures and OOP to 200+ students across 14 semesters."
@@ -36,32 +36,32 @@
   "strengths": [
     {
       "title": "Models meet systems",
-      "body": "Wiring models to APIs, databases and interfaces. Backend services, data pipelines, developer tooling, Linux and desktop automation, cross-platform apps. The prototype is the easy half; the operating loop is what I actually do."
+      "body": "I connect models to APIs, databases and interfaces, then build the services and data pipelines around them. That can include developer tooling, Linux desktop automation or a cross-platform app. The prototype is often the easy part; I spend my time getting the whole loop to work."
     },
     {
       "title": "Evaluation as a discipline",
-      "body": "Training and evaluation workflows from prototype to deployment, with the datasets, experiment tracking and reproducibility that make a result mean something outside the lab that produced it."
+      "body": "I build training and evaluation workflows that carry a project from prototype to deployment. Datasets, experiment tracking and reproducible runs let other people check the result outside the lab."
     },
     {
       "title": "Field data, honestly",
-      "body": "Oil palm bunches counted in real plantations in East Kalimantan, maize disease under field lighting. Messy, occluded, unlabelled — the conditions where a benchmark number quietly stops predicting anything."
+      "body": "My field work includes oil palm bunch counting in East Kalimantan plantations and computer vision for maize disease under field lighting. The data can be messy, occluded and unlabelled; benchmark scores don't always predict what happens in the field."
     },
     {
       "title": "Teach what I learn",
-      "body": "Lab teaching and ML mentorship built my habit of writing down the reasoning. If I can't explain a decision to a student, I don't understand it well enough to ship it."
+      "body": "Teaching ML in the lab and mentoring students taught me to write down my reasoning. If I can't explain a decision to a student, I haven't understood it well enough to ship."
     }
   ],
   "method": [
     { "step": "Frame", "body": "State the operational question before the model. What decision does this output change?" },
-    { "step": "Build", "body": "Smallest end-to-end path: data in, artifact out, no framework left unopened." },
-    { "step": "Evaluate", "body": "Metrics chosen against the failure that actually happens, not the one that flatters the model." },
-    { "step": "Ship", "body": "Reproducible builds, pinned data, a run anyone can repeat without me in the room." }
+    { "step": "Build", "body": "Get data in and an artifact out with the smallest setup that works." },
+    { "step": "Evaluate", "body": "Choose metrics around the failures the system actually encounters." },
+    { "step": "Ship", "body": "Pin the data and build steps so anyone can repeat the run without me in the room." }
   ],
   "publicationsNote": "Six papers, four published or in review, two under submission. Q1 venues: Smart Agricultural Technology and Artificial Intelligence in Agriculture.",
   "contact": {
     "headline": "Tell me what you are building.",
-    "body": "Applied AI work, systems work, or a role where both matter — the fastest route is e-mail. I read everything and reply to anything with a real question in it.",
+    "body": "Applied AI, systems work, or a role that combines both? E-mail is fastest. I read every message and reply when there's a clear question.",
     "primary": { "label": "E-mail", "value": "fazrigading@gmail.com", "href": "mailto:fazrigading@gmail.com" }
   },
-  "recruiterNote": "Recruiter or hiring team: e-mail is fastest. For a role profile, a paper, or a collaboration, the secondary links below go straight to the source."
+  "recruiterNote": "Recruiters and hiring teams, e-mail is fastest. The links below go straight to my role profile, papers and collaboration work."
 }

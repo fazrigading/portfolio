@@ -41,15 +41,15 @@
   "\\________\\\\_____\\\\\\______\\\\______\\\\_____\\_\\______\\/"
   ],
   "intro": [
-    "Fazri Gading — Applied AI and Systems Engineer by day,",
-    "recon window operator by night. This half is the part",
-    "that does not fit on a resume."
+    "I'm Fazri Gading, an Applied AI and Systems Engineer by day,",
+    "and a recon window operator by night. This is the part",
+    "that doesn't fit on a resume."
   ],
   "boot": [
     "[ OK ] mounting personal volume /dev/gading",
     "[ OK ] loading wallpaper pool (rotate: wall)",
     "[ OK ] library index: 47 games across 4 stores",
-    "[ OK ] gallery: slots open — drop files into public/gallery/",
+    "[ OK ] gallery: slots open. drop files into public/gallery/",
     "[  ] terminal ready. type `help`"
   ],
   "status": [
@@ -74,32 +74,32 @@
       "href": "dev/games",
       "title": "Library",
       "kicker": "47 games · one wall",
-      "body": "Every game I have played, on the shelf. Filter by genre, hover a cover for the note I wrote about it, click through to the store. Includes the Watch Dogs games — the reason this whole half of the site exists.",
+      "body": "A shelf of games I've played. Filter by genre, hover over a cover to read my note, or open its store page. The Watch Dogs games are here too; they started this whole half of the site.",
       "count": 47
     },
     {
       "href": "dev/art",
       "title": "Gallery",
       "kicker": "photography · digital art",
-      "body": "Nature and objects, edited on my own time. Placeholder tiles for now — real files land by dropping them into the gallery folder and editing one JSON line.",
+      "body": "Nature and objects, edited in my spare time. The tiles are placeholders for now; adding a photo means dropping it into the gallery folder and adding one line to the JSON.",
       "count": 4
     },
     {
       "href": "dev/projects",
       "title": "Projects",
       "kicker": "shared with the other half",
-      "body": "Tools, games and experiments. Same content on both sides of the doorway; it just wears a different skin depending on which way you walked in.",
+      "body": "Tools, games and experiments. The projects are the same on both sides; only the styling changes with the page you're on.",
       "count": 10
     },
     {
       "href": "dev/blog",
       "title": "Transmissions",
       "kicker": "writing",
-      "body": "Notes on systems, models and Linux desktops. Also cross-listed on the professional side — the writing does not care which door you came through.",
+      "body": "Notes on systems, models and Linux desktops. The same posts appear on the professional side too.",
       "count": 1
     }
   ],
-  "about": "The professional half has the CV, the papers and the contact button. This half has the covers, the camera roll and a prompt. Both are the same person: I build AI that survives contact with real systems, then go shoot photographs of oil palm plantations and eat noodles at 2am.",
+  "about": "My CV and papers live on the professional side; here you'll find game covers, photos and a prompt. Same person, of course: I build AI for real systems, then take photos of oil palm plantations and eat noodles at 2am.",
   "reading": {
     "title": "On the desk",
     "body": "Books on technology, science and philosophy, mostly second-hand, mostly mid-read."
