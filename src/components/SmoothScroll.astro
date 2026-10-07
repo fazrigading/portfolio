@@ -1,0 +1,62 @@
+---
+// Single Lenis owner for both zones. Imported by ProLayout + DevLayout.
+// Zero React island: static Astro component + one bundled module script.
+// Re-inits on every View Transition swap; skips entirely under
+// prefers-reduced-motion. Same-page # links route through lenis.scrollTo.
+---
+
+<script>
+  import Lenis from 'lenis';
+
+  let lenis: Lenis | null = null;
+  let rafId = 0;
+  let anchorBound = false;
+
+  function reducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function stop() {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = 0;
+    lenis?.destroy();
+    lenis = null;
+  }
+
+  function init() {
+    stop();
+    if (reducedMotion()) return;
+    lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    const raf = (time: number) => {
+      lenis?.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+  }
+
+  // Same-page anchors (e.g. skip link #pro-main) bypass native jump so
+  // Lenis owns the motion; reduced-motion users get an instant jump.
+  function bindAnchors() {
+    if (anchorBound) return;
+    anchorBound = true;
+    document.addEventListener('click', (e) => {
+      const a = (e.target as HTMLElement).closest?.('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute('href');
+      if (!id || id.length < 2) return;
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      if (lenis) lenis.scrollTo(el as HTMLElement);
+      else el.scrollIntoView();
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    bindAnchors();
+    init();
+  });
+  document.addEventListener('astro:before-swap', stop);
+  bindAnchors();
+  init();
+</script>

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SystemBar from '../components/SystemBar.astro';
+import SmoothScroll from '../components/SmoothScroll.astro';
 import { ClientRouter } from 'astro:transitions';
 import profile from '../data/profile.json';
 
@@ -102,5 +103,6 @@ const links = [
         } catch {}
       });
     </script>
+    <SmoothScroll />
   </body>
 </html>

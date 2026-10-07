@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/pro.css';
 import { ClientRouter } from 'astro:transitions';
 import LucideIcon from '../components/LucideIcon.astro';
+import SmoothScroll from '../components/SmoothScroll.astro';
 import profile from '../data/profile.json';
 import social from '../data/social.json';
 
@@ -179,5 +180,6 @@ const active = (key: string) => path.includes(`/pro/${key}`);
         } catch {}
       });
     </script>
+    <SmoothScroll />
   </body>
 </html>
