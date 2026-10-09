@@ -72,7 +72,7 @@ The site commits to two completely separate skins behind a single split-scroll h
 |---|---|
 | `/dev` | Terminal shell + fastfetch-style system readout + hub links |
 | `/dev/games` | 47-game library wall with genre filter |
-| `/dev/art` | Gallery (nature + objects) + literature shelves |
+| `/dev/art` | Nature/object photo slideshow with filters + literature shelves |
 | `/dev/projects` | Payload index, filtered by PORT (80 / 443 / 8080 / …) |
 | `/dev/blog` | Transmissions — same MDX, terminal grammar |
 
@@ -140,7 +140,7 @@ public/
 ├── fonts/            # self-hosted webfonts (no external stylesheet)
 ├── txt/              # dossier files for terminal `cat`
 ├── game-covers/      # 47 Steam store covers
-├── gallery/          # artwork placeholders (drop real files in)
+├── gallery/          # photographs listed in showcase.json
 ├── covers/           # book covers
 └── favicon.svg
 ```
@@ -156,7 +156,7 @@ The project is **data-driven** — content lives in JSON, not component files. F
 - **`src/data/learning.json`** — Certifications and bootcamps
 - **`src/data/research.json`** — 6 publications with Scopus indexing and venue links
 - **`src/data/projects.json`** — 10 projects with tech stacks and source links
-- **`src/data/showcase.json`** — Gaming library (47 games), gallery placeholders, literature, music
+- **`src/data/showcase.json`** — Gaming library (47 games), photo gallery, literature, music
 - **`src/data/social.json`** — Social links, scholar profiles, gaming profiles
 - **`public/txt/*.txt`** — Plain-text dossier files for terminal `cat` (kept in sync with JSON)
 - **`src/content/blog/*.md`** — MDX posts (`title`, `slug`, `date`, `tags`, `excerpt`)

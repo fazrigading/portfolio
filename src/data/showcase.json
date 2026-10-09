@@ -639,26 +639,91 @@
   "gallery": {
     "nature": [
       {
-        "file": "photo-01.svg",
-        "alt": "Dummy nature photo 1",
-        "caption": "NATURE_REPLACE_ME"
+        "file": "IMG_20161014_060524.jpg",
+        "alt": "A tire rests among loose stones and grass beneath a cloudy blue sky.",
+        "caption": "Small stones, tall grass, and a tire enjoy the bright summer day."
       },
       {
-        "file": "photo-02.svg",
-        "alt": "Dummy nature photo 2",
-        "caption": "NATURE_REPLACE_ME"
+        "file": "IMG_20160803_151116.jpg",
+        "alt": "Clouds at sunset with silhouetted utility wires crossing the sky.",
+        "caption": "Reddish orange skies of sunset with dangling wires."
+      },
+      {
+        "file": "IMG_20160916_061433.jpg",
+        "alt": "A quiet landscape in the last light of day.",
+        "caption": "Under the long winds blow the sunset clouds, ferries sail over the Mahakam river."
+      },
+      {
+        "file": "IMG_20160921_070741.jpg",
+        "alt": "Orange and purple clouds hang above a dark horizon at sunset.",
+        "caption": "Mesmerizing orange sky with ray of lights passes through the clouds."
+      },
+      {
+        "file": "IMG_20161115_180040.jpg",
+        "alt": "A tree-lined bank and clouds reflected in still water.",
+        "caption": "Boat hiding behind a tree over a pond with reflection of a cloudy blue sky."
+      },
+      {
+        "file": "IMG_20161114_190649.jpg",
+        "alt": "White clouds over a green field, reflected in a marsh pond.",
+        "caption": "Clouds and blue sky reflect over a small marsh pond."
+      },
+      {
+        "file": "IMG_20161125_062715.jpg",
+        "alt": "A narrow dirt road runs between open swamp fields beneath a cloudy sky.",
+        "caption": "A dirt road crossing over swamps."
+      },
+      {
+        "file": "IMG_20161125_084729.jpg",
+        "alt": "Tall grasses silhouetted against a vivid sunset.",
+        "caption": "Tall grasses at vivid sunset."
+      },
+      {
+        "file": "IMG_20161204_063540.jpg",
+        "alt": "A leafy tree and communications tower stand beneath a vivid blue sky.",
+        "caption": "A big tree and two communications towers."
+      },
+      {
+        "file": "IMG_20161214_075002.jpg",
+        "alt": "Palm trees and foliage framed against a bright clouded sky.",
+        "caption": "Palms under altocumulus clouds and blue sky."
+      },
+      {
+        "file": "IMG_20161228_075149.jpg",
+        "alt": "A fence silhouetted against a blue sky with scattered clouds.",
+        "caption": "Fence silhouette against a blue sky with scattered clouds."
+      },
+      {
+        "file": "IMG_20170209_172818.jpg",
+        "alt": "A boat on a river beneath a colorful sunset sky.",
+        "caption": "A ferry boat carries passengers and motorcycles crossing over the Mahakam river under a sunset."
+      },
+      {
+        "file": "IMG_20170210_201549.jpg",
+        "alt": "Layered sunset clouds in blue, white, yellow, and orange colors.",
+        "caption": "Four colored skies in one shot: blue, white, yellow, orange."
+      },
+      {
+        "file": "IMG_20170326_092911.jpg",
+        "alt": "An open field beneath a wide, clouded sky.",
+        "caption": "Green yellow tall cogon grass (Imperata cylindrica) under a bright blue sky with cumulus and cirrus clouds."
       }
     ],
     "objects": [
       {
-        "file": "photo-03.svg",
-        "alt": "Dummy object photo 1",
-        "caption": "OBJECT_REPLACE_ME"
+        "file": "IMG_20240610_091925.jpg",
+        "alt": "The architecture of a campus building.",
+        "caption": "My campus building architecture."
       },
       {
-        "file": "photo-04.svg",
-        "alt": "Dummy object photo 2",
-        "caption": "OBJECT_REPLACE_ME"
+        "file": "IMG_20171204_121547.jpg",
+        "alt": "A flame burst from a man's mouth, taken in high-speed shutter.",
+        "caption": "Flame burst attraction from my school festival event."
+      },
+      {
+        "file": "IMG_20170426_131738.jpg",
+        "alt": "Close-up look of a DSLR camera lens cap.",
+        "caption": "Lens cap."
       }
     ]
   },

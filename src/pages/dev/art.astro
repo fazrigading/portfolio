@@ -1,4 +1,5 @@
 ---
+import LucideIcon from '../../components/LucideIcon.astro';
 import DevLayout from '../../layouts/DevLayout.astro';
 import showcase from '../../data/showcase.json';
 import dev from '../../data/dev.json';
@@ -8,43 +9,106 @@ const groups = [
   { key: 'nature', label: 'NATURE', items: showcase.gallery.nature },
   { key: 'objects', label: 'OBJECTS', items: showcase.gallery.objects },
 ];
-const total = groups.reduce((n, g) => n + g.items.length, 0);
+const photos = groups.flatMap((group) => group.items.map((photo) => ({ ...photo, category: group.key })));
+const total = photos.length;
 const lit = showcase.literature;
 ---
 
 <DevLayout route="dev/art" title="GALLERY">
   <div class="pt-12">
-    <p class="font-display text-sm tracking-widest text-accent">// GALLERY — {total} SLOTS · {total === 0 ? 'EMPTY' : 'PLACEHOLDERS'}</p>
+    <p class="font-display text-sm tracking-widest text-accent">// GALLERY — {total} PHOTOGRAPHS</p>
     <h1 class="glitch ascii-title font-display uppercase text-ink" data-text="Roll">The Roll</h1>
     <p class="max-w-prose pt-3 text-sm leading-relaxed text-dim">
-      Nature and objects, shot and edited on my own time. The tiles below are placeholders — drop a real
-      image into <code class="text-accent">public/gallery/</code>, point the filename at it in
-      <code class="text-accent">src/data/showcase.json</code>, and it appears here. No rebuild of the layout,
-      no island to rewire.
+      Photographs from nature and everyday life. Filter the roll, then browse one frame at a time.
     </p>
   </div>
 
-  {
-    groups.map((g) => (
-      <section class="pt-14">
-        <div class="flex items-baseline justify-between gap-4 border-b border-grid pb-2">
-          <h2 class="font-punk text-base font-bold uppercase text-ink">{g.label}</h2>
-          <span class="text-xs text-dim">{g.items.length}</span>
+  <section
+    class="pt-8"
+    data-gallery
+    data-base={b}
+    data-photos={JSON.stringify(photos)}
+    role="region"
+    aria-label="Photograph slideshow"
+  >
+    <div class="flex flex-wrap gap-2" role="group" aria-label="Filter photographs">
+      {[
+        { key: 'all', label: 'All' },
+        { key: 'nature', label: 'Nature' },
+        { key: 'objects', label: 'Objects' },
+      ].map((filter) => (
+        <button
+          type="button"
+          data-gallery-filter={filter.key}
+          aria-pressed={filter.key === 'all' ? 'true' : 'false'}
+          class:list={[
+            'border px-3 py-1.5 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+            filter.key === 'all' ? 'border-accent text-accent' : 'border-grid text-dim',
+          ]}
+        >
+          {filter.label}
+        </button>
+      ))}
+    </div>
+
+    <figure class="card mt-4 overflow-hidden">
+      <div data-gallery-frame class="group relative aspect-[4/3] bg-void sm:aspect-[16/10]">
+        <img
+          data-gallery-image
+          src={`${b}gallery/${photos[0].file}`}
+          alt={photos[0].alt}
+          loading="eager"
+          decoding="async"
+          class="block h-full w-full object-contain"
+        />
+
+        <div data-gallery-overlay class="absolute inset-x-0 top-0 z-30 h-[2px] bg-grid/70" aria-hidden="true">
+          <div data-gallery-progress-fill class="h-full origin-center bg-accent" style="transform: scaleX(0)"></div>
         </div>
-        {/* CSS columns masonry: no JS, no fixed row heights, no layout library */}
-        <div class="columns-2 gap-3 pt-5 sm:columns-3 lg:columns-4 [&>*]:mb-3">
-          {g.items.map((p, i) => (
-            <figure class="card break-inside-avoid overflow-hidden">
-              <img src={`${b}gallery/${p.file}`} alt={p.alt} loading="lazy" class="block w-full" />
-              <figcaption class="px-2 py-1.5 text-[10px] uppercase tracking-widest text-dim">
-                <span class="text-accent">{String(i + 1).padStart(2, '0')}</span> {p.caption}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-    ))
-  }
+        <span data-gallery-count data-gallery-overlay class="absolute left-1/2 top-3 z-20 -translate-x-1/2 border border-grid bg-void/80 px-2 py-1 font-display text-xs tracking-widest text-ink">
+          01 / {String(total).padStart(2, '0')}
+        </span>
+
+        <button
+          type="button"
+          data-gallery-prev
+          data-gallery-overlay
+          data-gallery-control
+          aria-label="Previous photograph"
+          class="absolute left-3 top-1/2 z-20 -translate-y-1/2 border border-grid bg-void/80 p-2.5 text-ink backdrop-blur transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        >
+          <span aria-hidden="true"><LucideIcon name="ChevronLeft" size={18} /></span>
+        </button>
+        <button
+          type="button"
+          data-gallery-next
+          data-gallery-overlay
+          data-gallery-control
+          aria-label="Next photograph"
+          class="absolute right-3 top-1/2 z-20 -translate-y-1/2 border border-grid bg-void/80 p-2.5 text-ink backdrop-blur transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        >
+          <span aria-hidden="true"><LucideIcon name="ChevronRight" size={18} /></span>
+        </button>
+        <button
+          type="button"
+          data-gallery-toggle
+          data-gallery-overlay
+          data-gallery-control
+          aria-label="Pause slideshow"
+          class="absolute bottom-3 left-1/2 z-20 -translate-x-1/2 border border-grid bg-void/80 p-2.5 text-ink backdrop-blur transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        >
+          <span data-gallery-pause-icon aria-hidden="true"><LucideIcon name="Pause" size={18} /></span>
+          <span data-gallery-play-icon class="hidden" aria-hidden="true"><LucideIcon name="Play" size={18} /></span>
+        </button>
+      </div>
+      <figcaption class="border-t border-grid px-3 py-2.5">
+        <span data-gallery-caption class="text-sm text-ink">{photos[0].caption}</span>
+      </figcaption>
+    </figure>
+    <p data-gallery-status class="sr-only" aria-live="polite">
+      Photograph 1 of {total}: {photos[0].caption}
+    </p>
+  </section>
 
   <section class="pt-16">
     <p class="font-display text-sm tracking-widest text-accent">// {lit.reading.length + lit.wantToRead.length} BOOKS_ON_DISK</p>
@@ -70,4 +134,230 @@ const lit = showcase.literature;
     <a href={`${b}dev/games`} class="text-accent hover:underline">← LIBRARY</a> ·
     <a href={`${b}dev`} class="text-accent hover:underline">← HUB</a>
   </p>
+<script is:inline>
+  function bindGallery() {
+    const gallery = document.querySelector('[data-gallery]');
+    if (!gallery || gallery.dataset.bound) return;
+    gallery.dataset.bound = '1';
+
+    const photos = JSON.parse(gallery.dataset.photos || '[]');
+    const allItems = photos.slice();
+    for (let i = allItems.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allItems[i], allItems[j]] = [allItems[j], allItems[i]];
+    }
+
+    const base = gallery.dataset.base || '/';
+    const image = gallery.querySelector('[data-gallery-image]');
+    const caption = gallery.querySelector('[data-gallery-caption]');
+    const count = gallery.querySelector('[data-gallery-count]');
+    const status = gallery.querySelector('[data-gallery-status]');
+    const previous = gallery.querySelector('[data-gallery-prev]');
+    const next = gallery.querySelector('[data-gallery-next]');
+    const toggle = gallery.querySelector('[data-gallery-toggle]');
+    const progressFill = gallery.querySelector('[data-gallery-progress-fill]');
+    const pauseIcon = gallery.querySelector('[data-gallery-pause-icon]');
+    const playIcon = gallery.querySelector('[data-gallery-play-icon]');
+    const filters = gallery.querySelectorAll('[data-gallery-filter]');
+    let items = allItems;
+    let index = 0;
+    let timer = 0;
+    const slideDuration = 5000;
+    let remainingMs = slideDuration;
+    let startedAt = 0;
+    let userPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pointerInside = false;
+    let keyboardFocus = false;
+    let keyboardNavigation = false;
+
+    function render() {
+      const photo = items[index];
+      image.src = `${base}gallery/${photo.file}`;
+      image.alt = photo.alt;
+      caption.textContent = photo.caption;
+      count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}`;
+      status.textContent = `Photograph ${index + 1} of ${items.length}: ${photo.caption}`;
+    }
+
+    function stopTimer() {
+      if (!timer) return;
+      remainingMs = Math.max(0, remainingMs - (performance.now() - startedAt));
+      window.clearTimeout(timer);
+      timer = 0;
+      const transform = window.getComputedStyle(progressFill).transform;
+      progressFill.style.transition = 'none';
+      progressFill.style.transform = transform;
+    }
+
+    function resetProgress() {
+      progressFill.style.transition = 'none';
+      progressFill.style.transform = 'scaleX(0)';
+      progressFill.getBoundingClientRect();
+    }
+
+    function startTimer() {
+      if (timer) return;
+      const progress = 1 - remainingMs / slideDuration;
+      progressFill.style.transition = 'none';
+      progressFill.style.transform = `scaleX(${progress})`;
+      progressFill.getBoundingClientRect();
+      progressFill.style.transition = `transform ${remainingMs}ms linear`;
+      progressFill.style.transform = 'scaleX(1)';
+      startedAt = performance.now();
+      timer = window.setTimeout(() => {
+        timer = 0;
+        remainingMs = slideDuration;
+        index = (index + 1) % items.length;
+        render();
+        syncAutoplay();
+      }, remainingMs);
+    }
+
+    function syncAutoplay(reset = false) {
+      if (reset) {
+        stopTimer();
+        remainingMs = slideDuration;
+        resetProgress();
+      }
+      pauseIcon.classList.toggle('hidden', userPaused);
+      playIcon.classList.toggle('hidden', !userPaused);
+      toggle.setAttribute('aria-label', `${userPaused ? 'Play' : 'Pause'} slideshow`);
+      status.setAttribute('aria-live', userPaused || pointerInside || keyboardFocus || document.hidden ? 'polite' : 'off');
+      if (userPaused || pointerInside || keyboardFocus || document.hidden) {
+        stopTimer();
+        return;
+      }
+      startTimer();
+    }
+
+    function onKeydown(event) {
+      if (event.key === 'Tab') keyboardNavigation = true;
+    }
+
+    function onPointerDown() {
+      keyboardNavigation = false;
+      keyboardFocus = false;
+      syncAutoplay();
+    }
+
+    function onFocusIn() {
+      keyboardFocus = keyboardNavigation;
+      syncAutoplay();
+    }
+
+    function onFocusOut(event) {
+      if (!gallery.contains(event.relatedTarget)) {
+        keyboardFocus = false;
+        syncAutoplay();
+      }
+    }
+
+    function onPointerEnter() {
+      pointerInside = true;
+      syncAutoplay();
+    }
+
+    function onPointerLeave() {
+      pointerInside = false;
+      syncAutoplay();
+    }
+
+    function onVisibilityChange() {
+      syncAutoplay();
+    }
+
+    function cleanup() {
+      stopTimer();
+      document.removeEventListener('keydown', onKeydown);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      gallery.removeEventListener('pointerdown', onPointerDown);
+      gallery.removeEventListener('focusin', onFocusIn);
+      gallery.removeEventListener('focusout', onFocusOut);
+      gallery.removeEventListener('pointerenter', onPointerEnter);
+      gallery.removeEventListener('pointerleave', onPointerLeave);
+    }
+
+    filters.forEach((button) => {
+      button.addEventListener('click', () => {
+        const selected = button.getAttribute('data-gallery-filter');
+        items = selected === 'all' ? allItems : photos.filter((photo) => photo.category === selected);
+        index = 0;
+        filters.forEach((filter) => {
+          const active = filter === button;
+          filter.setAttribute('aria-pressed', String(active));
+          filter.classList.toggle('border-accent', active);
+          filter.classList.toggle('text-accent', active);
+          filter.classList.toggle('border-grid', !active);
+          filter.classList.toggle('text-dim', !active);
+        });
+        render();
+        syncAutoplay(true);
+      });
+    });
+
+    previous.addEventListener('click', () => {
+      index = (index - 1 + items.length) % items.length;
+      render();
+      syncAutoplay(true);
+    });
+    next.addEventListener('click', () => {
+      index = (index + 1) % items.length;
+      render();
+      syncAutoplay(true);
+    });
+    toggle.addEventListener('click', () => {
+      userPaused = !userPaused;
+      syncAutoplay();
+    });
+    gallery.addEventListener('pointerdown', onPointerDown);
+    gallery.addEventListener('focusin', onFocusIn);
+    gallery.addEventListener('focusout', onFocusOut);
+    gallery.addEventListener('pointerenter', onPointerEnter);
+    gallery.addEventListener('pointerleave', onPointerLeave);
+    document.addEventListener('keydown', onKeydown);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    document.addEventListener('astro:before-swap', cleanup, { once: true });
+    render();
+    syncAutoplay();
+  }
+
+  document.addEventListener('astro:page-load', bindGallery);
+  bindGallery();
+</script>
+<style>
+  [data-gallery-overlay] {
+    opacity: 0;
+    transition: opacity 160ms ease;
+  }
+
+  [data-gallery-frame]:hover [data-gallery-overlay],
+  [data-gallery-frame]:focus-within [data-gallery-overlay] {
+    opacity: 1;
+  }
+
+  [data-gallery-control] {
+    pointer-events: none;
+  }
+
+  [data-gallery-frame]:hover [data-gallery-control],
+  [data-gallery-frame]:focus-within [data-gallery-control] {
+    pointer-events: auto;
+  }
+
+  @media (hover: none) {
+    [data-gallery-overlay] {
+      opacity: 1;
+    }
+
+    [data-gallery-control] {
+      pointer-events: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-gallery-overlay] {
+      transition: none;
+    }
+  }
+</style>
 </DevLayout>

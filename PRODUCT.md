@@ -58,7 +58,7 @@ Confirmed:
 - Animation: frontend animation library for the split intro and hover expansion; reduced-motion must disable boot animation and heavy effects.
 - URL plan: fresh `/pro/...` (professional) and `/dev/...` (personal) prefixes for zone pages; homepage `/` is the split doorway itself. Redirects: existing routes map old→Pro (`about`→`/pro/about`, `experience`→`/pro/experience`, `research`→`/pro/research`, `blog`→`/pro/blog`, `contact`→`/pro/contact`).
 - Content/data plumbing: split JSON per zone (professional copy sharpened separately from `personal.json` copy).
-- Art/photography gallery ships with **placeholder tiles first**; real files replace them later by dropping assets in.
+- Art/photography gallery: real photographs in `public/gallery`, browsable as a slideshow with All, Nature, and Objects filters.
 - Data source for game covers/art already exists in `public/game-covers`, `public/music-covers`, `src/assets/wallpapers`.
 
 Deliberately undecided (do this work during design, not init):
