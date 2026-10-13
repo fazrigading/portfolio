@@ -639,6 +639,11 @@
   "gallery": {
     "nature": [
       {
+        "file":"IMG_20180331_182839.jpg",
+        "alt": "Colorful sunset consists of blue, magenta, yellow, orange shining and reflects on the river water beside a ferry port",
+        "caption": "Beautiful sunset at Mahakam river with vibrant color of the sky."
+      },
+      {
         "file": "IMG_20161014_060524.jpg",
         "alt": "A tire rests among loose stones and grass beneath a cloudy blue sky.",
         "caption": "Small stones, tall grass, and a tire enjoy the bright summer day."
@@ -707,6 +712,16 @@
         "file": "IMG_20170326_092911.jpg",
         "alt": "An open field beneath a wide, clouded sky.",
         "caption": "Green yellow tall cogon grass (Imperata cylindrica) under a bright blue sky with cumulus and cirrus clouds."
+      },
+      {
+        "file": "IMG_20170415_171947.jpg",
+        "alt": "Ferry boat and coal barge traverse through Mahakam river in the afternoon sunset.",
+        "caption": "Ferry boat and coal barge traverse through Mahakam river in the afternoon sunset."
+      },
+      {
+        "file": "IMG_20170430_155048.jpg",
+        "alt": "Neptunia oleracea plants colored in yellow instead of green, alongside with bright sky with a big cumulus cloud above, village with wooden houses shown on the horizon.",
+        "caption": "Otherworld depiction of Neptunia oleracea plants on a swamp under bright blue sky and cumulus clouds"
       }
     ],
     "objects": [
